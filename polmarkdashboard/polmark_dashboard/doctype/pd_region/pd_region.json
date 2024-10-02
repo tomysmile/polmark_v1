@@ -147,7 +147,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-02 11:29:23.494097",
+ "modified": "2024-10-02 13:11:58.171195",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "PD Region",
@@ -176,6 +176,7 @@
    "share": 1
   }
  ],
+ "show_title_field_in_link": 1,
  "sort_field": "region_code",
  "sort_order": "ASC",
  "states": [],
