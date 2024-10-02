@@ -6,3 +6,4 @@ tags
 node_modules
 tmp_data/*
 __pycache__
+polmarkdashboard/tmp_data/*
