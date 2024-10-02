@@ -86,6 +86,8 @@
   {
    "fieldname": "region_code",
    "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Code",
    "unique": 1
   },
@@ -97,6 +99,8 @@
   {
    "fieldname": "region_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Name"
   },
   {
@@ -107,11 +111,15 @@
   {
    "fieldname": "region_type",
    "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Type"
   },
   {
    "fieldname": "region_level",
    "fieldtype": "Int",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Level"
   },
   {
@@ -127,6 +135,8 @@
   {
    "fieldname": "parent_code",
    "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Parent Code"
   },
   {
@@ -137,16 +147,22 @@
   {
    "fieldname": "parent_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Parent Name"
   },
   {
    "fieldname": "parent_type",
    "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Parent Type"
   },
   {
    "fieldname": "parent_level",
    "fieldtype": "Int",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Parent Level"
   },
   {
@@ -166,6 +182,8 @@
   {
    "fieldname": "zone",
    "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Zonasi"
   },
   {
@@ -186,6 +204,7 @@
   {
    "fieldname": "province_name",
    "fieldtype": "Data",
+   "in_standard_filter": 1,
    "label": "Provinsi"
   },
   {
@@ -205,6 +224,7 @@
   {
    "fieldname": "city_name",
    "fieldtype": "Data",
+   "in_standard_filter": 1,
    "label": "Kota /Kabupaten"
   },
   {
@@ -224,6 +244,7 @@
   {
    "fieldname": "district_name",
    "fieldtype": "Data",
+   "in_standard_filter": 1,
    "label": "Kecamatan"
   },
   {
@@ -268,6 +289,7 @@
   {
    "fieldname": "sub_district_name",
    "fieldtype": "Data",
+   "in_standard_filter": 1,
    "label": "Desa /Kel"
   },
   {
@@ -446,7 +468,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-02 14:42:22.076678",
+ "modified": "2024-10-02 15:15:02.727734",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "PD Geojson Kota Bogor",
