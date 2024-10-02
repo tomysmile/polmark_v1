@@ -10,6 +10,11 @@ app_license = "mit"
 
 # required_apps = []
 
+fixtures = [
+    {"doctype": "PD Region Type", "filters": [["standard", "=", 1]]},
+    {"doctype": "PD Document Category", "filters": [["standard", "=", 1]]},
+]
+
 # Each item in the list will be shown as an app in the apps page
 # add_to_apps_screen = [
 # 	{
@@ -241,4 +246,3 @@ app_license = "mit"
 # default_log_clearing_doctypes = {
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
-
