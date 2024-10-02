@@ -1,0 +1,120 @@
+{
+ "app": "polmarkdashboard",
+ "charts": [],
+ "content": "[{\"id\":\"_PPTVqvBQp\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Dashboard Provinsi Jawa Barat</span>\",\"col\":12}},{\"id\":\"rBTheOvywL\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"OfDuPtofjD\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Peta Zona Pemenangan\",\"col\":6}},{\"id\":\"8e_mSbPPkk\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Peta Politik Dasar\",\"col\":6}},{\"id\":\"gK0dxgsC0U\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hasil Survei\",\"col\":6}},{\"id\":\"Q-PnCaPVKY\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Materi Workshop\",\"col\":6}},{\"id\":\"Ukt8wabaHD\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Link Berita Online\",\"col\":6}},{\"id\":\"FP-_-8okQT\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Visi Misi Program Kerja\",\"col\":6}},{\"id\":\"54gUQB5DrH\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Kontak KPUD dan Panwas\",\"col\":6}},{\"id\":\"-GcW9i9707\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Visi Misi Program Kerja Kompetitor\",\"col\":6}},{\"id\":\"urNNL8gKO4\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Google Drive Desain Kreatif\",\"col\":6}},{\"id\":\"fjIWbe4t_5\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Biodata Kandidat\",\"col\":6}},{\"id\":\"ktYzgcFRd_\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Struktur Tim Kerja\",\"col\":6}}]",
+ "creation": "2024-10-02 22:29:08.367556",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "right",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Prov Jawa Barat",
+ "link_type": "DocType",
+ "links": [],
+ "modified": "2024-10-02 22:34:02.230699",
+ "modified_by": "Administrator",
+ "module": "Polmark Dashboard",
+ "name": "Prov Jawa Barat",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "Pendampingan",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 31.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Peta Zona Pemenangan",
+   "link_to": "PD Peta Zona Pemenangan Jawa Barat",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Kontak KPUD dan Panwas",
+   "link_to": "PD Phonebook",
+   "stats_filter": "[[\"PD Phonebook\",\"region\",\"=\",\"32\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Peta Politik Dasar",
+   "link_to": "PD Document Upload",
+   "stats_filter": "[[\"PD Document Upload\",\"document_category\",\"=\",\"Peta Politik Dasar\",false],[\"PD Document Upload\",\"region\",\"=\",\"32\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Visi Misi Program Kerja Kompetitor",
+   "link_to": "PD Document Upload",
+   "stats_filter": "[[\"PD Document Upload\",\"document_category\",\"=\",\"Visi Misi Program Kerja Kompetitor\",false],[\"PD Document Upload\",\"region\",\"=\",\"32\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Hasil Survei",
+   "link_to": "PD Document Upload",
+   "stats_filter": "[[\"PD Document Upload\",\"document_category\",\"=\",\"Hasil Survei\",false],[\"PD Document Upload\",\"region\",\"=\",\"32\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Google Drive Desain Kreatif",
+   "link_to": "PD Google Drive Link",
+   "stats_filter": "[[\"PD Google Drive Link\",\"region\",\"=\",\"32\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Materi Workshop",
+   "link_to": "PD Document Upload",
+   "stats_filter": "[[\"PD Document Upload\",\"document_category\",\"=\",\"Materi Workshop\",false],[\"PD Document Upload\",\"region\",\"=\",\"32\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Biodata Kandidat",
+   "link_to": "PD Document Upload",
+   "stats_filter": "[[\"PD Document Upload\",\"document_category\",\"=\",\"Biodata Kandidat\",false],[\"PD Document Upload\",\"region\",\"=\",\"32\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Link Berita Online",
+   "link_to": "PD News Link",
+   "stats_filter": "[[\"PD News Link\",\"region\",\"=\",\"32\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Struktur Tim Kerja",
+   "link_to": "PD Team Member",
+   "stats_filter": "[[\"PD Team Member\",\"region\",\"=\",\"32\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Visi Misi Program Kerja",
+   "link_to": "PD Document Upload",
+   "stats_filter": "[[\"PD Document Upload\",\"document_category\",\"=\",\"Visi Misi Program Kerja\",false],[\"PD Document Upload\",\"region\",\"=\",\"32\",false]]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Prov Jawa Barat",
+ "type": "Workspace"
+}

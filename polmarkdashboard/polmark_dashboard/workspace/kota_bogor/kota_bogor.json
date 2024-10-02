@@ -1,7 +1,7 @@
 {
  "app": "polmarkdashboard",
  "charts": [],
- "content": "[{\"id\":\"yB4U3lEk1T\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Dashboard Kota Bogor</span>\",\"col\":12}},{\"id\":\"D2SfhKaRvD\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"QA-Iahkc9X\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Peta Zona Pemenangan\",\"col\":6}},{\"id\":\"GN8KZ0K3zN\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Peta Politik Dasar\",\"col\":6}},{\"id\":\"TmFi05xrdE\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hasil Survei\",\"col\":6}},{\"id\":\"e7a-gimEa-\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Materi Workshop\",\"col\":6}},{\"id\":\"22WGMjDsXP\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Link Berita Online\",\"col\":6}},{\"id\":\"YF4Uxwp9QN\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Visi Misi Program Kerja\",\"col\":6}},{\"id\":\"HCJo4qUcEQ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Kontak KPUD dan Panwas\",\"col\":6}},{\"id\":\"5Hg_j7WMQO\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Visi Misi Program Kerja Kompetitor\",\"col\":6}},{\"id\":\"GhAyQnUvC-\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Google Drive Desain Kreatif\",\"col\":6}},{\"id\":\"l0wO1cGkA8\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Biodata Kandidat\",\"col\":6}},{\"id\":\"ALWYXLAe-E\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Struktur Organisasi Tim Kerja\",\"col\":6}}]",
+ "content": "[{\"id\":\"yB4U3lEk1T\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Dashboard Kota Bogor</span>\",\"col\":12}},{\"id\":\"D2SfhKaRvD\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"QA-Iahkc9X\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Peta Zona Pemenangan\",\"col\":6}},{\"id\":\"GN8KZ0K3zN\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Peta Politik Dasar\",\"col\":6}},{\"id\":\"TmFi05xrdE\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hasil Survei\",\"col\":6}},{\"id\":\"e7a-gimEa-\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Materi Workshop\",\"col\":6}},{\"id\":\"22WGMjDsXP\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Link Berita Online\",\"col\":6}},{\"id\":\"YF4Uxwp9QN\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Visi Misi Program Kerja\",\"col\":6}},{\"id\":\"HCJo4qUcEQ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Kontak KPUD dan Panwas\",\"col\":6}},{\"id\":\"5Hg_j7WMQO\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Visi Misi Program Kerja Kompetitor\",\"col\":6}},{\"id\":\"GhAyQnUvC-\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Google Drive Desain Kreatif\",\"col\":6}},{\"id\":\"l0wO1cGkA8\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Biodata Kandidat\",\"col\":6}},{\"id\":\"ALWYXLAe-E\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Struktur Tim Kerja\",\"col\":6}}]",
  "creation": "2024-10-02 16:30:31.249102",
  "custom_blocks": [],
  "docstatus": 0,
@@ -15,7 +15,7 @@
  "label": "Kota Bogor",
  "link_type": "DocType",
  "links": [],
- "modified": "2024-10-02 20:52:07.501191",
+ "modified": "2024-10-02 21:49:00.338704",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "Kota Bogor",
@@ -69,6 +69,14 @@
   {
    "color": "Grey",
    "doc_view": "List",
+   "label": "Struktur Tim Kerja",
+   "link_to": "PD Team Member",
+   "stats_filter": "[[\"PD Team Member\",\"region\",\"=\",\"3271\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
    "label": "Hasil Survei",
    "link_to": "PD Document Upload",
    "stats_filter": "[[\"PD Document Upload\",\"document_category\",\"=\",\"Hasil Survei\",false],[\"PD Document Upload\",\"region\",\"=\",\"3271\",false]]",
@@ -96,14 +104,6 @@
    "label": "Visi Misi Program Kerja",
    "link_to": "PD Document Upload",
    "stats_filter": "[[\"PD Document Upload\",\"document_category\",\"=\",\"Visi Misi Program Kerja\",false],[\"PD Document Upload\",\"region\",\"=\",\"3271\",false]]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Struktur Organisasi Tim Kerja",
-   "link_to": "PD Team Member",
-   "stats_filter": "[[\"PD Team Member\",\"region\",\"=\",\"3271\",false]]",
    "type": "DocType"
   },
   {
