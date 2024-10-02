@@ -48,8 +48,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Region",
-   "options": "PD Region",
-   "reqd": 1
+   "options": "PD Region"
   },
   {
    "fetch_from": "region.region_code",
@@ -93,7 +92,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-02 12:26:04.427114",
+ "modified": "2024-10-02 13:51:48.453443",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "PD Document Upload",

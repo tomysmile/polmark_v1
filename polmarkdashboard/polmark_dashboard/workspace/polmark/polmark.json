@@ -1,0 +1,49 @@
+{
+ "app": "frappe",
+ "charts": [],
+ "content": "[{\"id\":\"D5Wmi7Xtk2\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Polmark</span>\",\"col\":12}},{\"id\":\"YZ-5NBnFh3\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"5gHPxL4uIr\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Tahapan Pilkada\",\"col\":10}},{\"id\":\"yLsmwBtjDH\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"PKPU 2024\",\"col\":10}}]",
+ "creation": "2024-10-02 13:47:39.457804",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "review",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Polmark",
+ "link_type": "DocType",
+ "links": [],
+ "modified": "2024-10-02 13:51:35.699219",
+ "modified_by": "Administrator",
+ "module": "Polmark Dashboard",
+ "name": "Polmark",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 23.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Tahapan Pilkada",
+   "link_to": "PD Document Upload",
+   "stats_filter": "[[\"PD Document Upload\",\"document_category\",\"=\",\"Tahapan Pilkada 2024\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "PKPU 2024",
+   "link_to": "PD Document Upload",
+   "stats_filter": "[[\"PD Document Upload\",\"document_category\",\"=\",\"PKPU 2024\",false]]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Polmark",
+ "type": "Workspace"
+}
