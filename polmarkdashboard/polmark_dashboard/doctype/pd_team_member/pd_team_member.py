@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class PDOrganisationStructure(Document):
+class PDTeamMember(Document):
 	pass

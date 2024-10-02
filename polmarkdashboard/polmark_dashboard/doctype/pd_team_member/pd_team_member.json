@@ -2,16 +2,19 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "creation": "2024-10-02 13:05:04.645519",
+ "autoname": "hash",
+ "creation": "2024-10-02 14:21:09.874483",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "full_name",
   "phone_number",
   "position",
+  "active",
+  "column_break_uhpz",
   "region",
   "region_code",
-  "active"
+  "profile_photo"
  ],
  "fields": [
   {
@@ -20,6 +23,14 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Full Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Phone Number / WA",
+   "options": "Phone",
    "reqd": 1
   },
   {
@@ -55,20 +66,23 @@
    "label": "Active"
   },
   {
-   "fieldname": "phone_number",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Phone Number / WA",
-   "options": "Phone",
-   "reqd": 1
+   "fieldname": "column_break_uhpz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "profile_photo",
+   "fieldtype": "Attach Image",
+   "label": "Profile Photo"
   }
  ],
+ "image_field": "profile_photo",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-02 13:13:10.576617",
+ "modified": "2024-10-02 14:23:24.941992",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
- "name": "PD Organisation Structure",
+ "name": "PD Team Member",
+ "naming_rule": "Random",
  "owner": "Administrator",
  "permissions": [
   {

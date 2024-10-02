@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestPDOrganisationStructure(FrappeTestCase):
+class TestPDTeamMember(FrappeTestCase):
 	pass
