@@ -1,7 +1,7 @@
 {
- "app": "frappe",
+ "app": "polmarkdashboard",
  "charts": [],
- "content": "[{\"id\":\"D5Wmi7Xtk2\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Polmark</span>\",\"col\":12}},{\"id\":\"YZ-5NBnFh3\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"5gHPxL4uIr\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Tahapan Pilkada\",\"col\":10}},{\"id\":\"yLsmwBtjDH\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"PKPU 2024\",\"col\":10}}]",
+ "content": "[{\"id\":\"D5Wmi7Xtk2\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Polmark Dashboard</span>\",\"col\":12}},{\"id\":\"YZ-5NBnFh3\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"SAl7G927Xj\",\"type\":\"card\",\"data\":{\"card_name\":\"Master\",\"col\":12}}]",
  "creation": "2024-10-02 13:47:39.457804",
  "custom_blocks": [],
  "docstatus": 0,
@@ -9,13 +9,43 @@
  "for_user": "",
  "hide_custom": 0,
  "icon": "review",
- "idx": 0,
+ "idx": 3,
  "indicator_color": "green",
  "is_hidden": 0,
  "label": "Polmark",
  "link_type": "DocType",
- "links": [],
- "modified": "2024-10-02 13:51:35.699219",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Master",
+   "link_count": 2,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Document Category",
+   "link_count": 0,
+   "link_to": "PD Document Category",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "News Provider",
+   "link_count": 0,
+   "link_to": "PD News Site",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2024-10-02 16:29:43.987026",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "Polmark",
@@ -25,25 +55,8 @@
  "public": 1,
  "quick_lists": [],
  "roles": [],
- "sequence_id": 23.0,
- "shortcuts": [
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Tahapan Pilkada",
-   "link_to": "PD Document Upload",
-   "stats_filter": "[[\"PD Document Upload\",\"document_category\",\"=\",\"Tahapan Pilkada 2024\",false]]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "PKPU 2024",
-   "link_to": "PD Document Upload",
-   "stats_filter": "[[\"PD Document Upload\",\"document_category\",\"=\",\"PKPU 2024\",false]]",
-   "type": "DocType"
-  }
- ],
+ "sequence_id": 1.0,
+ "shortcuts": [],
  "title": "Polmark",
  "type": "Workspace"
 }

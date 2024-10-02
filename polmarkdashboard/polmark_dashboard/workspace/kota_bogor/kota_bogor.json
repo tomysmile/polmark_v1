@@ -1,0 +1,40 @@
+{
+ "app": "polmarkdashboard",
+ "charts": [],
+ "content": "[{\"id\":\"yB4U3lEk1T\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Dashboard Kota Bogor</span>\",\"col\":12}},{\"id\":\"D2SfhKaRvD\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"QA-Iahkc9X\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Peta Zona Pemenangan\",\"col\":12}}]",
+ "creation": "2024-10-02 16:30:31.249102",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "right",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Kota Bogor",
+ "link_type": "DocType",
+ "links": [],
+ "modified": "2024-10-02 16:31:46.096675",
+ "modified_by": "Administrator",
+ "module": "Polmark Dashboard",
+ "name": "Kota Bogor",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "Pendampingan",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 23.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Peta Zona Pemenangan",
+   "link_to": "PD Peta Zona Pemenangan Kota Bogor",
+   "type": "DocType"
+  }
+ ],
+ "title": "Kota Bogor",
+ "type": "Workspace"
+}

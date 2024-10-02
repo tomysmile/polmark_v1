@@ -3,16 +3,6 @@
   "description": null,
   "docstatus": 0,
   "doctype": "PD Staff Position",
-  "modified": "2024-10-02 13:00:25.837521",
-  "name": "1jm248ikla",
-  "sequence_number": 2,
-  "standard": 1,
-  "title": "Wakil Ketua Tim Pemenangan"
- },
- {
-  "description": null,
-  "docstatus": 0,
-  "doctype": "PD Staff Position",
   "modified": "2024-10-02 13:01:16.218619",
   "name": "1k5q94h538",
   "sequence_number": 3,
@@ -128,5 +118,15 @@
   "sequence_number": 14,
   "standard": 1,
   "title": "Anggota Umum"
+ },
+ {
+  "description": null,
+  "docstatus": 0,
+  "doctype": "PD Staff Position",
+  "modified": "2024-10-02 13:00:25.837521",
+  "name": "1jm248ikla",
+  "sequence_number": 2,
+  "standard": 1,
+  "title": "Wakil Ketua Tim Pemenangan"
  }
 ]

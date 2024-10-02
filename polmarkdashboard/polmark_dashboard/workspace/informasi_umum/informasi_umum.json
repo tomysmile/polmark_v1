@@ -1,7 +1,7 @@
 {
- "app": "frappe",
+ "app": "polmarkdashboard",
  "charts": [],
- "content": "[{\"id\":\"-K9yZbEQ29\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Informasi Umum</span>\",\"col\":12}},{\"id\":\"VTYPkU3LND\",\"type\":\"spacer\",\"data\":{\"col\":12}}]",
+ "content": "[{\"id\":\"-K9yZbEQ29\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Informasi Umum</span>\",\"col\":12}},{\"id\":\"VTYPkU3LND\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"vWVaE6KPSE\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Tahapan Pilkada\",\"col\":12}},{\"id\":\"jvVLKSv8cM\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"PKPU 2024\",\"col\":12}},{\"id\":\"h16MJlU6Cu\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Rekap DPT 2024\",\"col\":12}}]",
  "creation": "2024-10-02 13:53:00.858447",
  "custom_blocks": [],
  "docstatus": 0,
@@ -15,7 +15,7 @@
  "label": "Informasi Umum",
  "link_type": "DocType",
  "links": [],
- "modified": "2024-10-02 13:53:44.764066",
+ "modified": "2024-10-02 16:29:50.469913",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "Informasi Umum",
@@ -25,8 +25,33 @@
  "public": 1,
  "quick_lists": [],
  "roles": [],
- "sequence_id": 24.0,
- "shortcuts": [],
+ "sequence_id": 2.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Tahapan Pilkada",
+   "link_to": "PD Document Upload",
+   "stats_filter": "[[\"PD Document Upload\",\"document_category\",\"=\",\"Tahapan Pilkada 2024\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "PKPU 2024",
+   "link_to": "PD Document Upload",
+   "stats_filter": "[[\"PD Document Upload\",\"document_category\",\"=\",\"PKPU 2024\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Rekap DPT 2024",
+   "link_to": "PD Rekap DPT 2024",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
  "title": "Informasi Umum",
  "type": "Workspace"
 }

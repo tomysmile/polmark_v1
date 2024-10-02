@@ -110,15 +110,6 @@
  {
   "docstatus": 0,
   "doctype": "PD News Site",
-  "modified": "2024-10-02 12:50:27.648912",
-  "name": "1dr4u9bhsl",
-  "standard": 1,
-  "title": "Tempo News",
-  "website": "https://www.tempo.co/"
- },
- {
-  "docstatus": 0,
-  "doctype": "PD News Site",
   "modified": "2024-10-02 12:50:27.654845",
   "name": "1dr4qplods",
   "standard": 1,
@@ -142,5 +133,14 @@
   "standard": 1,
   "title": "VIVA.co.id",
   "website": "https://www.viva.co.id/"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "PD News Site",
+  "modified": "2024-10-02 12:50:27.648912",
+  "name": "1dr4u9bhsl",
+  "standard": 1,
+  "title": "Tempo News",
+  "website": "https://www.tempo.co/"
  }
 ]
