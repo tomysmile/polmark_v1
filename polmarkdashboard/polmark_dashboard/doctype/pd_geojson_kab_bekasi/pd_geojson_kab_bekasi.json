@@ -1,0 +1,562 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:region_code",
+ "creation": "2024-10-02 21:01:53.280717",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "region_code",
+  "region_name",
+  "region_code_bps",
+  "region_name_bps",
+  "region_type",
+  "region_level",
+  "standard",
+  "column_break_yxfi",
+  "parent_code",
+  "parent_code_bps",
+  "parent_name",
+  "parent_type",
+  "parent_level",
+  "column_break_njun",
+  "region_fullname",
+  "dapil_dpr_ri",
+  "zone",
+  "color",
+  "data_source",
+  "section_break_xzfu",
+  "province_name",
+  "province_code",
+  "province_code_bps",
+  "column_break_trye",
+  "city_name",
+  "city_code",
+  "city_code_bps",
+  "column_break_auqv",
+  "district_name",
+  "district_code",
+  "district_code_bps",
+  "column_break_jdus",
+  "sub_district_name",
+  "sub_district_code",
+  "sub_district_code_bps",
+  "section_break_mrij",
+  "num_district",
+  "column_break_khbn",
+  "num_sub_district_kelurahan",
+  "column_break_vtii",
+  "num_sub_district_desa",
+  "column_break_wlax",
+  "num_tps",
+  "section_break_nfer",
+  "province_zone",
+  "column_break_tfho",
+  "city_zone",
+  "column_break_odhw",
+  "district_zone",
+  "column_break_fbvc",
+  "sub_district_zone",
+  "section_break_clyd",
+  "num_citizen",
+  "num_cde",
+  "column_break_tfsr",
+  "num_family",
+  "num_voter_per_family",
+  "num_voter_young",
+  "column_break_yusq",
+  "num_voter",
+  "num_voter_women",
+  "num_voter_men",
+  "section_break_gsjw",
+  "num_voter_dpthp2",
+  "column_break_akcu",
+  "num_voter_per_family_dpthp2",
+  "num_voter_young_dpthp2",
+  "column_break_lgtp",
+  "num_voter_women_dpthp2",
+  "num_voter_men_dpthp2",
+  "section_break_fhhu",
+  "target_voter",
+  "visited_voter",
+  "percentage_target_voter",
+  "target_visited_kk",
+  "column_break_eeut",
+  "volunteer",
+  "total_baliho",
+  "total_spanduk",
+  "partisipasi_80",
+  "geojson_section",
+  "geojson"
+ ],
+ "fields": [
+  {
+   "fieldname": "region_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Code",
+   "unique": 1
+  },
+  {
+   "fieldname": "region_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Name"
+  },
+  {
+   "fieldname": "region_code_bps",
+   "fieldtype": "Data",
+   "label": "Code BPS"
+  },
+  {
+   "fieldname": "region_name_bps",
+   "fieldtype": "Data",
+   "label": "Name BPS"
+  },
+  {
+   "fieldname": "region_type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Type"
+  },
+  {
+   "fieldname": "region_level",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Level"
+  },
+  {
+   "default": "0",
+   "fieldname": "standard",
+   "fieldtype": "Check",
+   "label": "Standard"
+  },
+  {
+   "fieldname": "column_break_yxfi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "parent_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Parent Code"
+  },
+  {
+   "fieldname": "parent_code_bps",
+   "fieldtype": "Data",
+   "label": "Parent Code BPS"
+  },
+  {
+   "fieldname": "parent_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Parent Name"
+  },
+  {
+   "fieldname": "parent_type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Parent Type"
+  },
+  {
+   "fieldname": "parent_level",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Parent Level"
+  },
+  {
+   "fieldname": "column_break_njun",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "region_fullname",
+   "fieldtype": "Data",
+   "label": "Fullname"
+  },
+  {
+   "fieldname": "dapil_dpr_ri",
+   "fieldtype": "Data",
+   "label": "Dapil DPR RI"
+  },
+  {
+   "fieldname": "zone",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Zonasi"
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Data",
+   "label": "Color"
+  },
+  {
+   "fieldname": "data_source",
+   "fieldtype": "Data",
+   "label": "Data Source"
+  },
+  {
+   "fieldname": "section_break_xzfu",
+   "fieldtype": "Section Break",
+   "label": "WILAYAH"
+  },
+  {
+   "fieldname": "province_name",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Provinsi"
+  },
+  {
+   "fieldname": "province_code",
+   "fieldtype": "Data",
+   "label": "Kode Provinsi"
+  },
+  {
+   "fieldname": "province_code_bps",
+   "fieldtype": "Data",
+   "label": "Kode BPS Provinsi"
+  },
+  {
+   "fieldname": "column_break_trye",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "city_name",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Kota /Kabupaten"
+  },
+  {
+   "fieldname": "city_code",
+   "fieldtype": "Data",
+   "label": "Kode Kokab"
+  },
+  {
+   "fieldname": "city_code_bps",
+   "fieldtype": "Data",
+   "label": "Kode BPS Kokab"
+  },
+  {
+   "fieldname": "column_break_auqv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "district_name",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Kecamatan"
+  },
+  {
+   "fieldname": "district_code",
+   "fieldtype": "Data",
+   "label": "Kode Kec"
+  },
+  {
+   "fieldname": "district_code_bps",
+   "fieldtype": "Data",
+   "label": "Kode BPS Kec"
+  },
+  {
+   "fieldname": "column_break_jdus",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sub_district_name",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Desa /Kel"
+  },
+  {
+   "fieldname": "sub_district_code",
+   "fieldtype": "Data",
+   "label": "Kode Kel"
+  },
+  {
+   "fieldname": "sub_district_code_bps",
+   "fieldtype": "Data",
+   "label": "Kode BPS Kel"
+  },
+  {
+   "fieldname": "section_break_mrij",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "num_district",
+   "fieldtype": "Int",
+   "label": "Jumlah Kecamatan"
+  },
+  {
+   "fieldname": "column_break_khbn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "num_sub_district_kelurahan",
+   "fieldtype": "Int",
+   "label": "Jumlah Kelurahan"
+  },
+  {
+   "fieldname": "column_break_vtii",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "num_sub_district_desa",
+   "fieldtype": "Int",
+   "label": "Jumlah Desa"
+  },
+  {
+   "fieldname": "column_break_wlax",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "num_tps",
+   "fieldtype": "Int",
+   "label": "Jumlah TPS"
+  },
+  {
+   "fieldname": "section_break_nfer",
+   "fieldtype": "Section Break",
+   "label": "ZONASI"
+  },
+  {
+   "fieldname": "province_zone",
+   "fieldtype": "Data",
+   "label": "Zonasi Provinsi"
+  },
+  {
+   "fieldname": "column_break_tfho",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "city_zone",
+   "fieldtype": "Data",
+   "label": "Zonasi Kokab"
+  },
+  {
+   "fieldname": "column_break_odhw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "district_zone",
+   "fieldtype": "Data",
+   "label": "Zonasi Kecamatan"
+  },
+  {
+   "fieldname": "column_break_fbvc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sub_district_zone",
+   "fieldtype": "Data",
+   "label": "Zonasi Desa/Kel"
+  },
+  {
+   "fieldname": "section_break_clyd",
+   "fieldtype": "Section Break",
+   "label": "DPT"
+  },
+  {
+   "fieldname": "num_citizen",
+   "fieldtype": "Int",
+   "label": "Jumlah Penduduk"
+  },
+  {
+   "fieldname": "num_cde",
+   "fieldtype": "Int",
+   "label": "Jumlah CDE"
+  },
+  {
+   "fieldname": "column_break_tfsr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "num_family",
+   "fieldtype": "Int",
+   "label": "Jumlah KK"
+  },
+  {
+   "fieldname": "num_voter_per_family",
+   "fieldtype": "Float",
+   "label": "Pemilih per-KK"
+  },
+  {
+   "fieldname": "num_voter_young",
+   "fieldtype": "Int",
+   "label": "Pemilih Muda"
+  },
+  {
+   "fieldname": "column_break_yusq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "num_voter",
+   "fieldtype": "Int",
+   "label": "Jumlah Pemilih"
+  },
+  {
+   "fieldname": "num_voter_women",
+   "fieldtype": "Int",
+   "label": "Pemilih Perempuan"
+  },
+  {
+   "fieldname": "num_voter_men",
+   "fieldtype": "Int",
+   "label": "Pemilih Laki-laki"
+  },
+  {
+   "fieldname": "section_break_gsjw",
+   "fieldtype": "Section Break",
+   "label": "DPTHP"
+  },
+  {
+   "fieldname": "num_voter_dpthp2",
+   "fieldtype": "Int",
+   "label": "Jumlah DPTHP"
+  },
+  {
+   "fieldname": "column_break_akcu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "num_voter_per_family_dpthp2",
+   "fieldtype": "Float",
+   "label": "Pemilih per-KK DPTHP"
+  },
+  {
+   "fieldname": "num_voter_young_dpthp2",
+   "fieldtype": "Int",
+   "label": "Pemilih Muda DPTHP"
+  },
+  {
+   "fieldname": "column_break_lgtp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "num_voter_women_dpthp2",
+   "fieldtype": "Int",
+   "label": "Pemilih Perempuan DPTHP"
+  },
+  {
+   "fieldname": "num_voter_men_dpthp2",
+   "fieldtype": "Int",
+   "label": "Pemilih Laki DPTHP"
+  },
+  {
+   "fieldname": "section_break_fhhu",
+   "fieldtype": "Section Break",
+   "label": "CANVASSING"
+  },
+  {
+   "fieldname": "target_voter",
+   "fieldtype": "Int",
+   "label": "Target Voter"
+  },
+  {
+   "fieldname": "visited_voter",
+   "fieldtype": "Int",
+   "label": "Visited Voter"
+  },
+  {
+   "fieldname": "percentage_target_voter",
+   "fieldtype": "Float",
+   "label": "Percentage Target Voter"
+  },
+  {
+   "fieldname": "target_visited_kk",
+   "fieldtype": "Int",
+   "label": "Target Visited KK"
+  },
+  {
+   "fieldname": "column_break_eeut",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "volunteer",
+   "fieldtype": "Int",
+   "label": "Volunteer"
+  },
+  {
+   "fieldname": "total_baliho",
+   "fieldtype": "Int",
+   "label": "Total Baliho"
+  },
+  {
+   "fieldname": "total_spanduk",
+   "fieldtype": "Int",
+   "label": "Total Spanduk"
+  },
+  {
+   "fieldname": "partisipasi_80",
+   "fieldtype": "Int",
+   "label": "Partisipasi 80"
+  },
+  {
+   "fieldname": "geojson_section",
+   "fieldtype": "Section Break",
+   "label": "GEOJSON"
+  },
+  {
+   "fieldname": "geojson",
+   "fieldtype": "JSON",
+   "label": "Geojson"
+  }
+ ],
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-10-02 21:01:53.280717",
+ "modified_by": "Administrator",
+ "module": "Polmark Dashboard",
+ "name": "PD Geojson Kab Bekasi",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Polmark Dashboard Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "share": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "region_code",
+ "sort_order": "ASC",
+ "states": [],
+ "title_field": "region_name",
+ "track_changes": 1
+}
