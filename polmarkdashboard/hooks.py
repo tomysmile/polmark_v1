@@ -28,6 +28,15 @@ fixtures = [
     {"doctype": "PD Document Category", "filters": [["standard", "=", 1]]},
     {"doctype": "PD News Site", "filters": [["standard", "=", 1]]},
     {"doctype": "PD Staff Position", "filters": [["standard", "=", 1]]},
+    {"doctype": "PD Peta Zona Pemenangan Kab Bekasi", "filters": [["standard", "=", 1]]},
+    {"doctype": "PD Peta Zona Pemenangan Kota Bogor", "filters": [["standard", "=", 1]]},
+    {"doctype": "PD Peta Zona Pemenangan Kota Medan", "filters": [["standard", "=", 1]]},
+    {"doctype": "PD Peta Zona Pemenangan Kota Balikpapan", "filters": [["standard", "=", 1]]},
+    {"doctype": "PD Peta Zona Pemenangan Kota Bandung", "filters": [["standard", "=", 1]]},
+    {"doctype": "PD Peta Zona Pemenangan Kalimantan Tengah", "filters": [["standard", "=", 1]]},
+    {"doctype": "PD Peta Zona Pemenangan DKI Jakarta", "filters": [["standard", "=", 1]]},
+    {"doctype": "PD Peta Zona Pemenangan Jawa Barat", "filters": [["standard", "=", 1]]},
+    {"doctype": "PD Peta Zona Pemenangan Sumatera Utara", "filters": [["standard", "=", 1]]}
 ]
 
 # Each item in the list will be shown as an app in the apps page
