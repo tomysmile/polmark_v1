@@ -84,10 +84,11 @@
    "label": "Code"
   }
  ],
+ "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-10-02 15:35:21.902825",
+ "modified": "2024-10-02 20:55:36.923779",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "PD Peta Zona Pemenangan Kota Bogor",
@@ -112,7 +113,9 @@
    "share": 1
   }
  ],
+ "show_title_field_in_link": 1,
  "sort_field": "creation",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "region_name"
 }
