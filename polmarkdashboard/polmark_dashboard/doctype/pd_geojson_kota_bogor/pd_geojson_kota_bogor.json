@@ -42,6 +42,14 @@
   "sub_district_name",
   "sub_district_code",
   "sub_district_code_bps",
+  "section_break_mrij",
+  "num_district",
+  "column_break_khbn",
+  "num_sub_district_kelurahan",
+  "column_break_vtii",
+  "num_sub_district_desa",
+  "column_break_wlax",
+  "num_tps",
   "section_break_nfer",
   "province_zone",
   "column_break_tfho",
@@ -463,12 +471,48 @@
    "fieldname": "geojson",
    "fieldtype": "JSON",
    "label": "Geojson"
+  },
+  {
+   "fieldname": "num_district",
+   "fieldtype": "Int",
+   "label": "Jumlah Kecamatan"
+  },
+  {
+   "fieldname": "section_break_mrij",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "num_sub_district_kelurahan",
+   "fieldtype": "Int",
+   "label": "Jumlah Kelurahan"
+  },
+  {
+   "fieldname": "num_sub_district_desa",
+   "fieldtype": "Int",
+   "label": "Jumlah Desa"
+  },
+  {
+   "fieldname": "num_tps",
+   "fieldtype": "Int",
+   "label": "Jumlah TPS"
+  },
+  {
+   "fieldname": "column_break_khbn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_vtii",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_wlax",
+   "fieldtype": "Column Break"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-02 15:15:02.727734",
+ "modified": "2024-10-02 16:04:58.511184",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "PD Geojson Kota Bogor",
