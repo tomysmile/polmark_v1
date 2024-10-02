@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# polmark_v1
-Polmark Dashboard
-=======
 ### Polmark Dashboard
 
 Polmark Dashboard
@@ -35,4 +31,3 @@ Pre-commit is configured to use the following tools for checking and formatting 
 ### License
 
 mit
->>>>>>> develop
