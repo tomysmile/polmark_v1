@@ -11,8 +11,21 @@ app_license = "mit"
 # required_apps = []
 
 fixtures = [
+    {
+        "doctype": "Role",
+        "filters": [
+            ["name", "in", ["Polmark Dashboard Manager", "Polmark Dashboard User"]]
+        ],
+    },
+    {
+        "doctype": "Role Profile",
+        "filters": [
+            ["name", "in", ["Polmark Dashboard Manager", "Polmark Dashboard User"]]
+        ],
+    },
     {"doctype": "PD Region Type", "filters": [["standard", "=", 1]]},
     {"doctype": "PD Document Category", "filters": [["standard", "=", 1]]},
+    {"doctype": "PD News Site", "filters": [["standard", "=", 1]]},
 ]
 
 # Each item in the list will be shown as an app in the apps page
