@@ -1,0 +1,121 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "hash",
+ "creation": "2024-10-02 21:13:55.946614",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "region",
+  "region_name",
+  "region_code",
+  "standard",
+  "column_break_whpy",
+  "region_type",
+  "region_level",
+  "section_break_szay",
+  "map_html",
+  "tabel_tab",
+  "data_table_wrapper"
+ ],
+ "fields": [
+  {
+   "fieldname": "region",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Region",
+   "options": "PD Region",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "region.region_name",
+   "fieldname": "region_name",
+   "fieldtype": "Read Only",
+   "hidden": 1,
+   "label": "Name"
+  },
+  {
+   "fetch_from": "region.region_code",
+   "fieldname": "region_code",
+   "fieldtype": "Read Only",
+   "hidden": 1,
+   "label": "Code"
+  },
+  {
+   "default": "0",
+   "fieldname": "standard",
+   "fieldtype": "Check",
+   "label": "Standard"
+  },
+  {
+   "fieldname": "column_break_whpy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "region.region_type",
+   "fieldname": "region_type",
+   "fieldtype": "Read Only",
+   "label": "Type"
+  },
+  {
+   "fetch_from": "region.region_level",
+   "fieldname": "region_level",
+   "fieldtype": "Read Only",
+   "hidden": 1,
+   "label": "Level"
+  },
+  {
+   "fieldname": "section_break_szay",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "map_html",
+   "fieldtype": "HTML",
+   "label": "Peta Zona"
+  },
+  {
+   "fieldname": "tabel_tab",
+   "fieldtype": "Tab Break",
+   "label": "Tabel"
+  },
+  {
+   "fieldname": "data_table_wrapper",
+   "fieldtype": "HTML",
+   "label": "Data Table"
+  }
+ ],
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2024-10-02 21:13:55.946614",
+ "modified_by": "Administrator",
+ "module": "Polmark Dashboard",
+ "name": "PD Peta Zona Pemenangan Kab Bekasi",
+ "naming_rule": "Random",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "All",
+   "share": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "region_name"
+}
