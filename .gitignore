@@ -4,5 +4,5 @@
 *.swp
 tags
 node_modules
-tmp_data
+tmp_data/*
 __pycache__
