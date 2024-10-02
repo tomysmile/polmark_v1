@@ -44,6 +44,20 @@ fixtures = [
 # Includes in <head>
 # ------------------
 
+app_include_css = [
+    "/assets/polmarkdashboard/css/fontawesome-free.css",
+    "/assets/polmarkdashboard/css/leaflet.css",
+    "/assets/polmarkdashboard/css/leaflet-custom.css",
+    "/assets/polmarkdashboard/css/custom.css",
+    "/assets/polmarkdashboard/css/leaflet.fullscreen/leaflet.fullscreen.css"
+]
+
+app_include_js = [
+    "/assets/polmarkdashboard/js/leaflet.js",
+    "/assets/polmarkdashboard/js/patch-leaflet.js",
+    "/assets/polmarkdashboard/js/Leaflet.fullscreen.min.js"
+]
+
 # include js, css files in header of desk.html
 # app_include_css = "/assets/polmarkdashboard/css/polmarkdashboard.css"
 # app_include_js = "/assets/polmarkdashboard/js/polmarkdashboard.js"
