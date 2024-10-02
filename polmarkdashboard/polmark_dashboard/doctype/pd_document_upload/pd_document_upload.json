@@ -1,0 +1,128 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "hash",
+ "creation": "2024-10-02 11:10:29.066816",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "description",
+  "document_category",
+  "region",
+  "region_code",
+  "upload_file",
+  "section_break_wuau",
+  "file_type",
+  "column_break_lxtj",
+  "file_size",
+  "section_break_bbni",
+  "preview"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "document_category",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Category",
+   "options": "PD Document Category",
+   "reqd": 1
+  },
+  {
+   "fieldname": "region",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Region",
+   "options": "PD Region"
+  },
+  {
+   "fetch_from": "region.region_code",
+   "fieldname": "region_code",
+   "fieldtype": "Read Only",
+   "hidden": 1,
+   "label": "Region Code"
+  },
+  {
+   "fieldname": "upload_file",
+   "fieldtype": "Attach",
+   "label": "Upload File"
+  },
+  {
+   "fieldname": "section_break_wuau",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "file_type",
+   "fieldtype": "Read Only",
+   "label": "File Type"
+  },
+  {
+   "fieldname": "column_break_lxtj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "file_size",
+   "fieldtype": "Read Only",
+   "label": "File Size"
+  },
+  {
+   "fieldname": "section_break_bbni",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "preview",
+   "fieldtype": "HTML",
+   "label": "Preview"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-10-02 13:51:48.453443",
+ "modified_by": "Administrator",
+ "module": "Polmark Dashboard",
+ "name": "PD Document Upload",
+ "naming_rule": "Random",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "share": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "title"
+}
