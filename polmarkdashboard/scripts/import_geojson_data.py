@@ -218,3 +218,25 @@ def import_kalteng():
     # execute the function
     insert_to_database(doctype, file_path)
     print("GeoJSON data imported successfully!")
+
+
+def import_jawa_barat():
+    file_path = frappe.get_app_path(
+        "polmarkdashboard", "tmp_data", "geojson_indonesia.jawa_barat.json"
+    )
+    doctype = "PD Geojson Jawa Barat"
+
+    # execute the function
+    insert_to_database(doctype, file_path)
+    print("GeoJSON data imported successfully!")
+
+
+def import_sumatera_utara():
+    file_path = frappe.get_app_path(
+        "polmarkdashboard", "tmp_data", "geojson_indonesia.sumatera_utara.json"
+    )
+    doctype = "PD Geojson Sumatera Utara"
+
+    # execute the function
+    insert_to_database(doctype, file_path)
+    print("GeoJSON data imported successfully!")
