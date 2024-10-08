@@ -7,8 +7,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Kab Bekasi", {
 		frm.events.render_map(frm);
 	},
 	onload: function (frm) {
-		// initializeLeafletMap(frm);
-		frm.events.render_map(frm);
+    //
 	},
 	render_map: function (frm) {
 		// Set a unique container ID for the map (important if dealing with multiple forms)
@@ -19,82 +18,18 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Kab Bekasi", {
 
 		// Render the HTML for the map container inside the HTML wrapper field
 		frm.fields_dict.map_html.$wrapper.html(`
-            <div id="${mapContainerId}" style="width: 100%; height: 80vh;">${dataTooltipArea}</div>
-        `);
+      <div id="custom-map-container">
+        <div id="${mapContainerId}" style="height: 80vh; position: relative;"></div>
+        ${dataTooltipArea}
+      </div>
+    `);
 
 		// Initialize the map after rendering the HTML
 		frm.events.initialize_map(mapContainerId, frm);
 
 		function createDataTooltip() {
-			const tooltipName = "databox-tooltip-" +  frm.doc.name;
-			let tableHeader = `<div id="${tooltipName}" style="position:absolute; bottom:25px; right:18px; padding:10px; background-color:white; border:1px solid #ccc; display:none; z-index:1000;">
-			<table id="tooltip-table" style="border-collapse: collapse; width: 100%;">
-				<tbody>
-					<tr>
-						<th style="text-align: left; padding: 5px; border-bottom: 1px solid #ccc;">Nama</th>
-						<td id="area-name" style="padding: 5px; border-bottom: 1px solid #ccc;"></td>
-					</tr>
-					<tr>
-						<th style="text-align: left; padding: 5px; border-bottom: 1px solid #ccc;">Status</th>
-						<td id="area-status" style="padding: 5px; border-bottom: 1px solid #ccc;"></td>
-					</tr>
-					<tr>
-						<th style="text-align: left; padding: 5px; border-bottom: 1px solid #ccc;">Level</th>
-						<td id="level" style="padding: 5px; border-bottom: 1px solid #ccc;"></td>
-					</tr>
-					<tr id="row-number-of-kec" style="display:none;">
-						<th style="text-align: left; padding: 5px; border-bottom: 1px solid #ccc;">Jml Kecamatan</th>
-						<td id="number-of-kec" style="padding: 5px; border-bottom: 1px solid #ccc;"></td>
-					</tr>
-					<tr id="row-number-of-kel" style="display:none;">
-						<th style="text-align: left; padding: 5px; border-bottom: 1px solid #ccc;">Jml Kelurahan</th>
-						<td id="number-of-kel" style="padding: 5px; border-bottom: 1px solid #ccc;"></td>
-					</tr>
-					<tr id="row-number-of-desa" style="display:none;">
-						<th style="text-align: left; padding: 5px; border-bottom: 1px solid #ccc;">Jml Desa</th>
-						<td id="number-of-desa" style="padding: 5px; border-bottom: 1px solid #ccc;"></td>
-					</tr>
-					<tr>
-						<th style="text-align: left; padding: 5px; border-bottom: 1px solid #ccc;">Jml TPS</th>
-						<td id="jml-tps" style="padding: 5px; border-bottom: 1px solid #ccc;"></td>
-					</tr>
-					<tr>
-						<th style="text-align: left; padding: 5px; border-bottom: 1px solid #ccc;">Penduduk</th>
-						<td id="jml-pend" style="padding: 5px; border-bottom: 1px solid #ccc;"></td>
-					</tr>
-					<tr>
-						<th style="text-align: left; padding: 5px; border-bottom: 1px solid #ccc;">KK</th>
-						<td id="jml-kk" style="padding: 5px; border-bottom: 1px solid #ccc;"></td>
-					</tr>
-					<tr>
-						<th style="text-align: left; padding: 5px; border-bottom: 1px solid #ccc;">Pemilih 2024</th>
-						<td id="jml-dpt-2024" style="padding: 5px; border-bottom: 1px solid #ccc;"></td>
-					</tr>
-					<tr>
-						<th style="text-align: left; padding: 5px; border-bottom: 1px solid #ccc;">CDE</th>
-						<td id="jml-cde" style="padding: 5px; border-bottom: 1px solid #ccc;"></td>
-					</tr>
-					<tr>
-						<th style="text-align: left; padding: 5px; border-bottom: 1px solid #ccc;">Pemilih /KK</th>
-						<td id="jml-pemilih-kk" style="padding: 5px; border-bottom: 1px solid #ccc;"></td>
-					</tr>
-					<tr>
-						<th style="text-align: left; padding: 5px; border-bottom: 1px solid #ccc;">Pemilih Perempuan</th>
-						<td id="jml-pemilih-perempuan" style="padding: 5px; border-bottom: 1px solid #ccc;"></td>
-					</tr>
-					<tr>
-						<th style="text-align: left; padding: 5px; border-bottom: 1px solid #ccc;">Pemilih Muda</th>
-						<td id="jml-pemilih-muda" style="padding: 5px; border-bottom: 1px solid #ccc;"></td>
-					</tr>
-					<tr>
-						<th style="text-align: left; padding: 5px; border-bottom: 1px solid #ccc;">Zonasi</th>
-						<td id="zonasi" style="padding: 5px; border-bottom: 1px solid #ccc;"></td>
-					</tr>
-				</tbody>
-				</table>
-			</div>`;
-
-			return tableHeader;
+			const tooltipId = "info-box-kab-bekasi";
+			return `<div id="${tooltipId}" class="info-box"></div>`;
 		}
 	},
 	initialize_map: function (mapContainerId, frmInstance) {
@@ -157,7 +92,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Kab Bekasi", {
 
 		const { region, region_level, region_type, region_name } = frmInstance.doc;
 
-		const tooltipName = "databox-tooltip-" +  frmInstance.doc.name;
+		const tooltipBoxId = "#info-box-kab-bekasi";
 
 		// Stack to store map levels (e.g., 'province', 'city', 'district')
 		let mapLevelStack = [];
@@ -188,6 +123,21 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Kab Bekasi", {
 		addLegend();
 		addShowHideLayer();
 
+    function numberFormat(number) {
+      // Cek apakah input adalah angka atau string angka
+      if (!isNaN(number)) {
+        // Jika ada desimal, pisahkan antara bagian desimal dan bagian utamanya
+        let [main, decimal] = number.toString().split(".");
+
+        // Format bagian utama menggunakan titik sebagai pemisah ribuan
+        main = main.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+        // Gabungkan kembali dengan bagian desimal jika ada
+        return decimal ? `${main},${decimal}` : main;
+      }
+      return number; // Kembalikan input jika bukan angka
+    }
+
 		function addBackButtonControl() {
 			const backButton = L.Control.extend({
 				options: {
@@ -210,7 +160,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Kab Bekasi", {
 					// Add click event to trigger goBack function
 					container.onclick = function () {
 						goBack(); // Trigger the back function
-						mapInstance.setView(getDefaultMapView(level), 5);
+						// mapInstance.setView(getDefaultMapView(level), 5);
 						container.style.display = "none";
 					};
 
@@ -400,10 +350,6 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Kab Bekasi", {
 			document.querySelector(".back-button").style.display = isShow ? "block" : "none";
 		}
 
-		function showHideDataBoxTooltip(isShow = true) {
-			document.getElementById(tooltipName).style.display = isShow ? "block" : "none";
-		}
-
 		function getMarkersGroup(level) {
 			const markerGroups = {
 				2: provinceMarkersGroup,
@@ -577,38 +523,94 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Kab Bekasi", {
 		}
 
 		function showDataTooltip(data) {
-			let tooltip = document.getElementById(tooltipName);
-			tooltip.style.display = "block";
+      let cityInfo = "";
+      let districtInfo = "";
 
-			document.getElementById("area-name").textContent = data.region_name;
-			document.getElementById("area-status").textContent = data.region_type;
-			document.getElementById("level").textContent = data.region_level;
-			document.getElementById("jml-pend").textContent = data.jml_pend;
-			document.getElementById("jml-kk").textContent = data.jml_kk;
-			document.getElementById("jml-dpt-2024").textContent = data.jml_dpt;
-			document.getElementById("jml-cde").textContent = data.jml_cde;
-			document.getElementById("jml-pemilih-kk").textContent = data.jml_dpt_perkk;
-			document.getElementById("jml-pemilih-perempuan").textContent = data.jml_dpt_perempuan;
-			document.getElementById("jml-pemilih-muda").textContent = data.jml_dpt_muda;
-			document.getElementById("jml-tps").textContent = data.jml_tps;
-			document.getElementById("zonasi").textContent = data.zonasi;
+      if (parseInt(data.region_level) === CONST_CITY_LEVEL) {
+        cityInfo = `
+          <tr>
+            <td>Kecamatan</td>
+            <td>${data.jml_kec}</td>
+          </tr>
+        `;
+      } else if (parseInt(data.region_level) === CONST_DISTRICT_LEVEL) {
+        districtInfo = `
+          <tr>
+            <td>Kelurahan</td>
+            <td>${data.jml_kel}</td>
+          </tr>
+          <tr>
+            <td>Desa</td>
+            <td>${data.jml_desa}</td>
+          </tr>
+        `;
+      }
 
-			if (parseInt(data.region_level) === CONST_DISTRICT_LEVEL) {
-				document.getElementById("row-number-of-kel").style.display = "table-row";
-				document.getElementById("number-of-kel").textContent = data.jml_kel;
-				document.getElementById("row-number-of-desa").style.display = "table-row";
-				document.getElementById("number-of-desa").textContent = data.jml_desa;
-				document.getElementById("row-number-of-kec").style.display = "none";
-			} else if (parseInt(data.region_level) === CONST_SUBDISTRICT_LEVEL) {
-				document.getElementById("row-number-of-kec").style.display = "none";
-				document.getElementById("row-number-of-kel").style.display = "none";
-				document.getElementById("row-number-of-desa").style.display = "none";
-			}
+      const generalInfo = `
+        <tr>
+          <td>Nama</td>
+          <td>${data.region_name}</td>
+        </tr>
+        <tr>
+          <td>Status</td>
+          <td>${data.region_type}</td>
+        </tr>
+        ${cityInfo}
+        ${districtInfo}
+        <tr>
+          <td>TPS</td>
+          <td>${numberFormat(data.jml_tps)}</td>
+        </tr>
+        <tr>
+          <td>Penduduk</td>
+          <td>${numberFormat(data.jml_pend)}</td>
+        </tr>
+        <tr>
+          <td>DPT</td>
+          <td>${numberFormat(data.jml_dpt)}</td>
+        </tr>
+        <tr>
+          <td>KK</td>
+          <td>${numberFormat(data.jml_kk)}</td>
+        </tr>
+        <tr>
+          <td>CDE</td>
+          <td>${numberFormat(data.jml_cde)}</td>
+        </tr>
+        <tr>
+          <td>Pemilih /KK</td>
+          <td>${numberFormat(data.jml_dpt_perkk)}</td>
+        </tr>
+        <tr>
+          <td>Pemilih Perempuan</td>
+          <td>${numberFormat(data.jml_dpt_perempuan)}</td>
+        </tr>
+        <tr>
+          <td>Pemilih Muda</td>
+          <td>${numberFormat(data.jml_dpt_muda)}</td>
+        </tr>
+        <tr>
+          <td>ZONA</td>
+          <td>${data.zonasi}</td>
+        </tr>
+      `;
+
+      $(tooltipBoxId).html(`
+        <table class="info-table">
+          <tbody>
+          ${generalInfo}
+          </tbody>
+        </table>
+      `);
+			$(tooltipBoxId).css('display', 'block');
 		}
 
 		function hideDataTooltip() {
-			let tooltip = document.getElementById(tooltipName);
-			tooltip.style.display = "none";
+			$(tooltipBoxId).css('display', 'none');
+		}
+
+    function showHideDataBoxTooltip(isShow = true) {
+			$(tooltipBoxId).css('display', isShow ? "block" : "none");
 		}
 
 		function renderTable(level, data) {
