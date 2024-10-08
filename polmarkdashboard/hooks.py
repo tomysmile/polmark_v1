@@ -54,14 +54,11 @@ fixtures = [
 # ------------------
 
 app_include_css = [
-    "/assets/polmarkdashboard/css/fontawesome-free.css",
-    "/assets/polmarkdashboard/css/leaflet.css",
-    "/assets/polmarkdashboard/css/leaflet-custom.css",
-    "/assets/polmarkdashboard/css/custom.css",
-    "/assets/polmarkdashboard/css/leaflet.fullscreen/leaflet.fullscreen.css"
+    "style.bundle.css",
 ]
 
 app_include_js = [
+    "/assets/polmarkdashboard/js/utils.js",
     "/assets/polmarkdashboard/js/leaflet.js",
     "/assets/polmarkdashboard/js/patch-leaflet.js",
     "/assets/polmarkdashboard/js/Leaflet.fullscreen.min.js"

@@ -1,3 +1,8 @@
+@import url('/assets/polmarkdashboard/css/fontawesome-free.css');
+@import url('/assets/polmarkdashboard/css/leaflet-custom.css');
+@import url('/assets/polmarkdashboard/css/leaflet.css');
+@import url('/assets/polmarkdashboard/css/leaflet.fullscreen/leaflet.fullscreen.css');
+
 /* General label styling */
 
 #leaflet-map {
@@ -160,18 +165,62 @@
 	font-weight: bolder;
 }
 
-#databox-tooltip {
-	font-family: Arial, sans-serif;
-	font-size: 0.85em;
-	background-color: rgba(255, 255, 255, 0.9);
-	/* Slight transparency */
-	border-radius: 5px;
-	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
-	/* Add a subtle shadow */
+#custom-map-container {
+  position: relative;
 }
 
-#tooltip-table th, #tooltip-table td {
-	padding: 5px;
+.info-box {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  display: none;
+  width: 270px;
+  // font-size: 14px;
+  z-index: 9999;
+}
+
+/* Additional styling for the info-box text */
+.info-box strong {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.info-box table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.info-box th, .info-box td {
+  padding: 5px;
+  font-size: 0.85em;
+  border-bottom: 1px solid #ccc;
+}
+
+.info-box th {
+  font-weight: bold;
+  background-color: #f0f0f0;
+}
+
+.info-box tr:nth-child(even) {
+  background-color: #fafaee; /* Light background for alternate rows */
+}
+
+.info-box td:first-child {
+  font-weight: bold;
+  width: 60%;
+}
+
+.info-box td:last-child {
+  text-align: right;
+  width: 40%;
+}
+
+.hidden {
+  display: none !important;
 }
 
 .info.legend {
