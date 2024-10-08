@@ -22,7 +22,14 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Sumatera Utara", {
     // Render the HTML for the map container inside the HTML wrapper field
     frm.fields_dict.map_html.$wrapper.html(`
       <div id="custom-map-container">
-        <div id="${mapContainerId}" style="height: 80vh; position: relative;"></div>
+        <div id="${mapContainerId}" style="height: 80vh; position: relative;">
+          <div id="loading-indicator" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none;">
+              <div class="spinner-border" role="status">
+                  <span class="visually-hidden">Loading...</span>
+              </div>
+              <p>Loading map data...</p>
+          </div>
+        </div>
         <div id="${infoBoxTooltipId}" class="info-box"></div>
       </div>
     `);
@@ -271,6 +278,8 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Sumatera Utara", {
 
       const url = `polmarkdashboard.api.geojson.get_geojson_data_by_region?region=Sumatera Utara&region_level=${mapRenderLevel}&region_code=${region_code}`;
 
+      showHideLoadingIndicator(true);
+
       fetchGeoJsonData(url)
         .then((geoJson) => {
           if (!geoJson || geoJson.features.length === 0) {
@@ -331,6 +340,10 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Sumatera Utara", {
       } else if (parseInt(level) === CONST_SUBDISTRICT_LEVEL) {
         subDistrictDefaultView = mapInstance.getCenter();
       }
+    }
+
+    function showHideLoadingIndicator(isShow = true) {
+      $("#loading-indicator").css('display', (isShow) ? 'block' : 'none');
     }
 
     function showHideBackButtonControl(level) {
