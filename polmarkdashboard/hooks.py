@@ -23,6 +23,7 @@ fixtures = [
             ["name", "in", ["Polmark Dashboard Manager", "Polmark Dashboard User"]]
         ],
     },
+    {"doctype": "Custom HTML Block"},
     {"doctype": "Workspace"},
     {"doctype": "PD Region Type", "filters": [["standard", "=", 1]]},
     {"doctype": "PD Document Category", "filters": [["standard", "=", 1]]},
