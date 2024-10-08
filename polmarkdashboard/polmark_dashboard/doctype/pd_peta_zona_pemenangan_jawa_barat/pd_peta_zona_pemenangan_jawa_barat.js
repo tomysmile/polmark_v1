@@ -1,6 +1,9 @@
 // Copyright (c) 2024, thinkspedia and contributors
 // For license information, please see license.txt
 
+// Global variable
+let infoBoxTooltipId = "info-box-jawabarat";
+
 frappe.ui.form.on("PD Peta Zona Pemenangan Jawa Barat", {
   refresh(frm) {
     frm.set_df_property("map_html", "hidden", frm.is_new() ? 1 : 0);
@@ -13,24 +16,16 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Jawa Barat", {
     // Set a unique container ID for the map (important if dealing with multiple forms)
     const mapContainerId = "map_" + frm.doc.name;
 
-    // Set up the map inside the Doctype form
-    const dataTooltipArea = createDataTooltip();
-
     // Render the HTML for the map container inside the HTML wrapper field
     frm.fields_dict.map_html.$wrapper.html(`
-      <div id="custom-map-container">
+      <div id="custom-map-container-2">
         <div id="${mapContainerId}" style="height: 80vh; position: relative;"></div>
-        ${dataTooltipArea}
+        <div id="${infoBoxTooltipId}" class="info-box"></div>
       </div>
     `);
 
     // Initialize the map after rendering the HTML
     frm.events.initialize_map(mapContainerId, frm);
-
-    function createDataTooltip() {
-      const tooltipId = "info-box-jawabarat";
-      return `<div id="${tooltipId}" class="info-box"></div>`;
-    }
   },
   initialize_map: function (mapContainerId, frmInstance) {
     const indonesiaDefaultView = [-2.5489, 118.0149];
@@ -77,13 +72,13 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Jawa Barat", {
     let areLabelsVisible = true;
 
     // Clear the map instance if it exists
-    var mapContainer = L.DomUtil.get(mapContainerId);
+    let mapContainer = L.DomUtil.get(mapContainerId);
     if (mapContainer._leaflet_id) {
       mapContainer._leaflet_id = null; // Reset the map container
     }
 
     // Initialize the Leaflet map
-    var mapInstance = L.map(mapContainerId).setView(indonesiaDefaultView, 5);
+    let mapInstance = L.map(mapContainerId).setView(indonesiaDefaultView, 5);
 
     // Add tile layer to the map
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -92,7 +87,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Jawa Barat", {
 
     const { region, region_level, region_type, region_name } = frmInstance.doc;
 
-    const tooltipBoxId = "#info-box-jawabarat";
+    const tooltipBoxId = "#" + infoBoxTooltipId;
 
     // Stack to store map levels (e.g., 'province', 'city', 'district')
     let mapLevelStack = [];
@@ -123,22 +118,18 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Jawa Barat", {
     addLegend();
     addShowHideLayer();
 
-    function numberFormat(number) {
-      // Cek apakah input adalah angka atau string angka
-      if (!isNaN(number)) {
-        // Jika ada desimal, pisahkan antara bagian desimal dan bagian utamanya
-        let [main, decimal] = number.toString().split(".");
-
-        // Format bagian utama menggunakan titik sebagai pemisah ribuan
-        main = main.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
-        // Gabungkan kembali dengan bagian desimal jika ada
-        return decimal ? `${main},${decimal}` : main;
-      }
-      return number; // Kembalikan input jika bukan angka
-    }
+    mapInstance.on('zoomend', function () {
+      showHideBackButtonControl(currentMapLevel);
+    });
 
     function addBackButtonControl() {
+      // First, check if an existing back button is present, and remove it
+      let existingBackButton = document.querySelector(".back-button");
+      if (existingBackButton) {
+        existingBackButton.remove();
+        console.log("Existing back button removed");
+      }
+
       const backButton = L.Control.extend({
         options: {
           position: "topright",
@@ -146,7 +137,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Jawa Barat", {
         onAdd: function () {
           let container = L.DomUtil.create(
             "div",
-            "leaflet-bar leaflet-control leaflet-control-custom back-button"
+            "leaflet-bar leaflet-control leaflet-control-custom back-button jawabarat"
           );
 
           container.style.backgroundColor = "white";
@@ -159,9 +150,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Jawa Barat", {
 
           // Add click event to trigger goBack function
           container.onclick = function () {
-            goBack(); // Trigger the back function
-            // mapInstance.setView(getDefaultMapView(level), 5);
-            container.style.display = "none";
+            goBack();
           };
 
           return container;
@@ -347,7 +336,13 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Jawa Barat", {
 
     function showHideBackButtonControl(level) {
       let isShow = parseInt(level) > defaultMapLevel;
-      document.querySelector(".back-button").style.display = isShow ? "block" : "none";
+      let backButton = document.querySelector(".back-button");
+
+      if (!backButton) {
+        console.error("Back button not found in the DOM!");
+      } else {
+        backButton.style.display = isShow ? "block" : "none";
+      }
     }
 
     function getMarkersGroup(level) {
@@ -559,35 +554,35 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Jawa Barat", {
         ${districtInfo}
         <tr>
           <td>TPS</td>
-          <td>${numberFormat(data.jml_tps)}</td>
+          <td>${frappe.utils.numberFormat(data.jml_tps)}</td>
         </tr>
         <tr>
           <td>Penduduk</td>
-          <td>${numberFormat(data.jml_pend)}</td>
+          <td>${frappe.utils.numberFormat(data.jml_pend)}</td>
         </tr>
         <tr>
           <td>DPT</td>
-          <td>${numberFormat(data.jml_dpt)}</td>
+          <td>${frappe.utils.numberFormat(data.jml_dpt)}</td>
         </tr>
         <tr>
           <td>KK</td>
-          <td>${numberFormat(data.jml_kk)}</td>
+          <td>${frappe.utils.numberFormat(data.jml_kk)}</td>
         </tr>
         <tr>
           <td>CDE</td>
-          <td>${numberFormat(data.jml_cde)}</td>
+          <td>${frappe.utils.numberFormat(data.jml_cde)}</td>
         </tr>
         <tr>
           <td>Pemilih /KK</td>
-          <td>${numberFormat(data.jml_dpt_perkk)}</td>
+          <td>${frappe.utils.numberFormat(data.jml_dpt_perkk)}</td>
         </tr>
         <tr>
           <td>Pemilih Perempuan</td>
-          <td>${numberFormat(data.jml_dpt_perempuan)}</td>
+          <td>${frappe.utils.numberFormat(data.jml_dpt_perempuan)}</td>
         </tr>
         <tr>
           <td>Pemilih Muda</td>
-          <td>${numberFormat(data.jml_dpt_muda)}</td>
+          <td>${frappe.utils.numberFormat(data.jml_dpt_muda)}</td>
         </tr>
         <tr>
           <td>ZONA</td>
@@ -741,8 +736,6 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Jawa Barat", {
 
     function fetchTableData(level, region) {
       const url = `polmarkdashboard.api.geojson.get_tabular_data?region=Jawa Barat&region_level=${mapRenderLevel}&region_code=${region}`;
-
-      console.log("url: ", url);
 
       frappe.call({
         method: url,

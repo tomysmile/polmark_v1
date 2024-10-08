@@ -58,6 +58,7 @@ app_include_css = [
 ]
 
 app_include_js = [
+    "/assets/polmarkdashboard/js/utils.js",
     "/assets/polmarkdashboard/js/leaflet.js",
     "/assets/polmarkdashboard/js/patch-leaflet.js",
     "/assets/polmarkdashboard/js/Leaflet.fullscreen.min.js"
