@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"Zf8KHOPXPF\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Pilkada Countdown\",\"col\":12}},{\"id\":\"alJsFIRaeQ\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Peta Zona Pemenangan\",\"col\":6}},{\"id\":\"qz673llfAt\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Wilayah Pendampingan\",\"col\":6}},{\"id\":\"axwo6p-uba\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Informasi Umum\",\"col\":6}},{\"id\":\"uA8TvYHAdi\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Master Module\",\"col\":6}}]",
+ "content": "[{\"id\":\"5AkZCOc8Uk\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Polmark Logo\",\"col\":12}},{\"id\":\"Zf8KHOPXPF\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Pilkada Countdown\",\"col\":12}},{\"id\":\"alJsFIRaeQ\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Peta Zona Pemenangan\",\"col\":6}},{\"id\":\"qz673llfAt\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Wilayah Pendampingan\",\"col\":6}},{\"id\":\"axwo6p-uba\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Informasi Umum\",\"col\":6}},{\"id\":\"uA8TvYHAdi\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Master Module\",\"col\":6}}]",
  "creation": "2024-10-07 14:32:14.365853",
  "custom_blocks": [
   {
@@ -22,6 +22,10 @@
   {
    "custom_block_name": "Daftar Peta Zona Pemenangan",
    "label": "Daftar Peta Zona Pemenangan"
+  },
+  {
+   "custom_block_name": "Polmark Logo",
+   "label": "Polmark Logo"
   }
  ],
  "docstatus": 0,
@@ -34,7 +38,7 @@
  "is_hidden": 0,
  "label": "Polmark",
  "links": [],
- "modified": "2024-10-08 18:10:57.388120",
+ "modified": "2024-10-08 18:47:05.907868",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "Polmark",

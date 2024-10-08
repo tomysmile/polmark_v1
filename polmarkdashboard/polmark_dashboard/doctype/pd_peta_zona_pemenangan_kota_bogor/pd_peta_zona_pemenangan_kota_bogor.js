@@ -7,6 +7,9 @@ let infoBoxTooltipId = "info-box-kota-bogor";
 frappe.ui.form.on("PD Peta Zona Pemenangan Kota Bogor", {
   refresh(frm) {
     frm.set_df_property("map_html", "hidden", frm.is_new() ? 1 : 0);
+    frm.set_df_property('region', 'hidden', (frm.doc.region) ? 1 : 0); // Hide the field
+    frm.set_df_property('region_type', 'hidden', (frm.doc.region) ? 1 : 0);
+    frm.set_df_property('standard', 'hidden', (frm.doc.region) ? 1 : 0);
     frm.events.render_map(frm);
   },
   onload: function (frm) {

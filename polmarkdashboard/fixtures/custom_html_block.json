@@ -53,5 +53,16 @@
   "roles": [],
   "script": null,
   "style": ".card {\n\tborder: 1px solid #e0e0e0; /* Light gray border */\n\tborder-radius: 8px; /* Rounded corners */\n\tbox-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Drop shadow */\n\tpadding: 16px; /* Padding inside the card */\n\tmargin: 2px; /* Margin outside the card */\n\tbackground-color: #fff; /* Background color */\n}"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Custom HTML Block",
+  "html": "<div class=\"logo-container\">\n    <img src=\"/assets/polmarkdashboard/logo.png\" alt=\"Polmark Indonesia\">\n</div>",
+  "modified": "2024-10-08 18:48:47.573540",
+  "name": "Polmark Logo",
+  "private": 0,
+  "roles": [],
+  "script": null,
+  "style": ".logo-container {\n    display: flex;            /* Enable flexbox layout */\n    justify-content: center;  /* Center horizontally */\n    align-items: center;      /* Center vertically */\n    margin: 0;               /* Remove default margin */\n}"
  }
 ]

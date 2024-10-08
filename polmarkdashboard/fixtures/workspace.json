@@ -1946,8 +1946,44 @@
  },
  {
   "charts": [],
-  "content": "[{\"id\":\"-K9yZbEQ29\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Informasi Umum</span>\",\"col\":12}},{\"id\":\"VTYPkU3LND\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"vWVaE6KPSE\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Tahapan Pilkada\",\"col\":12}},{\"id\":\"jvVLKSv8cM\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"PKPU 2024\",\"col\":12}},{\"id\":\"h16MJlU6Cu\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Rekap DPT 2024\",\"col\":12}}]",
-  "custom_blocks": [],
+  "content": "[{\"id\":\"GOnjVGWoHC\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Polmark Logo\",\"col\":12}},{\"id\":\"jYZzCVdMxc\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Pilkada Countdown\",\"col\":12}},{\"id\":\"PHiH8-IA4X\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Informasi Umum\",\"col\":12}},{\"id\":\"lR-GNIFZ5k\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Peta Zona Pemenangan\",\"col\":6}},{\"id\":\"SxIInL3utn\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Wilayah Pendampingan\",\"col\":6}}]",
+  "custom_blocks": [
+   {
+    "custom_block_name": "Polmark Logo",
+    "label": "Polmark Logo",
+    "parent": "Informasi Umum",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "Informasi Umum",
+    "label": "Informasi Umum",
+    "parent": "Informasi Umum",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "Pilkada Countdown",
+    "label": "Pilkada Countdown",
+    "parent": "Informasi Umum",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "Daftar Peta Zona Pemenangan",
+    "label": "Daftar Peta Zona Pemenangan",
+    "parent": "Informasi Umum",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "Daftar Wilayah Pendampingan",
+    "label": "Daftar Wilayah Pendampingan",
+    "parent": "Informasi Umum",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   }
+  ],
   "docstatus": 0,
   "doctype": "Workspace",
   "for_user": "",
@@ -1957,7 +1993,7 @@
   "is_hidden": 0,
   "label": "Informasi Umum",
   "links": [],
-  "modified": "2024-10-03 06:25:31.207845",
+  "modified": "2024-10-08 18:51:07.392455",
   "module": "Polmark Dashboard",
   "name": "Informasi Umum",
   "number_cards": [],
@@ -1967,56 +2003,7 @@
   "restrict_to_domain": null,
   "roles": [],
   "sequence_id": 2.0,
-  "shortcuts": [
-   {
-    "color": "Grey",
-    "doc_view": "List",
-    "format": null,
-    "icon": null,
-    "kanban_board": null,
-    "label": "Tahapan Pilkada",
-    "link_to": "PD Document Upload",
-    "parent": "Informasi Umum",
-    "parentfield": "shortcuts",
-    "parenttype": "Workspace",
-    "restrict_to_domain": null,
-    "stats_filter": "[[\"PD Document Upload\",\"document_category\",\"=\",\"Tahapan Pilkada 2024\",false]]",
-    "type": "DocType",
-    "url": null
-   },
-   {
-    "color": "Grey",
-    "doc_view": "List",
-    "format": null,
-    "icon": null,
-    "kanban_board": null,
-    "label": "PKPU 2024",
-    "link_to": "PD Document Upload",
-    "parent": "Informasi Umum",
-    "parentfield": "shortcuts",
-    "parenttype": "Workspace",
-    "restrict_to_domain": null,
-    "stats_filter": "[[\"PD Document Upload\",\"document_category\",\"=\",\"PKPU 2024\",false]]",
-    "type": "DocType",
-    "url": null
-   },
-   {
-    "color": "Grey",
-    "doc_view": "List",
-    "format": null,
-    "icon": null,
-    "kanban_board": null,
-    "label": "Rekap DPT 2024",
-    "link_to": "PD Rekap DPT 2024",
-    "parent": "Informasi Umum",
-    "parentfield": "shortcuts",
-    "parenttype": "Workspace",
-    "restrict_to_domain": null,
-    "stats_filter": "[]",
-    "type": "DocType",
-    "url": null
-   }
-  ],
+  "shortcuts": [],
   "title": "Informasi Umum"
  },
  {
@@ -4456,7 +4443,7 @@
  },
  {
   "charts": [],
-  "content": "[{\"id\":\"Zf8KHOPXPF\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Pilkada Countdown\",\"col\":12}},{\"id\":\"alJsFIRaeQ\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Peta Zona Pemenangan\",\"col\":6}},{\"id\":\"qz673llfAt\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Wilayah Pendampingan\",\"col\":6}},{\"id\":\"axwo6p-uba\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Informasi Umum\",\"col\":6}},{\"id\":\"uA8TvYHAdi\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Master Module\",\"col\":6}}]",
+  "content": "[{\"id\":\"5AkZCOc8Uk\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Polmark Logo\",\"col\":12}},{\"id\":\"Zf8KHOPXPF\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Pilkada Countdown\",\"col\":12}},{\"id\":\"alJsFIRaeQ\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Peta Zona Pemenangan\",\"col\":6}},{\"id\":\"qz673llfAt\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Wilayah Pendampingan\",\"col\":6}},{\"id\":\"axwo6p-uba\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Informasi Umum\",\"col\":6}},{\"id\":\"uA8TvYHAdi\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Master Module\",\"col\":6}}]",
   "custom_blocks": [
    {
     "custom_block_name": "Pilkada Countdown",
@@ -4492,6 +4479,13 @@
     "parent": "Polmark",
     "parentfield": "custom_blocks",
     "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "Polmark Logo",
+    "label": "Polmark Logo",
+    "parent": "Polmark",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
    }
   ],
   "docstatus": 0,
@@ -4503,7 +4497,7 @@
   "is_hidden": 0,
   "label": "Polmark",
   "links": [],
-  "modified": "2024-10-08 18:10:57.388120",
+  "modified": "2024-10-08 18:47:05.907868",
   "module": "Polmark Dashboard",
   "name": "Polmark",
   "number_cards": [],
@@ -4518,8 +4512,30 @@
  },
  {
   "charts": [],
-  "content": "[{\"id\":\"h916RorRfv\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Pendampingan</span>\",\"col\":12}}]",
-  "custom_blocks": [],
+  "content": "[{\"id\":\"KXy0TP8iYw\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Polmark Logo\",\"col\":12}},{\"id\":\"SUiWQV6kSY\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Peta Zona Pemenangan\",\"col\":6}},{\"id\":\"7NgoePal0K\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Wilayah Pendampingan\",\"col\":6}}]",
+  "custom_blocks": [
+   {
+    "custom_block_name": "Polmark Logo",
+    "label": "Polmark Logo",
+    "parent": "Pendampingan",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "Daftar Peta Zona Pemenangan",
+    "label": "Daftar Peta Zona Pemenangan",
+    "parent": "Pendampingan",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "Daftar Wilayah Pendampingan",
+    "label": "Daftar Wilayah Pendampingan",
+    "parent": "Pendampingan",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   }
+  ],
   "docstatus": 0,
   "doctype": "Workspace",
   "for_user": "",
@@ -4529,7 +4545,7 @@
   "is_hidden": 0,
   "label": "Pendampingan",
   "links": [],
-  "modified": "2024-10-03 06:25:31.230936",
+  "modified": "2024-10-08 18:52:15.151220",
   "module": "Polmark Dashboard",
   "name": "Pendampingan",
   "number_cards": [],

@@ -1,9 +1,21 @@
 {
- "app": "polmarkdashboard",
  "charts": [],
- "content": "[{\"id\":\"h916RorRfv\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Pendampingan</span>\",\"col\":12}}]",
- "creation": "2024-10-02 16:28:14.672600",
- "custom_blocks": [],
+ "content": "[{\"id\":\"KXy0TP8iYw\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Polmark Logo\",\"col\":12}},{\"id\":\"SUiWQV6kSY\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Peta Zona Pemenangan\",\"col\":6}},{\"id\":\"7NgoePal0K\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Wilayah Pendampingan\",\"col\":6}}]",
+ "creation": "2024-10-07 14:32:14.386905",
+ "custom_blocks": [
+  {
+   "custom_block_name": "Polmark Logo",
+   "label": "Polmark Logo"
+  },
+  {
+   "custom_block_name": "Daftar Peta Zona Pemenangan",
+   "label": "Daftar Peta Zona Pemenangan"
+  },
+  {
+   "custom_block_name": "Daftar Wilayah Pendampingan",
+   "label": "Daftar Wilayah Pendampingan"
+  }
+ ],
  "docstatus": 0,
  "doctype": "Workspace",
  "for_user": "",
@@ -13,9 +25,8 @@
  "indicator_color": "green",
  "is_hidden": 0,
  "label": "Pendampingan",
- "link_type": "DocType",
  "links": [],
- "modified": "2024-10-02 16:29:54.619238",
+ "modified": "2024-10-08 18:52:15.151220",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "Pendampingan",
@@ -27,6 +38,5 @@
  "roles": [],
  "sequence_id": 3.0,
  "shortcuts": [],
- "title": "Pendampingan",
- "type": "Workspace"
+ "title": "Pendampingan"
 }
