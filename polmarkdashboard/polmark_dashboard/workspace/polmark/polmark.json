@@ -1,51 +1,40 @@
 {
- "app": "polmarkdashboard",
  "charts": [],
- "content": "[{\"id\":\"D5Wmi7Xtk2\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Polmark Dashboard</span>\",\"col\":12}},{\"id\":\"YZ-5NBnFh3\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"SAl7G927Xj\",\"type\":\"card\",\"data\":{\"card_name\":\"Master\",\"col\":12}}]",
- "creation": "2024-10-02 13:47:39.457804",
- "custom_blocks": [],
+ "content": "[{\"id\":\"Zf8KHOPXPF\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Pilkada Countdown\",\"col\":12}},{\"id\":\"alJsFIRaeQ\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Peta Zona Pemenangan\",\"col\":6}},{\"id\":\"qz673llfAt\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Wilayah Pendampingan\",\"col\":6}},{\"id\":\"axwo6p-uba\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Informasi Umum\",\"col\":6}},{\"id\":\"uA8TvYHAdi\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Master Module\",\"col\":6}}]",
+ "creation": "2024-10-07 14:32:14.365853",
+ "custom_blocks": [
+  {
+   "custom_block_name": "Pilkada Countdown",
+   "label": "Pilkada Countdown"
+  },
+  {
+   "custom_block_name": "Daftar Wilayah Pendampingan",
+   "label": "Daftar Wilayah Pendampingan"
+  },
+  {
+   "custom_block_name": "Informasi Umum",
+   "label": "Informasi Umum"
+  },
+  {
+   "custom_block_name": "Master Module",
+   "label": "Master Module"
+  },
+  {
+   "custom_block_name": "Daftar Peta Zona Pemenangan",
+   "label": "Daftar Peta Zona Pemenangan"
+  }
+ ],
  "docstatus": 0,
  "doctype": "Workspace",
  "for_user": "",
  "hide_custom": 0,
  "icon": "review",
- "idx": 3,
+ "idx": 0,
  "indicator_color": "green",
  "is_hidden": 0,
  "label": "Polmark",
- "link_type": "DocType",
- "links": [
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Master",
-   "link_count": 2,
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Document Category",
-   "link_count": 0,
-   "link_to": "PD Document Category",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "News Provider",
-   "link_count": 0,
-   "link_to": "PD News Site",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  }
- ],
- "modified": "2024-10-02 16:29:43.987026",
+ "links": [],
+ "modified": "2024-10-08 18:10:57.388120",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "Polmark",
@@ -57,6 +46,5 @@
  "roles": [],
  "sequence_id": 1.0,
  "shortcuts": [],
- "title": "Polmark",
- "type": "Workspace"
+ "title": "Polmark"
 }

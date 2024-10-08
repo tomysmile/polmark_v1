@@ -4456,8 +4456,44 @@
  },
  {
   "charts": [],
-  "content": "[{\"id\":\"D5Wmi7Xtk2\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Polmark Dashboard</span>\",\"col\":12}},{\"id\":\"YZ-5NBnFh3\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"SAl7G927Xj\",\"type\":\"card\",\"data\":{\"card_name\":\"Master\",\"col\":12}}]",
-  "custom_blocks": [],
+  "content": "[{\"id\":\"Zf8KHOPXPF\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Pilkada Countdown\",\"col\":12}},{\"id\":\"alJsFIRaeQ\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Peta Zona Pemenangan\",\"col\":6}},{\"id\":\"qz673llfAt\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Wilayah Pendampingan\",\"col\":6}},{\"id\":\"axwo6p-uba\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Informasi Umum\",\"col\":6}},{\"id\":\"uA8TvYHAdi\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Master Module\",\"col\":6}}]",
+  "custom_blocks": [
+   {
+    "custom_block_name": "Pilkada Countdown",
+    "label": "Pilkada Countdown",
+    "parent": "Polmark",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "Daftar Wilayah Pendampingan",
+    "label": "Daftar Wilayah Pendampingan",
+    "parent": "Polmark",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "Informasi Umum",
+    "label": "Informasi Umum",
+    "parent": "Polmark",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "Master Module",
+    "label": "Master Module",
+    "parent": "Polmark",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "Daftar Peta Zona Pemenangan",
+    "label": "Daftar Peta Zona Pemenangan",
+    "parent": "Polmark",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   }
+  ],
   "docstatus": 0,
   "doctype": "Workspace",
   "for_user": "",
@@ -4466,63 +4502,8 @@
   "indicator_color": "green",
   "is_hidden": 0,
   "label": "Polmark",
-  "links": [
-   {
-    "dependencies": null,
-    "description": null,
-    "hidden": 0,
-    "icon": null,
-    "is_query_report": 0,
-    "label": "Master",
-    "link_count": 2,
-    "link_to": null,
-    "link_type": "DocType",
-    "onboard": 0,
-    "only_for": null,
-    "parent": "Polmark",
-    "parentfield": "links",
-    "parenttype": "Workspace",
-    "report_ref_doctype": null,
-    "type": "Card Break"
-   },
-   {
-    "dependencies": null,
-    "description": null,
-    "hidden": 0,
-    "icon": null,
-    "is_query_report": 0,
-    "label": "Document Category",
-    "link_count": 0,
-    "link_to": "PD Document Category",
-    "link_type": "DocType",
-    "onboard": 0,
-    "only_for": null,
-    "parent": "Polmark",
-    "parentfield": "links",
-    "parenttype": "Workspace",
-    "report_ref_doctype": null,
-    "type": "Link"
-   },
-   {
-    "dependencies": null,
-    "description": null,
-    "hidden": 0,
-    "icon": null,
-    "is_query_report": 0,
-    "label": "News Provider",
-    "link_count": 0,
-    "link_to": "PD News Site",
-    "link_type": "DocType",
-    "onboard": 0,
-    "only_for": null,
-    "parent": "Polmark",
-    "parentfield": "links",
-    "parenttype": "Workspace",
-    "report_ref_doctype": null,
-    "type": "Link"
-   }
-  ],
-  "modified": "2024-10-03 06:25:31.131125",
+  "links": [],
+  "modified": "2024-10-08 18:10:57.388120",
   "module": "Polmark Dashboard",
   "name": "Polmark",
   "number_cards": [],
@@ -4560,5 +4541,31 @@
   "sequence_id": 3.0,
   "shortcuts": [],
   "title": "Pendampingan"
+ },
+ {
+  "charts": [],
+  "content": "[{\"id\":\"OaIZQ35xnb\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">My Workspace</span>\",\"col\":12}}]",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "for_user": "Administrator",
+  "hide_custom": 0,
+  "icon": null,
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "My Workspace-Administrator",
+  "links": [],
+  "modified": "2024-10-08 16:51:54.461231",
+  "module": null,
+  "name": "My Workspace-Administrator",
+  "number_cards": [],
+  "parent_page": "",
+  "public": 0,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [],
+  "sequence_id": 1.0,
+  "shortcuts": [],
+  "title": "My Workspace"
  }
 ]
