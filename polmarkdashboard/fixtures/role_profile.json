@@ -1,1 +1,17 @@
-[]
+[
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2024-10-10 09:47:21.336683",
+  "name": "Polmark Manager",
+  "role_profile": "Polmark Manager",
+  "roles": [
+   {
+    "parent": "Polmark Manager",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Polmark Dashboard Manager"
+   }
+  ]
+ }
+]

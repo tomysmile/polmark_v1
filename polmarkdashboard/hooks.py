@@ -20,7 +20,7 @@ fixtures = [
     {
         "doctype": "Role Profile",
         "filters": [
-            ["name", "in", ["Polmark Dashboard Manager", "Polmark Dashboard User"]]
+            ["name", "in", ["Polmark Manager", "Polmark User", "Polmark Dashboard Manager", "Polmark Dashboard User"]]
         ],
     },
     {"doctype": "Custom HTML Block"},
