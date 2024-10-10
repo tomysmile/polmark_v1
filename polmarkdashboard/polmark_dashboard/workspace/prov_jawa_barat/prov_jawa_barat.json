@@ -1,8 +1,7 @@
 {
- "app": "polmarkdashboard",
  "charts": [],
  "content": "[{\"id\":\"_PPTVqvBQp\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Dashboard Provinsi Jawa Barat</span>\",\"col\":12}},{\"id\":\"rBTheOvywL\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"OfDuPtofjD\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Peta Zona Pemenangan\",\"col\":6}},{\"id\":\"8e_mSbPPkk\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Peta Politik Dasar\",\"col\":6}},{\"id\":\"gK0dxgsC0U\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hasil Survei\",\"col\":6}},{\"id\":\"Q-PnCaPVKY\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Materi Workshop\",\"col\":6}},{\"id\":\"Ukt8wabaHD\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Link Berita Online\",\"col\":6}},{\"id\":\"FP-_-8okQT\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Visi Misi Program Kerja\",\"col\":6}},{\"id\":\"54gUQB5DrH\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Kontak KPUD dan Panwas\",\"col\":6}},{\"id\":\"-GcW9i9707\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Visi Misi Program Kerja Kompetitor\",\"col\":6}},{\"id\":\"urNNL8gKO4\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Google Drive Desain Kreatif\",\"col\":6}},{\"id\":\"fjIWbe4t_5\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Biodata Kandidat\",\"col\":6}},{\"id\":\"ktYzgcFRd_\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Struktur Tim Kerja\",\"col\":6}}]",
- "creation": "2024-10-02 22:29:08.367556",
+ "creation": "2024-10-07 14:32:14.205151",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
@@ -13,9 +12,8 @@
  "indicator_color": "green",
  "is_hidden": 0,
  "label": "Prov Jawa Barat",
- "link_type": "DocType",
  "links": [],
- "modified": "2024-10-02 22:34:02.230699",
+ "modified": "2024-10-10 21:23:54.379587",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "Prov Jawa Barat",
@@ -25,7 +23,7 @@
  "public": 1,
  "quick_lists": [],
  "roles": [],
- "sequence_id": 31.0,
+ "sequence_id": 13.0,
  "shortcuts": [
   {
    "color": "Grey",
@@ -115,6 +113,5 @@
    "type": "DocType"
   }
  ],
- "title": "Prov Jawa Barat",
- "type": "Workspace"
+ "title": "Prov Jawa Barat"
 }

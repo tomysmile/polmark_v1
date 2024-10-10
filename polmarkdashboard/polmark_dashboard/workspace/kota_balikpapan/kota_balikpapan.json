@@ -1,8 +1,7 @@
 {
- "app": "polmarkdashboard",
  "charts": [],
  "content": "[{\"id\":\"9tDc6V4dA-\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Dashboard Kota Balikpapan</span>\",\"col\":12}},{\"id\":\"W6eyMFBwwJ\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"fwv1Wj378b\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Peta Zona Pemenangan\",\"col\":6}},{\"id\":\"LY0HOFsikZ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Peta Politik Dasar\",\"col\":6}},{\"id\":\"tDB0wGVg-7\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hasil Survei\",\"col\":6}},{\"id\":\"ulRflOcDtA\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Materi Workshop\",\"col\":6}},{\"id\":\"MmsMRklFa8\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Link Berita Online\",\"col\":6}},{\"id\":\"4Lkki50TKc\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Visi Misi Program Kerja\",\"col\":6}},{\"id\":\"2x59hIJygF\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Kontak KPUD dan Panwas\",\"col\":6}},{\"id\":\"__9HbArHgR\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Visi Misi Program Kerja Kompetitor\",\"col\":6}},{\"id\":\"aW10lqhgW7\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Google Drive Desain Kreatif\",\"col\":6}},{\"id\":\"x6FTdVGaL9\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Biodata Kandidat\",\"col\":6}},{\"id\":\"KyvpE6nAvD\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Struktur Tim Kerja\",\"col\":6}}]",
- "creation": "2024-10-02 21:49:45.287814",
+ "creation": "2024-10-07 14:32:13.941594",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
@@ -13,9 +12,8 @@
  "indicator_color": "green",
  "is_hidden": 0,
  "label": "Kota Balikpapan",
- "link_type": "DocType",
  "links": [],
- "modified": "2024-10-02 21:58:18.787451",
+ "modified": "2024-10-10 21:23:53.937333",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "Kota Balikpapan",
@@ -25,7 +23,7 @@
  "public": 1,
  "quick_lists": [],
  "roles": [],
- "sequence_id": 26.0,
+ "sequence_id": 8.0,
  "shortcuts": [
   {
    "color": "Grey",
@@ -115,6 +113,5 @@
    "type": "DocType"
   }
  ],
- "title": "Kota Balikpapan",
- "type": "Workspace"
+ "title": "Kota Balikpapan"
 }

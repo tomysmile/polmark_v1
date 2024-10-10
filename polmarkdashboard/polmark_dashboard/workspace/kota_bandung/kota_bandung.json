@@ -1,8 +1,7 @@
 {
- "app": "polmarkdashboard",
  "charts": [],
  "content": "[{\"id\":\"NnsorSGBa_\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Dashboard Kota Bandung</span>\",\"col\":12}},{\"id\":\"VUh-k1mSKQ\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"MV1t-QDgSu\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Peta Zona Pemenangan\",\"col\":6}},{\"id\":\"69x9QTjux5\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Peta Politik Dasar\",\"col\":6}},{\"id\":\"RYLJxpFWv7\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hasil Survei\",\"col\":6}},{\"id\":\"goasMe-cSr\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Materi Workshop\",\"col\":6}},{\"id\":\"dN76Oey-cL\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Link Berita Online\",\"col\":6}},{\"id\":\"uOGtXFTa2m\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Visi Misi Program Kerja\",\"col\":6}},{\"id\":\"rW50TGzu8i\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Kontak KPUD dan Panwas\",\"col\":6}},{\"id\":\"ty7Lk5zGOZ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Visi Misi Program Kerja Kompetitor\",\"col\":6}},{\"id\":\"3dTdd_VRot\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Google Drive Desain Kreatif\",\"col\":6}},{\"id\":\"JiXmG7K02J\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Biodata Kandidat\",\"col\":6}},{\"id\":\"a1Cmwe42-S\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Struktur Tim Kerja\",\"col\":6}}]",
- "creation": "2024-10-02 22:01:12.428708",
+ "creation": "2024-10-07 14:32:13.991244",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
@@ -13,9 +12,8 @@
  "indicator_color": "green",
  "is_hidden": 0,
  "label": "Kota Bandung",
- "link_type": "DocType",
  "links": [],
- "modified": "2024-10-02 22:06:20.671163",
+ "modified": "2024-10-10 21:23:54.064514",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "Kota Bandung",
@@ -25,7 +23,7 @@
  "public": 1,
  "quick_lists": [],
  "roles": [],
- "sequence_id": 27.0,
+ "sequence_id": 9.0,
  "shortcuts": [
   {
    "color": "Grey",
@@ -115,6 +113,5 @@
    "type": "DocType"
   }
  ],
- "title": "Kota Bandung",
- "type": "Workspace"
+ "title": "Kota Bandung"
 }

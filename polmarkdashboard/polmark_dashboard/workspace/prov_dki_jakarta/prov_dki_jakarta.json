@@ -1,8 +1,7 @@
 {
- "app": "polmarkdashboard",
  "charts": [],
  "content": "[{\"id\":\"_Vs-3CQqp5\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Dashboard Provinsi DKI Jakarta</span>\",\"col\":12}},{\"id\":\"YKnocXVs1a\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"PTs4OyEQKw\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Peta Zona Pemenangan\",\"col\":6}},{\"id\":\"D7xEE6qPJl\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Peta Politik Dasar\",\"col\":6}},{\"id\":\"60a8e6-sf3\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hasil Survei\",\"col\":6}},{\"id\":\"u8jN74gYkG\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Materi Workshop\",\"col\":6}},{\"id\":\"1bK8xciTCB\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Link Berita Online\",\"col\":6}},{\"id\":\"8uCYKy-LcW\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Visi Misi Program Kerja\",\"col\":6}},{\"id\":\"ocZNRRRH7A\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Kontak KPUD dan Panwas\",\"col\":6}},{\"id\":\"Ud64wv24Yr\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Visi Misi Program Kerja Kompetitor\",\"col\":6}},{\"id\":\"3EFJqiZQPe\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Google Drive Desain Kreatif\",\"col\":6}},{\"id\":\"6YSSewdIap\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Biodata Kandidat\",\"col\":6}},{\"id\":\"6vk3gkt-wW\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Struktur Tim Kerja\",\"col\":6}}]",
- "creation": "2024-10-02 22:06:49.056849",
+ "creation": "2024-10-07 14:32:14.043370",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
@@ -13,9 +12,8 @@
  "indicator_color": "green",
  "is_hidden": 0,
  "label": "Prov DKI Jakarta",
- "link_type": "DocType",
  "links": [],
- "modified": "2024-10-02 22:11:53.778175",
+ "modified": "2024-10-10 21:23:54.139132",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "Prov DKI Jakarta",
@@ -25,7 +23,7 @@
  "public": 1,
  "quick_lists": [],
  "roles": [],
- "sequence_id": 28.0,
+ "sequence_id": 10.0,
  "shortcuts": [
   {
    "color": "Grey",
@@ -115,6 +113,5 @@
    "type": "DocType"
   }
  ],
- "title": "Prov DKI Jakarta",
- "type": "Workspace"
+ "title": "Prov DKI Jakarta"
 }

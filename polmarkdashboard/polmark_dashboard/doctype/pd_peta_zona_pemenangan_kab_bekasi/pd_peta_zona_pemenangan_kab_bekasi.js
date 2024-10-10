@@ -447,7 +447,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Kab Bekasi", {
       mapRenderLevel = renderLevel;
       lastMapLevel = currentMapLevel;
 
-      const url = `polmarkdashboard.api.geojson.get_geojson_data_by_region?region=Kab Bekasi&region_level=${mapRenderLevel}&region_code=${region_code}`;
+      const url = `polmarkdashboard.api.geojson.get_geojson_data_by_region?region=Kabupaten Bekasi&region_level=${mapRenderLevel}&region_code=${region_code}`;
 
       showHideLoadingIndicator(true);
 
@@ -867,7 +867,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Kab Bekasi", {
     }
 
     function fetchTableData(level, region) {
-      const url = `polmarkdashboard.api.geojson.get_tabular_data?region=Kab Bekasi&region_level=${mapRenderLevel}&region_code=${region}`;
+      const url = `polmarkdashboard.api.geojson.get_tabular_data?region=Kabupaten Bekasi&region_level=${mapRenderLevel}&region_code=${region}`;
 
       frappe.call({
         method: url,
