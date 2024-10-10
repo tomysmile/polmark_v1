@@ -3,7 +3,7 @@
  "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:region_code",
- "creation": "2024-10-02 21:02:32.737188",
+ "creation": "2024-10-02 21:01:53.280717",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -13,8 +13,8 @@
   "region_name_bps",
   "region_type",
   "region_level",
-  "active",
   "standard",
+  "active",
   "column_break_yxfi",
   "parent_code",
   "parent_code_bps",
@@ -510,7 +510,7 @@
    "label": "Geojson"
   },
   {
-   "default": "1",
+   "default": "0",
    "fieldname": "active",
    "fieldtype": "Check",
    "label": "Active"
@@ -519,10 +519,10 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-10 16:10:20.279202",
+ "modified": "2024-10-10 16:11:29.369811",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
- "name": "PD Geojson Sumatera Utara",
+ "name": "PD Geojson Kabupaten Bekasi",
  "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [

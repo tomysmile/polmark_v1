@@ -284,6 +284,8 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Kota Balikpapan", {
 
       const url = `polmarkdashboard.api.geojson.get_geojson_data_by_region?region=Kota Balikpapan&region_level=${mapRenderLevel}&region_code=${region_code}`;
 
+      console.log('url: ', url);
+
       showHideLoadingIndicator(true);
 
       fetchGeoJsonData(url)

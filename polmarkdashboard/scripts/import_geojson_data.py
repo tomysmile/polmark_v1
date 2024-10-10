@@ -60,6 +60,9 @@ def insert_to_database(doctype, file_path):
                 "sub_district_code": item.get("sub_district_code"),
                 "sub_district_code_bps": item.get("sub_district_code_bps"),
                 "sub_district_zone": item.get("sub_district_zone"),
+                "num_city_kokab": item.get("num_city_kokab"),
+                "num_city_kota": item.get("num_city_kota"),
+                "num_city_kab": item.get("num_city_kab"),
                 "num_district": item.get("num_district"),
                 "num_sub_district": item.get("num_sub_district"),
                 "num_sub_district_kelurahan": item.get("num_sub_district_kelurahan"),
@@ -220,6 +223,17 @@ def import_kalteng():
     print("GeoJSON data imported successfully!")
 
 
+def import_kaltim():
+    file_path = frappe.get_app_path(
+        "polmarkdashboard", "tmp_data", "geojson_indonesia.kalimantan_timur.json"
+    )
+    doctype = "PD Geojson Kalimantan Timur"
+
+    # execute the function
+    insert_to_database(doctype, file_path)
+    print("GeoJSON data imported successfully!")
+
+
 def import_jawa_barat():
     file_path = frappe.get_app_path(
         "polmarkdashboard", "tmp_data", "geojson_indonesia.jawa_barat.json"
@@ -236,6 +250,17 @@ def import_sumatera_utara():
         "polmarkdashboard", "tmp_data", "geojson_indonesia.sumatera_utara.json"
     )
     doctype = "PD Geojson Sumatera Utara"
+
+    # execute the function
+    insert_to_database(doctype, file_path)
+    print("GeoJSON data imported successfully!")
+
+
+def import_indonesia():
+    file_path = frappe.get_app_path(
+        "polmarkdashboard", "tmp_data", "geojson_indonesia.json"
+    )
+    doctype = "PD Geojson Indonesia"
 
     # execute the function
     insert_to_database(doctype, file_path)

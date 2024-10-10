@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestPDGeojsonKabBekasi(FrappeTestCase):
+class TestPDGeojsonKabupatenBekasi(FrappeTestCase):
 	pass

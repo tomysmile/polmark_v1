@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class PDGeojsonKabBekasi(Document):
+class PDGeojsonKabupatenBekasi(Document):
 	pass

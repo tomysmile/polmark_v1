@@ -14,6 +14,7 @@
   "region_type",
   "region_level",
   "standard",
+  "active",
   "column_break_yxfi",
   "parent_code",
   "parent_code_bps",
@@ -507,12 +508,18 @@
   {
    "fieldname": "column_break_wlax",
    "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "active",
+   "fieldtype": "Check",
+   "label": "Active"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-02 16:04:58.511184",
+ "modified": "2024-10-10 16:12:39.932589",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "PD Geojson Kota Bogor",

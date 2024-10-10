@@ -282,6 +282,8 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Jawa Barat", {
 
       const url = `polmarkdashboard.api.geojson.get_geojson_data_by_region?region=Jawa Barat&region_level=${mapRenderLevel}&region_code=${region_code}`;
 
+      console.log('[Jawa Barat] url: ', url);
+
       showHideLoadingIndicator(true);
 
       fetchGeoJsonData(url)

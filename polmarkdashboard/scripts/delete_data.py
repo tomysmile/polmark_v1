@@ -32,3 +32,52 @@ def delete_kota_bogor():
     delete_documents(doctype, filters)
     print("Data deleted successfully!")
 
+
+def delete_nasional():
+    doctype = "PD Geojson Indonesia"
+    filters = []
+    # excluded_provinces = ['SUMATERA UTARA', 'DKI JAKARTA', 'JAWA BARAT', 'KALIMANTAN TENGAH', 'KALIMANTAN TIMUR']
+    # filters = [['region_name', 'not in', excluded_provinces]]
+    
+    # filters = {
+    #     "fieldname": "value"  # Replace with your actual field name and value
+    # }
+
+    # execute the function
+    delete_documents(doctype, filters)
+    print("Data deleted successfully!")
+
+
+def update_nasional_activate():
+    doctype = "PD Geojson Indonesia"
+    filters = []
+
+    # execute the function
+    # Fetch all records from PD_GeoJson_Indonesia
+    records = frappe.get_all(doctype, filters=filters, fields=['name'])
+
+    # Iterate over each record and update the 'active' field
+    for record in records:
+        frappe.db.set_value(doctype, record.name, 'active', 1)
+
+    # Commit the changes to the database
+    frappe.db.commit()
+    print("Data updated successfully!")
+
+
+def update_nasional_not_active():
+    doctype = "PD Geojson Indonesia"
+    excluded_provinces = ['SUMATERA UTARA', 'DKI JAKARTA', 'JAWA BARAT', 'KALIMANTAN TENGAH', 'KALIMANTAN TIMUR']
+    filters = [['region_name', 'not in', excluded_provinces]]
+
+    # execute the function
+    # Fetch all records from PD_GeoJson_Indonesia
+    records = frappe.get_all(doctype, filters=filters, fields=['name'])
+
+    # Iterate over each record and update the 'active' field
+    for record in records:
+        frappe.db.set_value(doctype, record.name, 'active', 0)
+
+    # Commit the changes to the database
+    frappe.db.commit()
+    print("Data updated successfully!")

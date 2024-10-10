@@ -37,7 +37,8 @@ fixtures = [
     {"doctype": "PD Peta Zona Pemenangan Kalimantan Tengah", "filters": [["standard", "=", 1]]},
     {"doctype": "PD Peta Zona Pemenangan DKI Jakarta", "filters": [["standard", "=", 1]]},
     {"doctype": "PD Peta Zona Pemenangan Jawa Barat", "filters": [["standard", "=", 1]]},
-    {"doctype": "PD Peta Zona Pemenangan Sumatera Utara", "filters": [["standard", "=", 1]]}
+    {"doctype": "PD Peta Zona Pemenangan Sumatera Utara", "filters": [["standard", "=", 1]]},
+    {"doctype": "PD Peta Zona Pemenangan", "filters": [["standard", "=", 1]]}
 ]
 
 # Each item in the list will be shown as an app in the apps page
@@ -55,15 +56,19 @@ fixtures = [
 # ------------------
 
 app_include_css = [
-    "style.bundle.css",
+    "style.bundle.css"
 ]
 
 app_include_js = [
-    "/assets/polmarkdashboard/js/utils.js",
-    "/assets/polmarkdashboard/js/leaflet.js",
-    "/assets/polmarkdashboard/js/patch-leaflet.js",
-    "/assets/polmarkdashboard/js/Leaflet.fullscreen.min.js"
+    # "/assets/polmarkdashboard/js/utils.js",
+    # "/assets/polmarkdashboard/js/leaflet.js",
+    # "/assets/polmarkdashboard/js/patch-leaflet.js",
+    # "/assets/polmarkdashboard/js/Leaflet.fullscreen.min.js",
+    # "/assets/polmarkdashboard/js/custom_login_redirect.js",
+    "main.bundle.js"
 ]
+
+on_session_creation = "polmarkdashboard.scripts.utils.redirect_user_after_session_creation"
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/polmarkdashboard/css/polmarkdashboard.css"
