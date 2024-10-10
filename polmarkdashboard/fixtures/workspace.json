@@ -517,7 +517,7 @@
     "type": "Link"
    }
   ],
-  "modified": "2024-10-03 06:25:32.042181",
+  "modified": "2024-10-10 21:23:54.947765",
   "module": "Website",
   "name": "Website",
   "number_cards": [],
@@ -526,7 +526,7 @@
   "quick_lists": [],
   "restrict_to_domain": "",
   "roles": [],
-  "sequence_id": 16.0,
+  "sequence_id": 17.0,
   "shortcuts": [
    {
     "color": "Green",
@@ -1151,7 +1151,7 @@
     "type": "Link"
    }
   ],
-  "modified": "2024-10-03 06:25:31.890133",
+  "modified": "2024-10-10 21:23:54.662368",
   "module": "Automation",
   "name": "Tools",
   "number_cards": [],
@@ -1160,7 +1160,7 @@
   "quick_lists": [],
   "restrict_to_domain": "",
   "roles": [],
-  "sequence_id": 14.0,
+  "sequence_id": 15.0,
   "shortcuts": [
    {
     "color": "Grey",
@@ -1495,7 +1495,7 @@
     "type": "Link"
    }
   ],
-  "modified": "2024-10-03 06:25:31.969057",
+  "modified": "2024-10-10 21:23:54.820456",
   "module": "Core",
   "name": "Users",
   "number_cards": [],
@@ -1504,7 +1504,7 @@
   "quick_lists": [],
   "restrict_to_domain": "",
   "roles": [],
-  "sequence_id": 15.0,
+  "sequence_id": 16.0,
   "shortcuts": [
    {
     "color": null,
@@ -1931,7 +1931,7 @@
     "type": "Link"
    }
   ],
-  "modified": "2024-10-03 06:25:32.127302",
+  "modified": "2024-10-10 21:23:55.179866",
   "module": "Integrations",
   "name": "Integrations",
   "number_cards": [],
@@ -1940,13 +1940,13 @@
   "quick_lists": [],
   "restrict_to_domain": "",
   "roles": [],
-  "sequence_id": 17.0,
+  "sequence_id": 18.0,
   "shortcuts": [],
   "title": "Integrations"
  },
  {
   "charts": [],
-  "content": "[{\"id\":\"GOnjVGWoHC\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Polmark Logo\",\"col\":12}},{\"id\":\"jYZzCVdMxc\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Pilkada Countdown\",\"col\":12}},{\"id\":\"PHiH8-IA4X\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Informasi Umum\",\"col\":12}},{\"id\":\"lR-GNIFZ5k\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Peta Zona Pemenangan\",\"col\":6}},{\"id\":\"SxIInL3utn\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Wilayah Pendampingan\",\"col\":6}}]",
+  "content": "[{\"id\":\"GOnjVGWoHC\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Polmark Logo\",\"col\":12}},{\"id\":\"jYZzCVdMxc\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Pilkada Countdown\",\"col\":12}},{\"id\":\"V4LR7YKIh6\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Main Peta Zona Pemenangan\",\"col\":12}},{\"id\":\"PHiH8-IA4X\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Informasi Umum\",\"col\":12}},{\"id\":\"lR-GNIFZ5k\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Peta Zona Pemenangan\",\"col\":6}},{\"id\":\"SxIInL3utn\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Wilayah Pendampingan\",\"col\":6}}]",
   "custom_blocks": [
    {
     "custom_block_name": "Polmark Logo",
@@ -1958,6 +1958,13 @@
    {
     "custom_block_name": "Informasi Umum",
     "label": "Informasi Umum",
+    "parent": "Informasi Umum",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "Main Peta Zona Pemenangan",
+    "label": "Main Peta Zona Pemenangan",
     "parent": "Informasi Umum",
     "parentfield": "custom_blocks",
     "parenttype": "Workspace"
@@ -1993,7 +2000,7 @@
   "is_hidden": 0,
   "label": "Informasi Umum",
   "links": [],
-  "modified": "2024-10-08 18:51:07.392455",
+  "modified": "2024-10-10 21:50:52.503578",
   "module": "Polmark Dashboard",
   "name": "Informasi Umum",
   "number_cards": [],
@@ -2002,7 +2009,7 @@
   "quick_lists": [],
   "restrict_to_domain": null,
   "roles": [],
-  "sequence_id": 2.0,
+  "sequence_id": 3.0,
   "shortcuts": [],
   "title": "Informasi Umum"
  },
@@ -2019,7 +2026,7 @@
   "is_hidden": 0,
   "label": "Kota Bogor",
   "links": [],
-  "modified": "2024-10-03 06:25:31.261852",
+  "modified": "2024-10-10 21:23:53.672978",
   "module": "Polmark Dashboard",
   "name": "Kota Bogor",
   "number_cards": [],
@@ -2028,7 +2035,7 @@
   "quick_lists": [],
   "restrict_to_domain": null,
   "roles": [],
-  "sequence_id": 4.0,
+  "sequence_id": 5.0,
   "shortcuts": [
    {
     "color": "Grey",
@@ -2222,7 +2229,7 @@
   "is_hidden": 0,
   "label": "Kab Bekasi",
   "links": [],
-  "modified": "2024-10-03 06:25:31.309349",
+  "modified": "2024-10-10 21:23:53.745378",
   "module": "Polmark Dashboard",
   "name": "Kab Bekasi",
   "number_cards": [],
@@ -2231,7 +2238,7 @@
   "quick_lists": [],
   "restrict_to_domain": null,
   "roles": [],
-  "sequence_id": 5.0,
+  "sequence_id": 6.0,
   "shortcuts": [
    {
     "color": "Grey",
@@ -2425,7 +2432,7 @@
   "is_hidden": 0,
   "label": "Kota Medan",
   "links": [],
-  "modified": "2024-10-03 06:25:31.353599",
+  "modified": "2024-10-10 21:23:53.819153",
   "module": "Polmark Dashboard",
   "name": "Kota Medan",
   "number_cards": [],
@@ -2434,7 +2441,7 @@
   "quick_lists": [],
   "restrict_to_domain": null,
   "roles": [],
-  "sequence_id": 6.0,
+  "sequence_id": 7.0,
   "shortcuts": [
    {
     "color": "Grey",
@@ -2628,7 +2635,7 @@
   "is_hidden": 0,
   "label": "Kota Balikpapan",
   "links": [],
-  "modified": "2024-10-03 06:25:31.399492",
+  "modified": "2024-10-10 21:23:53.937333",
   "module": "Polmark Dashboard",
   "name": "Kota Balikpapan",
   "number_cards": [],
@@ -2637,7 +2644,7 @@
   "quick_lists": [],
   "restrict_to_domain": null,
   "roles": [],
-  "sequence_id": 7.0,
+  "sequence_id": 8.0,
   "shortcuts": [
    {
     "color": "Grey",
@@ -2831,7 +2838,7 @@
   "is_hidden": 0,
   "label": "Kota Bandung",
   "links": [],
-  "modified": "2024-10-03 06:25:31.444499",
+  "modified": "2024-10-10 21:23:54.064514",
   "module": "Polmark Dashboard",
   "name": "Kota Bandung",
   "number_cards": [],
@@ -2840,7 +2847,7 @@
   "quick_lists": [],
   "restrict_to_domain": null,
   "roles": [],
-  "sequence_id": 8.0,
+  "sequence_id": 9.0,
   "shortcuts": [
    {
     "color": "Grey",
@@ -3034,7 +3041,7 @@
   "is_hidden": 0,
   "label": "Prov DKI Jakarta",
   "links": [],
-  "modified": "2024-10-03 06:25:31.489555",
+  "modified": "2024-10-10 21:23:54.139132",
   "module": "Polmark Dashboard",
   "name": "Prov DKI Jakarta",
   "number_cards": [],
@@ -3043,7 +3050,7 @@
   "quick_lists": [],
   "restrict_to_domain": null,
   "roles": [],
-  "sequence_id": 9.0,
+  "sequence_id": 10.0,
   "shortcuts": [
    {
     "color": "Grey",
@@ -3237,7 +3244,7 @@
   "is_hidden": 0,
   "label": "Prov Kalimantan Tengah",
   "links": [],
-  "modified": "2024-10-03 06:25:31.535785",
+  "modified": "2024-10-10 21:23:54.216900",
   "module": "Polmark Dashboard",
   "name": "Prov Kalimantan Tengah",
   "number_cards": [],
@@ -3246,7 +3253,7 @@
   "quick_lists": [],
   "restrict_to_domain": null,
   "roles": [],
-  "sequence_id": 10.0,
+  "sequence_id": 11.0,
   "shortcuts": [
    {
     "color": "Grey",
@@ -3440,7 +3447,7 @@
   "is_hidden": 0,
   "label": "Prov Sumatera Utara",
   "links": [],
-  "modified": "2024-10-03 06:25:31.582364",
+  "modified": "2024-10-10 21:23:54.298593",
   "module": "Polmark Dashboard",
   "name": "Prov Sumatera Utara",
   "number_cards": [],
@@ -3449,7 +3456,7 @@
   "quick_lists": [],
   "restrict_to_domain": null,
   "roles": [],
-  "sequence_id": 11.0,
+  "sequence_id": 12.0,
   "shortcuts": [
    {
     "color": "Grey",
@@ -3643,7 +3650,7 @@
   "is_hidden": 0,
   "label": "Prov Jawa Barat",
   "links": [],
-  "modified": "2024-10-03 06:25:31.626335",
+  "modified": "2024-10-10 21:23:54.379587",
   "module": "Polmark Dashboard",
   "name": "Prov Jawa Barat",
   "number_cards": [],
@@ -3652,7 +3659,7 @@
   "quick_lists": [],
   "restrict_to_domain": null,
   "roles": [],
-  "sequence_id": 12.0,
+  "sequence_id": 13.0,
   "shortcuts": [
    {
     "color": "Grey",
@@ -4369,7 +4376,7 @@
     "type": "Link"
    }
   ],
-  "modified": "2024-10-03 07:03:03.275877",
+  "modified": "2024-10-10 21:23:54.487387",
   "module": "Core",
   "name": "Build",
   "number_cards": [],
@@ -4378,7 +4385,7 @@
   "quick_lists": [],
   "restrict_to_domain": "",
   "roles": [],
-  "sequence_id": 13.0,
+  "sequence_id": 14.0,
   "shortcuts": [
    {
     "color": "Grey",
@@ -4443,7 +4450,7 @@
  },
  {
   "charts": [],
-  "content": "[{\"id\":\"5AkZCOc8Uk\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Polmark Logo\",\"col\":12}},{\"id\":\"Zf8KHOPXPF\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Pilkada Countdown\",\"col\":12}},{\"id\":\"alJsFIRaeQ\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Peta Zona Pemenangan\",\"col\":6}},{\"id\":\"qz673llfAt\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Wilayah Pendampingan\",\"col\":6}},{\"id\":\"axwo6p-uba\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Informasi Umum\",\"col\":6}},{\"id\":\"uA8TvYHAdi\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Master Module\",\"col\":6}}]",
+  "content": "[{\"id\":\"5AkZCOc8Uk\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Polmark Logo\",\"col\":12}},{\"id\":\"Zf8KHOPXPF\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Pilkada Countdown\",\"col\":12}},{\"id\":\"DWoRf20rfe\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Main Peta Zona Pemenangan\",\"col\":12}},{\"id\":\"alJsFIRaeQ\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Peta Zona Pemenangan\",\"col\":6}},{\"id\":\"qz673llfAt\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Wilayah Pendampingan\",\"col\":6}},{\"id\":\"axwo6p-uba\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Informasi Umum\",\"col\":6}},{\"id\":\"uA8TvYHAdi\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Master Module\",\"col\":6}}]",
   "custom_blocks": [
    {
     "custom_block_name": "Pilkada Countdown",
@@ -4486,6 +4493,13 @@
     "parent": "Polmark",
     "parentfield": "custom_blocks",
     "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "Main Peta Zona Pemenangan",
+    "label": "Main Peta Zona Pemenangan",
+    "parent": "Polmark",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
    }
   ],
   "docstatus": 0,
@@ -4497,7 +4511,7 @@
   "is_hidden": 0,
   "label": "Polmark",
   "links": [],
-  "modified": "2024-10-08 18:47:05.907868",
+  "modified": "2024-10-10 21:42:57.402877",
   "module": "Polmark Dashboard",
   "name": "Polmark",
   "number_cards": [],
@@ -4545,7 +4559,7 @@
   "is_hidden": 0,
   "label": "Pendampingan",
   "links": [],
-  "modified": "2024-10-08 18:52:15.151220",
+  "modified": "2024-10-10 21:23:53.620917",
   "module": "Polmark Dashboard",
   "name": "Pendampingan",
   "number_cards": [],
@@ -4554,7 +4568,7 @@
   "quick_lists": [],
   "restrict_to_domain": null,
   "roles": [],
-  "sequence_id": 3.0,
+  "sequence_id": 4.0,
   "shortcuts": [],
   "title": "Pendampingan"
  }
