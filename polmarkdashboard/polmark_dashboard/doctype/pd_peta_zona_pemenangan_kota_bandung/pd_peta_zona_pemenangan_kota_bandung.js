@@ -3,38 +3,38 @@
 
 // Global variable
 let nationalMarkersGroup = null,
-    provinceMarkersGroup = null,
-    cityMarkersGroup = null,
-    districtMarkersGroup = null,
-    subDistrictMarkersGroup = null;
+  provinceMarkersGroup = null,
+  cityMarkersGroup = null,
+  districtMarkersGroup = null,
+  subDistrictMarkersGroup = null;
 
 let currentMapLevel = 0,
-    currentRegionName,
-    currentRegionType,
-    currentRegionCode;
+  currentRegionName,
+  currentRegionType,
+  currentRegionCode;
 
 let parentMapLevel = 0,
-    parentRegionName,
-    parentRegionType,
-    parentRegionCode;
+  parentRegionName,
+  parentRegionType,
+  parentRegionCode;
 
 let lastMapLevel = 0,
-    lastMapTitleName,
-    lastGeojson,
-    lastProvinceCode,
-    lastProvinceName,
-    lastCityCode,
-    lastCityName,
-    lastDistrictCode,
-    lastDistrictName,
-    lastSubDistrictCode,
-    lastSubDistrictName;
+  lastMapTitleName,
+  lastGeojson,
+  lastProvinceCode,
+  lastProvinceName,
+  lastCityCode,
+  lastCityName,
+  lastDistrictCode,
+  lastDistrictName,
+  lastSubDistrictCode,
+  lastSubDistrictName;
 
 let countryDefaultView = [],
-    provinceDefaultView = [],
-    cityDefaultView = [],
-    districtDefaultView = [],
-    subDistrictDefaultView = [];
+  provinceDefaultView = [],
+  cityDefaultView = [],
+  districtDefaultView = [],
+  subDistrictDefaultView = [];
 
 let locationLabel;
 let areLabelsVisible = false;
@@ -47,20 +47,20 @@ let mapTitleName = "";
 let navigateSource = "Geojson";
 
 let mapInstance,
-    tileLayer;
+  tileLayer;
 
 let infoBoxTooltipId = "info-box-kota-bandung";
 
 const CONST_INDONESIA_DEFAULT_VIEW = [-2.5489, 118.0149];
 const CONST_WORLD_LEVEL = 0,
-      CONST_COUNTRY_LEVEL = 1,
-      CONST_PROVINCE_LEVEL = 2,
-      CONST_CITY_LEVEL = 3,
-      CONST_DISTRICT_LEVEL = 4,
-      CONST_SUBDISTRICT_LEVEL = 5;
+  CONST_COUNTRY_LEVEL = 1,
+  CONST_PROVINCE_LEVEL = 2,
+  CONST_CITY_LEVEL = 3,
+  CONST_DISTRICT_LEVEL = 4,
+  CONST_SUBDISTRICT_LEVEL = 5;
 const CONST_DEFAULT_REGION_CODE = "3273",
-      CONST_DEFAULT_REGION_GEOJSON = "Kota Bandung",
-      CONST_DEFAULT_REGION_MAP_LEVEL = CONST_CITY_LEVEL;
+  CONST_DEFAULT_REGION_GEOJSON = "Kota Bandung",
+  CONST_DEFAULT_REGION_MAP_LEVEL = CONST_CITY_LEVEL;
 
 frappe.ui.form.on("PD Peta Zona Pemenangan Kota Bandung", {
   onload: function (frm) {
@@ -126,7 +126,6 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Kota Bandung", {
       addMapTitleLabel(mapTitleName);
       addLegend();
       addShowHideLayer();
-      addTableZonasiContainer();
       addShowTableZonasiLayerControl();
 
       mapInstance.on('zoomend', function () {
@@ -164,19 +163,17 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Kota Bandung", {
       // Map is fully rendered and ready
     }
 
-    function addTableZonasiContainer() {
+    function addShowTableZonasiLayerControl() {
       // Create a right-top container dynamically
-      var infoContainer = L.DomUtil.create('div', 'info-container');
-      infoContainer.id = 'info-container';
+      var infoContainer = L.DomUtil.create('div', 'info-container zonasi');
+      infoContainer.id = 'info-container-zonasi';
 
       // Append the container to the body (or map container)
       mapInstance.getContainer().appendChild(infoContainer);
 
       // By default, hide the info container
       infoContainer.style.display = 'none';
-    }
 
-    function addShowTableZonasiLayerControl() {
       const showTableLayerControl = L.control({ position: "topright" });
       showTableLayerControl.onAdd = () => {
         const customButton = L.DomUtil.create(
@@ -184,14 +181,14 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Kota Bandung", {
           "leaflet-bar leaflet-control custom-button"
         );
         customButton.id = "toggle-table-info-button";
-        customButton.innerHTML = `<i class="fas fa-user-group"></i> &nbsp;&nbsp;<span>Table Zonasi</span>`;
+        customButton.innerHTML = `<i class="fas fa-user-group"></i> &nbsp;&nbsp;<span>Zonasi</span>`;
         customButton.style.fontSize = "16px";
         customButton.style.backgroundColor = "#063970";
         customButton.style.color = "#fff";
 
         // Add the event handler for the button click
         customButton.onclick = function () {
-          toggleShowTableContainer();
+          toggleShowTableContainer('info-container-zonasi');
         };
 
         return customButton;
@@ -582,8 +579,8 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Kota Bandung", {
       document.querySelector(".back-button").style.display = isShow ? "block" : "none";
     }
 
-    function toggleShowTableContainer() {
-      var infoContainer = document.getElementById('info-container');  // Get the container by ID
+    function toggleShowTableContainer(elementId) {
+      var infoContainer = document.getElementById(elementId);  // Get the container by ID
       var button = document.getElementById('toggle-table-info-button');  // Get the button by ID
 
       if (infoContainer.style.display === 'none') {
@@ -696,107 +693,273 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Kota Bandung", {
       }
     }
 
-    function renderTable(level, data) {
-      let table = '<div class="table-wrapper">';
-      table +=
-        `<div style="padding-bottom: 12px">
-      <button id="close-info-container" class="close-button">
-        <i class="fa-solid fa-circle-xmark"></i>
-        &nbsp;<span>Close Table</span>
-      </button>
-    </div>
-    <table>`;
-      table += "<thead><tr>";
+    function generateZonasiTable(level, data) {
+      let tableHead = `
+      <thead>
+      <tr>`;
 
-      if (parseInt(level) == CONST_COUNTRY_LEVEL) {
-        table += `
-      <th>PROV</th>
-    `;
-      } else if (parseInt(level) == CONST_PROVINCE_LEVEL) {
-        table += `
-      <th>PROV</th>
-      <th>KABKOTA</th>
-    `;
-      } else if (parseInt(level) == CONST_CITY_LEVEL) {
-        table += `
-      <th>PROV</th>
-      <th>KABKOTA</th>
-      <th>KEC</th>
-    `;
-      } else if (parseInt(level) == CONST_DISTRICT_LEVEL) {
-        table += `
-      <th>PROV</th>
-      <th>KABKOTA</th>
-      <th>KEC</th>
-      <th>DESA</th>
-    `;
+      if (parseInt(level) >= CONST_PROVINCE_LEVEL) {
+        tableHead += `<th>KOTA</th>`;
       }
 
-      table += `
-    <th>TPS</th>
-    <th>PEND</th>
-    <th>KK</th>
-    <th>PEMILIH 2024</th>
-    <th>CDE</th>
-    <th>PEMILIH /KK</th>
-    <th>PEMILIH PEREMPUAN</th>
-    <th>PEMILIH MUDA</th>
-    <th>ZONASI</th>
-  `;
+      if (parseInt(level) >= CONST_CITY_LEVEL) {
+        tableHead += `<th>KEC</th>`;
+      }
 
-      table += "</tr></thead><tbody>";
+      if (parseInt(level) >= CONST_DISTRICT_LEVEL) {
+        tableHead += `<th>DESA</th>`;
+      }
+
+      tableHead += `
+                <th>TPS</th>
+                <th>PEND</th>
+                <th>KK</th>
+                <th>PEMILIH 2024</th>
+                <th>DPTHP2</th>
+                <th>CDE</th>
+                <th>PEMILIH /KK</th>
+                <th>PEMILIH PEREMPUAN DPTHP2</th>
+                <th>PEMILIH MUDA</th>
+                <th>ZONASI</th>
+              `;
+
+      tableHead += `
+      </tr></thead>`;
+
+      let tbody = ``;
 
       // Populate the table with data
       data.forEach((item) => {
-        table += "<tr>";
+        tbody += "<tr>";
 
-        let voterData = "";
-
-        if (parseInt(level) == CONST_COUNTRY_LEVEL) {
-          table += `
-      <td>${item.province_name}</td>
-    `;
-        } else if (parseInt(level) == CONST_PROVINCE_LEVEL) {
-          table += `
-      <td>${item.province_name}</td>
-      <td>${item.city_name}</td>
-    `;
-        } else if (parseInt(level) == CONST_CITY_LEVEL) {
-          table += `
-      <td>${item.province_name}</td>
-      <td>${item.city_name}</td>
-      <td>${item.district_name}</td>
-    `;
-        } else if (parseInt(level) == CONST_DISTRICT_LEVEL) {
-          table += `
-      <td>${item.province_name}</td>
-      <td>${item.city_name}</td>
-      <td>${item.district_name}</td>
-      <td>${item.sub_district_name}</td>
-    `;
+        if (parseInt(level) >= CONST_PROVINCE_LEVEL) {
+          tbody += `<td>${item.city_name}</td>`;
         }
 
-        table += `
-    <td>${numberFormat(item.num_tps)}</td>
-    <td>${numberFormat(item.num_citizen)}</td>
-    <td>${numberFormat(item.num_family)}</td>
-    <td>${numberFormat(item.num_voter)}</td>
-    <td>${numberFormat(item.num_cde)}</td>
-    <td>${numberFormat(item.num_voter_per_family)}</td>
-    <td>${numberFormat(item.num_voter_women)}</td>
-    <td>${numberFormat(item.num_voter_young)}</td>
-    <td>${item.zone}</td>
-    </tr>
-      `;
+        if (parseInt(level) >= CONST_CITY_LEVEL) {
+          tbody += `<td>${item.district_name}</td>`;
+        }
+
+        if (parseInt(level) >= CONST_DISTRICT_LEVEL) {
+          tbody += `<td>${item.sub_district_name}</td>`;
+        }
+
+        tbody += `
+          <td>${numberFormat(item.num_tps)}</td>
+          <td>${numberFormat(item.num_citizen)}</td>
+          <td>${numberFormat(item.num_family)}</td>
+          <td>${numberFormat(item.num_voter)}</td>
+          <td>${numberFormat(item.num_voter_dpthp2)}</td>
+          <td>${numberFormat(item.num_cde)}</td>
+          <td>${numberFormat(item.num_voter_per_family)}</td>
+          <td>${numberFormat(item.num_voter_women_dpthp2)}</td>
+          <td>${numberFormat(item.num_voter_young)}</td>
+          <td>${item.zone}</td>
+        </tr>`;
       });
 
-      table += "</tbody></table></div>";
+      let table = `
+      <table>
+        ${tableHead}
+        <tbody>${tbody}</tbody>
+      </table>`;
 
-      var infoContainer = document.getElementById('info-container');
+      return `<div class="tabZonasi">${table}</div>`;
+    }
+
+    function generateRelawanTable(level, data) {
+      let tableHead = `
+      <thead>
+      <tr>`;
+
+      if (parseInt(level) >= CONST_PROVINCE_LEVEL) {
+        tableHead += `<th>KOTA</th>`;
+      }
+
+      if (parseInt(level) >= CONST_CITY_LEVEL) {
+        tableHead += `<th>KEC</th>`;
+      }
+
+      if (parseInt(level) >= CONST_DISTRICT_LEVEL) {
+        tableHead += `<th>DESA</th>`;
+      }
+
+      tableHead += `
+      <th>ZONASI</th>
+      <th>PEMILIH PEREMPUAN DPTHP2</th>     
+      <th>PARTISIPASI = 80%</th>
+      <th>RELAWAN</th>
+      <th>TARGET KK TERKUNJUNGI</th>
+      <th>PEMILIH TERKUNJUNGI</th>
+      <th>TARGET SUARA</th>
+      <th>% TARGET SUARA</th>
+      `;
+
+      tableHead += `
+      </tr></thead>`;
+
+      let tbody = ``;
+
+      // Populate the table with data
+      data.forEach((item) => {
+        tbody += "<tr>";
+
+        if (parseInt(level) >= CONST_PROVINCE_LEVEL) {
+          tbody += `<td>${item.city_name}</td>`;
+        }
+
+        if (parseInt(level) >= CONST_CITY_LEVEL) {
+          tbody += `<td>${item.district_name}</td>`;
+        }
+
+        if (parseInt(level) >= CONST_DISTRICT_LEVEL) {
+          tbody += `<td>${item.sub_district_name}</td>`;
+        }
+
+        tbody += `
+          <td>${item.zone}</td>
+          <td>${numberFormat(item.num_voter_women_dpthp2)}</td>
+          <td>${numberFormat(item.partisipasi_80)}</td>
+          <td>${numberFormat(item.volunteer)}</td>
+          <td>${numberFormat(item.target_visited_kk)}</td>
+          <td>${numberFormat(item.visited_voter)}</td>
+          <td>${numberFormat(item.target_voter)}</td>
+          <td>${numberFormat(item.percentage_target_voter)}</td>
+        </tr>`;
+      });
+
+      let table = `
+      <table>
+        ${tableHead}
+        <tbody>${tbody}</tbody>
+      </table>`;
+
+      return `<div class="tabRelawan">${table}</div>`;
+    }
+
+    function generateSpandukTable(level, data) {
+      let tableHead = `
+      <thead>
+      <tr>`;
+
+      if (parseInt(level) >= CONST_PROVINCE_LEVEL) {
+        tableHead += `<th>KOTA</th>`;
+      }
+
+      if (parseInt(level) >= CONST_CITY_LEVEL) {
+        tableHead += `<th>KEC</th>`;
+      }
+
+      if (parseInt(level) >= CONST_DISTRICT_LEVEL) {
+        tableHead += `<th>DESA</th>`;
+      }
+
+      tableHead += `
+      <th>ZONASI</th>
+      <th>DPTHP2</th>
+      <th>TARGET SUARA</th>
+      <th>JUMLAH SPANDUK</th>
+      <th>JUMLAH BALIHO</th>
+      `;
+
+      tableHead += `
+      </tr></thead>`;
+
+      let tbody = ``;
+
+      // Populate the table with data
+      data.forEach((item) => {
+        tbody += "<tr>";
+
+        if (parseInt(level) >= CONST_PROVINCE_LEVEL) {
+          tbody += `<td>${item.city_name}</td>`;
+        }
+
+        if (parseInt(level) >= CONST_CITY_LEVEL) {
+          tbody += `<td>${item.district_name}</td>`;
+        }
+
+        if (parseInt(level) >= CONST_DISTRICT_LEVEL) {
+          tbody += `<td>${item.sub_district_name}</td>`;
+        }
+
+        tbody += `
+          <td>${item.zone}</td>
+          <td>${numberFormat(item.num_voter_dpthp2)}</td>
+          <td>${numberFormat(item.target_voter)}</td>
+          <td>${numberFormat(item.total_spanduk)}</td>
+          <td>${numberFormat(item.total_baliho)}</td>
+        </tr>`;
+      });
+
+      let table = `
+      <table>
+        ${tableHead}
+        <tbody>${tbody}</tbody>
+      </table>`;
+
+      return `<div class="tabSpanduk">${table}</div>`;
+    }
+
+    function renderTable(level, data) {
+      let tableZonasi = generateZonasiTable(level, data);
+      let tableRelawan = generateRelawanTable(level, data);
+      let tableSpanduk = generateSpandukTable(level, data);
+      let container = '<div class="tab-container-wrapper">';
+      container +=
+        `<div style="padding-bottom: 11px">
+          <button id="close-info-container" class="close-button">
+            <i class="fa-solid fa-circle-xmark"></i>
+            &nbsp;<span>Close</span>
+          </button>
+        </div>
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="zone-tab" data-toggle="tab" data-tab="zone" role="tab">ZONASI</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="relawan-tab" data-toggle="tab" data-tab="relawan" role="tab">RELAWAN</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="spanduk-tab" data-toggle="tab" data-tab="spanduk" role="tab">SPANDUK</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane fade show active" id="zone" role="tabpanel" aria-labelledby="zone-tab">
+            ${tableZonasi}
+          </div>
+          <div class="tab-pane fade" id="relawan" role="tabpanel" aria-labelledby="relawan-tab">
+            ${tableRelawan}
+          </div>
+          <div class="tab-pane fade" id="spanduk" role="tabpanel" aria-labelledby="spanduk-tab">
+            ${tableSpanduk}
+          </div>
+        </div>
+      </div>`;
+
+      var infoContainer = document.getElementById('info-container-zonasi');
 
       if (infoContainer) {
-        infoContainer.innerHTML = table;
+        infoContainer.innerHTML = container;
       }
+
+      // Handle tab switching
+      document.querySelectorAll('.nav-link').forEach(tabLink => {
+        tabLink.addEventListener('click', function (e) {
+          e.preventDefault(); // Prevent any default behavior
+
+          // Remove active class from all tabs
+          document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+
+          // Hide all tab content
+          document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('show', 'active'));
+
+          // Add active class to the clicked tab and show corresponding content
+          const targetTab = this.getAttribute('data-tab');
+          document.getElementById(targetTab).classList.add('show', 'active');
+          this.classList.add('active');
+        });
+      });
 
       // Get the close button element
       var closeButton = document.getElementById('close-info-container');
