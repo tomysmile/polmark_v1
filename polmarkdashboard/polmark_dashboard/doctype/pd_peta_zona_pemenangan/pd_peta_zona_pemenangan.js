@@ -47,6 +47,14 @@ let mapTitleName = "";
 
 let navigateSource = "Geojson";
 
+const indonesiaDefaultView = [-2.5489, 118.0149];
+const CONST_WORLD_LEVEL = 0,
+      CONST_COUNTRY_LEVEL = 1,
+      CONST_PROVINCE_LEVEL = 2,
+      CONST_CITY_LEVEL = 3,
+      CONST_DISTRICT_LEVEL = 4,
+      CONST_SUBDISTRICT_LEVEL = 5;
+
 // Define available maps
 const maps = [
   { name: 'DKI Jakarta', code: '31', area: 'DKI Jakarta', level: CONST_PROVINCE_LEVEL, prev: '' },
@@ -60,18 +68,10 @@ const maps = [
   { name: 'Kota Medan', code: '1271', area: 'Kota Medan', level: CONST_CITY_LEVEL, prev: '' }
 ];
 
-const indonesiaDefaultView = [-2.5489, 118.0149];
-const CONST_WORLD_LEVEL = 0,
-      CONST_COUNTRY_LEVEL = 1,
-      CONST_PROVINCE_LEVEL = 2,
-      CONST_CITY_LEVEL = 3,
-      CONST_DISTRICT_LEVEL = 4,
-      CONST_SUBDISTRICT_LEVEL = 5;
-
 let infoBoxTooltipId = "info-box-nasional";
 let mapInstance,
     tileLayer;
-
+    
 frappe.ui.form.on("PD Peta Zona Pemenangan", {
   onload: function (frm) {
     // Adding custom CSS
