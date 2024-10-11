@@ -74,14 +74,15 @@ const maps = [
 ];
 
 frappe.ui.form.on("PD Peta Zona Pemenangan", {
+  onload: function (frm) {
+    // Adding custom CSS
+    frappe.require('/assets/polmarkdashboard/css/overrides.css');
+  },
   refresh(frm) {
     $('.page-head').hide();
     frm.set_df_property("map_html", "hidden", frm.is_new() ? 1 : 0);
     frm.set_df_property('standard', 'hidden', (frm.doc.standard) ? 1 : 0);
     frm.events.render_map(frm);
-  },
-  onload: function (frm) {
-    //
   },
   render_map: function (frm) {
     // Set a unique container ID for the map (important if dealing with multiple forms)
@@ -90,7 +91,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
     // Render the HTML for the map container inside the HTML wrapper field
     frm.fields_dict.map_html.$wrapper.html(`
       <div id="custom-map-container">
-        <div id="${mapContainerId}" style="height: 86vh; position: relative;">
+        <div id="${mapContainerId}" style="height: 90vh; position: relative;">
           <div id="loading-indicator" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none;">
               <div class="spinner-border" role="status">
                   <span class="visually-hidden">Loading...</span>
