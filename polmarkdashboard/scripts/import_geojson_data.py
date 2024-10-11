@@ -161,7 +161,7 @@ def import_kab_bekasi():
     file_path = frappe.get_app_path(
         "polmarkdashboard", "tmp_data", "geojson_indonesia.kab_bekasi.json"
     )
-    doctype = "PD Geojson Kab Bekasi"
+    doctype = "PD Geojson Kabupaten Bekasi"
 
     # execute the function
     insert_to_database(doctype, file_path)
