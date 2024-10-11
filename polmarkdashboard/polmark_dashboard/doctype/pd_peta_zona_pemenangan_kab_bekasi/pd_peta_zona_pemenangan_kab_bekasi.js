@@ -551,7 +551,9 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Kab Bekasi", {
         // Set the flag to indicate that we are navigating back
         isNavigatingBack = true;
 
-        if (previousLevel === CONST_CITY_LEVEL) {
+        if (previousLevel === CONST_PROVINCE_LEVEL) {
+          loadProvinceMap(lastProvinceCode, CONST_DEFAULT_REGION_GEOJSON);
+        } else if (previousLevel === CONST_CITY_LEVEL) {
           loadCityMap(lastCityCode, CONST_DEFAULT_REGION_GEOJSON);
         } else if (previousLevel === CONST_DISTRICT_LEVEL) {
           loadDistrictMap(lastDistrictCode, CONST_DEFAULT_REGION_GEOJSON);
