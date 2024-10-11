@@ -2,55 +2,39 @@
 // For license information, please see license.txt
 
 // Global variable
-const CONST_INDONESIA_DEFAULT_VIEW = [-2.5489, 118.0149];
-const CONST_WORLD_LEVEL = 0,
-  CONST_COUNTRY_LEVEL = 1,
-  CONST_PROVINCE_LEVEL = 2,
-  CONST_CITY_LEVEL = 3,
-  CONST_DISTRICT_LEVEL = 4,
-  CONST_SUBDISTRICT_LEVEL = 5;
-const CONST_DEFAULT_REGION_CODE = "32",
-  CONST_DEFAULT_REGION_GEOJSON = "JAWA BARAT",
-  CONST_DEFAULT_REGION_MAP_LEVEL = CONST_PROVINCE_LEVEL;
-
-let infoBoxTooltipId = "info-box-jawabarat";
-let mapInstance,
-  tileLayer;
-
 let nationalMarkersGroup = null,
-  provinceMarkersGroup = null,
-  cityMarkersGroup = null,
-  districtMarkersGroup = null,
-  subDistrictMarkersGroup = null;
+    provinceMarkersGroup = null,
+    cityMarkersGroup = null,
+    districtMarkersGroup = null,
+    subDistrictMarkersGroup = null;
 
 let currentMapLevel = 0,
-  currentRegionName,
-  currentRegionType,
-  currentRegionCode;
+    currentRegionName,
+    currentRegionType,
+    currentRegionCode;
 
 let parentMapLevel = 0,
-  parentRegionName,
-  parentRegionType,
-  parentRegionCode;
+    parentRegionName,
+    parentRegionType,
+    parentRegionCode;
 
 let lastMapLevel = 0,
-  lastMapTitleName,
-  lastGeojson,
-  lastProvinceCode,
-  lastProvinceName,
-  lastCityCode,
-  lastCityName,
-  lastDistrictCode,
-  lastDistrictName,
-  lastSubDistrictCode,
-  lastSubDistrictName;
+    lastMapTitleName,
+    lastGeojson,
+    lastProvinceCode,
+    lastProvinceName,
+    lastCityCode,
+    lastCityName,
+    lastDistrictCode,
+    lastDistrictName,
+    lastSubDistrictCode,
+    lastSubDistrictName;
 
-let
-  countryDefaultView = [],
-  provinceDefaultView = [],
-  cityDefaultView = [],
-  districtDefaultView = [],
-  subDistrictDefaultView = [];
+let countryDefaultView = [],
+    provinceDefaultView = [],
+    cityDefaultView = [],
+    districtDefaultView = [],
+    subDistrictDefaultView = [];
 
 let locationLabel;
 let areLabelsVisible = false;
@@ -59,6 +43,21 @@ let isNavigatingBack = false;
 let mapLevelStack = [];
 let mapRenderLevel = 0;
 let mapTitleName = "";
+
+const CONST_INDONESIA_DEFAULT_VIEW = [-2.5489, 118.0149];
+const CONST_WORLD_LEVEL = 0,
+      CONST_COUNTRY_LEVEL = 1,
+      CONST_PROVINCE_LEVEL = 2,
+      CONST_CITY_LEVEL = 3,
+      CONST_DISTRICT_LEVEL = 4,
+      CONST_SUBDISTRICT_LEVEL = 5;
+const CONST_DEFAULT_REGION_CODE = "32",
+      CONST_DEFAULT_REGION_GEOJSON = "JAWA BARAT",
+      CONST_DEFAULT_REGION_MAP_LEVEL = CONST_PROVINCE_LEVEL;
+
+let infoBoxTooltipId = "info-box-jawabarat";
+let mapInstance,
+    tileLayer;
 
 let navigateSource = "Geojson";
 
@@ -162,8 +161,6 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Jawa Barat", {
       }
 
       // Map is fully rendered and ready
-      let isShow = parseInt(currentMapLevel) > CONST_DEFAULT_REGION_MAP_LEVEL;
-      $("#info-legend").css('display', (isShow) ? 'block' : 'none');
     }
 
     function addTableZonasiContainer() {

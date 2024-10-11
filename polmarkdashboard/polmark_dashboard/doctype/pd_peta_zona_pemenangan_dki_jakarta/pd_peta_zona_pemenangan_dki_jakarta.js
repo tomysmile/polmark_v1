@@ -162,8 +162,6 @@ frappe.ui.form.on("PD Peta Zona Pemenangan DKI Jakarta", {
       }
 
       // Map is fully rendered and ready
-      let isShow = parseInt(currentMapLevel) > CONST_DEFAULT_REGION_MAP_LEVEL;
-      $("#info-legend").css('display', (isShow) ? 'block' : 'none');
     }
 
     function addTableZonasiContainer() {

@@ -14,9 +14,7 @@
   "region_type",
   "region_level",
   "section_break_szay",
-  "map_html",
-  "tabel_tab",
-  "data_table_wrapper"
+  "map_html"
  ],
  "fields": [
   {
@@ -72,23 +70,13 @@
    "fieldname": "map_html",
    "fieldtype": "HTML",
    "label": "Peta Zona"
-  },
-  {
-   "fieldname": "tabel_tab",
-   "fieldtype": "Tab Break",
-   "label": "Tabel"
-  },
-  {
-   "fieldname": "data_table_wrapper",
-   "fieldtype": "HTML",
-   "label": "Data Table"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-10-02 21:23:54.593187",
+ "modified": "2024-10-11 13:47:30.575410",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "PD Peta Zona Pemenangan Kalimantan Tengah",
