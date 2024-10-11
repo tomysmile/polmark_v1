@@ -702,7 +702,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Kab Bekasi", {
         `<div style="padding-bottom: 12px">
       <button id="close-info-container" class="close-button">
         <i class="fa-solid fa-circle-xmark"></i>
-        &nbsp;<span>Close Table</span>
+        &nbsp;<span>Close</span>
       </button>
     </div>
     <table>`;
