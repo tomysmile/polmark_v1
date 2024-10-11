@@ -2,53 +2,40 @@
 // For license information, please see license.txt
 
 // Global variable
-const indonesiaDefaultView = [-2.5489, 118.0149];
-const CONST_WORLD_LEVEL = 0,
-  CONST_COUNTRY_LEVEL = 1,
-  CONST_PROVINCE_LEVEL = 2,
-  CONST_CITY_LEVEL = 3,
-  CONST_DISTRICT_LEVEL = 4,
-  CONST_SUBDISTRICT_LEVEL = 5;
-
-let infoBoxTooltipId = "info-box-nasional";
-let mapInstance,
-  tileLayer;
-
 let nationalMarkersGroup = null,
-  provinceMarkersGroup = null,
-  cityMarkersGroup = null,
-  districtMarkersGroup = null,
-  subDistrictMarkersGroup = null;
+    provinceMarkersGroup = null,
+    cityMarkersGroup = null,
+    districtMarkersGroup = null,
+    subDistrictMarkersGroup = null;
 
 let currentMapLevel = 0,
-  currentRegionName,
-  currentRegionType,
-  currentRegionCode;
+    currentRegionName,
+    currentRegionType,
+    currentRegionCode;
 
 let parentMapLevel = 0,
-  parentRegionName,
-  parentRegionType,
-  parentRegionCode;
+    parentRegionName,
+    parentRegionType,
+    parentRegionCode;
 
 let lastMapLevel = 0,
-  lastMapTitleName,
-  lastGeojson,
-  lastProvinceCode,
-  lastProvinceName,
-  lastCityCode,
-  lastCityName,
-  lastDistrictCode,
-  lastDistrictName,
-  lastSubDistrictCode,
-  lastSubDistrictName,
-  defaultMapLevel = 0;
+    lastMapTitleName,
+    lastGeojson,
+    lastProvinceCode,
+    lastProvinceName,
+    lastCityCode,
+    lastCityName,
+    lastDistrictCode,
+    lastDistrictName,
+    lastSubDistrictCode,
+    lastSubDistrictName,
+    defaultMapLevel = 0;
 
-let
-  countryDefaultView = [],
-  provinceDefaultView = [],
-  cityDefaultView = [],
-  districtDefaultView = [],
-  subDistrictDefaultView = [];
+let countryDefaultView = [],
+    provinceDefaultView = [],
+    cityDefaultView = [],
+    districtDefaultView = [],
+    subDistrictDefaultView = [];
 
 let locationLabel;
 let areLabelsVisible = false;
@@ -72,6 +59,18 @@ const maps = [
   { name: 'Kota Balikpapan', code: '6471', area: 'Kota Balikpapan', level: CONST_CITY_LEVEL, prev: 'Kalimantan Timur' },
   { name: 'Kota Medan', code: '1271', area: 'Kota Medan', level: CONST_CITY_LEVEL, prev: '' }
 ];
+
+const indonesiaDefaultView = [-2.5489, 118.0149];
+const CONST_WORLD_LEVEL = 0,
+      CONST_COUNTRY_LEVEL = 1,
+      CONST_PROVINCE_LEVEL = 2,
+      CONST_CITY_LEVEL = 3,
+      CONST_DISTRICT_LEVEL = 4,
+      CONST_SUBDISTRICT_LEVEL = 5;
+
+let infoBoxTooltipId = "info-box-nasional";
+let mapInstance,
+    tileLayer;
 
 frappe.ui.form.on("PD Peta Zona Pemenangan", {
   onload: function (frm) {
