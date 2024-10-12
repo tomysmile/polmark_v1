@@ -44,14 +44,6 @@ frappe.ui.form.on("PD News Link", {
 					window.open(url, "_blank");
 				});
 			}
-
-			if (frm.doc.source_url) {
-				// Hide the field
-				frm.toggle_display("source_url", false);
-			} else {
-				// Show the field if it does not have a value
-				frm.toggle_display("source_url", true);
-			}
 		}
 	},
 });

@@ -4571,5 +4571,60 @@
   "sequence_id": 4.0,
   "shortcuts": [],
   "title": "Pendampingan"
+ },
+ {
+  "charts": [],
+  "content": "[{\"id\":\"WJLjOAoRQT\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">My Workspace</span>\",\"col\":12}},{\"id\":\"77hzp2Y3WQ\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"IlhTFTFZ-Q\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget-demo\",\"col\":6}},{\"id\":\"e5ASfuX7f0\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget-dpt-male-demo\",\"col\":6}},{\"id\":\"pOlqjHBEfk\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget-list-menu-demo\",\"col\":6}},{\"id\":\"LwXPyhNPc9\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget-news-slider-demo\",\"col\":6}}]",
+  "custom_blocks": [
+   {
+    "custom_block_name": "widget-dpt-demo",
+    "label": "widget-demo",
+    "parent": "My Workspace-Administrator",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget-dpt-male-demo",
+    "label": "widget-dpt-male-demo",
+    "parent": "My Workspace-Administrator",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget-news-slider-demo",
+    "label": "widget-news-slider-demo",
+    "parent": "My Workspace-Administrator",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget-list-menu-demo",
+    "label": "widget-list-menu-demo",
+    "parent": "My Workspace-Administrator",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   }
+  ],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "for_user": "Administrator",
+  "hide_custom": 0,
+  "icon": null,
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "My Workspace-Administrator",
+  "links": [],
+  "modified": "2024-10-12 17:59:48.908083",
+  "module": null,
+  "name": "My Workspace-Administrator",
+  "number_cards": [],
+  "parent_page": "",
+  "public": 0,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [],
+  "sequence_id": 1.0,
+  "shortcuts": [],
+  "title": "My Workspace"
  }
 ]
