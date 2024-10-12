@@ -132,7 +132,7 @@
    "label": "Level"
   },
   {
-   "default": "0",
+   "default": "1",
    "fieldname": "standard",
    "fieldtype": "Check",
    "label": "Standard"
@@ -519,7 +519,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-10 16:10:20.279202",
+ "modified": "2024-10-12 12:37:20.093099",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "PD Geojson Sumatera Utara",

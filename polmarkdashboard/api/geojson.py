@@ -81,9 +81,9 @@ def get_geojson_data_by_region(region=None, region_code=None, region_level=None)
     # Fetch GeoJSON data based on the region (province, city, etc.)
     filters = {}
     if int(region_level) == 3:
-        filters = {"province_code": region_code, "region_level": region_level}
+        filters = {"province_code": region_code, "region_level": region_level, "active": 1}
     elif int(region_level) > 3:
-        filters = {"parent_code": region_code, "region_level": region_level}
+        filters = {"parent_code": region_code, "region_level": region_level, "active": 1}
     regiontable = "PD Geojson" + " " + region
     regions = frappe.get_all(regiontable, filters=filters, fields=["*"])
     geojson = build_geojson(regions)
@@ -95,11 +95,11 @@ def get_tabular_data(region=None, region_code=None, region_level=None):
     # Fetch GeoJSON data based on the region (province, city, etc.)
     filters = {}
     if int(region_level) == 2:
-        filters = {"region_level": region_level}
+        filters = {"region_level": region_level, "active": 1}
     elif int(region_level) == 3:
-        filters = {"province_code": region_code, "region_level": region_level}
+        filters = {"province_code": region_code, "region_level": region_level, "active": 1}
     elif int(region_level) > 3:
-        filters = {"parent_code": region_code, "region_level": region_level}
+        filters = {"parent_code": region_code, "region_level": region_level, "active": 1}
 
     fields = [
         "name",
