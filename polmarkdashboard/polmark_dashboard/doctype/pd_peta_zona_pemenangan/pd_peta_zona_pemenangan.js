@@ -46,6 +46,7 @@ let mapRenderLevel = 0;
 let mapTitleName = "";
 
 let navigateSource = "Geojson";
+let mapDefaultGeojson = "Indonesia";
 
 const indonesiaDefaultView = [-2.5489, 118.0149];
 const CONST_WORLD_LEVEL = 0,
@@ -149,7 +150,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
       districtMarkersGroup.name = "District";
       subDistrictMarkersGroup.name = "SubDistrict";
 
-      mapTitleName = 'Indonesia';
+      mapTitleName = mapDefaultGeojson;
 
       addBackButtonControl();
       addFullScreenControl();
@@ -214,6 +215,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
 
             // set the navigation source coming from MapList, otherwise from Geojson
             navigateSource = "MapList";
+            mapDefaultGeojson = mapItem.name;
 
             if (mapItem.level === CONST_PROVINCE_LEVEL) {
               loadProvinceMap(mapItem.code, mapItem.area);
@@ -442,8 +444,16 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
           parentRegionName = feature.properties.parent_name;
           parentRegionCode = feature.properties.parent_code;
 
-          const foundMap = maps.find(map => map.code === feature.properties.parent_code);
-          const geojson = foundMap ? foundMap.area : ((currentMapLevel === 1) ? 'Indonesia' : lastGeojson);
+          if (currentMapLevel === 1) {
+            geojson = "Indonesia";
+          } else {
+            if (navigateSource == "MapList") {
+              geojson = mapDefaultGeojson;
+            } else {
+              geojson = feature.properties.province_name;
+            }
+          }
+
           lastGeojson = geojson;
 
           const marker = L.marker(layer.getBounds().getCenter(), {
@@ -473,40 +483,37 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
 
               // showHideDataBoxTooltip(true);
               if (currentMapLevel === CONST_COUNTRY_LEVEL) {
+                // reset navigateSource back to geojson
+                navigateSource = "Geojson";
+                lastGeojson = "Indonesia";
+                activeGeojson = "Indonesia";
+
                 loadNationalMap();
               } else if (currentMapLevel === CONST_PROVINCE_LEVEL) {
                 lastProvinceCode = feature.properties.province_code;
                 lastProvinceName = feature.properties.province_name;
 
-                const foundMap = maps.find(map => map.code === feature.properties.region_code);
-                const geojson = foundMap ? foundMap.area : lastProvinceName;
-
-                activeGeojson = geojson;
+                activeGeojson = lastProvinceName;
                 lastGeojson = activeGeojson;
 
-                console.log('loadProvinceMap');
-
+                if (navigateSource == "MapList") {
+                  geojson = mapDefaultGeojson;
+                }
                 loadProvinceMap(feature.properties.region_code, activeGeojson);
               } else if (currentMapLevel === CONST_CITY_LEVEL) {
-                // TODO: Anomaly disini
-                // Hanya Kota dibawah ini yang memiliki Geojson: 
-                // - Kota Bogor, Kota Bandung, Kota Balikpapan, Kota Medan
-                // Sisanya harus menggunakan Geojson dari Provinsi nya
                 lastProvinceCode = feature.properties.province_code;
                 lastProvinceName = feature.properties.province_name;
                 lastCityCode = feature.properties.city_code;
                 lastCityName = feature.properties.city_name;
 
-                const foundMap = maps.find(map => map.code === feature.properties.region_code);
-                const geojson = foundMap ? foundMap.area : lastProvinceName;
-
-                activeGeojson = geojson;
+                activeGeojson = lastProvinceName;
                 lastGeojson = activeGeojson;
 
-                console.log('loadCityMap');
-
+                if (navigateSource == "MapList") {
+                  geojson = mapDefaultGeojson;
+                }
+                
                 loadCityMap(feature.properties.region_code, activeGeojson);
-
               } else if (currentMapLevel === CONST_DISTRICT_LEVEL) {
                 lastProvinceCode = feature.properties.province_code;
                 lastProvinceName = feature.properties.province_name;
@@ -515,21 +522,14 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
                 lastDistrictCode = feature.properties.district_code;
                 lastDistrictName = feature.properties.district_name;
 
-                const foundMap = maps.find(map => map.code === feature.properties.city_code);
-                let geojson = foundMap ? foundMap.area : lastProvinceName;
-
-                if (lastGeojson === "Kota Balikpapan") {
-                  geojson = lastGeojson;
-                }
-
-                activeGeojson = geojson;
+                activeGeojson = lastProvinceName;
                 lastGeojson = activeGeojson;
 
-                console.log(`loadDistrictMap-parent_code: ${feature.properties.parent_code}`);
-                console.log('geojson: ', geojson);
+                if (navigateSource == "MapList") {
+                  geojson = mapDefaultGeojson;
+                }
 
                 loadDistrictMap(feature.properties.region_code, activeGeojson);
-
               } else if (currentMapLevel === CONST_SUBDISTRICT_LEVEL) {
                 lastProvinceCode = feature.properties.province_code;
                 lastProvinceName = feature.properties.province_name;
@@ -666,6 +666,10 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
 
         // Load the appropriate map based on the previous level
         if (previousLevel === CONST_COUNTRY_LEVEL) {
+          // reset navigateSource back to Geojson
+          navigateSource = "Geojson";
+          lastGeojson = "Indonesia";
+          activeGeojson = "";
           loadNationalMap();
         } else if (previousLevel === CONST_PROVINCE_LEVEL) {
           loadProvinceMap(lastProvinceCode, lastProvinceName); // Load province level
@@ -1085,6 +1089,8 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
       let tableZonasi = generateZonasiTable(geojsonName, level, data);
       let tableRelawan = generateRelawanTable(geojsonName, level, data);
       let tableSpanduk = generateSpandukTable(geojsonName, level, data);
+
+      console.log('geojsonName: ', geojsonName);
 
       const mapReferenceItem = maps.find(map => map.name === geojsonName);
       const isShowRelawan = (mapReferenceItem) ? mapReferenceItem.include_relawan : false;
