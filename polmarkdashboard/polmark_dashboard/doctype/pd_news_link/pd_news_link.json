@@ -45,7 +45,8 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "News Provider",
-   "options": "PD News Site"
+   "options": "PD News Site",
+   "reqd": 1
   },
   {
    "fieldname": "region",
@@ -53,7 +54,8 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Region",
-   "options": "PD Region"
+   "options": "PD Region",
+   "reqd": 1
   },
   {
    "fetch_from": "region.region_code",
@@ -69,7 +71,8 @@
   {
    "fieldname": "headline_image",
    "fieldtype": "Attach Image",
-   "label": "Headline Image"
+   "label": "Headline Image",
+   "reqd": 1
   },
   {
    "fieldname": "image_preview",
@@ -84,7 +87,8 @@
   {
    "fieldname": "news_posted_date",
    "fieldtype": "Datetime",
-   "label": "Posted Date"
+   "label": "Posted Date",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_qdmt",
@@ -107,7 +111,7 @@
  "image_field": "headline_image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-12 19:43:10.548807",
+ "modified": "2024-10-14 15:13:48.782931",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "PD News Link",
