@@ -451,6 +451,14 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
               geojson = mapDefaultGeojson;
             } else {
               geojson = feature.properties.province_name;
+
+              if (currentMapLevel >= CONST_CITY_LEVEL) {
+                // check for KOTA BALIKPAPAN
+                const foundMap = maps.find(map => map.code === feature.properties.city_code);
+                if (foundMap && foundMap.name === "Kota Balikpapan") {
+                  geojson = foundMap.name;
+                }
+              }
             }
           }
 
@@ -506,13 +514,20 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
                 lastCityCode = feature.properties.city_code;
                 lastCityName = feature.properties.city_name;
 
-                activeGeojson = lastProvinceName;
+                const foundMap = maps.find(map => map.code === feature.properties.region_code);
+                let geojson = foundMap ? foundMap.area : lastProvinceName;
+
+                if (foundMap && foundMap.name === "Kota Balikpapan") {
+                  geojson = foundMap.name;
+                }
+
+                activeGeojson = geojson;
                 lastGeojson = activeGeojson;
 
                 if (navigateSource == "MapList") {
                   geojson = mapDefaultGeojson;
                 }
-                
+
                 loadCityMap(feature.properties.region_code, activeGeojson);
               } else if (currentMapLevel === CONST_DISTRICT_LEVEL) {
                 lastProvinceCode = feature.properties.province_code;
@@ -522,12 +537,12 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
                 lastDistrictCode = feature.properties.district_code;
                 lastDistrictName = feature.properties.district_name;
 
-                activeGeojson = lastProvinceName;
-                lastGeojson = activeGeojson;
-
                 if (navigateSource == "MapList") {
                   geojson = mapDefaultGeojson;
                 }
+
+                activeGeojson = geojson;
+                lastGeojson = activeGeojson;
 
                 loadDistrictMap(feature.properties.region_code, activeGeojson);
               } else if (currentMapLevel === CONST_SUBDISTRICT_LEVEL) {
@@ -1089,8 +1104,6 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
       let tableZonasi = generateZonasiTable(geojsonName, level, data);
       let tableRelawan = generateRelawanTable(geojsonName, level, data);
       let tableSpanduk = generateSpandukTable(geojsonName, level, data);
-
-      console.log('geojsonName: ', geojsonName);
 
       const mapReferenceItem = maps.find(map => map.name === geojsonName);
       const isShowRelawan = (mapReferenceItem) ? mapReferenceItem.include_relawan : false;
