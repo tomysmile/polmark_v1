@@ -939,7 +939,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
       });
 
       let table = `
-      <table>
+      <table class="table-sticky">
         ${tableHead}
         <tbody>${tbody}</tbody>
       </table>`;
@@ -1028,7 +1028,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
       });
 
       let table = `
-      <table>
+      <table class="table-sticky">
         ${tableHead}
         <tbody>${tbody}</tbody>
       </table>`;
@@ -1092,7 +1092,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
       });
 
       let table = `
-      <table>
+      <table class="table-sticky">
         ${tableHead}
         <tbody>${tbody}</tbody>
       </table>`;

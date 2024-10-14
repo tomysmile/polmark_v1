@@ -131,11 +131,24 @@ path.leaflet-interactive:focus {
 /* Leaflet Info Container */
 .tab-container-wrapper {
   width: 100%;
-  height: 100%;
+  height: 70vh;
+  // max-height: 500px;
   overflow-y: auto;
   /* Enable vertical scrolling */
   overflow-x: auto;
   /* Enable horizontal scrolling */
+}
+
+.table-sticky table {
+  width: 100%; /* Ensure the table occupies the full width */
+  border-collapse: collapse; /* Optional: Collapses borders for a cleaner look */
+}
+
+.table-sticky thead th {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #5E5E5E; /* Add background to avoid overlap with other content */
 }
 
 .table-wrapper {
@@ -149,10 +162,10 @@ path.leaflet-interactive:focus {
 
 .info-container {
   position: absolute;
+  width: 75%;
+  height: 80%;
   top: 52px;
   right: 12px;
-  width: 75%;
-  height: 70%;
   background-color: rgba(255, 255, 255, 1);
   padding: 15px;
   border-radius: 8px;
