@@ -8,6 +8,44 @@
   position: relative;
 }
 
+/* overrides */
+.navbar {
+  background-color: #B9843E;
+  border-bottom: 4px solid #FDB329;
+  padding: 30px;
+}
+
+.navbar ul li a {
+  // color: #fff;
+}
+
+.container {
+  width: 100% !important;
+  max-width: 100% !important;
+  // padding-left: 0 !important;
+  // padding-right: 0 !important;
+}
+
+.page-container {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.layout-main {
+  // width: 100vw !important;
+  // height: 100vh !important;
+  height: 100% !important;
+}
+
+/* For full-width sections */
+.section-body {
+  // width: 100% !important;
+  // padding: 0 !important;
+  overflow-y: auto;
+}
+
+/* END overrides */
+
 /* Leaflet-Fullscreen */
 
 .leaflet-control-fullscreen a {

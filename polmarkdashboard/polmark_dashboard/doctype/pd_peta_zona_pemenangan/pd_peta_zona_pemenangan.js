@@ -80,13 +80,14 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
   },
   refresh(frm) {
     $('.page-head').hide();
-    $('.container').css('width', '100%');
+    
     frm.set_df_property("map_html", "hidden", frm.is_new() ? 1 : 0);
     frm.set_df_property('standard', 'hidden', (frm.doc.standard) ? 1 : 0);
 
     setTimeout(function () {
       // Check if the map is already initialized
       if (!window.map) {
+        $('.container').css('width', '100%');
         frm.events.render_map(frm);
       }
     }, 100);  // Delay to ensure DOM is loaded
@@ -176,6 +177,8 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
       if (tileLayer.isLoading()) {
         return; // Still loading
       }
+
+      window.map.invalidateSize();
 
       // Map is fully rendered and ready
       let isShow = parseInt(currentMapLevel) > CONST_COUNTRY_LEVEL;

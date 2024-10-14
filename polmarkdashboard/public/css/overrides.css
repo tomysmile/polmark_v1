@@ -1,11 +1,16 @@
 .form-page {
-  margin-top: 8px;
+  /* margin-top: 8px; */
+  /* margin-top: 8px; */
 }
 
 .form-column {
   padding-left: 0px;
   padding-right: 0px;
-  margin-top: -24px;
+  /* margin-top: -24px; */
+}
+
+.form-layout {
+  margin-top: -10px;
 }
 
 .layout-main-section-wrapper {
@@ -28,4 +33,6 @@
   position: relative;
   height: 100%;
   width: 100%;
+  margin: 0;
+  padding: 0;
 }

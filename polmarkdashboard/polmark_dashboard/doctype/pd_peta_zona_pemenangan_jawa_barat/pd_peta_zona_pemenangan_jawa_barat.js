@@ -71,7 +71,14 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Jawa Barat", {
     frm.set_df_property('region', 'hidden', (frm.doc.region) ? 1 : 0); // Hide the field
     frm.set_df_property('region_type', 'hidden', (frm.doc.region) ? 1 : 0);
     frm.set_df_property('standard', 'hidden', (frm.doc.standard) ? 1 : 0);
-    frm.events.render_map(frm);
+    
+    setTimeout(function () {
+      // Check if the map is already initialized
+      if (!window.map) {
+        $('.container').css('width', '100%');
+        frm.events.render_map(frm);
+      }
+    }, 100);  // Delay to ensure DOM is loaded
   },
   render_map: function (frm) {
     // Set a unique container ID for the map (important if dealing with multiple forms)
@@ -113,6 +120,8 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Jawa Barat", {
         attribution: "Map data &copy; Thinkspedia",
       }).addTo(mapInstance);
 
+      mapInstance.invalidateSize(); // Ensures the map resizes to the correct dimensions
+      window.map = mapInstance;
 
       const { region, region_level, region_type, region_name } = frmInstance.doc;
       const tooltipBoxId = "#" + infoBoxTooltipId;
@@ -159,6 +168,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Jawa Barat", {
         return; // Still loading
       }
 
+      window.map.invalidateSize();
       // Map is fully rendered and ready
     }
 
