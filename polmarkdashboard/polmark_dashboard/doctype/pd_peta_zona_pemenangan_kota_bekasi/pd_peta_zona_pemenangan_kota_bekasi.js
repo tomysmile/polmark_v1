@@ -2,6 +2,21 @@
 // For license information, please see license.txt
 
 // Global variable
+const CONST_INDONESIA_DEFAULT_VIEW = [-2.5489, 118.0149];
+const CONST_WORLD_LEVEL = 0,
+  CONST_COUNTRY_LEVEL = 1,
+  CONST_PROVINCE_LEVEL = 2,
+  CONST_CITY_LEVEL = 3,
+  CONST_DISTRICT_LEVEL = 4,
+  CONST_SUBDISTRICT_LEVEL = 5;
+const CONST_DEFAULT_REGION_CODE = "3275",
+  CONST_DEFAULT_REGION_GEOJSON = "Kota Bekasi",
+  CONST_DEFAULT_REGION_MAP_LEVEL = CONST_CITY_LEVEL;
+
+let infoBoxTooltipId = "info-box-kota-kota-bekasi";
+let mapInstance,
+  tileLayer;
+
 let nationalMarkersGroup = null,
   provinceMarkersGroup = null,
   cityMarkersGroup = null,
@@ -28,10 +43,10 @@ let lastMapLevel = 0,
   lastDistrictCode,
   lastDistrictName,
   lastSubDistrictCode,
-  lastSubDistrictName,
-  defaultMapLevel = 0;
+  lastSubDistrictName;
 
-let countryDefaultView = [],
+let
+  countryDefaultView = [],
   provinceDefaultView = [],
   cityDefaultView = [],
   districtDefaultView = [],
@@ -46,43 +61,16 @@ let mapRenderLevel = 0;
 let mapTitleName = "";
 
 let navigateSource = "Geojson";
-let mapDefaultGeojson = "Indonesia";
 
-const indonesiaDefaultView = [-2.5489, 118.0149];
-const CONST_WORLD_LEVEL = 0,
-  CONST_COUNTRY_LEVEL = 1,
-  CONST_PROVINCE_LEVEL = 2,
-  CONST_CITY_LEVEL = 3,
-  CONST_DISTRICT_LEVEL = 4,
-  CONST_SUBDISTRICT_LEVEL = 5;
-
-// Define available maps
-const maps = [
-  { name: 'DKI Jakarta', code: '31', area: 'DKI Jakarta', level: CONST_PROVINCE_LEVEL, prev: '', include_dpthp: false, include_relawan: false, include_spanduk: false },
-  { name: 'Jawa Barat', include_dpthp: true, code: '32', area: 'Jawa Barat', level: CONST_PROVINCE_LEVEL, prev: '', include_relawan: false, include_spanduk: false },
-  { name: 'Kalimantan Tengah', code: '62', area: 'Kalimantan Tengah', level: CONST_PROVINCE_LEVEL, prev: '', include_dpthp: false, include_relawan: false, include_spanduk: false },
-  { name: 'Sumatera Utara', code: '12', area: 'Sumatera Utara', level: CONST_PROVINCE_LEVEL, prev: '', include_dpthp: false, include_relawan: false, include_spanduk: false },
-  { name: 'Kabupaten Bekasi', code: '3216', area: 'Kabupaten Bekasi', level: CONST_CITY_LEVEL, prev: '', include_dpthp: false, include_relawan: false, include_spanduk: false },
-  { name: 'Kota Bekasi', code: '3275', area: 'Kota Bekasi', level: CONST_CITY_LEVEL, prev: '', include_dpthp: false, include_relawan: false, include_spanduk: false },
-  { name: 'Kota Bogor', code: '3271', area: 'Kota Bogor', level: CONST_CITY_LEVEL, prev: '', include_dpthp: true, include_relawan: false, include_spanduk: false },
-  { name: 'Kota Bandung', code: '3273', area: 'Kota Bandung', level: CONST_CITY_LEVEL, prev: '', include_dpthp: true, include_relawan: true, include_relawan_partisipasi: true, include_spanduk: true },
-  { name: 'Kota Balikpapan', code: '6471', area: 'Kota Balikpapan', level: CONST_CITY_LEVEL, prev: 'Kalimantan Timur', include_dpthp: false, include_relawan: false, include_spanduk: false },
-  { name: 'Kota Medan', code: '1271', area: 'Kota Medan', level: CONST_CITY_LEVEL, prev: '', include_dpthp: true, include_relawan: true, include_relawan_partisipasi: false, include_spanduk: false }
-];
-
-let infoBoxTooltipId = "info-box-nasional";
-let mapInstance,
-  tileLayer;
-
-frappe.ui.form.on("PD Peta Zona Pemenangan", {
+frappe.ui.form.on("PD Peta Zona Pemenangan Kota Bekasi", {
   onload: function (frm) {
-    // Adding custom CSS
     frappe.require('/assets/polmarkdashboard/css/overrides.css');
   },
   refresh(frm) {
     $('.page-head').hide();
-    
     frm.set_df_property("map_html", "hidden", frm.is_new() ? 1 : 0);
+    frm.set_df_property('region', 'hidden', (frm.doc.region) ? 1 : 0); // Hide the field
+    frm.set_df_property('region_type', 'hidden', (frm.doc.region) ? 1 : 0);
     frm.set_df_property('standard', 'hidden', (frm.doc.standard) ? 1 : 0);
 
     setTimeout(function () {
@@ -95,12 +83,12 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
   },
   render_map: function (frm) {
     // Set a unique container ID for the map (important if dealing with multiple forms)
-    const mapContainerId = "leaflet-map";
+    const mapContainerId = "map_" + frm.doc.name;
 
     // Render the HTML for the map container inside the HTML wrapper field
     frm.fields_dict.map_html.$wrapper.html(`
       <div id="custom-map-container">
-        <div id="${mapContainerId}" style="width:100%; height: 92vh; position: relative;">
+        <div id="${mapContainerId}" style="height: 90vh; position: relative;">
           <div id="loading-indicator" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none;">
               <div class="spinner-border" role="status">
                   <span class="visually-hidden">Loading...</span>
@@ -126,7 +114,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
       // Initialize the Leaflet map
       mapInstance = L.map(mapContainerId, {
         zoomControl: false
-      }).setView(indonesiaDefaultView, 5);
+      }).setView(CONST_INDONESIA_DEFAULT_VIEW, 5);
 
       // Add tile layer to the map
       tileLayer = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -136,10 +124,34 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
       mapInstance.invalidateSize(); // Ensures the map resizes to the correct dimensions
       window.map = mapInstance;
 
-      // document.getElementById('leaflet-map').style.height = window.innerHeight + 'px';
+      const { region, region_level, region_type, region_name } = frmInstance.doc;
+      const tooltipBoxId = "#" + infoBoxTooltipId;
 
-      defaultMapLevel = CONST_COUNTRY_LEVEL;
+      mapTitleName = `${region_name}`;
 
+      initializeMarkersGroup();
+      addBackButtonControl();
+      addFullScreenControl();
+      addMapTitleLabel(mapTitleName);
+      addLegend();
+      addShowHideLayer();
+      addTableZonasiContainer();
+      addShowTableZonasiLayerControl();
+
+      mapInstance.on('zoomend', function () {
+        showHideBackButtonControl(currentMapLevel);
+      });
+
+      tileLayer.on('load', function () {
+        checkIfMapReady();
+      });
+
+      // Initially load the province map
+      loadCityMap(CONST_DEFAULT_REGION_CODE, CONST_DEFAULT_REGION_GEOJSON);
+    }
+
+    /* Functions */
+    function initializeMarkersGroup() {
       nationalMarkersGroup = L.layerGroup();
       provinceMarkersGroup = L.layerGroup();
       cityMarkersGroup = L.layerGroup();
@@ -151,27 +163,6 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
       cityMarkersGroup.name = "City";
       districtMarkersGroup.name = "District";
       subDistrictMarkersGroup.name = "SubDistrict";
-
-      mapTitleName = mapDefaultGeojson;
-
-      addBackButtonControl();
-      addFullScreenControl();
-      addMapTitleLabel(mapTitleName);
-      addLegend();
-      addShowHideLayer();
-      addShowTableZonasiLayerControl();
-      addMapSelectionContainer();
-
-      mapInstance.on('zoomend', function () {
-        showHideBackButtonControl(currentMapLevel);
-      });
-
-      tileLayer.on('load', function () {
-        checkIfMapReady();
-      });
-
-      // Initially load the province map
-      loadNationalMap();
     }
 
     function checkIfMapReady() {
@@ -180,78 +171,22 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
       }
 
       window.map.invalidateSize();
-
       // Map is fully rendered and ready
-      let isShow = parseInt(currentMapLevel) > CONST_COUNTRY_LEVEL;
-      $("#info-legend").css('display', (isShow) ? 'block' : 'none');
     }
 
-    function addMapSelectionContainer() {
-      // Custom Control for Map List Button
-      const mapListMapControl = L.control({ position: "topleft" });
-      mapListMapControl.onAdd = () => {
-        const container = L.DomUtil.create('div', 'map-list-button leaflet-control');
-        container.style.position = 'relative';
-        container.style.marginTop = "3px";
-
-        // Create the button
-        const button = L.DomUtil.create(
-          "button",
-          "custom-button",
-          container);
-        button.innerHTML = '<i class="fas fa-globe"></i>'; // Button label
-        button.style.width = '100%'; // Full width
-        button.style.border = "none";
-        button.style.backgroundColor = "transparent";
-
-        // Create a div for the map list
-        const mapList = L.DomUtil.create('div', 'map-list', container);
-        mapList.style.display = 'none'; // Hide map list by default
-
-        // Create map items
-        maps.forEach(mapItem => {
-          const item = L.DomUtil.create('div', 'map-item', mapList);
-          item.innerHTML = mapItem.name;
-          item.style.cursor = 'pointer';
-
-          // Attach event listener to load map on click
-          item.addEventListener('click', () => {
-
-            // set the navigation source coming from MapList, otherwise from Geojson
-            navigateSource = "MapList";
-            mapDefaultGeojson = mapItem.name;
-
-            if (mapItem.level === CONST_PROVINCE_LEVEL) {
-              loadProvinceMap(mapItem.code, mapItem.area);
-            } else if (mapItem.level === CONST_CITY_LEVEL) {
-              loadCityMap(mapItem.code, mapItem.area);
-            }
-            mapList.style.display = "none";
-          });
-        });
-
-        // Add click event to toggle the map list
-        button.addEventListener('click', () => {
-          mapList.style.display = mapList.style.display === 'none' ? 'block' : 'none';
-        });
-
-        return container;
-      };
-
-      mapListMapControl.addTo(mapInstance);
-    }
-
-    function addShowTableZonasiLayerControl() {
+    function addTableZonasiContainer() {
       // Create a right-top container dynamically
-      var infoContainer = L.DomUtil.create('div', 'info-container zonasi');
-      infoContainer.id = 'info-container-zonasi';
+      var infoContainer = L.DomUtil.create('div', 'info-container');
+      infoContainer.id = 'info-container';
 
       // Append the container to the body (or map container)
       mapInstance.getContainer().appendChild(infoContainer);
 
       // By default, hide the info container
       infoContainer.style.display = 'none';
+    }
 
+    function addShowTableZonasiLayerControl() {
       const showTableLayerControl = L.control({ position: "topright" });
       showTableLayerControl.onAdd = () => {
         const customButton = L.DomUtil.create(
@@ -266,7 +201,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
 
         // Add the event handler for the button click
         customButton.onclick = function () {
-          toggleShowTableContainer('info-container-zonasi');
+          toggleShowTableContainer();
         };
 
         return customButton;
@@ -279,7 +214,6 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
       let existingBackButton = document.querySelector(".back-button");
       if (existingBackButton) {
         existingBackButton.remove();
-        console.log("Existing back button removed");
       }
 
       const backButton = L.Control.extend({
@@ -438,7 +372,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
       showHideBackButtonControl(level);
 
       let markersGroup = getMarkersGroup(level);
-      let activeGeojson = "Indonesia"; // default geojson
+      lastGeojson = CONST_DEFAULT_REGION_GEOJSON;
 
       // Add new GeoJSON layer for the current level
       const layerGroup = L.geoJSON(geoJsondata, {
@@ -447,26 +381,6 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
           parentRegionType = feature.properties.parent_type;
           parentRegionName = feature.properties.parent_name;
           parentRegionCode = feature.properties.parent_code;
-
-          if (currentMapLevel === 1) {
-            geojson = "Indonesia";
-          } else {
-            if (navigateSource == "MapList") {
-              geojson = mapDefaultGeojson;
-            } else {
-              geojson = feature.properties.province_name;
-
-              if (currentMapLevel >= CONST_CITY_LEVEL) {
-                // check for KOTA BALIKPAPAN
-                const foundMap = maps.find(map => map.code === feature.properties.city_code);
-                if (foundMap && foundMap.name === "Kota Balikpapan") {
-                  geojson = foundMap.name;
-                }
-              }
-            }
-          }
-
-          lastGeojson = geojson;
 
           const marker = L.marker(layer.getBounds().getCenter(), {
             icon: L.divIcon({
@@ -494,45 +408,13 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
               currentMapLevel = parseInt(feature.properties.region_level);
 
               // showHideDataBoxTooltip(true);
-              if (currentMapLevel === CONST_COUNTRY_LEVEL) {
-                // reset navigateSource back to geojson
-                navigateSource = "Geojson";
-                lastGeojson = "Indonesia";
-                activeGeojson = "Indonesia";
-
-                loadNationalMap();
-              } else if (currentMapLevel === CONST_PROVINCE_LEVEL) {
-                lastProvinceCode = feature.properties.province_code;
-                lastProvinceName = feature.properties.province_name;
-
-                activeGeojson = lastProvinceName;
-                lastGeojson = activeGeojson;
-
-                if (navigateSource == "MapList") {
-                  geojson = mapDefaultGeojson;
-                }
-                loadProvinceMap(feature.properties.region_code, activeGeojson);
-              } else if (currentMapLevel === CONST_CITY_LEVEL) {
+              if (currentMapLevel === CONST_CITY_LEVEL) {
                 lastProvinceCode = feature.properties.province_code;
                 lastProvinceName = feature.properties.province_name;
                 lastCityCode = feature.properties.city_code;
                 lastCityName = feature.properties.city_name;
 
-                const foundMap = maps.find(map => map.code === feature.properties.region_code);
-                let geojson = foundMap ? foundMap.area : lastProvinceName;
-
-                if (foundMap && foundMap.name === "Kota Balikpapan") {
-                  geojson = foundMap.name;
-                }
-
-                activeGeojson = geojson;
-                lastGeojson = activeGeojson;
-
-                if (navigateSource == "MapList") {
-                  geojson = mapDefaultGeojson;
-                }
-
-                loadCityMap(feature.properties.region_code, activeGeojson);
+                loadCityMap(feature.properties.region_code, CONST_DEFAULT_REGION_GEOJSON);
               } else if (currentMapLevel === CONST_DISTRICT_LEVEL) {
                 lastProvinceCode = feature.properties.province_code;
                 lastProvinceName = feature.properties.province_name;
@@ -541,14 +423,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
                 lastDistrictCode = feature.properties.district_code;
                 lastDistrictName = feature.properties.district_name;
 
-                if (navigateSource == "MapList") {
-                  geojson = mapDefaultGeojson;
-                }
-
-                activeGeojson = geojson;
-                lastGeojson = activeGeojson;
-
-                loadDistrictMap(feature.properties.region_code, activeGeojson);
+                loadDistrictMap(feature.properties.region_code, CONST_DEFAULT_REGION_GEOJSON);
               } else if (currentMapLevel === CONST_SUBDISTRICT_LEVEL) {
                 lastProvinceCode = feature.properties.province_code;
                 lastProvinceName = feature.properties.province_name;
@@ -565,6 +440,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
 
           layer.on("mouseover", function (e) {
             // showDataTooltip(feature.properties);
+
             e.target.setStyle({
               weight: 3,
               color: "#fff",
@@ -574,6 +450,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
 
           layer.on("mouseout", function (e) {
             // showHideDataBoxTooltip(false);
+
             e.target.setStyle({
               weight: 2,
               color: "#21130d",
@@ -588,7 +465,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
         mapInstance.fitBounds(bounds);
       } else {
         console.error("Bounds are not valid");
-        mapInstance.setView(indonesiaDefaultView, 5);
+        mapInstance.setView(CONST_INDONESIA_DEFAULT_VIEW, 5);
       }
 
       // NOTE: remark the statement below because we need to set hide for default
@@ -617,7 +494,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
         callback: function (response) {
           if (response.message) {
             data = response.message;
-            renderTable(geojsonName, level, data);
+            renderTable(level, data);
           }
         },
       });
@@ -644,9 +521,8 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
       fetchGeoJsonData(url)
         .then((geoJson) => {
           if (!geoJson || geoJson.features.length === 0) {
-            console.log('URL: ', url);
             console.error(`No valid data found`);
-            mapInstance.setView(indonesiaDefaultView, 5);
+            mapInstance.setView(CONST_INDONESIA_DEFAULT_VIEW, 5);
             return;
           }
 
@@ -655,7 +531,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
         })
         .catch((error) => {
           console.error(`Error fetching:`, error);
-          mapInstance.setView(indonesiaDefaultView, 5);
+          mapInstance.setView(CONST_INDONESIA_DEFAULT_VIEW, 5);
         });
     }
 
@@ -683,22 +559,12 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
         // Set the flag to indicate that we are navigating back
         isNavigatingBack = true;
 
-        // Load the appropriate map based on the previous level
-        if (previousLevel === CONST_COUNTRY_LEVEL) {
-          // reset navigateSource back to Geojson
-          navigateSource = "Geojson";
-          lastGeojson = "Indonesia";
-          activeGeojson = "";
-          loadNationalMap();
-        } else if (previousLevel === CONST_PROVINCE_LEVEL) {
-          loadProvinceMap(lastProvinceCode, lastProvinceName); // Load province level
-          // loadProvinceMap(lastProvinceCode, lastGeojson);
+        if (previousLevel === CONST_PROVINCE_LEVEL) {
+          loadProvinceMap(lastProvinceCode, CONST_DEFAULT_REGION_GEOJSON);
         } else if (previousLevel === CONST_CITY_LEVEL) {
-          // loadCityMap(lastCityCode, lastCityName); // Load city level for the last province
-          loadCityMap(lastCityCode, lastGeojson);
+          loadCityMap(lastCityCode, CONST_DEFAULT_REGION_GEOJSON);
         } else if (previousLevel === CONST_DISTRICT_LEVEL) {
-          // loadDistrictMap(lastDistrictCode, lastDistrictName); // Load district level for the last city
-          loadDistrictMap(lastDistrictCode, lastGeojson);
+          loadDistrictMap(lastDistrictCode, CONST_DEFAULT_REGION_GEOJSON);
         }
       }
     }
@@ -722,12 +588,12 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
     }
 
     function showHideBackButtonControl(level) {
-      let isShow = parseInt(level) > defaultMapLevel;
+      let isShow = parseInt(level) > CONST_DEFAULT_REGION_MAP_LEVEL;
       document.querySelector(".back-button").style.display = isShow ? "block" : "none";
     }
 
-    function toggleShowTableContainer(elementId) {
-      var infoContainer = document.getElementById(elementId);  // Get the container by ID
+    function toggleShowTableContainer() {
+      var infoContainer = document.getElementById('info-container');  // Get the container by ID
       var button = document.getElementById('toggle-table-info-button');  // Get the button by ID
 
       if (infoContainer.style.display === 'none') {
@@ -840,335 +706,113 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
       }
     }
 
-    function generateZonasiTable(geojsonName, level, data) {
-      const mapReferenceItem = maps.find(map => map.name === geojsonName);
-      const isShowDPTHP = (mapReferenceItem) ? mapReferenceItem.include_dpthp : false;
-
-      let tableHead = `
-      <thead>
-      <tr>`;
-
-      let tableHeadGeneric = `
-        <th>TPS</th>
-        <th>PEND</th>
-        <th>KK</th>
-        <th>DPT</th>
-        <th>CDE</th>
-        <th>PEMILIH /KK</th>
-        <th>PEMILIH PEREMPUAN</th>
-        <th>PEMILIH MUDA</th>
-      `;
+    function renderTable(level, data) {
+      let table = '<div class="table-wrapper">';
+      table +=
+        `<div style="padding-bottom: 12px">
+      <button id="close-info-container" class="close-button">
+        <i class="fa-solid fa-circle-xmark"></i>
+        &nbsp;<span>Close</span>
+      </button>
+    </div>
+    <table>`;
+      table += "<thead><tr>";
 
       if (parseInt(level) == CONST_COUNTRY_LEVEL) {
-        tableHead += `<th>PROV</th>`;
+        table += `
+      <th>PROV</th>
+    `;
+      } else if (parseInt(level) == CONST_PROVINCE_LEVEL) {
+        table += `
+      <th>PROV</th>
+      <th>DAPIL DPRRI</th>
+      <th>KABKOTA</th>
+    `;
+      } else if (parseInt(level) == CONST_CITY_LEVEL) {
+        table += `
+      <th>PROV</th>
+      <th>DAPIL DPRRI</th>
+      <th>KABKOTA</th>
+      <th>KEC</th>
+    `;
+      } else if (parseInt(level) == CONST_DISTRICT_LEVEL) {
+        table += `
+      <th>PROV</th>
+      <th>DAPIL DPRRI</th>
+      <th>KABKOTA</th>
+      <th>KEC</th>
+      <th>DESA</th>
+    `;
       }
 
-      if (parseInt(level) >= CONST_PROVINCE_LEVEL) {
-        tableHead += `<th>KOTA</th>`;
-      }
+      table += `
+    <th>TPS</th>
+    <th>PEND</th>
+    <th>KK</th>
+    <th>PEMILIH 2024</th>
+    <th>CDE</th>
+    <th>PEMILIH /KK</th>
+    <th>PEMILIH PEREMPUAN</th>
+    <th>PEMILIH MUDA</th>
+    <th>ZONASI</th>
+  `;
 
-      if (parseInt(level) >= CONST_CITY_LEVEL) {
-        tableHead += `<th>KEC</th>`;
-      }
-
-      if (parseInt(level) >= CONST_DISTRICT_LEVEL) {
-        tableHead += `<th>DESA</th>`;
-      }
-
-      tableHead += tableHeadGeneric;
-
-      // if above COUNTRY_LEVEL then show ZONASI
-      if (parseInt(level) > CONST_COUNTRY_LEVEL) {
-        tableHead += `<th>ZONASI</th>`;
-      }
-
-      if (isShowDPTHP) {
-        tableHead += `
-        <th>DPTHP</th>
-        <th>DPTHP /KK</th>
-        <th>DPTHP PEREMPUAN</th>
-        `;
-      }
-
-      tableHead += `
-      </tr></thead>`;
-
-      let tbody = ``;
+      table += "</tr></thead><tbody>";
 
       // Populate the table with data
       data.forEach((item) => {
-        tbody += "<tr>";
+        table += "<tr>";
+
+        let voterData = "";
 
         if (parseInt(level) == CONST_COUNTRY_LEVEL) {
-          tbody += `<td>${item.province_name}</td>`;
+          table += `
+      <td>${item.province_name}</td>
+    `;
+        } else if (parseInt(level) == CONST_PROVINCE_LEVEL) {
+          table += `
+      <td>${item.province_name}</td>
+      <td>${item.dapil_dpr_ri}</td>
+      <td>${item.city_name}</td>
+    `;
+        } else if (parseInt(level) == CONST_CITY_LEVEL) {
+          table += `
+      <td>${item.province_name}</td>
+      <td>${item.dapil_dpr_ri}</td>
+      <td>${item.city_name}</td>
+      <td>${item.district_name}</td>
+    `;
+        } else if (parseInt(level) == CONST_DISTRICT_LEVEL) {
+          table += `
+      <td>${item.province_name}</td>
+      <td>${item.dapil_dpr_ri}</td>
+      <td>${item.city_name}</td>
+      <td>${item.district_name}</td>
+      <td>${item.sub_district_name}</td>
+    `;
         }
 
-        if (parseInt(level) >= CONST_PROVINCE_LEVEL) {
-          tbody += `<td>${item.city_name}</td>`;
-        }
-
-        if (parseInt(level) >= CONST_CITY_LEVEL) {
-          tbody += `<td>${item.district_name}</td>`;
-        }
-
-        if (parseInt(level) >= CONST_DISTRICT_LEVEL) {
-          tbody += `<td>${item.sub_district_name}</td>`;
-        }
-
-        tbody += `
-          <td style="text-align: right">${numberFormat(item.num_tps)}</td>
-          <td style="text-align: right">${numberFormat(item.num_citizen)}</td>
-          <td style="text-align: right">${numberFormat(item.num_family)}</td>
-          <td style="text-align: right">${numberFormat(item.num_voter)}</td>
-          <td style="text-align: right">${numberFormat(item.num_cde)}</td>
-          <td style="text-align: right">${numberFormat(item.num_voter_per_family)}</td>
-          <td style="text-align: right">${numberFormat(item.num_voter_women)}</td>
-          <td style="text-align: right">${numberFormat(item.num_voter_young)}</td>
-        `;
-
-        // if above COUNTRY_LEVEL then show ZONASI
-        if (parseInt(level) > CONST_COUNTRY_LEVEL) {
-          tbody += `<td style="text-align: center">${item.zone}</td>`;
-        }
-
-        if (isShowDPTHP) {
-          tbody += `
-            <td style="text-align: right">${numberFormat(item.num_voter_dpthp2)}</td>
-            <td style="text-align: right">${numberFormat(item.num_voter_per_family_dpthp2)}</td>
-            <td style="text-align: right">${numberFormat(item.num_voter_women_dpthp2)}</td>
-          `;
-        }
-
-        tbody += `</tr>`;
-      });
-
-      let table = `
-      <table class="table-sticky">
-        ${tableHead}
-        <tbody>${tbody}</tbody>
-      </table>`;
-
-      return `<div class="tabZonasi">${table}</div>`;
-    }
-
-    function generateRelawanTable(geojsonName, level, data) {
-      const mapReferenceItem = maps.find(map => map.name === geojsonName);
-      const isShowRelawan = (mapReferenceItem) ? mapReferenceItem.include_relawan : false;
-      const isShowRelawanPartisipasi = (mapReferenceItem) ? mapReferenceItem.include_relawan_partisipasi : false;
-
-      let tableHead = `
-      <thead>
-      <tr>`;
-
-      if (parseInt(level) >= CONST_PROVINCE_LEVEL) {
-        tableHead += `<th>KOTA</th>`;
-      }
-
-      if (parseInt(level) >= CONST_CITY_LEVEL) {
-        tableHead += `<th>KEC</th>`;
-      }
-
-      if (parseInt(level) >= CONST_DISTRICT_LEVEL) {
-        tableHead += `<th>DESA</th>`;
-      }
-
-      tableHead += `
-      <th>ZONASI</th>
-      <th>DPTHP PEREMPUAN</th>
-      <th>RELAWAN</th>
-      <th>TARGET SUARA</th>
+        table += `
+    <td>${numberFormat(item.num_tps)}</td>
+    <td>${numberFormat(item.num_citizen)}</td>
+    <td>${numberFormat(item.num_family)}</td>
+    <td>${numberFormat(item.num_voter)}</td>
+    <td>${numberFormat(item.num_cde)}</td>
+    <td>${numberFormat(item.num_voter_per_family)}</td>
+    <td>${numberFormat(item.num_voter_women)}</td>
+    <td>${numberFormat(item.num_voter_young)}</td>
+    <td>${item.zone}</td>
+    </tr>
       `;
-
-      if (parseInt(level) >= CONST_DISTRICT_LEVEL) {
-        tableHead += `
-          <th>TARGET KK TERKUNJUNGI</th>
-          <th>PEMILIH TERKUNJUNGI</th>
-          <th>% TARGET SUARA</th>`;
-
-        if (isShowRelawanPartisipasi) {
-          tableHead += `<th>PARTISIPASI = 80%</th>`;
-        }
-      }
-
-      tableHead += `
-      </tr></thead>`;
-
-      let tbody = ``;
-
-      // Populate the table with data
-      data.forEach((item) => {
-        tbody += "<tr>";
-
-        if (parseInt(level) >= CONST_PROVINCE_LEVEL) {
-          tbody += `<td>${item.city_name}</td>`;
-        }
-
-        if (parseInt(level) >= CONST_CITY_LEVEL) {
-          tbody += `<td>${item.district_name}</td>`;
-        }
-
-        if (parseInt(level) >= CONST_DISTRICT_LEVEL) {
-          tbody += `<td>${item.sub_district_name}</td>`;
-        }
-
-        tbody += `
-          <td style="text-align: center">${item.zone}</td>
-          <td style="text-align: right">${numberFormat(item.num_voter_women_dpthp2)}</td>
-          <td style="text-align: right">${numberFormat(item.volunteer)}</td>
-          <td style="text-align: right">${numberFormat(item.target_voter)}</td>`;
-
-        if (parseInt(level) >= CONST_DISTRICT_LEVEL) {
-          tbody += `
-              <td style="text-align: right">${numberFormat(item.target_visited_kk)}</td>
-              <td style="text-align: right">${numberFormat(item.visited_voter)}</td>
-              <td style="text-align: right">${numberFormat(item.percentage_target_voter)}</td>`;
-
-          if (isShowRelawanPartisipasi) {
-            tbody += `<td style="text-align: right">${numberFormat(item.partisipasi_80)}</td>`;
-          }
-        }
-
-        tbody += `</tr>`;
       });
 
-      let table = `
-      <table class="table-sticky">
-        ${tableHead}
-        <tbody>${tbody}</tbody>
-      </table>`;
+      table += "</tbody></table></div>";
 
-      return `<div class="tabRelawan">${table}</div>`;
-    }
-
-    function generateSpandukTable(geojsonName, level, data) {
-      let tableHead = `
-      <thead>
-      <tr>`;
-
-      if (parseInt(level) >= CONST_PROVINCE_LEVEL) {
-        tableHead += `<th>KOTA</th>`;
-      }
-
-      if (parseInt(level) >= CONST_CITY_LEVEL) {
-        tableHead += `<th>KEC</th>`;
-      }
-
-      if (parseInt(level) >= CONST_DISTRICT_LEVEL) {
-        tableHead += `<th>DESA</th>`;
-      }
-
-      tableHead += `
-      <th>ZONASI</th>
-      <th>DPTHP2</th>
-      <th>TARGET SUARA</th>
-      <th>JUMLAH SPANDUK</th>
-      <th>JUMLAH BALIHO</th>
-      `;
-
-      tableHead += `
-      </tr></thead>`;
-
-      let tbody = ``;
-
-      // Populate the table with data
-      data.forEach((item) => {
-        tbody += "<tr>";
-
-        if (parseInt(level) >= CONST_PROVINCE_LEVEL) {
-          tbody += `<td>${item.city_name}</td>`;
-        }
-
-        if (parseInt(level) >= CONST_CITY_LEVEL) {
-          tbody += `<td>${item.district_name}</td>`;
-        }
-
-        if (parseInt(level) >= CONST_DISTRICT_LEVEL) {
-          tbody += `<td>${item.sub_district_name}</td>`;
-        }
-
-        tbody += `
-          <td>${item.zone}</td>
-          <td style="text-align: right">${numberFormat(item.num_voter_dpthp2)}</td>
-          <td style="text-align: right">${numberFormat(item.target_voter)}</td>
-          <td style="text-align: right">${numberFormat(item.total_spanduk)}</td>
-          <td style="text-align: right">${numberFormat(item.total_baliho)}</td>
-        </tr>`;
-      });
-
-      let table = `
-      <table class="table-sticky">
-        ${tableHead}
-        <tbody>${tbody}</tbody>
-      </table>`;
-
-      return `<div class="tabSpanduk">${table}</div>`;
-    }
-
-    function renderTable(geojsonName, level, data) {
-      let tableZonasi = generateZonasiTable(geojsonName, level, data);
-      let tableRelawan = generateRelawanTable(geojsonName, level, data);
-      let tableSpanduk = generateSpandukTable(geojsonName, level, data);
-
-      const mapReferenceItem = maps.find(map => map.name === geojsonName);
-      const isShowRelawan = (mapReferenceItem) ? mapReferenceItem.include_relawan : false;
-      const isShowSpanduk = (mapReferenceItem) ? mapReferenceItem.include_spanduk : false;
-
-      let container = '<div class="tab-container-wrapper">';
-      container +=
-        `<div style="padding-bottom: 11px">
-          <button id="close-info-container" class="close-button">
-            <i class="fa-solid fa-circle-xmark"></i>
-            &nbsp;<span>Close</span>
-          </button>
-        </div>
-        <ul class="nav nav-tabs" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active" id="zone-tab" data-toggle="tab" data-tab="zone" role="tab">ZONASI</a>
-          </li>
-          <li class="nav-item" style="display: ${(isShowRelawan) ? 'block' : 'none'}">
-            <a class="nav-link" id="relawan-tab" data-toggle="tab" data-tab="relawan" role="tab">RELAWAN</a>
-          </li>
-          <li class="nav-item" style="display: ${(isShowSpanduk) ? 'block' : 'none'}">
-            <a class="nav-link" id="spanduk-tab" data-toggle="tab" data-tab="spanduk" role="tab">SPANDUK</a>
-          </li>
-        </ul>
-        <div class="tab-content">
-          <div class="tab-pane fade show active" id="zone" role="tabpanel" aria-labelledby="zone-tab">
-            ${tableZonasi}
-          </div>
-          <div class="tab-pane fade" id="relawan" role="tabpanel" aria-labelledby="relawan-tab">
-            ${tableRelawan}
-          </div>
-          <div class="tab-pane fade" id="spanduk" role="tabpanel" aria-labelledby="spanduk-tab">
-            ${tableSpanduk}
-          </div>
-        </div>
-      </div>`;
-
-      var infoContainer = document.getElementById('info-container-zonasi');
+      var infoContainer = document.getElementById('info-container');
 
       if (infoContainer) {
-        infoContainer.innerHTML = '';
-        infoContainer.innerHTML = container;
+        infoContainer.innerHTML = table;
       }
-
-      // Handle tab switching
-      document.querySelectorAll('.nav-link').forEach(tabLink => {
-        tabLink.addEventListener('click', function (e) {
-          e.preventDefault(); // Prevent any default behavior
-
-          // Remove active class from all tabs
-          document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-
-          // Hide all tab content
-          document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('show', 'active'));
-
-          // Add active class to the clicked tab and show corresponding content
-          const targetTab = this.getAttribute('data-tab');
-          document.getElementById(targetTab).classList.add('show', 'active');
-          this.classList.add('active');
-        });
-      });
 
       // Get the close button element
       var closeButton = document.getElementById('close-info-container');

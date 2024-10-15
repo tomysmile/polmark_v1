@@ -330,6 +330,20 @@ path.leaflet-interactive:focus {
   /* Black text to contrast with yellow background */
 }
 
+.glow {
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 
+    0 0 10px #fff, 
+    0 0 20px #fff, 
+    0 0 30px #ff0000, 
+    0 0 40px #ff0000, 
+    0 0 50px #ff0000,
+    0 0 60px #ff0000, 
+    0 0 70px #ff0000;
+}
+
 .label-tooltip {
   background-color: white;
   border: 1px solid #000;

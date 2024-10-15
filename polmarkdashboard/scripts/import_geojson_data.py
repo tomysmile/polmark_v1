@@ -168,6 +168,17 @@ def import_kab_bekasi():
     print("GeoJSON data imported successfully!")
 
 
+def import_kota_bekasi():
+    file_path = frappe.get_app_path(
+        "polmarkdashboard", "tmp_data", "geojson_indonesia.kota_bekasi.json"
+    )
+    doctype = "PD Geojson Kota Bekasi"
+
+    # execute the function
+    insert_to_database(doctype, file_path)
+    print("GeoJSON data imported successfully!")
+
+
 def import_kota_bogor():
     file_path = frappe.get_app_path(
         "polmarkdashboard", "tmp_data", "geojson_indonesia.kota_bogor.json"
