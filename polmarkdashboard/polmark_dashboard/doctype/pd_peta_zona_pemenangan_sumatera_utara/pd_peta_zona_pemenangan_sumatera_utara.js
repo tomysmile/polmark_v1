@@ -384,7 +384,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Sumatera Utara", {
           const marker = L.marker(layer.getBounds().getCenter(), {
             icon: L.divIcon({
               className: `map-area-label`,
-              html: `<div class="peta-label-content"><span class="peta-label-text">${feature.properties.name}</span></div>`,
+              html: `<div class="peta-label-content"><span class="peta-label-text glow">${feature.properties.name}</span></div>`,
             }),
           });
 
