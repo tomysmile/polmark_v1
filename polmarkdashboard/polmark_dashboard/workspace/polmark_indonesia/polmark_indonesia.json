@@ -38,14 +38,14 @@
  "hide_custom": 0,
  "icon": "review",
  "idx": 0,
- "indicator_color": "green",
+ "indicator_color": "",
  "is_hidden": 0,
- "label": "Polmark",
+ "label": "Polmark Indonesia",
  "links": [],
- "modified": "2024-10-10 21:42:57.402877",
+ "modified": "2024-10-14 17:44:33.574999",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
- "name": "Polmark",
+ "name": "Polmark Indonesia",
  "number_cards": [],
  "owner": "Administrator",
  "parent_page": "",
@@ -54,5 +54,5 @@
  "roles": [],
  "sequence_id": 1.0,
  "shortcuts": [],
- "title": "Polmark"
+ "title": "Polmark Indonesia"
 }

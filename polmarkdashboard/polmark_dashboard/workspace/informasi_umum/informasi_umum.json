@@ -1,8 +1,12 @@
 {
  "charts": [],
- "content": "[{\"id\":\"GOnjVGWoHC\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Polmark Logo\",\"col\":12}},{\"id\":\"jYZzCVdMxc\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Pilkada Countdown\",\"col\":12}},{\"id\":\"V4LR7YKIh6\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Main Peta Zona Pemenangan\",\"col\":12}},{\"id\":\"PHiH8-IA4X\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Informasi Umum\",\"col\":12}},{\"id\":\"lR-GNIFZ5k\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Peta Zona Pemenangan\",\"col\":6}},{\"id\":\"SxIInL3utn\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Wilayah Pendampingan\",\"col\":6}}]",
+ "content": "[{\"id\":\"GOnjVGWoHC\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Polmark Logo\",\"col\":12}},{\"id\":\"jYZzCVdMxc\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Pilkada Countdown\",\"col\":12}},{\"id\":\"V4LR7YKIh6\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Main Peta Zona Pemenangan\",\"col\":12}},{\"id\":\"PHiH8-IA4X\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Informasi Umum\",\"col\":6}},{\"id\":\"Ayn1_k8aOm\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget-news-slider-demo\",\"col\":6}},{\"id\":\"lR-GNIFZ5k\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Peta Zona Pemenangan\",\"col\":6}},{\"id\":\"SxIInL3utn\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Wilayah Pendampingan\",\"col\":6}}]",
  "creation": "2024-10-07 14:32:13.740220",
  "custom_blocks": [
+  {
+   "custom_block_name": "widget-news-slider-demo",
+   "label": "widget-news-slider-demo"
+  },
   {
    "custom_block_name": "Polmark Logo",
    "label": "Polmark Logo"
@@ -38,17 +42,17 @@
  "is_hidden": 0,
  "label": "Informasi Umum",
  "links": [],
- "modified": "2024-10-10 21:50:52.503578",
+ "modified": "2024-10-14 17:44:33.629272",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "Informasi Umum",
  "number_cards": [],
  "owner": "Administrator",
- "parent_page": "Polmark",
+ "parent_page": "Polmark Indonesia",
  "public": 1,
  "quick_lists": [],
  "roles": [],
- "sequence_id": 3.0,
+ "sequence_id": 2.0,
  "shortcuts": [],
  "title": "Informasi Umum"
 }
