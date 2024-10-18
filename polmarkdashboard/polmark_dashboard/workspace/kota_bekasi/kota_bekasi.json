@@ -1,0 +1,58 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"4DtNlxMVWq\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget header kota bekasi\",\"col\":12}},{\"id\":\"KdJqMtPPR1\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt kota bekasi\",\"col\":6}},{\"id\":\"MhdaO7HQhE\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget tps kota bekasi\",\"col\":6}},{\"id\":\"vI6EPxmNaX\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt female kota bekasi\",\"col\":6}},{\"id\":\"0XAFv2bAnA\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt young kota bekasi\",\"col\":6}},{\"id\":\"TUOKo4-ODL\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget features kota bekasi\",\"col\":6}},{\"id\":\"xcjl7G_hc0\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget news kota bekasi\",\"col\":6}}]",
+ "creation": "2024-10-15 17:57:52.813824",
+ "custom_blocks": [
+  {
+   "custom_block_name": "widget header kota bekasi",
+   "label": "widget header kota bekasi"
+  },
+  {
+   "custom_block_name": "widget dpt kota bekasi",
+   "label": "widget dpt kota bekasi"
+  },
+  {
+   "custom_block_name": "widget tps kota bekasi",
+   "label": "widget tps kota bekasi"
+  },
+  {
+   "custom_block_name": "widget dpt female kota bekasi",
+   "label": "widget dpt female kota bekasi"
+  },
+  {
+   "custom_block_name": "widget dpt young kota bekasi",
+   "label": "widget dpt young kota bekasi"
+  },
+  {
+   "custom_block_name": "widget features kota bekasi",
+   "label": "widget features kota bekasi"
+  },
+  {
+   "custom_block_name": "widget news kota bekasi",
+   "label": "widget news kota bekasi"
+  }
+ ],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "right",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Kota Bekasi",
+ "links": [],
+ "modified": "2024-10-15 19:37:55.061273",
+ "modified_by": "Administrator",
+ "module": "Polmark Dashboard",
+ "name": "Kota Bekasi",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "Pendampingan",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 5.0,
+ "shortcuts": [],
+ "title": "Kota Bekasi"
+}

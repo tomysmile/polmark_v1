@@ -4,15 +4,15 @@
  "creation": "2024-10-07 14:32:14.386905",
  "custom_blocks": [
   {
-   "custom_block_name": "Polmark Logo",
+   "custom_block_name": "widget logo polmark",
    "label": "Polmark Logo"
   },
   {
-   "custom_block_name": "Daftar Peta Zona Pemenangan",
+   "custom_block_name": "widget module peta zona pemenangan",
    "label": "Daftar Peta Zona Pemenangan"
   },
   {
-   "custom_block_name": "Daftar Wilayah Pendampingan",
+   "custom_block_name": "widget module wilayah pendampingan",
    "label": "Daftar Wilayah Pendampingan"
   }
  ],
@@ -26,7 +26,7 @@
  "is_hidden": 0,
  "label": "Pendampingan",
  "links": [],
- "modified": "2024-10-15 17:58:04.351872",
+ "modified": "2024-10-15 19:18:02.096394",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "Pendampingan",

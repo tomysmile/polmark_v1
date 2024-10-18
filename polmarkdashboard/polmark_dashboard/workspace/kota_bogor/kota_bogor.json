@@ -1,8 +1,29 @@
 {
  "charts": [],
- "content": "[{\"id\":\"yB4U3lEk1T\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Dashboard Kota Bogor</span>\",\"col\":12}},{\"id\":\"D2SfhKaRvD\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"QA-Iahkc9X\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Peta Zona Pemenangan\",\"col\":6}},{\"id\":\"GN8KZ0K3zN\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Peta Politik Dasar\",\"col\":6}},{\"id\":\"TmFi05xrdE\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hasil Survei\",\"col\":6}},{\"id\":\"e7a-gimEa-\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Materi Workshop\",\"col\":6}},{\"id\":\"22WGMjDsXP\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Link Berita Online\",\"col\":6}},{\"id\":\"YF4Uxwp9QN\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Visi Misi Program Kerja\",\"col\":6}},{\"id\":\"HCJo4qUcEQ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Kontak KPUD dan Panwas\",\"col\":6}},{\"id\":\"5Hg_j7WMQO\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Visi Misi Program Kerja Kompetitor\",\"col\":6}},{\"id\":\"GhAyQnUvC-\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Google Drive Desain Kreatif\",\"col\":6}},{\"id\":\"l0wO1cGkA8\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Biodata Kandidat\",\"col\":6}},{\"id\":\"ALWYXLAe-E\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Struktur Tim Kerja\",\"col\":6}}]",
+ "content": "[{\"id\":\"s1MfONQrZa\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget header kota bogor\",\"col\":12}},{\"id\":\"1SpJa-UoYN\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt kota bogor\",\"col\":6}},{\"id\":\"a_ooMhCzGT\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget tps kota bogor\",\"col\":6}},{\"id\":\"WW6wSbGfUK\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt female kota bogor\",\"col\":6}},{\"id\":\"rnYjxp3akE\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt young kota bogor\",\"col\":6}}]",
  "creation": "2024-10-07 14:32:13.787788",
- "custom_blocks": [],
+ "custom_blocks": [
+  {
+   "custom_block_name": "widget header kota bogor",
+   "label": "widget header kota bogor"
+  },
+  {
+   "custom_block_name": "widget dpt kota bogor",
+   "label": "widget dpt kota bogor"
+  },
+  {
+   "custom_block_name": "widget tps kota bogor",
+   "label": "widget tps kota bogor"
+  },
+  {
+   "custom_block_name": "widget dpt female kota bogor",
+   "label": "widget dpt female kota bogor"
+  },
+  {
+   "custom_block_name": "widget dpt young kota bogor",
+   "label": "widget dpt young kota bogor"
+  }
+ ],
  "docstatus": 0,
  "doctype": "Workspace",
  "for_user": "",
@@ -13,7 +34,7 @@
  "is_hidden": 0,
  "label": "Kota Bogor",
  "links": [],
- "modified": "2024-10-15 17:58:04.539265",
+ "modified": "2024-10-15 19:42:21.499174",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "Kota Bogor",
@@ -24,94 +45,6 @@
  "quick_lists": [],
  "roles": [],
  "sequence_id": 6.0,
- "shortcuts": [
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Peta Zona Pemenangan",
-   "link_to": "PD Peta Zona Pemenangan Kota Bogor",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Link Berita Online",
-   "link_to": "PD News Link",
-   "stats_filter": "[[\"PD News Link\",\"region\",\"=\",\"3271\",false]]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Kontak KPUD dan Panwas",
-   "link_to": "PD Phonebook",
-   "stats_filter": "[[\"PD Phonebook\",\"region\",\"=\",\"3271\",false]]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Peta Politik Dasar",
-   "link_to": "PD Document Upload",
-   "stats_filter": "[[\"PD Document Upload\",\"region\",\"=\",\"3271\",false],[\"PD Document Upload\",\"document_category\",\"=\",\"Peta Politik Dasar\",false]]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Materi Workshop",
-   "link_to": "PD Document Upload",
-   "stats_filter": "[[\"PD Document Upload\",\"document_category\",\"=\",\"Materi Workshop\",false],[\"PD Document Upload\",\"region\",\"=\",\"3271\",false]]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Struktur Tim Kerja",
-   "link_to": "PD Team Member",
-   "stats_filter": "[[\"PD Team Member\",\"region\",\"=\",\"3271\",false]]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Hasil Survei",
-   "link_to": "PD Document Upload",
-   "stats_filter": "[[\"PD Document Upload\",\"document_category\",\"=\",\"Hasil Survei\",false],[\"PD Document Upload\",\"region\",\"=\",\"3271\",false]]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Visi Misi Program Kerja Kompetitor",
-   "link_to": "PD Document Upload",
-   "stats_filter": "[[\"PD Document Upload\",\"document_category\",\"=\",\"Visi Misi Program Kerja Kompetitor\",false],[\"PD Document Upload\",\"region\",\"=\",\"3271\",false]]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Google Drive Desain Kreatif",
-   "link_to": "PD Google Drive Link",
-   "stats_filter": "[[\"PD Google Drive Link\",\"region\",\"=\",\"3271\",false]]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Visi Misi Program Kerja",
-   "link_to": "PD Document Upload",
-   "stats_filter": "[[\"PD Document Upload\",\"document_category\",\"=\",\"Visi Misi Program Kerja\",false],[\"PD Document Upload\",\"region\",\"=\",\"3271\",false]]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Biodata Kandidat",
-   "link_to": "PD Document Upload",
-   "stats_filter": "[[\"PD Document Upload\",\"document_category\",\"=\",\"Biodata Kandidat\",false],[\"PD Document Upload\",\"region\",\"=\",\"3271\",false]]",
-   "type": "DocType"
-  }
- ],
+ "shortcuts": [],
  "title": "Kota Bogor"
 }

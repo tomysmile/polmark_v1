@@ -4,31 +4,31 @@
  "creation": "2024-10-07 14:32:14.365853",
  "custom_blocks": [
   {
-   "custom_block_name": "Pilkada Countdown",
+   "custom_block_name": "widget pilkada countdown",
    "label": "Pilkada Countdown"
   },
   {
-   "custom_block_name": "Daftar Wilayah Pendampingan",
+   "custom_block_name": "widget module wilayah pendampingan",
    "label": "Daftar Wilayah Pendampingan"
   },
   {
-   "custom_block_name": "Informasi Umum",
+   "custom_block_name": "widget module informasi umum",
    "label": "Informasi Umum"
   },
   {
-   "custom_block_name": "Master Module",
+   "custom_block_name": "widget module master",
    "label": "Master Module"
   },
   {
-   "custom_block_name": "Daftar Peta Zona Pemenangan",
+   "custom_block_name": "widget module peta zona pemenangan",
    "label": "Daftar Peta Zona Pemenangan"
   },
   {
-   "custom_block_name": "Polmark Logo",
+   "custom_block_name": "widget logo polmark",
    "label": "Polmark Logo"
   },
   {
-   "custom_block_name": "Main Peta Zona Pemenangan",
+   "custom_block_name": "widget module peta zona pemenangan all",
    "label": "Main Peta Zona Pemenangan"
   }
  ],
@@ -42,7 +42,7 @@
  "is_hidden": 0,
  "label": "Polmark Indonesia",
  "links": [],
- "modified": "2024-10-15 17:58:04.253045",
+ "modified": "2024-10-15 19:18:01.992622",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "Polmark Indonesia",

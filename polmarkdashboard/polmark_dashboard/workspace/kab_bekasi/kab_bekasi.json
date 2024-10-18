@@ -1,8 +1,37 @@
 {
  "charts": [],
- "content": "[{\"id\":\"uLAwDvl_yQ\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Dashboard Kabupaten Bekasi</span>\",\"col\":12}},{\"id\":\"rRZPbVNz_Z\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"crH0LtR0vn\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Peta Zona Pemenangan\",\"col\":6}},{\"id\":\"_6pX4JLPY1\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Peta Politik Dasar\",\"col\":6}},{\"id\":\"DofZTHcmLs\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hasil Survei\",\"col\":6}},{\"id\":\"SBWTda7Mft\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Materi Workshop\",\"col\":6}},{\"id\":\"WTKQgpsctn\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Link Berita Online\",\"col\":6}},{\"id\":\"he78B4KsBe\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Visi Misi Program Kerja\",\"col\":6}},{\"id\":\"ZgbFB_wdGR\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Kontak KPUD dan Panwas\",\"col\":6}},{\"id\":\"iW5a7PKGaa\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Visi Misi Program Kerja Kompetitor\",\"col\":6}},{\"id\":\"eu0OR0az3W\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Google Drive Desain Kreatif\",\"col\":6}},{\"id\":\"P5Ak8BjdC1\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Biodata Kandidat\",\"col\":6}},{\"id\":\"7Xh9axZKks\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Struktur Tim Kerja\",\"col\":6}}]",
- "creation": "2024-10-07 14:32:13.837254",
- "custom_blocks": [],
+ "content": "[{\"id\":\"dcDM2g0QnS\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget header kab bekasi\",\"col\":12}},{\"id\":\"eoNy33TWSa\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt kab bekasi\",\"col\":6}},{\"id\":\"lAGtMaafuR\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget tps kab bekasi\",\"col\":6}},{\"id\":\"mCd7Yi-8KQ\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt female kab bekasi\",\"col\":6}},{\"id\":\"gx27vaXUBI\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt young kota bekasi\",\"col\":6}},{\"id\":\"y5yFMTBzV0\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget features kab bekasi\",\"col\":6}},{\"id\":\"iil0_bE-D6\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget news kab bekasi\",\"col\":6}}]",
+ "creation": "2024-10-15 19:17:47.390732",
+ "custom_blocks": [
+  {
+   "custom_block_name": "widget header kab bekasi",
+   "label": "widget header kab bekasi"
+  },
+  {
+   "custom_block_name": "widget dpt kab bekasi",
+   "label": "widget dpt kab bekasi"
+  },
+  {
+   "custom_block_name": "widget tps kab bekasi",
+   "label": "widget tps kab bekasi"
+  },
+  {
+   "custom_block_name": "widget dpt female kab bekasi",
+   "label": "widget dpt female kab bekasi"
+  },
+  {
+   "custom_block_name": "widget features kab bekasi",
+   "label": "widget features kab bekasi"
+  },
+  {
+   "custom_block_name": "widget dpt young kota bekasi",
+   "label": "widget dpt young kota bekasi"
+  },
+  {
+   "custom_block_name": "widget news kab bekasi",
+   "label": "widget news kab bekasi"
+  }
+ ],
  "docstatus": 0,
  "doctype": "Workspace",
  "for_user": "",
@@ -13,7 +42,7 @@
  "is_hidden": 0,
  "label": "Kab Bekasi",
  "links": [],
- "modified": "2024-10-15 17:58:04.438224",
+ "modified": "2024-10-15 19:27:16.958404",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "Kab Bekasi",
@@ -24,94 +53,6 @@
  "quick_lists": [],
  "roles": [],
  "sequence_id": 4.0,
- "shortcuts": [
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Peta Zona Pemenangan",
-   "link_to": "PD Peta Zona Pemenangan Kab Bekasi",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Peta Politik Dasar",
-   "link_to": "PD Document Upload",
-   "stats_filter": "[[\"PD Document Upload\",\"document_category\",\"=\",\"Peta Politik Dasar\",false],[\"PD Document Upload\",\"region\",\"=\",\"3216\",false]]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Hasil Survei",
-   "link_to": "PD Document Upload",
-   "stats_filter": "[[\"PD Document Upload\",\"document_category\",\"=\",\"Hasil Survei\",false],[\"PD Document Upload\",\"region\",\"=\",\"3216\",false]]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Materi Workshop",
-   "link_to": "PD Document Upload",
-   "stats_filter": "[[\"PD Document Upload\",\"document_category\",\"=\",\"Materi Workshop\",false],[\"PD Document Upload\",\"region\",\"=\",\"3216\",false]]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Link Berita Online",
-   "link_to": "PD News Link",
-   "stats_filter": "[[\"PD News Link\",\"region\",\"=\",\"3216\",false]]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Visi Misi Program Kerja",
-   "link_to": "PD Document Upload",
-   "stats_filter": "[[\"PD Document Upload\",\"document_category\",\"=\",\"Visi Misi Program Kerja\",false],[\"PD Document Upload\",\"region\",\"=\",\"3216\",false]]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Kontak KPUD dan Panwas",
-   "link_to": "PD Phonebook",
-   "stats_filter": "[[\"PD Phonebook\",\"region\",\"=\",\"3216\",false]]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Visi Misi Program Kerja Kompetitor",
-   "link_to": "PD Document Upload",
-   "stats_filter": "[[\"PD Document Upload\",\"document_category\",\"=\",\"Visi Misi Program Kerja Kompetitor\",false],[\"PD Document Upload\",\"region\",\"=\",\"3216\",false]]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Google Drive Desain Kreatif",
-   "link_to": "PD Google Drive Link",
-   "stats_filter": "[[\"PD Google Drive Link\",\"region\",\"=\",\"3216\",false]]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Biodata Kandidat",
-   "link_to": "PD Document Upload",
-   "stats_filter": "[[\"PD Document Upload\",\"document_category\",\"=\",\"Biodata Kandidat\",false],[\"PD Document Upload\",\"region\",\"=\",\"3216\",false]]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Struktur Tim Kerja",
-   "link_to": "PD Team Member",
-   "stats_filter": "[[\"PD Team Member\",\"region\",\"=\",\"3216\",false]]",
-   "type": "DocType"
-  }
- ],
+ "shortcuts": [],
  "title": "Kab Bekasi"
 }
