@@ -1,0 +1,955 @@
+[
+ {
+  "charts": [],
+  "content": "[{\"id\":\"GOnjVGWoHC\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Polmark Logo\",\"col\":12}},{\"id\":\"jYZzCVdMxc\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Pilkada Countdown\",\"col\":12}},{\"id\":\"V4LR7YKIh6\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Main Peta Zona Pemenangan\",\"col\":12}},{\"id\":\"PHiH8-IA4X\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Informasi Umum\",\"col\":12}},{\"id\":\"lR-GNIFZ5k\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Peta Zona Pemenangan\",\"col\":6}},{\"id\":\"SxIInL3utn\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Wilayah Pendampingan\",\"col\":6}}]",
+  "custom_blocks": [
+   {
+    "custom_block_name": "widget logo polmark",
+    "label": "Polmark Logo",
+    "parent": "Informasi Umum",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget module informasi umum",
+    "label": "Informasi Umum",
+    "parent": "Informasi Umum",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget module peta zona pemenangan",
+    "label": "Main Peta Zona Pemenangan",
+    "parent": "Informasi Umum",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget pilkada countdown",
+    "label": "Pilkada Countdown",
+    "parent": "Informasi Umum",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget module daftar peta zona pemenangan",
+    "label": "Daftar Peta Zona Pemenangan",
+    "parent": "Informasi Umum",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget module daftar wilayah pendampingan",
+    "label": "Daftar Wilayah Pendampingan",
+    "parent": "Informasi Umum",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   }
+  ],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "website",
+  "indicator_color": "orange",
+  "is_hidden": 0,
+  "label": "Informasi Umum",
+  "links": [],
+  "modified": "2024-10-19 14:24:32.788209",
+  "module": "Polmark Dashboard",
+  "name": "Informasi Umum",
+  "number_cards": [],
+  "parent_page": "Polmark Indonesia",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [],
+  "sequence_id": 2.0,
+  "shortcuts": [],
+  "title": "Informasi Umum"
+ },
+ {
+  "charts": [],
+  "content": "[{\"id\":\"s1MfONQrZa\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget header kota bogor\",\"col\":12}},{\"id\":\"1SpJa-UoYN\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt kota bogor\",\"col\":6}},{\"id\":\"a_ooMhCzGT\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget tps kota bogor\",\"col\":6}},{\"id\":\"WW6wSbGfUK\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt female kota bogor\",\"col\":6}},{\"id\":\"rnYjxp3akE\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt young kota bogor\",\"col\":6}},{\"id\":\"nmbadgjXgY\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget features kota bogor\",\"col\":6}},{\"id\":\"zfjz_HAE47\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget news kota bogor\",\"col\":6}}]",
+  "custom_blocks": [
+   {
+    "custom_block_name": "widget features kota bogor",
+    "label": "widget features kota bogor",
+    "parent": "Kota Bogor",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget header kota bogor",
+    "label": "widget header kota bogor",
+    "parent": "Kota Bogor",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget news kota bogor",
+    "label": "widget news kota bogor",
+    "parent": "Kota Bogor",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget dpt kota bogor",
+    "label": "widget dpt kota bogor",
+    "parent": "Kota Bogor",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget tps kota bogor",
+    "label": "widget tps kota bogor",
+    "parent": "Kota Bogor",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget dpt female kota bogor",
+    "label": "widget dpt female kota bogor",
+    "parent": "Kota Bogor",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget dpt young kota bogor",
+    "label": "widget dpt young kota bogor",
+    "parent": "Kota Bogor",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   }
+  ],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "right",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Kota Bogor",
+  "links": [],
+  "modified": "2024-10-19 14:24:33.446798",
+  "module": "Polmark Dashboard",
+  "name": "Kota Bogor",
+  "number_cards": [],
+  "parent_page": "Pendampingan",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [],
+  "sequence_id": 6.0,
+  "shortcuts": [],
+  "title": "Kota Bogor"
+ },
+ {
+  "charts": [],
+  "content": "[{\"id\":\"FxXDMloABb\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget header kota medan\",\"col\":12}},{\"id\":\"emR9HsN-i6\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt kota medan\",\"col\":6}},{\"id\":\"DavRz1n8gf\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget tps kota medan\",\"col\":6}},{\"id\":\"xsc674uJLw\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt female kota medan\",\"col\":6}},{\"id\":\"O_ILod09-Z\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt young kota medan\",\"col\":6}},{\"id\":\"Rt9oiJHeNk\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget features kota medan\",\"col\":6}},{\"id\":\"4rl_MFlvFr\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget news kota medan\",\"col\":6}}]",
+  "custom_blocks": [
+   {
+    "custom_block_name": "widget header kota medan",
+    "label": "widget header kota medan",
+    "parent": "Kota Medan",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget dpt kota medan",
+    "label": "widget dpt kota medan",
+    "parent": "Kota Medan",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget tps kota medan",
+    "label": "widget tps kota medan",
+    "parent": "Kota Medan",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget dpt female kota medan",
+    "label": "widget dpt female kota medan",
+    "parent": "Kota Medan",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget dpt young kota medan",
+    "label": "widget dpt young kota medan",
+    "parent": "Kota Medan",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget features kota medan",
+    "label": "widget features kota medan",
+    "parent": "Kota Medan",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget news kota medan",
+    "label": "widget news kota medan",
+    "parent": "Kota Medan",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   }
+  ],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "right",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Kota Medan",
+  "links": [],
+  "modified": "2024-10-19 14:24:33.604214",
+  "module": "Polmark Dashboard",
+  "name": "Kota Medan",
+  "number_cards": [],
+  "parent_page": "Pendampingan",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [],
+  "sequence_id": 7.0,
+  "shortcuts": [],
+  "title": "Kota Medan"
+ },
+ {
+  "charts": [],
+  "content": "[{\"id\":\"G_E91Sl2q9\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget header kota balikpapan\",\"col\":12}},{\"id\":\"57O1AGKGQc\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt kota balikpapan\",\"col\":6}},{\"id\":\"lIth_xHU-F\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget tps kota balikpapan\",\"col\":6}},{\"id\":\"-3l9rqIbs1\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt female kota balikpapan\",\"col\":6}},{\"id\":\"HyOPRYQT0j\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt young kota balikpapan\",\"col\":6}},{\"id\":\"Ifm2REIn_j\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget features kota balikpapan\",\"col\":6}},{\"id\":\"Iy1qB9RxXA\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget news kota balikpapan\",\"col\":6}}]",
+  "custom_blocks": [
+   {
+    "custom_block_name": "widget header kota balikpapan",
+    "label": "widget header kota balikpapan",
+    "parent": "Kota Balikpapan",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget dpt kota balikpapan",
+    "label": "widget dpt kota balikpapan",
+    "parent": "Kota Balikpapan",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget tps kota balikpapan",
+    "label": "widget tps kota balikpapan",
+    "parent": "Kota Balikpapan",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget dpt female kota balikpapan",
+    "label": "widget dpt female kota balikpapan",
+    "parent": "Kota Balikpapan",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget dpt young kota balikpapan",
+    "label": "widget dpt young kota balikpapan",
+    "parent": "Kota Balikpapan",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget features kota balikpapan",
+    "label": "widget features kota balikpapan",
+    "parent": "Kota Balikpapan",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget news kota balikpapan",
+    "label": "widget news kota balikpapan",
+    "parent": "Kota Balikpapan",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   }
+  ],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "right",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Kota Balikpapan",
+  "links": [],
+  "modified": "2024-10-19 14:24:33.755926",
+  "module": "Polmark Dashboard",
+  "name": "Kota Balikpapan",
+  "number_cards": [],
+  "parent_page": "Pendampingan",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [],
+  "sequence_id": 8.0,
+  "shortcuts": [],
+  "title": "Kota Balikpapan"
+ },
+ {
+  "charts": [],
+  "content": "[{\"id\":\"Y3RcjHdFuU\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget header kota bandung\",\"col\":12}},{\"id\":\"A8yFqzhpKT\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt kota bandung\",\"col\":6}},{\"id\":\"6w5ItzEGHj\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget tps kota bandung\",\"col\":6}},{\"id\":\"YHdJ9IH78w\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt female kota bandung\",\"col\":6}},{\"id\":\"SBj5WfYLXr\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt young kota bandung\",\"col\":6}},{\"id\":\"f3V1oo9N-I\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget features kota bandung\",\"col\":6}},{\"id\":\"w2_m6Vz4Kj\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget news kota bandung\",\"col\":6}}]",
+  "custom_blocks": [
+   {
+    "custom_block_name": "widget header kota bandung",
+    "label": "widget header kota bandung",
+    "parent": "Kota Bandung",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget dpt kota bandung",
+    "label": "widget dpt kota bandung",
+    "parent": "Kota Bandung",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget tps kota bandung",
+    "label": "widget tps kota bandung",
+    "parent": "Kota Bandung",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget dpt female kota bandung",
+    "label": "widget dpt female kota bandung",
+    "parent": "Kota Bandung",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget dpt young kota bandung",
+    "label": "widget dpt young kota bandung",
+    "parent": "Kota Bandung",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget features kota bandung",
+    "label": "widget features kota bandung",
+    "parent": "Kota Bandung",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget news kota bandung",
+    "label": "widget news kota bandung",
+    "parent": "Kota Bandung",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   }
+  ],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "right",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Kota Bandung",
+  "links": [],
+  "modified": "2024-10-19 14:24:33.893729",
+  "module": "Polmark Dashboard",
+  "name": "Kota Bandung",
+  "number_cards": [],
+  "parent_page": "Pendampingan",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [],
+  "sequence_id": 9.0,
+  "shortcuts": [],
+  "title": "Kota Bandung"
+ },
+ {
+  "charts": [],
+  "content": "[{\"id\":\"8as5fGJE-G\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget header prov dki jakarta\",\"col\":12}},{\"id\":\"b73o1FH5I1\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt prov dki jakarta\",\"col\":6}},{\"id\":\"MP4Lmr1ZUY\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget tps prov dki jakarta\",\"col\":6}},{\"id\":\"GSIJVJaR-n\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt female prov dki jakarta\",\"col\":6}},{\"id\":\"I6h3PJcjuG\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt young prov dki jakarta\",\"col\":6}},{\"id\":\"Sbhb-SpczL\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget features prov dki jakarta\",\"col\":6}},{\"id\":\"fvJrkLtZAB\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget news prov dki jakarta\",\"col\":6}}]",
+  "custom_blocks": [
+   {
+    "custom_block_name": "widget header prov dki jakarta",
+    "label": "widget header prov dki jakarta",
+    "parent": "Prov DKI Jakarta",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget dpt prov dki jakarta",
+    "label": "widget dpt prov dki jakarta",
+    "parent": "Prov DKI Jakarta",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget tps prov dki jakarta",
+    "label": "widget tps prov dki jakarta",
+    "parent": "Prov DKI Jakarta",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget dpt female prov dki jakarta",
+    "label": "widget dpt female prov dki jakarta",
+    "parent": "Prov DKI Jakarta",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget dpt young prov dki jakarta",
+    "label": "widget dpt young prov dki jakarta",
+    "parent": "Prov DKI Jakarta",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget features prov dki jakarta",
+    "label": "widget features prov dki jakarta",
+    "parent": "Prov DKI Jakarta",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget news prov dki jakarta",
+    "label": "widget news prov dki jakarta",
+    "parent": "Prov DKI Jakarta",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   }
+  ],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "right",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Prov DKI Jakarta",
+  "links": [],
+  "modified": "2024-10-19 14:24:34.240262",
+  "module": "Polmark Dashboard",
+  "name": "Prov DKI Jakarta",
+  "number_cards": [],
+  "parent_page": "Pendampingan",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [],
+  "sequence_id": 11.0,
+  "shortcuts": [],
+  "title": "Prov DKI Jakarta"
+ },
+ {
+  "charts": [],
+  "content": "[{\"id\":\"3KWkbBvXA5\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget header prov kalimantan tengah\",\"col\":12}},{\"id\":\"VBK4qy1mLx\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt prov kalimantan tengah\",\"col\":6}},{\"id\":\"qalKfO-BwB\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget tps prov kalimantan tengah\",\"col\":6}},{\"id\":\"YpKZCIiUwK\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt female prov kalimantan tengah\",\"col\":6}},{\"id\":\"dQhjY4sLDq\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt young prov kalimantan tengah\",\"col\":6}},{\"id\":\"PdNJ57wKKV\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget features prov kalimantan tengah\",\"col\":6}},{\"id\":\"3vV-wd7-u6\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget news prov kalimantan tengah\",\"col\":6}}]",
+  "custom_blocks": [
+   {
+    "custom_block_name": "widget header prov kalimantan tengah",
+    "label": "widget header prov kalimantan tengah",
+    "parent": "Prov Kalimantan Tengah",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget dpt prov kalimantan tengah",
+    "label": "widget dpt prov kalimantan tengah",
+    "parent": "Prov Kalimantan Tengah",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget tps prov kalimantan tengah",
+    "label": "widget tps prov kalimantan tengah",
+    "parent": "Prov Kalimantan Tengah",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget dpt female prov kalimantan tengah",
+    "label": "widget dpt female prov kalimantan tengah",
+    "parent": "Prov Kalimantan Tengah",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget dpt young prov kalimantan tengah",
+    "label": "widget dpt young prov kalimantan tengah",
+    "parent": "Prov Kalimantan Tengah",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget features prov kalimantan tengah",
+    "label": "widget features prov kalimantan tengah",
+    "parent": "Prov Kalimantan Tengah",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget news prov kalimantan tengah",
+    "label": "widget news prov kalimantan tengah",
+    "parent": "Prov Kalimantan Tengah",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   }
+  ],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "right",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Prov Kalimantan Tengah",
+  "links": [],
+  "modified": "2024-10-19 14:24:34.408987",
+  "module": "Polmark Dashboard",
+  "name": "Prov Kalimantan Tengah",
+  "number_cards": [],
+  "parent_page": "Pendampingan",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [],
+  "sequence_id": 12.0,
+  "shortcuts": [],
+  "title": "Prov Kalimantan Tengah"
+ },
+ {
+  "charts": [],
+  "content": "[{\"id\":\"mYeUNao0Ma\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget header prov sumatera utara\",\"col\":12}},{\"id\":\"KDCSztsl_U\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt prov sumatera utara\",\"col\":6}},{\"id\":\"ndZoGMnBXi\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget tps prov sumatera utara\",\"col\":6}},{\"id\":\"hhVVg1_bYl\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt female prov sumatera utara\",\"col\":6}},{\"id\":\"I4Y7S_AIGU\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt young prov sumatera utara\",\"col\":6}},{\"id\":\"4sxvrx8f3E\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget features prov sumatera utara\",\"col\":6}},{\"id\":\"59LDdprUVe\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget news prov sumatera utara\",\"col\":6}}]",
+  "custom_blocks": [
+   {
+    "custom_block_name": "widget header prov sumatera utara",
+    "label": "widget header prov sumatera utara",
+    "parent": "Prov Sumatera Utara",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget dpt prov sumatera utara",
+    "label": "widget dpt prov sumatera utara",
+    "parent": "Prov Sumatera Utara",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget tps prov sumatera utara",
+    "label": "widget tps prov sumatera utara",
+    "parent": "Prov Sumatera Utara",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget dpt female prov sumatera utara",
+    "label": "widget dpt female prov sumatera utara",
+    "parent": "Prov Sumatera Utara",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget dpt young prov sumatera utara",
+    "label": "widget dpt young prov sumatera utara",
+    "parent": "Prov Sumatera Utara",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget features prov sumatera utara",
+    "label": "widget features prov sumatera utara",
+    "parent": "Prov Sumatera Utara",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget news prov sumatera utara",
+    "label": "widget news prov sumatera utara",
+    "parent": "Prov Sumatera Utara",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   }
+  ],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "right",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Prov Sumatera Utara",
+  "links": [],
+  "modified": "2024-10-19 14:24:34.579098",
+  "module": "Polmark Dashboard",
+  "name": "Prov Sumatera Utara",
+  "number_cards": [],
+  "parent_page": "Pendampingan",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [],
+  "sequence_id": 13.0,
+  "shortcuts": [],
+  "title": "Prov Sumatera Utara"
+ },
+ {
+  "charts": [],
+  "content": "[{\"id\":\"sEcMQJwBp-\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget header prov jawa barat\",\"col\":12}},{\"id\":\"vfBUZ3CN7n\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt prov jawa barat\",\"col\":6}},{\"id\":\"9ANwedcCp8\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget tps prov jawa barat\",\"col\":6}},{\"id\":\"UvnEceK-M9\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt female prov jawa barat\",\"col\":6}},{\"id\":\"EeGgpk3jEF\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt young prov jawa barat\",\"col\":6}},{\"id\":\"IGy8UytI6j\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget features prov jawa barat\",\"col\":6}},{\"id\":\"RFathVy0YZ\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget news prov jawa barat\",\"col\":6}}]",
+  "custom_blocks": [
+   {
+    "custom_block_name": "widget header prov jawa barat",
+    "label": "widget header prov jawa barat",
+    "parent": "Prov Jawa Barat",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget dpt prov jawa barat",
+    "label": "widget dpt prov jawa barat",
+    "parent": "Prov Jawa Barat",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget tps prov jawa barat",
+    "label": "widget tps prov jawa barat",
+    "parent": "Prov Jawa Barat",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget dpt female prov jawa barat",
+    "label": "widget dpt female prov jawa barat",
+    "parent": "Prov Jawa Barat",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget dpt young prov jawa barat",
+    "label": "widget dpt young prov jawa barat",
+    "parent": "Prov Jawa Barat",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget features prov jawa barat",
+    "label": "widget features prov jawa barat",
+    "parent": "Prov Jawa Barat",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget news prov jawa barat",
+    "label": "widget news prov jawa barat",
+    "parent": "Prov Jawa Barat",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   }
+  ],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "right",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Prov Jawa Barat",
+  "links": [],
+  "modified": "2024-10-19 14:27:27.791040",
+  "module": "Polmark Dashboard",
+  "name": "Prov Jawa Barat",
+  "number_cards": [],
+  "parent_page": "Pendampingan",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [],
+  "sequence_id": 10.0,
+  "shortcuts": [],
+  "title": "Prov Jawa Barat"
+ },
+ {
+  "charts": [],
+  "content": "[{\"id\":\"5AkZCOc8Uk\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Polmark Logo\",\"col\":12}},{\"id\":\"Zf8KHOPXPF\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Pilkada Countdown\",\"col\":12}},{\"id\":\"DWoRf20rfe\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Main Peta Zona Pemenangan\",\"col\":12}},{\"id\":\"alJsFIRaeQ\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Peta Zona Pemenangan\",\"col\":6}},{\"id\":\"qz673llfAt\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Wilayah Pendampingan\",\"col\":6}},{\"id\":\"axwo6p-uba\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Informasi Umum\",\"col\":6}},{\"id\":\"uA8TvYHAdi\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Master Module\",\"col\":6}}]",
+  "custom_blocks": [
+   {
+    "custom_block_name": "widget pilkada countdown",
+    "label": "Pilkada Countdown",
+    "parent": "Polmark Indonesia",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget module daftar wilayah pendampingan",
+    "label": "Daftar Wilayah Pendampingan",
+    "parent": "Polmark Indonesia",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget module informasi umum",
+    "label": "Informasi Umum",
+    "parent": "Polmark Indonesia",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget module master",
+    "label": "Master Module",
+    "parent": "Polmark Indonesia",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget module daftar peta zona pemenangan",
+    "label": "Daftar Peta Zona Pemenangan",
+    "parent": "Polmark Indonesia",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget logo polmark",
+    "label": "Polmark Logo",
+    "parent": "Polmark Indonesia",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget module peta zona pemenangan",
+    "label": "Main Peta Zona Pemenangan",
+    "parent": "Polmark Indonesia",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   }
+  ],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "review",
+  "indicator_color": "",
+  "is_hidden": 0,
+  "label": "Polmark Indonesia",
+  "links": [],
+  "modified": "2024-10-19 14:24:32.608702",
+  "module": "Polmark Dashboard",
+  "name": "Polmark Indonesia",
+  "number_cards": [],
+  "parent_page": "",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [],
+  "sequence_id": 1.0,
+  "shortcuts": [],
+  "title": "Polmark Indonesia"
+ },
+ {
+  "charts": [],
+  "content": "[{\"id\":\"KXy0TP8iYw\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Polmark Logo\",\"col\":12}},{\"id\":\"SUiWQV6kSY\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Peta Zona Pemenangan\",\"col\":6}},{\"id\":\"7NgoePal0K\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Wilayah Pendampingan\",\"col\":6}}]",
+  "custom_blocks": [
+   {
+    "custom_block_name": "widget logo polmark",
+    "label": "Polmark Logo",
+    "parent": "Pendampingan",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget module daftar peta zona pemenangan",
+    "label": "Daftar Peta Zona Pemenangan",
+    "parent": "Pendampingan",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget module daftar wilayah pendampingan",
+    "label": "Daftar Wilayah Pendampingan",
+    "parent": "Pendampingan",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   }
+  ],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "website",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Pendampingan",
+  "links": [],
+  "modified": "2024-10-19 14:24:32.956711",
+  "module": "Polmark Dashboard",
+  "name": "Pendampingan",
+  "number_cards": [],
+  "parent_page": "Polmark Indonesia",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [],
+  "sequence_id": 3.0,
+  "shortcuts": [],
+  "title": "Pendampingan"
+ },
+ {
+  "charts": [],
+  "content": "[{\"id\":\"4DtNlxMVWq\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget header kota bekasi\",\"col\":12}},{\"id\":\"KdJqMtPPR1\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt kota bekasi\",\"col\":6}},{\"id\":\"MhdaO7HQhE\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget tps kota bekasi\",\"col\":6}},{\"id\":\"vI6EPxmNaX\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt female kota bekasi\",\"col\":6}},{\"id\":\"0XAFv2bAnA\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt young kota bekasi\",\"col\":6}},{\"id\":\"TUOKo4-ODL\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget features kota bekasi\",\"col\":6}},{\"id\":\"xcjl7G_hc0\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget news kota bekasi\",\"col\":6}}]",
+  "custom_blocks": [
+   {
+    "custom_block_name": "widget header kota bekasi",
+    "label": "widget header kota bekasi",
+    "parent": "Kota Bekasi",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget dpt kota bekasi",
+    "label": "widget dpt kota bekasi",
+    "parent": "Kota Bekasi",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget tps kota bekasi",
+    "label": "widget tps kota bekasi",
+    "parent": "Kota Bekasi",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget dpt female kota bekasi",
+    "label": "widget dpt female kota bekasi",
+    "parent": "Kota Bekasi",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget dpt young kota bekasi",
+    "label": "widget dpt young kota bekasi",
+    "parent": "Kota Bekasi",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget features kota bekasi",
+    "label": "widget features kota bekasi",
+    "parent": "Kota Bekasi",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget news kota bekasi",
+    "label": "widget news kota bekasi",
+    "parent": "Kota Bekasi",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   }
+  ],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "right",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Kota Bekasi",
+  "links": [],
+  "modified": "2024-10-19 14:24:33.276028",
+  "module": "Polmark Dashboard",
+  "name": "Kota Bekasi",
+  "number_cards": [],
+  "parent_page": "Pendampingan",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [],
+  "sequence_id": 5.0,
+  "shortcuts": [],
+  "title": "Kota Bekasi"
+ },
+ {
+  "charts": [],
+  "content": "[{\"id\":\"dcDM2g0QnS\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget header kab bekasi\",\"col\":12}},{\"id\":\"eoNy33TWSa\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt kab bekasi\",\"col\":6}},{\"id\":\"lAGtMaafuR\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget tps kab bekasi\",\"col\":6}},{\"id\":\"mCd7Yi-8KQ\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt female kab bekasi\",\"col\":6}},{\"id\":\"gx27vaXUBI\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt young kab bekasi\",\"col\":6}},{\"id\":\"y5yFMTBzV0\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget features kab bekasi\",\"col\":6}},{\"id\":\"iil0_bE-D6\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget news kab bekasi\",\"col\":6}}]",
+  "custom_blocks": [
+   {
+    "custom_block_name": "widget dpt young kab bekasi",
+    "label": "widget dpt young kab bekasi",
+    "parent": "Kab Bekasi",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget header kab bekasi",
+    "label": "widget header kab bekasi",
+    "parent": "Kab Bekasi",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget dpt kab bekasi",
+    "label": "widget dpt kab bekasi",
+    "parent": "Kab Bekasi",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget tps kab bekasi",
+    "label": "widget tps kab bekasi",
+    "parent": "Kab Bekasi",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget dpt female kab bekasi",
+    "label": "widget dpt female kab bekasi",
+    "parent": "Kab Bekasi",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget features kab bekasi",
+    "label": "widget features kab bekasi",
+    "parent": "Kab Bekasi",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget news kab bekasi",
+    "label": "widget news kab bekasi",
+    "parent": "Kab Bekasi",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   }
+  ],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "right",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Kab Bekasi",
+  "links": [],
+  "modified": "2024-10-19 14:24:33.095975",
+  "module": "Polmark Dashboard",
+  "name": "Kab Bekasi",
+  "number_cards": [],
+  "parent_page": "Pendampingan",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [],
+  "sequence_id": 4.0,
+  "shortcuts": [],
+  "title": "Kab Bekasi"
+ }
+]

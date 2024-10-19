@@ -24,12 +24,12 @@ fixtures = [
         ],
     },
     {"doctype": "Custom HTML Block"},
+    {"doctype": "Workspace", "filters": [["Public", "=", 1], ["Module", "=", "Polmark Dashboard"]]},
     {"doctype": "PD Region Type", "filters": [["standard", "=", 1]]},
     {"doctype": "PD Region", "filters": [["standard", "=", 1]]},
     {"doctype": "PD Document Category", "filters": [["standard", "=", 1]]},
     {"doctype": "PD News Site", "filters": [["standard", "=", 1]]},
-    {"doctype": "PD Staff Position", "filters": [["standard", "=", 1]]},
-    {"doctype": "PD Peta Zona Pemenangan Kota Bekasi", "filters": [["standard", "=", 1]]}
+    {"doctype": "PD Staff Position", "filters": [["standard", "=", 1]]}
 ]
 
 # Each item in the list will be shown as an app in the apps page

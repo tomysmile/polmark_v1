@@ -1,11 +1,19 @@
 {
  "charts": [],
- "content": "[{\"id\":\"s1MfONQrZa\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget header kota bogor\",\"col\":12}},{\"id\":\"1SpJa-UoYN\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt kota bogor\",\"col\":6}},{\"id\":\"a_ooMhCzGT\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget tps kota bogor\",\"col\":6}},{\"id\":\"WW6wSbGfUK\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt female kota bogor\",\"col\":6}},{\"id\":\"rnYjxp3akE\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt young kota bogor\",\"col\":6}}]",
+ "content": "[{\"id\":\"s1MfONQrZa\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget header kota bogor\",\"col\":12}},{\"id\":\"1SpJa-UoYN\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt kota bogor\",\"col\":6}},{\"id\":\"a_ooMhCzGT\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget tps kota bogor\",\"col\":6}},{\"id\":\"WW6wSbGfUK\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt female kota bogor\",\"col\":6}},{\"id\":\"rnYjxp3akE\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt young kota bogor\",\"col\":6}},{\"id\":\"nmbadgjXgY\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget features kota bogor\",\"col\":6}},{\"id\":\"zfjz_HAE47\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget news kota bogor\",\"col\":6}}]",
  "creation": "2024-10-07 14:32:13.787788",
  "custom_blocks": [
   {
+   "custom_block_name": "widget features kota bogor",
+   "label": "widget features kota bogor"
+  },
+  {
    "custom_block_name": "widget header kota bogor",
    "label": "widget header kota bogor"
+  },
+  {
+   "custom_block_name": "widget news kota bogor",
+   "label": "widget news kota bogor"
   },
   {
    "custom_block_name": "widget dpt kota bogor",
@@ -34,7 +42,7 @@
  "is_hidden": 0,
  "label": "Kota Bogor",
  "links": [],
- "modified": "2024-10-15 19:42:21.499174",
+ "modified": "2024-10-19 14:24:33.446798",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "Kota Bogor",

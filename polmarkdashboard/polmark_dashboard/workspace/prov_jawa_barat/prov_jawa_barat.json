@@ -1,8 +1,37 @@
 {
  "charts": [],
- "content": "[{\"id\":\"_PPTVqvBQp\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Dashboard Provinsi Jawa Barat</span>\",\"col\":12}},{\"id\":\"rBTheOvywL\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"OfDuPtofjD\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Peta Zona Pemenangan\",\"col\":6}},{\"id\":\"8e_mSbPPkk\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Peta Politik Dasar\",\"col\":6}},{\"id\":\"gK0dxgsC0U\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hasil Survei\",\"col\":6}},{\"id\":\"Q-PnCaPVKY\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Materi Workshop\",\"col\":6}},{\"id\":\"Ukt8wabaHD\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Link Berita Online\",\"col\":6}},{\"id\":\"FP-_-8okQT\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Visi Misi Program Kerja\",\"col\":6}},{\"id\":\"54gUQB5DrH\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Kontak KPUD dan Panwas\",\"col\":6}},{\"id\":\"-GcW9i9707\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Visi Misi Program Kerja Kompetitor\",\"col\":6}},{\"id\":\"urNNL8gKO4\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Google Drive Desain Kreatif\",\"col\":6}},{\"id\":\"fjIWbe4t_5\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Biodata Kandidat\",\"col\":6}},{\"id\":\"ktYzgcFRd_\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Struktur Tim Kerja\",\"col\":6}}]",
+ "content": "[{\"id\":\"sEcMQJwBp-\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget header prov jawa barat\",\"col\":12}},{\"id\":\"vfBUZ3CN7n\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt prov jawa barat\",\"col\":6}},{\"id\":\"9ANwedcCp8\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget tps prov jawa barat\",\"col\":6}},{\"id\":\"UvnEceK-M9\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt female prov jawa barat\",\"col\":6}},{\"id\":\"EeGgpk3jEF\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt young prov jawa barat\",\"col\":6}},{\"id\":\"IGy8UytI6j\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget features prov jawa barat\",\"col\":6}},{\"id\":\"RFathVy0YZ\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget news prov jawa barat\",\"col\":6}}]",
  "creation": "2024-10-07 14:32:14.205151",
- "custom_blocks": [],
+ "custom_blocks": [
+  {
+   "custom_block_name": "widget header prov jawa barat",
+   "label": "widget header prov jawa barat"
+  },
+  {
+   "custom_block_name": "widget dpt prov jawa barat",
+   "label": "widget dpt prov jawa barat"
+  },
+  {
+   "custom_block_name": "widget tps prov jawa barat",
+   "label": "widget tps prov jawa barat"
+  },
+  {
+   "custom_block_name": "widget dpt female prov jawa barat",
+   "label": "widget dpt female prov jawa barat"
+  },
+  {
+   "custom_block_name": "widget dpt young prov jawa barat",
+   "label": "widget dpt young prov jawa barat"
+  },
+  {
+   "custom_block_name": "widget features prov jawa barat",
+   "label": "widget features prov jawa barat"
+  },
+  {
+   "custom_block_name": "widget news prov jawa barat",
+   "label": "widget news prov jawa barat"
+  }
+ ],
  "docstatus": 0,
  "doctype": "Workspace",
  "for_user": "",
@@ -13,7 +42,7 @@
  "is_hidden": 0,
  "label": "Prov Jawa Barat",
  "links": [],
- "modified": "2024-10-15 19:18:02.599335",
+ "modified": "2024-10-19 14:27:27.791040",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "Prov Jawa Barat",
@@ -23,95 +52,7 @@
  "public": 1,
  "quick_lists": [],
  "roles": [],
- "sequence_id": 13.0,
- "shortcuts": [
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Peta Zona Pemenangan",
-   "link_to": "PD Peta Zona Pemenangan Jawa Barat",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Kontak KPUD dan Panwas",
-   "link_to": "PD Phonebook",
-   "stats_filter": "[[\"PD Phonebook\",\"region\",\"=\",\"32\",false]]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Peta Politik Dasar",
-   "link_to": "PD Document Upload",
-   "stats_filter": "[[\"PD Document Upload\",\"document_category\",\"=\",\"Peta Politik Dasar\",false],[\"PD Document Upload\",\"region\",\"=\",\"32\",false]]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Visi Misi Program Kerja Kompetitor",
-   "link_to": "PD Document Upload",
-   "stats_filter": "[[\"PD Document Upload\",\"document_category\",\"=\",\"Visi Misi Program Kerja Kompetitor\",false],[\"PD Document Upload\",\"region\",\"=\",\"32\",false]]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Hasil Survei",
-   "link_to": "PD Document Upload",
-   "stats_filter": "[[\"PD Document Upload\",\"document_category\",\"=\",\"Hasil Survei\",false],[\"PD Document Upload\",\"region\",\"=\",\"32\",false]]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Google Drive Desain Kreatif",
-   "link_to": "PD Google Drive Link",
-   "stats_filter": "[[\"PD Google Drive Link\",\"region\",\"=\",\"32\",false]]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Materi Workshop",
-   "link_to": "PD Document Upload",
-   "stats_filter": "[[\"PD Document Upload\",\"document_category\",\"=\",\"Materi Workshop\",false],[\"PD Document Upload\",\"region\",\"=\",\"32\",false]]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Biodata Kandidat",
-   "link_to": "PD Document Upload",
-   "stats_filter": "[[\"PD Document Upload\",\"document_category\",\"=\",\"Biodata Kandidat\",false],[\"PD Document Upload\",\"region\",\"=\",\"32\",false]]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Link Berita Online",
-   "link_to": "PD News Link",
-   "stats_filter": "[[\"PD News Link\",\"region\",\"=\",\"32\",false]]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Struktur Tim Kerja",
-   "link_to": "PD Team Member",
-   "stats_filter": "[[\"PD Team Member\",\"region\",\"=\",\"32\",false]]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Visi Misi Program Kerja",
-   "link_to": "PD Document Upload",
-   "stats_filter": "[[\"PD Document Upload\",\"document_category\",\"=\",\"Visi Misi Program Kerja\",false],[\"PD Document Upload\",\"region\",\"=\",\"32\",false]]",
-   "type": "DocType"
-  }
- ],
+ "sequence_id": 10.0,
+ "shortcuts": [],
  "title": "Prov Jawa Barat"
 }

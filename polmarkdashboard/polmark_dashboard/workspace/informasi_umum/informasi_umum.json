@@ -1,12 +1,8 @@
 {
  "charts": [],
- "content": "[{\"id\":\"GOnjVGWoHC\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Polmark Logo\",\"col\":12}},{\"id\":\"jYZzCVdMxc\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Pilkada Countdown\",\"col\":12}},{\"id\":\"V4LR7YKIh6\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Main Peta Zona Pemenangan\",\"col\":12}},{\"id\":\"PHiH8-IA4X\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Informasi Umum\",\"col\":6}},{\"id\":\"Ayn1_k8aOm\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget-news-slider-demo\",\"col\":6}},{\"id\":\"lR-GNIFZ5k\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Peta Zona Pemenangan\",\"col\":6}},{\"id\":\"SxIInL3utn\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Wilayah Pendampingan\",\"col\":6}}]",
+ "content": "[{\"id\":\"GOnjVGWoHC\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Polmark Logo\",\"col\":12}},{\"id\":\"jYZzCVdMxc\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Pilkada Countdown\",\"col\":12}},{\"id\":\"V4LR7YKIh6\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Main Peta Zona Pemenangan\",\"col\":12}},{\"id\":\"PHiH8-IA4X\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Informasi Umum\",\"col\":12}},{\"id\":\"lR-GNIFZ5k\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Peta Zona Pemenangan\",\"col\":6}},{\"id\":\"SxIInL3utn\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Wilayah Pendampingan\",\"col\":6}}]",
  "creation": "2024-10-07 14:32:13.740220",
  "custom_blocks": [
-  {
-   "custom_block_name": "widget-news-slider-demo",
-   "label": "widget-news-slider-demo"
-  },
   {
    "custom_block_name": "widget logo polmark",
    "label": "Polmark Logo"
@@ -16,7 +12,7 @@
    "label": "Informasi Umum"
   },
   {
-   "custom_block_name": "widget module peta zona pemenangan all",
+   "custom_block_name": "widget module peta zona pemenangan",
    "label": "Main Peta Zona Pemenangan"
   },
   {
@@ -24,11 +20,11 @@
    "label": "Pilkada Countdown"
   },
   {
-   "custom_block_name": "widget module peta zona pemenangan",
+   "custom_block_name": "widget module daftar peta zona pemenangan",
    "label": "Daftar Peta Zona Pemenangan"
   },
   {
-   "custom_block_name": "widget module wilayah pendampingan",
+   "custom_block_name": "widget module daftar wilayah pendampingan",
    "label": "Daftar Wilayah Pendampingan"
   }
  ],
@@ -42,7 +38,7 @@
  "is_hidden": 0,
  "label": "Informasi Umum",
  "links": [],
- "modified": "2024-10-15 19:18:02.056606",
+ "modified": "2024-10-19 14:24:32.788209",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "Informasi Umum",

@@ -8,7 +8,7 @@
    "label": "Pilkada Countdown"
   },
   {
-   "custom_block_name": "widget module wilayah pendampingan",
+   "custom_block_name": "widget module daftar wilayah pendampingan",
    "label": "Daftar Wilayah Pendampingan"
   },
   {
@@ -20,7 +20,7 @@
    "label": "Master Module"
   },
   {
-   "custom_block_name": "widget module peta zona pemenangan",
+   "custom_block_name": "widget module daftar peta zona pemenangan",
    "label": "Daftar Peta Zona Pemenangan"
   },
   {
@@ -28,7 +28,7 @@
    "label": "Polmark Logo"
   },
   {
-   "custom_block_name": "widget module peta zona pemenangan all",
+   "custom_block_name": "widget module peta zona pemenangan",
    "label": "Main Peta Zona Pemenangan"
   }
  ],
@@ -42,7 +42,7 @@
  "is_hidden": 0,
  "label": "Polmark Indonesia",
  "links": [],
- "modified": "2024-10-15 19:18:01.992622",
+ "modified": "2024-10-19 14:24:32.608702",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "Polmark Indonesia",
