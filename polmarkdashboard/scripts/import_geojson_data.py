@@ -146,17 +146,6 @@ def join_with_space_uppercase_first(word1, word2):
     return ""
 
 
-def import_dki_jakarta():
-    file_path = frappe.get_app_path(
-        "polmarkdashboard", "tmp_data", "geojson_indonesia.dki_jakarta.json"
-    )
-    doctype = "PD Geojson DKI Jakarta"
-
-    # execute the function
-    insert_to_database(doctype, file_path)
-    print("GeoJSON data imported successfully!")
-
-
 def import_kab_bekasi():
     file_path = frappe.get_app_path(
         "polmarkdashboard", "tmp_data", "geojson_indonesia.kab_bekasi.json"
@@ -261,6 +250,17 @@ def import_sumatera_utara():
         "polmarkdashboard", "tmp_data", "geojson_indonesia.sumatera_utara.json"
     )
     doctype = "PD Geojson Sumatera Utara"
+
+    # execute the function
+    insert_to_database(doctype, file_path)
+    print("GeoJSON data imported successfully!")
+
+
+def import_dki_jakarta():
+    file_path = frappe.get_app_path(
+        "polmarkdashboard", "tmp_data", "geojson_indonesia.dki_jakarta.json"
+    )
+    doctype = "PD Geojson DKI Jakarta"
 
     # execute the function
     insert_to_database(doctype, file_path)
