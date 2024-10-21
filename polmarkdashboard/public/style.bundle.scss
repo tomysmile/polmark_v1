@@ -2,49 +2,44 @@
 @import url('/assets/polmarkdashboard/css/leaflet-custom.css');
 @import url('/assets/polmarkdashboard/css/fontawesome-free.css');
 
-#custom-map-container {
-  width: 100%;
-  height: 100%;
-  position: relative;
+@import "frappe/public/scss/desk/index";
+
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: var(--text-muted);
+	font-weight: var(--weight-regular);
+	letter-spacing: 0.02em;
+	background-color: var(--bg-color);
+
+	&.full-width {
+		@include media-breakpoint-up(md) {
+			.container {
+				width: 100%;
+				max-width: 100%;
+			}
+		}
+	}
 }
 
-/* overrides */
 .navbar {
   background-color: #B9843E;
   border-bottom: 4px solid #FDB329;
   padding: 30px;
 }
 
-.navbar ul li a {
-  // color: #fff;
+#navbar-breadcrumbs li > a {
+  color: #fff !important;
 }
 
-.container {
-  width: 100% !important;
-  max-width: 100% !important;
-  // padding-left: 0 !important;
-  // padding-right: 0 !important;
+// START from here
+
+#custom-map-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
-.page-container {
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-.layout-main {
-  // width: 100vw !important;
-  // height: 100vh !important;
-  height: 100% !important;
-}
-
-/* For full-width sections */
-.section-body {
-  // width: 100% !important;
-  // padding: 0 !important;
-  overflow-y: auto;
-}
-
-/* END overrides */
 
 /* Leaflet-Fullscreen */
 
