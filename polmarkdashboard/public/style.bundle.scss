@@ -267,6 +267,42 @@ path.leaflet-interactive:focus {
   z-index: 1000;
 }
 
+.map-list-button button i {
+  width: 11px;
+  margin-left: -2px;
+}
+
+.info-button-container button {
+  position: relative;
+}
+
+.info-button-container button:hover {
+  background-color: #f0f0f0;
+}
+
+.info-button-container button::after {
+  content: attr(title); /* Use the title attribute as the tooltip content */
+  position: absolute;
+  background: #333;
+  color: white;
+  padding: 5px;
+  border-radius: 3px;
+  opacity: 0;
+  white-space: nowrap;
+  font-size: 12px;
+  top: 50%; /* Vertically align */
+  left: 150%; /* Start the tooltip right next to the button */
+  transform: translateX(10px) translateY(-50%); /* Position tooltip on the right */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 1000;
+}
+
+/* On hover, slide the tooltip from left to right */
+.info-button-container button:hover::after {
+  opacity: 1;
+  transform: translateX(0) translateY(-50%); /* Slide into place */
+}
+
 /* Style the map list */
 .map-list {
   background-color: white;

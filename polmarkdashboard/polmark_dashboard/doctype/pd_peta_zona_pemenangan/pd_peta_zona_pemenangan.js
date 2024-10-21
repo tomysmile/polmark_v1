@@ -187,7 +187,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
       // Custom Control for Map List Button
       const mapListMapControl = L.control({ position: "topleft" });
       mapListMapControl.onAdd = () => {
-        const container = L.DomUtil.create('div', 'map-list-button leaflet-control');
+        const container = L.DomUtil.create('div', 'map-list-button leaflet-control info-button-container');
         container.style.position = 'relative';
         container.style.marginTop = "3px";
 
@@ -196,7 +196,8 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
           "button",
           "custom-button",
           container);
-        button.innerHTML = '<i class="fas fa-globe"></i>'; // Button label
+        button.innerHTML = '<i class="octicon octicon-globe"></i>';
+        button.setAttribute('title', 'Pilih Peta Zona');
         button.style.width = '100%'; // Full width
         button.style.border = "none";
         button.style.backgroundColor = "transparent";
@@ -331,9 +332,11 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
     function addShowHideLayer() {
       const showHideLabelControl = L.control({ position: "topleft" });
       showHideLabelControl.onAdd = () => {
-        const container = L.DomUtil.create('div', 'map-list-button leaflet-control');
+        const container = L.DomUtil.create('div', 'map-list-button leaflet-control info-button-container');
         container.style.position = 'relative';
         container.style.marginTop = "3px";
+
+        const defaultTitle = "Tampilkan Nama Wilayah";
 
         // create the button
         const button = L.DomUtil.create(
@@ -342,7 +345,8 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
           container
         );
         // Add some style and text to the control button
-        button.innerHTML = `<i class="fas fa-map-marker-alt"></i>`;
+        button.innerHTML = `<i class="octicon octicon-location"></i>`;
+        button.setAttribute('title', defaultTitle);
         button.style.width = '100%';
         button.style.border = "none";
         button.style.backgroundColor = "transparent";
@@ -350,6 +354,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
         // Add the event handler for the button click
         button.onclick = function () {
           if (areLabelsVisible) {
+            button.setAttribute('title', defaultTitle);
             if (parseInt(currentMapLevel) === CONST_COUNTRY_LEVEL)
               mapInstance.removeLayer(nationalMarkersGroup);
             else if (parseInt(currentMapLevel) === CONST_PROVINCE_LEVEL)
@@ -361,6 +366,8 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
             else if (parseInt(currentMapLevel) === CONST_SUBDISTRICT_LEVEL)
               mapInstance.removeLayer(subDistrictMarkersGroup);
           } else {
+            title = "Sembunyikan Nama Wilayah"
+            button.setAttribute('title', title);
             if (parseInt(currentMapLevel) === CONST_COUNTRY_LEVEL)
               mapInstance.addLayer(nationalMarkersGroup);
             else if (parseInt(currentMapLevel) === CONST_PROVINCE_LEVEL)
@@ -375,6 +382,9 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
           // map.removeLayer(cityMarkersGroup);
           areLabelsVisible = !areLabelsVisible; // Toggle the state
         };
+
+        // Prevent map interaction when clicking on the control
+        L.DomEvent.disableClickPropagation(button);
 
         return container;
       };
@@ -465,13 +475,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
 
           lastGeojson = geojson;
 
-          const marker = L.marker(layer.getBounds().getCenter(), {
-            icon: L.divIcon({
-              className: `map-area-label`,
-              html: `<div class="peta-label-content"><span class="peta-label-text glow">${feature.properties.name}</span></div>`,
-            }),
-          });
-
+          const marker = getMapLabelMarker(feature);
           markersGroup.addLayer(marker);
 
           layer.bindTooltip(`
@@ -555,7 +559,9 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
                 lastDistrictName = feature.properties.district_name;
                 lastSubDistrictCode = feature.properties.sub_district_code;
                 lastSubDistrictName = feature.properties.sub_district_name;
-                // showHideDataBoxTooltip(false);
+
+                // since nothing happened in sub_district
+                currentMapLevel = CONST_DISTRICT_LEVEL;
               }
             },
           });
@@ -806,11 +812,11 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
       return totalPoints ? [totalLat / totalPoints, totalLng / totalPoints] : null;
     }
 
-    function getMultiPolygonCentroid(coordinates) {
+    function getMultiPolygonCentroid(multiCoordinates) {
       let totalLat = 0,
         totalLng = 0,
         totalPoints = 0;
-      coordinates.forEach((polygon) => {
+      multiCoordinates.forEach((polygon) => {
         polygon[0].forEach(([lng, lat]) => {
           totalLng += lng;
           totalLat += lat;
@@ -820,21 +826,35 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
       return totalPoints ? [totalLat / totalPoints, totalLng / totalPoints] : null;
     }
 
-    function showLabelMarker(map, feature) {
+    function getMapLabelMarker(feature) {
       const centroid =
         feature.geometry.type === "MultiPolygon"
           ? getMultiPolygonCentroid(feature.geometry.coordinates)
           : getCentroid(feature.geometry.coordinates);
 
+      // NOTES: if you have access to layer, then you can use below code as well
+      // const centroid = layer.getBounds().getCenter();
+
       if (centroid) {
         const markerLabel = L.divIcon({
-          className: "province-label",
-          html: `<div class="peta-label-content"><span class="peta-label-text">${feature.properties.name}</span></div>`,
+          className: "map-area-label",
+          html: `<div class="peta-label-content"><span class="peta-label-text glow">${feature.properties.name}</span></div>`,
         });
-        L.marker(centroid, { icon: markerLabel }).addTo(map);
+
+        return L.marker(centroid, { icon: markerLabel });
+        // return L.circleMarker(centroid, {
+        //   radius: 5, // Size of the dot
+        //   fillColor: "#ff7800",
+        //   color: "#000",
+        //   weight: 1,
+        //   opacity: 1,
+        //   fillOpacity: 0.8
+        // });
       } else {
         console.error("Invalid centroid for feature:", feature.properties.name);
       }
+
+      return;
     }
 
     function generateZonasiTable(geojsonName, level, data) {
