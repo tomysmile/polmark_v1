@@ -26,6 +26,10 @@ def insert_to_database(doctype, file_path):
         region_fullname = join_with_space_uppercase_first(region_type, region_name)
 
         geojson_str = json.dumps(item.get("feature"))
+        center_coordinate_str = ""
+
+        if (item.get("center_coordinate")):
+          center_coordinate_str = json.dumps(item.get("center_coordinate"))
 
         doc = frappe.get_doc(
             {
@@ -91,6 +95,7 @@ def insert_to_database(doctype, file_path):
                 "partisipasi_80": item.get("partisipasi_80"),
                 "total_baliho": item.get("total_baliho"),
                 "total_spanduk": item.get("total_spanduk"),
+                "center_coordinate": center_coordinate_str,
                 "geojson": geojson_str,
                 "standard": 1,
             }

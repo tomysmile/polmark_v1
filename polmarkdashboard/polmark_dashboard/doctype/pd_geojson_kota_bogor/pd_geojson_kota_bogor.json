@@ -89,6 +89,7 @@
   "total_spanduk",
   "partisipasi_80",
   "geojson_section",
+  "center_coordinate",
   "geojson"
  ],
  "fields": [
@@ -466,7 +467,7 @@
   {
    "fieldname": "geojson_section",
    "fieldtype": "Section Break",
-   "label": "GEOJSON"
+   "label": "Map Coordinate"
   },
   {
    "fieldname": "geojson",
@@ -514,12 +515,17 @@
    "fieldname": "active",
    "fieldtype": "Check",
    "label": "Active"
+  },
+  {
+   "fieldname": "center_coordinate",
+   "fieldtype": "JSON",
+   "label": "Center Coordinate"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-10 16:12:39.932589",
+ "modified": "2024-10-21 15:15:51.051419",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "PD Geojson Kota Bogor",
