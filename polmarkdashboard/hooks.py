@@ -24,7 +24,7 @@ fixtures = [
         ],
     },
     {"doctype": "Custom HTML Block"},
-    {"doctype": "Workspace", "filters": [["Public", "=", 1], ["Module", "=", "Polmark Dashboard"]]},
+    {"doctype": "Workspace", "filters": [["Module", "=", "Polmark Dashboard"]]},
     {"doctype": "PD Region Type", "filters": [["standard", "=", 1]]},
     {"doctype": "PD Region", "filters": [["standard", "=", 1]]},
     {"doctype": "PD Document Category", "filters": [["standard", "=", 1]]},
