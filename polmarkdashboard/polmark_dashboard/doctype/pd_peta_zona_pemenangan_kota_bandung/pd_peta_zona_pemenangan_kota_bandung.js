@@ -64,14 +64,17 @@ const CONST_DEFAULT_REGION_CODE = "3273",
 
 frappe.ui.form.on("PD Peta Zona Pemenangan Kota Bandung", {
   onload: function (frm) {
-    frappe.require('/assets/polmarkdashboard/css/overrides.css');
+    // 
   },
   refresh(frm) {
-    $('.page-head').hide();
-    frm.set_df_property("map_html", "hidden", frm.is_new() ? 1 : 0);
-    frm.set_df_property('region', 'hidden', (frm.doc.region) ? 1 : 0); // Hide the field
-    frm.set_df_property('region_type', 'hidden', (frm.doc.region) ? 1 : 0);
-    frm.set_df_property('standard', 'hidden', (frm.doc.standard) ? 1 : 0);
+    if (frm.doc.region) {
+      frappe.require('/assets/polmarkdashboard/css/overrides.css');
+      $('.page-head').hide();
+      frm.set_df_property("map_html", "hidden", frm.is_new() ? 1 : 0);
+      frm.set_df_property('region', 'hidden', (frm.doc.region) ? 1 : 0); // Hide the field
+      frm.set_df_property('region_type', 'hidden', (frm.doc.region) ? 1 : 0);
+      frm.set_df_property('standard', 'hidden', (frm.doc.standard) ? 1 : 0);
+    }
     
     setTimeout(function () {
       // Check if the map is already initialized

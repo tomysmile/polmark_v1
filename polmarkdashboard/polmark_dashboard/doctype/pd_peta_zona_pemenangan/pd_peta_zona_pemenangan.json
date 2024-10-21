@@ -6,16 +6,9 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "standard",
   "map_html"
  ],
  "fields": [
-  {
-   "default": "0",
-   "fieldname": "standard",
-   "fieldtype": "Check",
-   "label": "Standard"
-  },
   {
    "fieldname": "map_html",
    "fieldtype": "HTML",
@@ -26,7 +19,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-10-10 11:22:43.221762",
+ "modified": "2024-10-19 18:28:11.927286",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "PD Peta Zona Pemenangan",

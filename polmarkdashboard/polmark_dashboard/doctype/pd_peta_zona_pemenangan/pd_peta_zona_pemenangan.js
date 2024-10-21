@@ -76,14 +76,11 @@ let mapInstance,
 
 frappe.ui.form.on("PD Peta Zona Pemenangan", {
   onload: function (frm) {
-    // Adding custom CSS
-    frappe.require('/assets/polmarkdashboard/css/overrides.css');
+    //
   },
   refresh(frm) {
+    frappe.require('/assets/polmarkdashboard/css/overrides.css');
     $('.page-head').hide();
-    
-    frm.set_df_property("map_html", "hidden", frm.is_new() ? 1 : 0);
-    frm.set_df_property('standard', 'hidden', (frm.doc.standard) ? 1 : 0);
 
     setTimeout(function () {
       // Check if the map is already initialized
