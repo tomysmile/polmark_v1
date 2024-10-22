@@ -1,11 +1,15 @@
 {
  "charts": [],
- "content": "[{\"id\":\"dcDM2g0QnS\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget header kab bekasi\",\"col\":12}},{\"id\":\"eoNy33TWSa\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt kab bekasi\",\"col\":6}},{\"id\":\"lAGtMaafuR\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget tps kab bekasi\",\"col\":6}},{\"id\":\"mCd7Yi-8KQ\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt female kab bekasi\",\"col\":6}},{\"id\":\"gx27vaXUBI\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt young kab bekasi\",\"col\":6}},{\"id\":\"y5yFMTBzV0\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget features kab bekasi\",\"col\":6}},{\"id\":\"iil0_bE-D6\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget news kab bekasi\",\"col\":6}}]",
- "creation": "2024-10-15 19:17:47.390732",
+ "content": "[{\"id\":\"dcDM2g0QnS\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget header kab bekasi\",\"col\":12}},{\"id\":\"eoNy33TWSa\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt kab bekasi\",\"col\":6}},{\"id\":\"lAGtMaafuR\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget tps kab bekasi\",\"col\":6}},{\"id\":\"mCd7Yi-8KQ\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt female kab bekasi\",\"col\":6}},{\"id\":\"gx27vaXUBI\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt young kab bekasi\",\"col\":6}},{\"id\":\"JpxiM03saL\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget button dpt pilkada kab bekasi\",\"col\":12}},{\"id\":\"y5yFMTBzV0\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget features kab bekasi\",\"col\":6}},{\"id\":\"iil0_bE-D6\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget news kab bekasi\",\"col\":6}}]",
+ "creation": "2024-10-22 13:14:36.719126",
  "custom_blocks": [
   {
    "custom_block_name": "widget dpt young kab bekasi",
    "label": "widget dpt young kab bekasi"
+  },
+  {
+   "custom_block_name": "widget button dpt pilkada kab bekasi",
+   "label": "widget button dpt pilkada kab bekasi"
   },
   {
    "custom_block_name": "widget header kab bekasi",
@@ -42,7 +46,7 @@
  "is_hidden": 0,
  "label": "Kab Bekasi",
  "links": [],
- "modified": "2024-10-19 14:24:33.095975",
+ "modified": "2024-10-22 16:03:41.191472",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "Kab Bekasi",

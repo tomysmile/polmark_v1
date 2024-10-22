@@ -1,11 +1,15 @@
 {
  "charts": [],
- "content": "[{\"id\":\"GOnjVGWoHC\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Polmark Logo\",\"col\":12}},{\"id\":\"jYZzCVdMxc\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Pilkada Countdown\",\"col\":12}},{\"id\":\"V4LR7YKIh6\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Main Peta Zona Pemenangan\",\"col\":12}},{\"id\":\"PHiH8-IA4X\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Informasi Umum\",\"col\":12}},{\"id\":\"lR-GNIFZ5k\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Peta Zona Pemenangan\",\"col\":6}},{\"id\":\"SxIInL3utn\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Wilayah Pendampingan\",\"col\":6}}]",
- "creation": "2024-10-07 14:32:13.740220",
+ "content": "[{\"id\":\"GOnjVGWoHC\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Polmark Logo\",\"col\":12}},{\"id\":\"jYZzCVdMxc\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Pilkada Countdown\",\"col\":12}},{\"id\":\"V4LR7YKIh6\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Main Peta Zona Pemenangan\",\"col\":12}},{\"id\":\"PHiH8-IA4X\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Informasi Umum\",\"col\":6}},{\"id\":\"LAuC5n93mi\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget module daftar dpt pilkada 2024\",\"col\":6}},{\"id\":\"lR-GNIFZ5k\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Peta Zona Pemenangan\",\"col\":6}},{\"id\":\"SxIInL3utn\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Wilayah Pendampingan\",\"col\":6}}]",
+ "creation": "2024-10-22 13:14:34.370286",
  "custom_blocks": [
   {
    "custom_block_name": "widget logo polmark",
    "label": "Polmark Logo"
+  },
+  {
+   "custom_block_name": "widget module daftar dpt pilkada 2024",
+   "label": "widget module daftar dpt pilkada 2024"
   },
   {
    "custom_block_name": "widget module informasi umum",
@@ -38,7 +42,7 @@
  "is_hidden": 0,
  "label": "Informasi Umum",
  "links": [],
- "modified": "2024-10-19 14:24:32.788209",
+ "modified": "2024-10-22 16:05:52.033986",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "Informasi Umum",
