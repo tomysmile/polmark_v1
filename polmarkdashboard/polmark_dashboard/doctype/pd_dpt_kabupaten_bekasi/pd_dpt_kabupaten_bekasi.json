@@ -276,7 +276,7 @@
  "image_field": "profile_photo",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-22 13:02:49.386385",
+ "modified": "2024-10-22 20:29:58.161047",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "PD DPT Kabupaten Bekasi",
@@ -293,6 +293,15 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "share": 1
   }
  ],
  "show_title_field_in_link": 1,
