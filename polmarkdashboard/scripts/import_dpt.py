@@ -1,26 +1,25 @@
-import frappe
+import multiprocessing
+import os
 import json
-import time
+import frappe
 from datetime import datetime
+import time
 
+# Define a function to process a single file and insert the data into Frappe
+def import_file(file_path, doctype):
+    start_time = time.time()  # Record the start time for each file
 
-def import_ndjson_to_doctype(ndjson_file_path, doctype):
-    # Initialize record count
-    total_records = 0
-    batch_size = 1000
-    records = []  # Store records for batch insertion
+    print(f"Starting import for: {file_path}")
+    total_lines = sum(1 for _ in open(file_path))  # Count total lines for progress tracking
+    processed_lines = 0
 
-    # Start the timer
-    start_time = time.time()
-    start_time_formatted = datetime.fromtimestamp(start_time).strftime('%Y-%m-%d %H:%M:%S')
-    
-    print(f"Conversion started at {start_time_formatted}.")
+    with open(file_path, 'r') as f:
+        for line in f:
+            item = json.loads(line)
 
-    with open(ndjson_file_path, 'r') as file:
-        for line in file:
-            # Parse the NDJSON line
-            item = json.loads(line.strip())
-            
+            # Set has_ktp_elektronik based on status_ktp_elektronik value
+            has_ktp_elektronik = 1 if item.get("status_ktp_elektronik") == "S" else 0
+
             # Create the document structure
             doc = {
                 "doctype": doctype,
@@ -31,7 +30,7 @@ def import_ndjson_to_doctype(ndjson_file_path, doctype):
                 "birth_date": datetime.strptime(item.get("date_of_birth"), '%d-%m-%Y').date(),
                 "marital_status": item.get("status_nikah"),
                 "gender": item.get("gender"),
-                "has_ktp_elektronik": item.get("has_ktp_elektronik", False),
+                "has_ktp_elektronik": has_ktp_elektronik,
                 "address": item.get("address"),
                 "rt": item.get("rt"),
                 "rw": item.get("rw"),
@@ -54,55 +53,53 @@ def import_ndjson_to_doctype(ndjson_file_path, doctype):
                 "sub_district_code": item.get("sub_district_code"),
                 "sub_district_code_bps": item.get("sub_district_code_bps")
             }
-            
-            records.append(doc)  # Add the document to the records list
-            total_records += 1
-            
-            # If we've reached the batch size, insert records
-            if total_records % batch_size == 0:
-                # Insert the records into the database
-                for record in records:
-                    frappe.get_doc(record).insert()
-                
-                # Commit the transaction
-                frappe.db.commit()
-                
-                print(f"Imported {total_records} records...")
-                records = []  # Reset records for the next batch
-        
-        # Insert any remaining records
-        if records:
-            for record in records:
-                frappe.get_doc(record).insert()
-            
-            # Commit the transaction
-            frappe.db.commit()
-            print(f"Imported {total_records} records...")
 
-    end_time = time.time()  # Capture end time
-    elapsed_time = end_time - start_time  # Calculate elapsed time
-    print(f"Import completed. Total records: {total_records}")
-    print(f"Start time: {datetime.fromtimestamp(start_time).strftime('%Y-%m-%d %H:%M:%S')}")
-    print(f"End time: {datetime.fromtimestamp(end_time).strftime('%Y-%m-%d %H:%M:%S')}")
-    print(f"Elapsed time: {elapsed_time:.2f} seconds")
+            # Insert the document into Frappe
+            frappe.get_doc(doc).insert()
+            processed_lines += 1
+
+            # Print progress every 1000 records
+            if processed_lines % 1000 == 0 or processed_lines == total_lines:
+                elapsed_time = time.time() - start_time
+                elapsed_time = round(elapsed_time)
+                print(f"Processed {processed_lines}/{total_lines} records for {file_path.split('/')[-1]} | Elapsed time: ({elapsed_time//60//60%60}:{elapsed_time//60%60}:{elapsed_time%60})")
+
+        frappe.db.commit()  # Commit the changes after processing the file
+
+    elapsed_time = time.time() - start_time  # Calculate elapsed time
+    print(f"Completed import for: {file_path} in {elapsed_time:.2f} seconds.\n")
+
+# Function to run import in parallel using multiple cores
+def import_files_in_parallel(file_paths, doctype):
+    num_cores = multiprocessing.cpu_count()  # Detect available cores
+    print(f"Using {num_cores} cores for import.")
+    with multiprocessing.Pool(num_cores) as pool:
+        pool.starmap(import_file, [(file_path, doctype) for file_path in file_paths])
 
 
 def kab_bekasi():
     # Usage
-    ndjson_files = [
-        frappe.get_app_path("polmarkdashboard", "tmp_data", "dpt_kab_bekasi_1_10.ndjson"),
-        frappe.get_app_path("polmarkdashboard", "tmp_data", "dpt_kab_bekasi_2_10.ndjson"),
-        frappe.get_app_path("polmarkdashboard", "tmp_data", "dpt_kab_bekasi_3_10.ndjson"),
-        frappe.get_app_path("polmarkdashboard", "tmp_data", "dpt_kab_bekasi_4_10.ndjson"),
-        frappe.get_app_path("polmarkdashboard", "tmp_data", "dpt_kab_bekasi_5_10.ndjson"),
-        frappe.get_app_path("polmarkdashboard", "tmp_data", "dpt_kab_bekasi_6_10.ndjson"),
-        frappe.get_app_path("polmarkdashboard", "tmp_data", "dpt_kab_bekasi_7_10.ndjson"),
-        frappe.get_app_path("polmarkdashboard", "tmp_data", "dpt_kab_bekasi_8_10.ndjson"),
-        frappe.get_app_path("polmarkdashboard", "tmp_data", "dpt_kab_bekasi_9_10.ndjson"),
-        frappe.get_app_path("polmarkdashboard", "tmp_data", "dpt_kab_bekasi_10_10.ndjson")
+    file_paths = [
+        frappe.get_app_path("polmarkdashboard", "tmp_data", "ndjson_files", "dpt_kab_bekasi_1_10.ndjson"),
+        frappe.get_app_path("polmarkdashboard", "tmp_data", "ndjson_files", "dpt_kab_bekasi_2_10.ndjson"),
+        frappe.get_app_path("polmarkdashboard", "tmp_data", "ndjson_files", "dpt_kab_bekasi_3_10.ndjson"),
+        frappe.get_app_path("polmarkdashboard", "tmp_data", "ndjson_files", "dpt_kab_bekasi_4_10.ndjson"),
+        frappe.get_app_path("polmarkdashboard", "tmp_data", "ndjson_files", "dpt_kab_bekasi_5_10.ndjson"),
+        frappe.get_app_path("polmarkdashboard", "tmp_data", "ndjson_files", "dpt_kab_bekasi_6_10.ndjson"),
+        frappe.get_app_path("polmarkdashboard", "tmp_data", "ndjson_files", "dpt_kab_bekasi_7_10.ndjson"),
+        frappe.get_app_path("polmarkdashboard", "tmp_data", "ndjson_files", "dpt_kab_bekasi_8_10.ndjson"),
+        frappe.get_app_path("polmarkdashboard", "tmp_data", "ndjson_files", "dpt_kab_bekasi_9_10.ndjson"),
+        frappe.get_app_path("polmarkdashboard", "tmp_data", "ndjson_files", "dpt_kab_bekasi_10_10.ndjson")
     ]
 
-    doctype_name = "PD DPT Kabupaten Bekasi"  # Replace with your actual Doctype name
+    # Specify the Doctype you are importing data into
+    doctype = "PD DPT Kabupaten Bekasi"
 
-    for ndjson_file in ndjson_files:
-        import_ndjson_to_doctype(ndjson_file, doctype_name)
+    # Start parallel import
+    start_time = time.time()  # Record the overall start time
+    print(f"Starting the import process at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    
+    import_files_in_parallel(file_paths, doctype)
+
+    total_elapsed_time = time.time() - start_time  # Calculate total elapsed time
+    print(f"Completed the import process in {total_elapsed_time:.2f} seconds.")
