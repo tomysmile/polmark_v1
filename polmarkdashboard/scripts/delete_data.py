@@ -1,24 +1,30 @@
 import frappe
 
 
-def delete_documents(doctype, filters):
+def delete_records_in_batches(doctype, filters, batch_size=1000):
     """
-    Delete documents from a specified Doctype based on given filters.
-
-    :param doctype: The name of the Doctype to delete documents from
-    :param filters: A dictionary of filters to select the documents to delete
-    :return: A message indicating the result of the operation
+    Deletes all records from the specified Doctype in batches to avoid performance issues.
+    :param doctype: The Doctype from which records need to be deleted
+    :param batch_size: The number of records to delete in each batch (default is 1000)
     """
-    # Fetch documents based on the provided filters
-    documents = frappe.get_all(doctype, filters=filters, fields=['name'])
+    total_deleted = 0
+    while True:
+        # Fetch the first batch of record names
+        records = frappe.get_all(doctype, fields=["name"], limit=batch_size)
 
-    if documents:
-        # Iterate over the documents and delete each one
-        for doc in documents:
-            frappe.delete_doc(doctype, doc.name)
-        return {"message": f"{len(documents)} documents deleted from {doctype}."}
-    else:
-        return {"message": "No documents found matching the criteria."}
+        # If no more records, break the loop
+        if not records:
+            print(f"Deleted {total_deleted} records from {doctype}.")
+            break
+
+        # Delete the fetched records
+        for record in records:
+            frappe.delete_doc(doctype, record.name, force=1, ignore_permissions=True)
+        
+        frappe.db.commit()  # Commit after each batch to avoid large transactions
+        total_deleted += len(records)
+
+        print(f"Deleted {len(records)} records. Total deleted so far: {total_deleted}")
 
 
 def delete_kota_bogor():
@@ -29,7 +35,7 @@ def delete_kota_bogor():
     # }
 
     # execute the function
-    delete_documents(doctype, filters)
+    delete_records_in_batches(doctype, filters, batch_size=1000)
     print("Data deleted successfully!")
 
 
@@ -44,6 +50,14 @@ def delete_nasional():
     # }
 
     # execute the function
-    delete_documents(doctype, filters)
+    delete_records_in_batches(doctype, filters, batch_size=1000)
     print("Data deleted successfully!")
 
+
+def delete_dpt_kab_bekasi():
+    doctype = "PD DPT Kabupaten Bekasi"
+    filters = []
+
+    # execute the function
+    delete_records_in_batches(doctype, filters, batch_size=1000)
+    print("Data deleted successfully!")
