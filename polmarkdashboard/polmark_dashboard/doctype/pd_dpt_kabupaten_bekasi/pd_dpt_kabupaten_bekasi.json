@@ -1,0 +1,303 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "creation": "2024-10-21 14:44:01.086231",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "personal_section",
+  "nik",
+  "kk",
+  "fullname",
+  "birth_place",
+  "birth_date",
+  "gender",
+  "marital_status",
+  "active",
+  "column_break_cvpy",
+  "address",
+  "rt",
+  "rw",
+  "tps",
+  "disability",
+  "notes",
+  "source",
+  "has_ktp_elektronik",
+  "column_break_hfvk",
+  "age_per2024",
+  "phone_number",
+  "profile_photo",
+  "photo_preview",
+  "section_break_jlrw",
+  "province_name",
+  "province_code",
+  "province_code_bps",
+  "column_break_qsnt",
+  "city_name",
+  "city_code",
+  "city_code_bps",
+  "column_break_fjut",
+  "district_name",
+  "district_code",
+  "district_code_bps",
+  "column_break_vebk",
+  "sub_district_name",
+  "sub_district_code",
+  "sub_district_code_bps"
+ ],
+ "fields": [
+  {
+   "fieldname": "rt",
+   "fieldtype": "Data",
+   "label": "RT"
+  },
+  {
+   "fieldname": "rw",
+   "fieldtype": "Data",
+   "label": "RW"
+  },
+  {
+   "fieldname": "column_break_cvpy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_jlrw",
+   "fieldtype": "Section Break",
+   "label": "Regional"
+  },
+  {
+   "fieldname": "column_break_qsnt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_fjut",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_vebk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_ktp_elektronik",
+   "fieldtype": "Check",
+   "label": "KTP Elektronik"
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Data",
+   "label": "Source"
+  },
+  {
+   "default": "1",
+   "fieldname": "active",
+   "fieldtype": "Check",
+   "label": "Active"
+  },
+  {
+   "fieldname": "column_break_hfvk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "nik",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "KTP (NIK)",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "kk",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "KK Number"
+  },
+  {
+   "fieldname": "fullname",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Full Name",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "birth_place",
+   "fieldtype": "Data",
+   "label": "Birth Place"
+  },
+  {
+   "fieldname": "birth_date",
+   "fieldtype": "Date",
+   "label": "Birth Date",
+   "search_index": 1
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Gender",
+   "options": "\nL\nP"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Data",
+   "label": "Address"
+  },
+  {
+   "fieldname": "disability",
+   "fieldtype": "Data",
+   "label": "Disability"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Data",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "age_per2024",
+   "fieldtype": "Int",
+   "label": "Age per-2024",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "profile_photo",
+   "fieldtype": "Attach Image",
+   "label": "Profile Photo"
+  },
+  {
+   "fieldname": "marital_status",
+   "fieldtype": "Data",
+   "label": "Marital Status"
+  },
+  {
+   "fieldname": "photo_preview",
+   "fieldtype": "HTML",
+   "label": "Preview"
+  },
+  {
+   "fieldname": "personal_section",
+   "fieldtype": "Section Break",
+   "label": "Personal"
+  },
+  {
+   "fieldname": "tps",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "TPS",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Data",
+   "label": "Phone Number",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "province_name",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Provinsi"
+  },
+  {
+   "fieldname": "province_code",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Kode Provinsi"
+  },
+  {
+   "fieldname": "province_code_bps",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Kode BPS Provinsi"
+  },
+  {
+   "fieldname": "city_name",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Kota / Kabupaten"
+  },
+  {
+   "fieldname": "city_code",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Kode KoKab"
+  },
+  {
+   "fieldname": "city_code_bps",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Kode BPS KoKab"
+  },
+  {
+   "fieldname": "district_name",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Kecamatan"
+  },
+  {
+   "fieldname": "district_code",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Kode Kec"
+  },
+  {
+   "fieldname": "district_code_bps",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Kode BPS Kec"
+  },
+  {
+   "fieldname": "sub_district_name",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Kelurahan / Desa"
+  },
+  {
+   "fieldname": "sub_district_code",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Kode Kel"
+  },
+  {
+   "fieldname": "sub_district_code_bps",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Kode BPS Kel"
+  }
+ ],
+ "hide_toolbar": 1,
+ "image_field": "profile_photo",
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-10-22 13:02:49.386385",
+ "modified_by": "Administrator",
+ "module": "Polmark Dashboard",
+ "name": "PD DPT Kabupaten Bekasi",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "fullname"
+}
