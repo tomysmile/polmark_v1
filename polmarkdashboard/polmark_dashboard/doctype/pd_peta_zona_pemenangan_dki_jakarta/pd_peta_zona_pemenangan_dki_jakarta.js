@@ -729,14 +729,14 @@ frappe.ui.form.on("PD Peta Zona Pemenangan DKI Jakarta", {
       let cityInfo = "";
       let districtInfo = "";
 
-      if (parseInt(data.region_level) === CONST_CITY_LEVEL) {
+      if (parseInt(data.region_level) == CONST_CITY_LEVEL) {
         cityInfo = `
           <tr>
             <td>Kecamatan</td>
             <td>${data.jml_kec}</td>
           </tr>
         `;
-      } else if (parseInt(data.region_level) === CONST_DISTRICT_LEVEL) {
+      } else if (parseInt(data.region_level) >= CONST_DISTRICT_LEVEL) {
         districtInfo = `
           <tr>
             <td>Kelurahan</td>
@@ -843,7 +843,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan DKI Jakarta", {
       <th>KABKOTA</th>
       <th>KEC</th>
     `;
-      } else if (parseInt(level) == CONST_DISTRICT_LEVEL) {
+      } else if (parseInt(level) >= CONST_DISTRICT_LEVEL) {
         table += `
       <th>PROV</th>
       <th>KABKOTA</th>
@@ -887,7 +887,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan DKI Jakarta", {
       <td>${item.city_name}</td>
       <td>${item.district_name}</td>
     `;
-        } else if (parseInt(level) == CONST_DISTRICT_LEVEL) {
+        } else if (parseInt(level) >= CONST_DISTRICT_LEVEL) {
           table += `
       <td>${item.province_name}</td>
       <td>${item.city_name}</td>

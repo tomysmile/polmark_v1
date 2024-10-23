@@ -754,7 +754,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Kota Bekasi", {
       <th>KABKOTA</th>
       <th>KEC</th>
     `;
-      } else if (parseInt(level) == CONST_DISTRICT_LEVEL) {
+      } else if (parseInt(level) >= CONST_DISTRICT_LEVEL) {
         table += `
       <th>PROV</th>
       <th>DAPIL DPRRI</th>
@@ -801,7 +801,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Kota Bekasi", {
       <td>${item.city_name}</td>
       <td>${item.district_name}</td>
     `;
-        } else if (parseInt(level) == CONST_DISTRICT_LEVEL) {
+        } else if (parseInt(level) >= CONST_DISTRICT_LEVEL) {
           table += `
       <td>${item.province_name}</td>
       <td>${item.dapil_dpr_ri}</td>

@@ -738,14 +738,14 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Jawa Barat", {
       let cityInfo = "";
       let districtInfo = "";
 
-      if (parseInt(data.region_level) === CONST_CITY_LEVEL) {
+      if (parseInt(data.region_level) == CONST_CITY_LEVEL) {
         cityInfo = `
           <tr>
             <td>Kecamatan</td>
             <td style="text-align: right">${data.jml_kec}</td>
           </tr>
         `;
-      } else if (parseInt(data.region_level) === CONST_DISTRICT_LEVEL) {
+      } else if (parseInt(data.region_level) >= CONST_DISTRICT_LEVEL) {
         districtInfo = `
           <tr>
             <td>Kelurahan</td>

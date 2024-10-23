@@ -842,7 +842,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Kalimantan Tengah", {
       <th>KABKOTA</th>
       <th>KEC</th>
     `;
-      } else if (parseInt(level) == CONST_DISTRICT_LEVEL) {
+      } else if (parseInt(level) >= CONST_DISTRICT_LEVEL) {
         table += `
       <th>PROV</th>
       <th>KABKOTA</th>
@@ -886,7 +886,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Kalimantan Tengah", {
       <td>${item.city_name}</td>
       <td>${item.district_name}</td>
     `;
-        } else if (parseInt(level) == CONST_DISTRICT_LEVEL) {
+        } else if (parseInt(level) >= CONST_DISTRICT_LEVEL) {
           table += `
       <td>${item.province_name}</td>
       <td>${item.city_name}</td>
