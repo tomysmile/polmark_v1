@@ -350,18 +350,6 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Sumatera Utara", {
     }
 
     function renderMap(level, geoJsondata) {
-      if (!isNavigatingBack) {
-        // Only push to stack when moving forward
-        if (
-          mapLevelStack.length === 0 ||
-          mapLevelStack[mapLevelStack.length - 1] !== level
-        ) {
-          mapLevelStack.push(level);
-        }
-      } else {
-        isNavigatingBack = false; // Reset the back navigation flag
-      }
-
       // Clear the existing map layers (e.g., when navigating to a new level)
       mapInstance.eachLayer(function (layer) {
         if (layer instanceof L.GeoJSON || layer instanceof L.Marker) {
@@ -408,6 +396,8 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Sumatera Utara", {
           layer.on({
             click: function () {
               currentMapLevel = parseInt(feature.properties.region_level);
+              currentRegionCode = parseInt(feature.properties.region_code);
+              currentRegionName = feature.properties.region_name;
 
               // showHideDataBoxTooltip(true);
               if (currentMapLevel === CONST_CITY_LEVEL) {
@@ -435,7 +425,8 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Sumatera Utara", {
                 lastDistrictName = feature.properties.district_name;
                 lastSubDistrictCode = feature.properties.sub_district_code;
                 lastSubDistrictName = feature.properties.sub_district_name;
-                // showHideDataBoxTooltip(false);
+                
+                loadSubDistrictMap(feature.properties.region_code, CONST_DEFAULT_REGION_GEOJSON);
               }
             },
           });
@@ -473,8 +464,27 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Sumatera Utara", {
       // NOTE: remark the statement below because we need to set hide for default
       // markersGroup.addTo(mapInstance);
 
-      fetchTableData(currentMapLevel, parentRegionCode, lastGeojson);
-      setLocationLabel(`${parentRegionName}`);
+      if (!currentRegionCode) currentRegionCode = parentRegionCode;
+      if (!currentRegionName) currentRegionName = parentRegionName;
+
+      if (!isNavigatingBack) {
+        // Only push to stack when moving forward
+        if (
+          mapLevelStack.length === 0 ||
+          mapLevelStack[mapLevelStack.length - 1] !== level
+        ) {
+          mapLevelStack.push(level);
+        }
+      } else {
+        isNavigatingBack = false; // Reset the back navigation flag
+
+        // reset regionCode
+        currentRegionCode = parentRegionCode;
+        currentRegionName = parentRegionName;
+      }
+
+      fetchTableData(currentMapLevel, currentRegionCode, lastGeojson);
+      setLocationLabel(`${currentRegionName}`);
     }
 
     function fetchTableData(level, regionCode, geojsonName) {
@@ -515,7 +525,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Sumatera Utara", {
       if (regionCode) {
         url = `polmarkdashboard.api.geojson.get_geojson_data_by_region?region=${regionName}&region_level=${mapRenderLevel}&region_code=${regionCode}`;
       } else {
-        url = `polmarkdashboard.api.geojson.get_geojson_data?region=${regionName}&region_level=${mapRenderLevel}`;
+        url = `polmarkdashboard.api.geojson.get_geojson_data_by_region?region=${regionName}&region_level=${mapRenderLevel}`;
       }
 
       showHideLoadingIndicator(true);
@@ -553,6 +563,10 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Sumatera Utara", {
       loadMap(regionCode, geojson, CONST_DISTRICT_LEVEL, CONST_CITY_LEVEL, CONST_SUBDISTRICT_LEVEL);
     }
 
+    function loadSubDistrictMap(regionCode, geojson) {
+      loadMap(regionCode, geojson, CONST_SUBDISTRICT_LEVEL, CONST_DISTRICT_LEVEL, CONST_SUBDISTRICT_LEVEL);
+    }
+
     function goBack() {
       if (mapLevelStack.length > 1) {
         mapLevelStack.pop(); // Remove the current level
@@ -567,6 +581,8 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Sumatera Utara", {
           loadCityMap(lastCityCode, CONST_DEFAULT_REGION_GEOJSON);
         } else if (previousLevel === CONST_DISTRICT_LEVEL) {
           loadDistrictMap(lastDistrictCode, CONST_DEFAULT_REGION_GEOJSON);
+        } else if (previousLevel === CONST_SUBDISTRICT_LEVEL) {
+          loadDistrictMap(lastSubDistrictCode, CONST_DEFAULT_REGION_GEOJSON);
         }
       }
     }
@@ -716,18 +732,18 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Sumatera Utara", {
         cityInfo = `
           <tr>
             <td>Kecamatan</td>
-            <td>${data.jml_kec}</td>
+            <td style="text-align: right">${data.jml_kec}</td>
           </tr>
         `;
       } else if (parseInt(data.region_level) === CONST_DISTRICT_LEVEL) {
         districtInfo = `
           <tr>
             <td>Kelurahan</td>
-            <td>${data.jml_kel}</td>
+            <td style="text-align: right">${data.jml_kel}</td>
           </tr>
           <tr>
             <td>Desa</td>
-            <td>${data.jml_desa}</td>
+            <td style="text-align: right">${data.jml_desa}</td>
           </tr>
         `;
       }
@@ -745,35 +761,35 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Sumatera Utara", {
         ${districtInfo}
         <tr>
           <td>TPS</td>
-          <td>${frappe.utils.numberFormat(data.jml_tps)}</td>
+          <td style="text-align: right">${frappe.utils.numberFormat(data.jml_tps)}</td>
         </tr>
         <tr>
           <td>Penduduk</td>
-          <td>${frappe.utils.numberFormat(data.jml_pend)}</td>
+          <td style="text-align: right">${frappe.utils.numberFormat(data.jml_pend)}</td>
         </tr>
         <tr>
           <td>DPT</td>
-          <td>${frappe.utils.numberFormat(data.jml_dpt)}</td>
+          <td style="text-align: right">${frappe.utils.numberFormat(data.jml_dpt)}</td>
         </tr>
         <tr>
           <td>KK</td>
-          <td>${frappe.utils.numberFormat(data.jml_kk)}</td>
+          <td style="text-align: right">${frappe.utils.numberFormat(data.jml_kk)}</td>
         </tr>
         <tr>
           <td>CDE</td>
-          <td>${frappe.utils.numberFormat(data.jml_cde)}</td>
+          <td style="text-align: right">${frappe.utils.numberFormat(data.jml_cde)}</td>
         </tr>
         <tr>
           <td>Pemilih /KK</td>
-          <td>${frappe.utils.numberFormat(data.jml_dpt_perkk)}</td>
+          <td style="text-align: right">${frappe.utils.numberFormat(data.jml_dpt_perkk)}</td>
         </tr>
         <tr>
           <td>Pemilih Perempuan</td>
-          <td>${frappe.utils.numberFormat(data.jml_dpt_perempuan)}</td>
+          <td style="text-align: right">${frappe.utils.numberFormat(data.jml_dpt_perempuan)}</td>
         </tr>
         <tr>
           <td>Pemilih Muda</td>
-          <td>${frappe.utils.numberFormat(data.jml_dpt_muda)}</td>
+          <td style="text-align: right">${frappe.utils.numberFormat(data.jml_dpt_muda)}</td>
         </tr>
         <tr>
           <td>ZONA</td>
@@ -836,15 +852,15 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Sumatera Utara", {
       }
 
       table += `
-    <th>TPS</th>
-    <th>PEND</th>
-    <th>KK</th>
-    <th>PEMILIH 2024</th>
-    <th>CDE</th>
-    <th>PEMILIH /KK</th>
-    <th>PEMILIH PEREMPUAN</th>
-    <th>PEMILIH MUDA</th>
-    <th>ZONASI</th>
+    <th style="text-align: right">TPS</th>
+    <th style="text-align: right">PEND</th>
+    <th style="text-align: right">KK</th>
+    <th style="text-align: right">PEMILIH 2024</th>
+    <th style="text-align: right">CDE</th>
+    <th style="text-align: right">PEMILIH /KK</th>
+    <th style="text-align: right">PEMILIH PEREMPUAN</th>
+    <th style="text-align: right">PEMILIH MUDA</th>
+    <th style="text-align: center">ZONASI</th>
   `;
 
       table += "</tr></thead><tbody>";
@@ -880,15 +896,15 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Sumatera Utara", {
         }
 
         table += `
-    <td>${numberFormat(item.num_tps)}</td>
-    <td>${numberFormat(item.num_citizen)}</td>
-    <td>${numberFormat(item.num_family)}</td>
-    <td>${numberFormat(item.num_voter)}</td>
-    <td>${numberFormat(item.num_cde)}</td>
-    <td>${numberFormat(item.num_voter_per_family)}</td>
-    <td>${numberFormat(item.num_voter_women)}</td>
-    <td>${numberFormat(item.num_voter_young)}</td>
-    <td>${item.zone}</td>
+    <td style="text-align: right">${numberFormat(item.num_tps)}</td>
+    <td style="text-align: right">${numberFormat(item.num_citizen)}</td>
+    <td style="text-align: right">${numberFormat(item.num_family)}</td>
+    <td style="text-align: right">${numberFormat(item.num_voter)}</td>
+    <td style="text-align: right">${numberFormat(item.num_cde)}</td>
+    <td style="text-align: right">${numberFormat(item.num_voter_per_family)}</td>
+    <td style="text-align: right">${numberFormat(item.num_voter_women)}</td>
+    <td style="text-align: right">${numberFormat(item.num_voter_young)}</td>
+    <td style="text-align: center">${item.zone}</td>
     </tr>
       `;
       });

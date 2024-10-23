@@ -218,11 +218,17 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
             // set the navigation source coming from MapList, otherwise from Geojson
             navigateSource = "MapList";
             mapDefaultGeojson = mapItem.name;
+            currentRegionCode = mapItem.code;
+            currentRegionName = mapItem.name.toUpperCase();
 
             if (mapItem.level === CONST_PROVINCE_LEVEL) {
               loadProvinceMap(mapItem.code, mapItem.area);
             } else if (mapItem.level === CONST_CITY_LEVEL) {
               loadCityMap(mapItem.code, mapItem.area);
+            } else if (mapItem.level === CONST_DISTRICT_LEVEL) {
+              loadDistrictMap(mapItem.code, mapItem.area);
+            } else if (mapItem.level === CONST_SUBDISTRICT_LEVEL) {
+              loadSubDistrictMap(mapItem.code, mapItem.area);
             }
             mapList.style.display = "none";
           });
@@ -421,18 +427,6 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
     }
 
     function renderMap(level, geoJsondata) {
-      if (!isNavigatingBack) {
-        // Only push to stack when moving forward
-        if (
-          mapLevelStack.length === 0 ||
-          mapLevelStack[mapLevelStack.length - 1] !== level
-        ) {
-          mapLevelStack.push(level);
-        }
-      } else {
-        isNavigatingBack = false; // Reset the back navigation flag
-      }
-
       // Clear the existing map layers (e.g., when navigating to a new level)
       mapInstance.eachLayer(function (layer) {
         if (layer instanceof L.GeoJSON || layer instanceof L.Marker) {
@@ -493,6 +487,8 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
           layer.on({
             click: function () {
               currentMapLevel = parseInt(feature.properties.region_level);
+              currentRegionCode = parseInt(feature.properties.region_code);
+              currentRegionName = feature.properties.region_name;
 
               // showHideDataBoxTooltip(true);
               if (currentMapLevel === CONST_COUNTRY_LEVEL) {
@@ -560,8 +556,14 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
                 lastSubDistrictCode = feature.properties.sub_district_code;
                 lastSubDistrictName = feature.properties.sub_district_name;
 
-                // since nothing happened in sub_district
-                currentMapLevel = CONST_DISTRICT_LEVEL;
+                if (navigateSource == "MapList") {
+                  geojson = mapDefaultGeojson;
+                }
+
+                activeGeojson = geojson;
+                lastGeojson = activeGeojson;
+
+                loadSubDistrictMap(feature.properties.region_code, activeGeojson);
               }
             },
           });
@@ -597,8 +599,27 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
       // NOTE: remark the statement below because we need to set hide for default
       // markersGroup.addTo(mapInstance);
 
-      fetchTableData(currentMapLevel, parentRegionCode, lastGeojson);
-      setLocationLabel(`${parentRegionName}`);
+      if (!currentRegionCode) currentRegionCode = parentRegionCode;
+      if (!currentRegionName) currentRegionName = parentRegionName;
+
+      if (!isNavigatingBack) {
+        // Only push to stack when moving forward
+        if (
+          mapLevelStack.length === 0 ||
+          mapLevelStack[mapLevelStack.length - 1] !== level
+        ) {
+          mapLevelStack.push(level);
+        }
+      } else {
+        isNavigatingBack = false; // Reset the back navigation flag
+
+        // reset regionCode
+        currentRegionCode = parentRegionCode;
+        currentRegionName = parentRegionName;
+      }
+
+      fetchTableData(currentMapLevel, currentRegionCode, lastGeojson);
+      setLocationLabel(`${currentRegionName}`);
     }
 
     function fetchTableData(level, regionCode, geojsonName) {
@@ -639,7 +660,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
       if (regionCode) {
         url = `polmarkdashboard.api.geojson.get_geojson_data_by_region?region=${regionName}&region_level=${mapRenderLevel}&region_code=${regionCode}`;
       } else {
-        url = `polmarkdashboard.api.geojson.get_geojson_data?region=${regionName}&region_level=${mapRenderLevel}`;
+        url = `polmarkdashboard.api.geojson.get_geojson_data_by_region?region=${regionName}&region_level=${mapRenderLevel}`;
       }
 
       showHideLoadingIndicator(true);
@@ -678,6 +699,10 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
       loadMap(regionCode, geojson, CONST_DISTRICT_LEVEL, CONST_CITY_LEVEL, CONST_SUBDISTRICT_LEVEL);
     }
 
+    function loadSubDistrictMap(regionCode, geojson) {
+      loadMap(regionCode, geojson, CONST_SUBDISTRICT_LEVEL, CONST_DISTRICT_LEVEL, CONST_SUBDISTRICT_LEVEL);
+    }
+
     function goBack() {
       if (mapLevelStack.length > 1) {
         mapLevelStack.pop(); // Remove the current level
@@ -694,14 +719,13 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
           activeGeojson = "";
           loadNationalMap();
         } else if (previousLevel === CONST_PROVINCE_LEVEL) {
-          loadProvinceMap(lastProvinceCode, lastProvinceName); // Load province level
-          // loadProvinceMap(lastProvinceCode, lastGeojson);
+          loadProvinceMap(lastProvinceCode, lastProvinceName);
         } else if (previousLevel === CONST_CITY_LEVEL) {
-          // loadCityMap(lastCityCode, lastCityName); // Load city level for the last province
           loadCityMap(lastCityCode, lastGeojson);
         } else if (previousLevel === CONST_DISTRICT_LEVEL) {
-          // loadDistrictMap(lastDistrictCode, lastDistrictName); // Load district level for the last city
           loadDistrictMap(lastDistrictCode, lastGeojson);
+        } else if (previousLevel === CONST_SUBDISTRICT_LEVEL) {
+          loadSubDistrictMap(lastSubDistrictCode, lastGeojson);
         }
       }
     }

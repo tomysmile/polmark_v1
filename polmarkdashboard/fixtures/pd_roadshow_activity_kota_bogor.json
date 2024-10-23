@@ -1,0 +1,110 @@
+[
+ {
+  "active": 1,
+  "description": "Kandidat melakukan kegiatan SHOLAT JUM'AT BERSAMA calon konstituen",
+  "docstatus": 0,
+  "doctype": "PD Roadshow Activity Kota Bogor",
+  "modified": "2024-10-22 20:44:19.177576",
+  "name": "JUMATAN BERSAMA",
+  "standard": 1
+ },
+ {
+  "active": 1,
+  "description": "Program CEK KESEHATAN GRATIS",
+  "docstatus": 0,
+  "doctype": "PD Roadshow Activity Kota Bogor",
+  "modified": "2024-10-22 20:44:44.178244",
+  "name": "CEK KESEHATAN GRATIS",
+  "standard": 1
+ },
+ {
+  "active": 1,
+  "description": "Program UPT PUSKESMAS SEMPLAK",
+  "docstatus": 0,
+  "doctype": "PD Roadshow Activity Kota Bogor",
+  "modified": "2024-10-22 20:45:13.782636",
+  "name": "UPT PUSKESMAS SEMPLAK",
+  "standard": 1
+ },
+ {
+  "active": 1,
+  "description": "Program PENSI (Pentas Seni)",
+  "docstatus": 0,
+  "doctype": "PD Roadshow Activity Kota Bogor",
+  "modified": "2024-10-22 20:45:33.152097",
+  "name": "PENSI",
+  "standard": 1
+ },
+ {
+  "active": 1,
+  "description": "Program PENGAJIAN bersama kandidat",
+  "docstatus": 0,
+  "doctype": "PD Roadshow Activity Kota Bogor",
+  "modified": "2024-10-22 20:45:52.414716",
+  "name": "PENGAJIAN",
+  "standard": 1
+ },
+ {
+  "active": 1,
+  "description": "Program PESTA RAKYAT SEMPUR",
+  "docstatus": 0,
+  "doctype": "PD Roadshow Activity Kota Bogor",
+  "modified": "2024-10-22 20:46:24.392616",
+  "name": "PESTA RAKYAT SEMPUR",
+  "standard": 1
+ },
+ {
+  "active": 1,
+  "description": "Program PENGAJIAN DOKTER untuk konstituen",
+  "docstatus": 0,
+  "doctype": "PD Roadshow Activity Kota Bogor",
+  "modified": "2024-10-23 14:02:36.046502",
+  "name": "PENGAJIAN DOKTER",
+  "standard": 1
+ },
+ {
+  "active": 1,
+  "description": "SENAM  SEHAT untuk masyarakat",
+  "docstatus": 0,
+  "doctype": "PD Roadshow Activity Kota Bogor",
+  "modified": "2024-10-23 14:03:17.500500",
+  "name": "SENAM SEHAT",
+  "standard": 1
+ },
+ {
+  "active": 1,
+  "description": null,
+  "docstatus": 0,
+  "doctype": "PD Roadshow Activity Kota Bogor",
+  "modified": "2024-10-23 14:03:44.748262",
+  "name": "NGUMPUL WARGA",
+  "standard": 1
+ },
+ {
+  "active": 1,
+  "description": null,
+  "docstatus": 0,
+  "doctype": "PD Roadshow Activity Kota Bogor",
+  "modified": "2024-10-23 14:03:58.152551",
+  "name": "SENAM PERWATUSI",
+  "standard": 1
+ },
+ {
+  "active": 1,
+  "description": null,
+  "docstatus": 0,
+  "doctype": "PD Roadshow Activity Kota Bogor",
+  "modified": "2024-10-23 14:04:15.639513",
+  "name": "NGARULING NGABRING",
+  "standard": 1
+ },
+ {
+  "active": 1,
+  "description": "Program NGARIUNG SEHAT bersama kandidat",
+  "docstatus": 0,
+  "doctype": "PD Roadshow Activity Kota Bogor",
+  "modified": "2024-10-22 20:44:31.113657",
+  "name": "NGARIUNG SEHAT",
+  "standard": 1
+ }
+]

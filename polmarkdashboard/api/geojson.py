@@ -79,11 +79,14 @@ def build_geojson(data):
 @frappe.whitelist(allow_guest=True)
 def get_geojson_data_by_region(region=None, region_code=None, region_level=None):
     # Fetch GeoJSON data based on the region (province, city, etc.)
-    filters = {}
+    filters = []
+    filters.append(["active", "=", 1])
+    filters.append(["region_level", "=", region_level])
+
     if int(region_level) == 3:
-        filters = {"province_code": region_code, "region_level": region_level, "active": 1}
+        filters.append(["province_code", "=", region_code])
     elif int(region_level) > 3:
-        filters = {"parent_code": region_code, "region_level": region_level, "active": 1}
+        filters.append(["region_code", "like", region_code + "%"])
     regiontable = "PD Geojson" + " " + region
     regions = frappe.get_all(regiontable, filters=filters, fields=["*"])
     geojson = build_geojson(regions)
@@ -93,13 +96,14 @@ def get_geojson_data_by_region(region=None, region_code=None, region_level=None)
 @frappe.whitelist(allow_guest=True)
 def get_tabular_data(region=None, region_code=None, region_level=None):
     # Fetch GeoJSON data based on the region (province, city, etc.)
-    filters = {}
-    if int(region_level) == 2:
-        filters = {"region_level": region_level, "active": 1}
-    elif int(region_level) == 3:
-        filters = {"province_code": region_code, "region_level": region_level, "active": 1}
+    filters = []
+    filters.append(["active", "=", 1])
+    filters.append(["region_level", "=", region_level])
+
+    if int(region_level) == 3:
+        filters.append(["province_code", "=", region_code])
     elif int(region_level) > 3:
-        filters = {"parent_code": region_code, "region_level": region_level, "active": 1}
+        filters.append(["region_code", "like", region_code + "%"])
 
     fields = [
         "name",
@@ -165,18 +169,3 @@ def get_tabular_data(region=None, region_code=None, region_level=None):
     regions = frappe.get_all(regiontable, filters=filters, fields=fields)
     return regions
 
-
-@frappe.whitelist(allow_guest=True)
-def get_geojson_data(region=None, region_code=None, region_level=None):
-    # Fetch GeoJSON data based on the region (province, city, etc.)
-    filters = {}
-    if int(region_level) == 2:
-        filters = {"region_level": region_level, "active": 1}
-    elif int(region_level) == 3:
-        filters = {"province_code": region_code, "region_level": region_level, "active": 1}
-    elif int(region_level) > 3:
-        filters = {"parent_code": region_code, "region_level": region_level, "active": 1}
-    regiontable = "PD Geojson" + " " + region
-    regions = frappe.get_all(regiontable, filters=filters, fields=["*"])
-    geojson = build_geojson(regions)
-    return geojson
