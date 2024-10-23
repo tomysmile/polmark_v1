@@ -1,0 +1,157 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "creation": "2024-10-22 20:32:40.958370",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "district",
+  "district_name",
+  "sub_district",
+  "sub_district_name",
+  "rw",
+  "activity_date",
+  "column_break_oodh",
+  "roadshow_activity",
+  "total_data",
+  "garis_lintang",
+  "garis_bujur",
+  "active"
+ ],
+ "fields": [
+  {
+   "fieldname": "rw",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "RW",
+   "length": 2
+  },
+  {
+   "fieldname": "total_data",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Total Data",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Kecamatan",
+   "options": "PD Region Kota Bogor",
+   "reqd": 1
+  },
+  {
+   "fieldname": "activity_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Tanggal",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sub_district",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Kelurahan",
+   "options": "PD Region Kota Bogor",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "district.region_name",
+   "fieldname": "district_name",
+   "fieldtype": "Read Only",
+   "hidden": 1,
+   "label": "Nama Kecamatan"
+  },
+  {
+   "fetch_from": "sub_district.region_name",
+   "fieldname": "sub_district_name",
+   "fieldtype": "Read Only",
+   "hidden": 1,
+   "label": "Nama Kelurahan"
+  },
+  {
+   "fieldname": "roadshow_activity",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Kegiatan",
+   "options": "PD Roadshow Activity Kota Bogor",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "active",
+   "fieldtype": "Check",
+   "label": "Active"
+  },
+  {
+   "fieldname": "column_break_oodh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "garis_lintang",
+   "fieldtype": "Data",
+   "label": "Garis Lintang"
+  },
+  {
+   "fieldname": "garis_bujur",
+   "fieldtype": "Data",
+   "label": "Garis Bujur"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-10-23 14:34:53.951423",
+ "modified_by": "Administrator",
+ "module": "Polmark Dashboard",
+ "name": "PD Roadshow Kota Bogor",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Polmark Dashboard Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "share": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "roadshow_activity",
+ "track_changes": 1
+}
