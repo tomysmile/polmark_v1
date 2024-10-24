@@ -1,4 +1,5 @@
 @import url('/assets/polmarkdashboard/css/leaflet.css');
+@import url('/assets/polmarkdashboard/css/L.Icon.Pulse.css?v=1.0');
 @import url('/assets/polmarkdashboard/css/leaflet-custom.css');
 @import url('/assets/polmarkdashboard/css/fonts/fontawesome/fontawesome-free.css');
 @import url('/assets/polmarkdashboard/css/fonts/urbanist/urbanist.css?v=1.0');
@@ -31,6 +32,11 @@ body {
 
 #navbar-breadcrumbs li > a {
   color: #fff !important;
+}
+
+/* overrides leaflet-pulse */
+.leaflet-marker-icon.leaflet-pulsing-icon {
+  margin-top: -16px !important;
 }
 
 // START from here

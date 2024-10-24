@@ -1,6 +1,7 @@
 import L from 'leaflet';
 import 'leaflet-fullscreen';
 
+import "./js/L.Icon.Pulse.js";
 import "./js/patch-leaflet.js";
 import "./js/utils.js";
 
