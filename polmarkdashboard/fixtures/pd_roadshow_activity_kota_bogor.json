@@ -1,15 +1,6 @@
 [
  {
   "active": 1,
-  "description": "Kandidat melakukan kegiatan SHOLAT JUM'AT BERSAMA calon konstituen",
-  "docstatus": 0,
-  "doctype": "PD Roadshow Activity Kota Bogor",
-  "modified": "2024-10-22 20:44:19.177576",
-  "name": "JUMATAN BERSAMA",
-  "standard": 1
- },
- {
-  "active": 1,
   "description": "Program CEK KESEHATAN GRATIS",
   "docstatus": 0,
   "doctype": "PD Roadshow Activity Kota Bogor",
@@ -96,6 +87,15 @@
   "doctype": "PD Roadshow Activity Kota Bogor",
   "modified": "2024-10-23 14:04:15.639513",
   "name": "NGARULING NGABRING",
+  "standard": 1
+ },
+ {
+  "active": 1,
+  "description": "Kandidat melakukan kegiatan SHOLAT JUM'AT BERSAMA calon konstituen",
+  "docstatus": 0,
+  "doctype": "PD Roadshow Activity Kota Bogor",
+  "modified": "2024-10-22 20:44:19.177576",
+  "name": "JUMATAN BERSAMA",
   "standard": 1
  },
  {
