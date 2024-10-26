@@ -2,16 +2,58 @@
 // For license information, please see license.txt
 
 // Global variable
+
+const indonesiaDefaultView = [-2.5489, 118.0149];
+const CONST_WORLD_LEVEL = 0,
+  CONST_COUNTRY_LEVEL = 1,
+  CONST_PROVINCE_LEVEL = 2,
+  CONST_CITY_LEVEL = 3,
+  CONST_DISTRICT_LEVEL = 4,
+  CONST_SUBDISTRICT_LEVEL = 5;
+
+const
+  CONST_DEFAULT_REGION_CODE = "00",
+  CONST_DEFAULT_REGION_GEOJSON = "Indonesia",
+  CONST_DEFAULT_REGION_MAP_LEVEL = CONST_COUNTRY_LEVEL;
+
+const CONST_NAVIGATE_SOURCE_MAPLIST = "MapList",
+  CONST_NAVIGATE_SOURCE_GEOJSON = "Geojson";
+
+// Define available maps
+const maps = [
+  { name: 'DKI Jakarta', code: '31', area: 'DKI Jakarta', level: CONST_PROVINCE_LEVEL, prev: '', include_dpthp: false, include_relawan: false, include_spanduk: false },
+  { name: 'Jawa Barat', include_dpthp: true, code: '32', area: 'Jawa Barat', level: CONST_PROVINCE_LEVEL, prev: '', include_relawan: false, include_spanduk: false },
+  { name: 'Kalimantan Tengah', code: '62', area: 'Kalimantan Tengah', level: CONST_PROVINCE_LEVEL, prev: '', include_dpthp: false, include_relawan: false, include_spanduk: false },
+  { name: 'Sumatera Utara', code: '12', area: 'Sumatera Utara', level: CONST_PROVINCE_LEVEL, prev: '', include_dpthp: false, include_relawan: false, include_spanduk: false },
+  { name: 'Kabupaten Bekasi', code: '3216', area: 'Kabupaten Bekasi', level: CONST_CITY_LEVEL, prev: '', include_dpthp: false, include_relawan: false, include_spanduk: false },
+  { name: 'Kota Bekasi', code: '3275', area: 'Kota Bekasi', level: CONST_CITY_LEVEL, prev: '', include_dpthp: false, include_relawan: false, include_spanduk: false },
+  { name: 'Kota Bogor', code: '3271', area: 'Kota Bogor', level: CONST_CITY_LEVEL, prev: '', include_dpthp: true, include_relawan: false, include_spanduk: false },
+  { name: 'Kota Bandung', code: '3273', area: 'Kota Bandung', level: CONST_CITY_LEVEL, prev: '', include_dpthp: true, include_relawan: true, include_relawan_partisipasi: true, include_spanduk: true },
+  { name: 'Kota Balikpapan', code: '6471', area: 'Kota Balikpapan', level: CONST_CITY_LEVEL, prev: 'Kalimantan Timur', include_dpthp: false, include_relawan: false, include_spanduk: false },
+  { name: 'Kota Medan', code: '1271', area: 'Kota Medan', level: CONST_CITY_LEVEL, prev: '', include_dpthp: true, include_relawan: true, include_relawan_partisipasi: false, include_spanduk: false }
+];
+
 let nationalMarkersGroup = null,
   provinceMarkersGroup = null,
   cityMarkersGroup = null,
   districtMarkersGroup = null,
   subDistrictMarkersGroup = null;
 
+let nationalRoadshowMarkersGroup = null,
+  provinceRoadshowMarkersGroup = null,
+  cityRoadshowMarkersGroup = null,
+  districtRoadshowMarkersGroup = null,
+  subDistrictRoadshowMarkersGroup = null;
+
 let currentMapLevel = 0,
   currentRegionName,
   currentRegionType,
   currentRegionCode;
+
+let currentProvince,
+  currentCity,
+  currentDistrict,
+  currentSubDistrict;
 
 let parentMapLevel = 0,
   parentRegionName,
@@ -38,37 +80,16 @@ let countryDefaultView = [],
   subDistrictDefaultView = [];
 
 let locationLabel;
-let areLabelsVisible = false;
+let isMapNameVisible = false,
+  isRoadshowVisible = false;
 
 let isNavigatingBack = false;
 let mapLevelStack = [];
 let mapRenderLevel = 0;
 let mapTitleName = "";
 
-let navigateSource = "Geojson";
-let mapDefaultGeojson = "Indonesia";
-
-const indonesiaDefaultView = [-2.5489, 118.0149];
-const CONST_WORLD_LEVEL = 0,
-  CONST_COUNTRY_LEVEL = 1,
-  CONST_PROVINCE_LEVEL = 2,
-  CONST_CITY_LEVEL = 3,
-  CONST_DISTRICT_LEVEL = 4,
-  CONST_SUBDISTRICT_LEVEL = 5;
-
-// Define available maps
-const maps = [
-  { name: 'DKI Jakarta', code: '31', area: 'DKI Jakarta', level: CONST_PROVINCE_LEVEL, prev: '', include_dpthp: false, include_relawan: false, include_spanduk: false },
-  { name: 'Jawa Barat', include_dpthp: true, code: '32', area: 'Jawa Barat', level: CONST_PROVINCE_LEVEL, prev: '', include_relawan: false, include_spanduk: false },
-  { name: 'Kalimantan Tengah', code: '62', area: 'Kalimantan Tengah', level: CONST_PROVINCE_LEVEL, prev: '', include_dpthp: false, include_relawan: false, include_spanduk: false },
-  { name: 'Sumatera Utara', code: '12', area: 'Sumatera Utara', level: CONST_PROVINCE_LEVEL, prev: '', include_dpthp: false, include_relawan: false, include_spanduk: false },
-  { name: 'Kabupaten Bekasi', code: '3216', area: 'Kabupaten Bekasi', level: CONST_CITY_LEVEL, prev: '', include_dpthp: false, include_relawan: false, include_spanduk: false },
-  { name: 'Kota Bekasi', code: '3275', area: 'Kota Bekasi', level: CONST_CITY_LEVEL, prev: '', include_dpthp: false, include_relawan: false, include_spanduk: false },
-  { name: 'Kota Bogor', code: '3271', area: 'Kota Bogor', level: CONST_CITY_LEVEL, prev: '', include_dpthp: true, include_relawan: false, include_spanduk: false },
-  { name: 'Kota Bandung', code: '3273', area: 'Kota Bandung', level: CONST_CITY_LEVEL, prev: '', include_dpthp: true, include_relawan: true, include_relawan_partisipasi: true, include_spanduk: true },
-  { name: 'Kota Balikpapan', code: '6471', area: 'Kota Balikpapan', level: CONST_CITY_LEVEL, prev: 'Kalimantan Timur', include_dpthp: false, include_relawan: false, include_spanduk: false },
-  { name: 'Kota Medan', code: '1271', area: 'Kota Medan', level: CONST_CITY_LEVEL, prev: '', include_dpthp: true, include_relawan: true, include_relawan_partisipasi: false, include_spanduk: false }
-];
+let navigateSource = CONST_NAVIGATE_SOURCE_GEOJSON;
+let mapDefaultGeojson = CONST_DEFAULT_REGION_GEOJSON;
 
 let infoBoxTooltipId = "info-box-nasional";
 let mapInstance,
@@ -133,10 +154,34 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
       mapInstance.invalidateSize(); // Ensures the map resizes to the correct dimensions
       window.map = mapInstance;
 
-      // document.getElementById('leaflet-map').style.height = window.innerHeight + 'px';
-
       defaultMapLevel = CONST_COUNTRY_LEVEL;
+      mapTitleName = mapDefaultGeojson;
 
+      initializeMarkersGroup();
+      addBackButtonControl();
+      addFullScreenControl();
+      addMapTitleLabel(mapTitleName);
+      addLegend();
+      addShowHideLayer();
+      addShowTableZonasiLayerControl();
+      addMapSelectionContainer();
+
+      mapInstance.on('zoomend', function () {
+        showHideBackButtonControl(currentMapLevel);
+        hideMapOptionCheckboxes();
+      });
+
+      tileLayer.on('load', function () {
+        checkIfMapReady();
+      });
+
+      // Initially load the province map
+      loadNationalMap();
+    }
+
+    /* Functions */
+    function initializeMarkersGroup() {
+      // initialize map label markers
       nationalMarkersGroup = L.layerGroup();
       provinceMarkersGroup = L.layerGroup();
       cityMarkersGroup = L.layerGroup();
@@ -149,26 +194,18 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
       districtMarkersGroup.name = "District";
       subDistrictMarkersGroup.name = "SubDistrict";
 
-      mapTitleName = mapDefaultGeojson;
+      // initialize roadshow markers
+      nationalRoadshowMarkersGroup = L.layerGroup();
+      provinceRoadshowMarkersGroup = L.layerGroup();
+      cityRoadshowMarkersGroup = L.layerGroup();
+      districtRoadshowMarkersGroup = L.layerGroup();
+      subDistrictRoadshowMarkersGroup = L.layerGroup();
 
-      addBackButtonControl();
-      addFullScreenControl();
-      addMapTitleLabel(mapTitleName);
-      addLegend();
-      addShowHideLayer();
-      addShowTableZonasiLayerControl();
-      addMapSelectionContainer();
-
-      mapInstance.on('zoomend', function () {
-        showHideBackButtonControl(currentMapLevel);
-      });
-
-      tileLayer.on('load', function () {
-        checkIfMapReady();
-      });
-
-      // Initially load the province map
-      loadNationalMap();
+      nationalRoadshowMarkersGroup.name = "National";
+      provinceRoadshowMarkersGroup.name = "Province";
+      cityRoadshowMarkersGroup.name = "City";
+      districtRoadshowMarkersGroup.name = "District";
+      subDistrictRoadshowMarkersGroup.name = "SubDistrict";
     }
 
     function checkIfMapReady() {
@@ -179,6 +216,10 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
       window.map.invalidateSize();
 
       // Map is fully rendered and ready
+      showHideInfoLegend();
+    }
+
+    function showHideInfoLegend() {
       let isShow = parseInt(currentMapLevel) > CONST_COUNTRY_LEVEL;
       $("#info-legend").css('display', (isShow) ? 'block' : 'none');
     }
@@ -187,7 +228,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
       // Custom Control for Map List Button
       const mapListMapControl = L.control({ position: "topleft" });
       mapListMapControl.onAdd = () => {
-        const container = L.DomUtil.create('div', 'map-list-button leaflet-control info-button-container');
+        const container = L.DomUtil.create('div', 'map-list-button leaflet-control');
         container.style.position = 'relative';
         container.style.marginTop = "3px";
 
@@ -197,7 +238,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
           "custom-button",
           container);
         button.innerHTML = '<i class="octicon octicon-globe"></i>';
-        button.setAttribute('title', 'Pilih Peta Zona');
+        // button.setAttribute('title', 'Pilih Peta Zona');
         button.style.width = '100%'; // Full width
         button.style.border = "none";
         button.style.backgroundColor = "transparent";
@@ -216,7 +257,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
           item.addEventListener('click', () => {
 
             // set the navigation source coming from MapList, otherwise from Geojson
-            navigateSource = "MapList";
+            navigateSource = CONST_NAVIGATE_SOURCE_MAPLIST;
             mapDefaultGeojson = mapItem.name;
             currentRegionCode = mapItem.code;
             currentRegionName = mapItem.name.toUpperCase();
@@ -338,7 +379,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
     function addShowHideLayer() {
       const showHideLabelControl = L.control({ position: "topleft" });
       showHideLabelControl.onAdd = () => {
-        const container = L.DomUtil.create('div', 'map-list-button leaflet-control info-button-container');
+        const container = L.DomUtil.create('div', 'map-list-button leaflet-control show-hide-layer');
         container.style.position = 'relative';
         container.style.marginTop = "3px";
 
@@ -352,41 +393,14 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
         );
         // Add some style and text to the control button
         button.innerHTML = `<i class="octicon octicon-location"></i>`;
-        button.setAttribute('title', defaultTitle);
+        // button.setAttribute('title', defaultTitle);
         button.style.width = '100%';
         button.style.border = "none";
         button.style.backgroundColor = "transparent";
 
         // Add the event handler for the button click
         button.onclick = function () {
-          if (isMapNameVisible) {
-            button.setAttribute('title', defaultTitle);
-            if (parseInt(currentMapLevel) === CONST_COUNTRY_LEVEL)
-              mapInstance.removeLayer(nationalMarkersGroup);
-            else if (parseInt(currentMapLevel) === CONST_PROVINCE_LEVEL)
-              mapInstance.removeLayer(provinceMarkersGroup);
-            else if (parseInt(currentMapLevel) === CONST_CITY_LEVEL)
-              mapInstance.removeLayer(cityMarkersGroup);
-            else if (parseInt(currentMapLevel) === CONST_DISTRICT_LEVEL)
-              mapInstance.removeLayer(districtMarkersGroup);
-            else if (parseInt(currentMapLevel) === CONST_SUBDISTRICT_LEVEL)
-              mapInstance.removeLayer(subDistrictMarkersGroup);
-          } else {
-            title = "Sembunyikan Nama Wilayah"
-            button.setAttribute('title', title);
-            if (parseInt(currentMapLevel) === CONST_COUNTRY_LEVEL)
-              mapInstance.addLayer(nationalMarkersGroup);
-            else if (parseInt(currentMapLevel) === CONST_PROVINCE_LEVEL)
-              mapInstance.addLayer(provinceMarkersGroup);
-            else if (parseInt(currentMapLevel) === CONST_CITY_LEVEL)
-              mapInstance.addLayer(cityMarkersGroup);
-            else if (parseInt(currentMapLevel) === CONST_DISTRICT_LEVEL)
-              mapInstance.addLayer(districtMarkersGroup);
-            else if (parseInt(currentMapLevel) === CONST_SUBDISTRICT_LEVEL)
-              mapInstance.addLayer(subDistrictMarkersGroup);
-          }
-          // map.removeLayer(cityMarkersGroup);
-          isMapNameVisible = !isMapNameVisible; // Toggle the state
+          showMapOptionCheckboxes();
         };
 
         // Prevent map interaction when clicking on the control
@@ -394,8 +408,187 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
 
         return container;
       };
+
       showHideLabelControl.addTo(mapInstance);
     }
+
+    /*  updated for markers  */
+    function hideMapOptionCheckboxes() {
+      // Check if the checkboxes already exist
+      var existingContainer = document.querySelector('.checkbox-container');
+
+      if (existingContainer) {
+        // If the checkboxes are already created, just toggle their visibility
+        existingContainer.style.display = 'none';
+        return;
+      }
+    }
+
+    function showMapOptionCheckboxes() {
+      // Check if the checkboxes already exist
+      var existingContainer = document.querySelector('.checkbox-container');
+
+      if (existingContainer) {
+        // If the checkboxes are already created, just toggle their visibility
+        existingContainer.style.display = existingContainer.style.display === 'none' ? 'block' : 'none';
+        return;
+      }
+
+      // Create checkbox container
+      var checkboxContainer = document.createElement('div');
+      checkboxContainer.className = 'checkbox-container';
+
+      var title = document.createElement('div')
+      title.innerHTML = `<span>Tampilkan</span>`;
+      title.style.paddingBottom = "12px";
+      title.style.fontWeight = "bold";
+
+      checkboxContainer.appendChild(title);
+
+      // Example checkboxes
+      var checkboxes = [
+        { id: 'showMapLabel', label: 'Nama Wilayah' },
+        { id: 'showRoadshow', label: 'Roadshow' }
+      ];
+
+      checkboxes.forEach(function (checkbox) {
+        var input = document.createElement('input');
+        input.type = 'checkbox';
+        input.id = checkbox.id;
+
+        if (checkbox.id == 'showMapLabel') {
+          isMapNameVisible = getIsMapNameVisibility();
+          input.checked = isMapNameVisible;
+        } else if (checkbox.id == 'showRoadshow') {
+          isRoadshowVisible = getIsRoadshowVisibility();
+          input.checked = isRoadshowVisible;
+        }
+
+        input.onchange = function () {
+          if (this.checked) {
+            handleCheckboxChange(checkbox.id, true);
+          } else {
+            handleCheckboxChange(checkbox.id, false);
+          }
+        };
+
+        var label = document.createElement('label');
+        label.htmlFor = checkbox.id;
+        label.textContent = checkbox.label;
+
+        checkboxContainer.appendChild(input);
+        checkboxContainer.appendChild(label);
+        checkboxContainer.appendChild(document.createElement('br'));
+      });
+
+      // Style the checkbox container to appear next to the button
+      checkboxContainer.style.position = 'absolute';
+      checkboxContainer.style.top = '0'; // Align with the button
+      checkboxContainer.style.left = '35px'; // Position right to the button (adjust as needed)
+      checkboxContainer.style.backgroundColor = 'white';
+      checkboxContainer.style.padding = '10px';
+      checkboxContainer.style.border = '1px solid #ccc';
+      checkboxContainer.style.borderRadius = '5px';
+      checkboxContainer.style.zIndex = '1000';
+
+      // Append the checkbox container to the map
+      document.querySelector('.show-hide-layer').appendChild(checkboxContainer);
+    }
+
+    function handleCheckboxChange(checkboxId, isChecked) {
+      if (checkboxId === 'showMapLabel') {
+        setIsMapNameVisibility(isChecked);
+        updateMapAreaMarkers();
+      } else if (checkboxId === 'showRoadshow') {
+        setIsRoadshowVisibility(isChecked);
+        updateRoadshowMarkers();
+      }
+    }
+
+    function setIsMapNameVisibility(isVisible) {
+      storageName = "isMapNameVisible-" + CONST_DEFAULT_REGION_CODE;
+      localStorage.setItem(storageName, isVisible);
+    }
+
+    function setIsRoadshowVisibility(isVisible) {
+      storageName = "isRoadshowVisible-" + CONST_DEFAULT_REGION_CODE;
+      localStorage.setItem(storageName, isVisible);
+    }
+
+    function getIsMapNameVisibility() {
+      isMapNameVisible = false;
+      storageName = "isMapNameVisible-" + CONST_DEFAULT_REGION_CODE;
+      if (localStorage.getItem(storageName) === "true") {
+        isMapNameVisible = true;
+      }
+      return isMapNameVisible;
+    }
+
+    function getIsRoadshowVisibility() {
+      isRoadshowVisible = false;
+      storageName = "isRoadshowVisible-" + CONST_DEFAULT_REGION_CODE;
+      if (localStorage.getItem(storageName) === "true") {
+        isRoadshowVisible = true;
+      }
+      return isRoadshowVisible;
+    }
+
+    function updateMapAreaMarkers() {
+      isMapNameVisible = getIsMapNameVisibility();
+
+      if (!isMapNameVisible) {
+        if (parseInt(currentMapLevel) === CONST_COUNTRY_LEVEL)
+          mapInstance.removeLayer(nationalMarkersGroup);
+        else if (parseInt(currentMapLevel) === CONST_PROVINCE_LEVEL)
+          mapInstance.removeLayer(provinceMarkersGroup);
+        else if (parseInt(currentMapLevel) === CONST_CITY_LEVEL)
+          mapInstance.removeLayer(cityMarkersGroup);
+        else if (parseInt(currentMapLevel) === CONST_DISTRICT_LEVEL)
+          mapInstance.removeLayer(districtMarkersGroup);
+        else if (parseInt(currentMapLevel) === CONST_SUBDISTRICT_LEVEL)
+          mapInstance.removeLayer(subDistrictMarkersGroup);
+      } else {
+        if (parseInt(currentMapLevel) === CONST_COUNTRY_LEVEL)
+          mapInstance.addLayer(nationalMarkersGroup);
+        else if (parseInt(currentMapLevel) === CONST_PROVINCE_LEVEL)
+          mapInstance.addLayer(provinceMarkersGroup);
+        else if (parseInt(currentMapLevel) === CONST_CITY_LEVEL)
+          mapInstance.addLayer(cityMarkersGroup);
+        else if (parseInt(currentMapLevel) === CONST_DISTRICT_LEVEL)
+          mapInstance.addLayer(districtMarkersGroup);
+        else if (parseInt(currentMapLevel) === CONST_SUBDISTRICT_LEVEL)
+          mapInstance.addLayer(subDistrictMarkersGroup);
+      }
+    }
+
+    function updateRoadshowMarkers() {
+      isRoadshowVisible = getIsRoadshowVisibility();
+
+      if (!isRoadshowVisible) {
+        if (parseInt(currentMapLevel) === CONST_COUNTRY_LEVEL)
+          mapInstance.removeLayer(nationalRoadshowMarkersGroup);
+        else if (parseInt(currentMapLevel) === CONST_PROVINCE_LEVEL)
+          mapInstance.removeLayer(provinceRoadshowMarkersGroup);
+        else if (parseInt(currentMapLevel) === CONST_CITY_LEVEL)
+          mapInstance.removeLayer(cityRoadshowMarkersGroup);
+        else if (parseInt(currentMapLevel) === CONST_DISTRICT_LEVEL)
+          mapInstance.removeLayer(districtRoadshowMarkersGroup);
+        else if (parseInt(currentMapLevel) === CONST_SUBDISTRICT_LEVEL)
+          mapInstance.removeLayer(subDistrictRoadshowMarkersGroup);
+      } else {
+        if (parseInt(currentMapLevel) === CONST_COUNTRY_LEVEL)
+          mapInstance.addLayer(nationalRoadshowMarkersGroup);
+        else if (parseInt(currentMapLevel) === CONST_PROVINCE_LEVEL)
+          mapInstance.addLayer(provinceRoadshowMarkersGroup);
+        else if (parseInt(currentMapLevel) === CONST_CITY_LEVEL)
+          mapInstance.addLayer(cityRoadshowMarkersGroup);
+        else if (parseInt(currentMapLevel) === CONST_DISTRICT_LEVEL)
+          mapInstance.addLayer(districtRoadshowMarkersGroup);
+        else if (parseInt(currentMapLevel) === CONST_SUBDISTRICT_LEVEL)
+          mapInstance.addLayer(subDistrictRoadshowMarkersGroup);
+      }
+    }
+
 
     function getColor(zone) {
       const colors = {
@@ -426,6 +619,298 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
       };
     }
 
+    /* grouping roadshow data */
+    function groupRoadshows(roadshows, level, grouping = true) {
+      const sortActivitiesByDate = (activities) =>
+        activities.sort((a, b) => new Date(a.activity_date) - new Date(b.activity_date));
+
+      if (level === CONST_CITY_LEVEL) {
+        // Group by city_code
+        const grouped = roadshows.reduce((acc, item) => {
+          const cityCode = item.city_code;
+          const cityName = item.city_name;
+          if (!acc[cityCode]) {
+            acc[cityCode] = {
+              level: CONST_CITY_LEVEL,
+              name: cityName,
+              region_code: cityCode,
+              total_data: 0,
+              activity_count: 0,
+              roadshow_activities: []
+            };
+          }
+          acc[cityCode].total_data += item.total_data;
+          acc[cityCode].activity_count += 1;
+          acc[cityCode].roadshow_activities.push({
+            activity_date: item.activity_date,
+            district_name: item.district_name,
+            sub_district_name: item.sub_district_name,
+            rw: item.rw,
+            activity: item.roadshow_activity,
+            total_data: item.total_data
+          });
+          return acc;
+        }, {});
+
+        // Sort roadshow_activities by activity_date in each grouped entry
+        Object.values(grouped).forEach(entry => {
+          entry.roadshow_activities = sortActivitiesByDate(entry.roadshow_activities);
+        });
+
+        return grouped;
+
+      } else if (level === CONST_DISTRICT_LEVEL) {
+        // Group by district_code
+        const grouped = roadshows.reduce((acc, item) => {
+          const districtCode = item.district_code;
+          const districtName = item.district_name;
+          if (!acc[districtCode]) {
+            acc[districtCode] = {
+              level: CONST_DISTRICT_LEVEL,
+              name: districtName,
+              region_code: districtCode,
+              total_data: 0,
+              activity_count: 0,
+              roadshow_activities: []
+            };
+          }
+          acc[districtCode].total_data += item.total_data;
+          acc[districtCode].activity_count += 1;
+          acc[districtCode].roadshow_activities.push({
+            activity_date: item.activity_date,
+            district_name: item.district_name,
+            sub_district_name: item.sub_district_name,
+            rw: item.rw,
+            activity: item.roadshow_activity,
+            total_data: item.total_data
+          });
+          return acc;
+        }, {});
+
+        // Sort roadshow_activities by activity_date in each grouped entry
+        Object.values(grouped).forEach(entry => {
+          entry.roadshow_activities = sortActivitiesByDate(entry.roadshow_activities);
+        });
+
+        return grouped;
+      } else if (level === CONST_SUBDISTRICT_LEVEL) {
+        if (grouping) {
+          // Group by sub_district_code
+          const grouped = roadshows.reduce((acc, item) => {
+            const subDistrictCode = item.sub_district_code;
+            const subDistrictName = item.sub_district_name;
+            if (!acc[subDistrictCode]) {
+              acc[subDistrictCode] = {
+                level: CONST_SUBDISTRICT_LEVEL,
+                name: subDistrictName,
+                region_code: subDistrictCode,
+                total_data: 0,
+                activity_count: 0,
+                roadshow_activities: []
+              };
+            }
+            acc[subDistrictCode].total_data += item.total_data;
+            acc[subDistrictCode].activity_count += 1;
+            acc[subDistrictCode].roadshow_activities.push({
+              activity_date: item.activity_date,
+              district_name: item.district_name,
+              sub_district_name: item.sub_district_name,
+              rw: item.rw,
+              activity: item.roadshow_activity,
+              total_data: item.total_data
+            });
+            return acc;
+          }, {});
+
+          // Sort roadshow_activities by activity_date in each grouped entry
+          Object.values(grouped).forEach(entry => {
+            entry.roadshow_activities = sortActivitiesByDate(entry.roadshow_activities);
+          });
+
+          return grouped;
+        } else {
+          // Add region_code property and include rw, activity_date in roadshow_activities, then sort
+          const grouped = mergeRoadshowsByCoordinates(roadshows);
+
+          Object.values(grouped).forEach(entry => {
+            entry.roadshow_activities = sortActivitiesByDate(entry.roadshow_activities);
+          });
+
+          return grouped;
+        }
+      } else {
+        throw new Error("Invalid level provided. Please use level 3, 4, or 5.");
+      }
+    }
+
+    // Helper to format output for levels 3 and 4
+    function formatGroupedResult(groupedData) {
+      return Object.values(groupedData);
+    }
+
+    function mergeGeojsonWithRoadshows(geoJson, roadshows) {
+      geoJson.features.forEach(feature => {
+        const regionCode = feature.properties.region_code;
+        // Find all matching roadshow data for the region code
+        const matchingRoadshows = roadshows.filter(
+          roadshow => roadshow.region_code === regionCode
+        );
+        // If there are matching roadshows, add them to the feature
+        if (matchingRoadshows.length > 0) {
+          feature.properties["roadshows"] = matchingRoadshows;
+        }
+      });
+    }
+
+    function mergeRoadshowsByCoordinates(roadshows) {
+      // Separate items with coordinates from those without
+      const mergedData = [];
+      const itemsWithCoordinates = [];
+
+      roadshows.forEach(item => {
+        if (item.garis_bujur === null && item.garis_lintang === null) {
+          // Check if a group for this city and district exists
+          const existingGroup = mergedData.find(
+            group => group.city_code === item.city_code && group.district_code === item.district_code
+          );
+
+          if (existingGroup) {
+            // Add to existing group
+            existingGroup.total_data += item.total_data;
+            existingGroup.activity_count += 1;
+            existingGroup.roadshow_activities.push({
+              activity_date: item.activity_date,
+              sub_district_name: item.sub_district_name,
+              rw: item.rw,
+              activity: item.roadshow_activity,
+              total_data: item.total_data,
+            });
+          } else {
+            // Create a new group
+            mergedData.push({
+              city_code: item.city_code,
+              district_code: item.district_code,
+              region_code: item.sub_district_code,
+              total_data: item.total_data,
+              activity_count: 1,
+              roadshow_activities: [
+                {
+                  activity_date: item.activity_date,
+                  sub_district_name: item.sub_district_name,
+                  rw: item.rw,
+                  activity: item.roadshow_activity,
+                  total_data: item.total_data,
+                }
+              ],
+              garis_bujur: null,
+              garis_lintang: null
+            });
+          }
+        } else {
+          // Push items with coordinates as they are
+          itemsWithCoordinates.push({
+            ...item,
+            region_code: item.sub_district_code,
+            roadshow_activities: [
+              {
+                activity_date: item.activity_date,
+                sub_district_name: item.sub_district_name,
+                rw: item.rw,
+                activity: item.roadshow_activity,
+                total_data: item.total_data,
+              }
+            ]
+          });
+        }
+      });
+
+      return [...mergedData, ...itemsWithCoordinates];
+    }
+
+    function renderMapLabelMarkers(markerGroup, feature, mapLayer) {
+      /* Map Markers */
+      const marker = getMapLabelMarker(feature);
+      markerGroup.addLayer(marker);
+      mapLayer.bindTooltip(`
+        <b>${feature.properties.name}</b>
+        <br><b>KK</b>: ${numberFormat(feature.properties.jml_kk)}
+        <br><b>DPT</b>: ${numberFormat(feature.properties.jml_dpt)}
+        `,
+        {
+          permanent: false,
+          direction: 'top',
+          className: 'custom-tooltip'
+        });
+    }
+
+    function getRoadshowActivityContent(roadshow) {
+      let body = '';
+      for (let activity of roadshow.roadshow_activities) {
+        body += `
+            <tr>
+              <td>${activity.activity_date}</td>
+              <td>${activity.sub_district_name}</td>
+              <td>${activity.rw}</td>
+              <td><b>${activity.activity}</b></td>
+              <td style="text-align: right">${activity.total_data}</td>
+            </tr>
+          `;
+      }
+
+      const content = `
+          <div class="table-wrapper">
+            <table>
+              <thead>
+              <tr>
+                <th>Tanggal</th>
+                <th>Kelurahan</th>
+                <th>RW</th>
+                <th>Aktivitas</th>
+                <th style="text-align: right">Total Data</th>
+              </tr>
+              </thead>
+              <tbody>
+                ${body}
+              </tbody>
+            </table>
+          </div>`;
+
+      return content;
+    }
+
+    function renderRoadshowMarkers(roadshowMarkersGroup, feature, mapLayer, level) {
+      /* Map Markers */
+      if (feature.properties && feature.properties.roadshows &&
+        feature.properties.roadshows.length > 0) {
+
+        for (let roadshowItem of feature.properties.roadshows) {
+          const roadshowContent = getRoadshowActivityContent(roadshowItem);
+          let coordinates = null;
+
+          if (parseInt(level) == CONST_SUBDISTRICT_LEVEL) {
+            if (roadshowItem.garis_lintang && roadshowItem.garis_bujur) {
+              coordinates = [roadshowItem.garis_lintang, roadshowItem.garis_bujur];
+            }
+          }
+
+          const roadshowMarker = getPulseMarker(feature, coordinates);
+          // roadshowMarker.bindTooltip(roadshowContent, {
+          //   permanent: false,
+          //   direction: 'top',
+          //   className: 'popup-roadshow'
+          // });
+          roadshowMarker.bindPopup(roadshowContent, {
+            permanent: false,
+            direction: 'top',
+            className: 'popup-roadshow'
+          });
+          roadshowMarkersGroup.addLayer(roadshowMarker);
+        }
+      }
+    }
+
+
+    /* rendering map */
     function renderMap(level, geoJsondata) {
       // Clear the existing map layers (e.g., when navigating to a new level)
       mapInstance.eachLayer(function (layer) {
@@ -434,12 +919,15 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
         }
       });
 
-      resetMarkerGroup();
+      resetMapNameMarkerGroup();
+      resetRoadshowMarkerGroup();
       setDefaultView(level);
       showHideBackButtonControl(level);
 
-      let markersGroup = getMarkersGroup(level);
-      let activeGeojson = "Indonesia"; // default geojson
+      let mapAreaMarkersGroup = getMapAreaMarkersGroup(level);
+      let roadshowMarkersGroup = getRoadshowMarkersGroup(level);
+
+      let activeGeojson = CONST_DEFAULT_REGION_GEOJSON; // default geojson
 
       // Add new GeoJSON layer for the current level
       const layerGroup = L.geoJSON(geoJsondata, {
@@ -450,9 +938,9 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
           parentRegionCode = feature.properties.parent_code;
 
           if (currentMapLevel === 1) {
-            geojson = "Indonesia";
+            geojson = CONST_DEFAULT_REGION_GEOJSON;
           } else {
-            if (navigateSource == "MapList") {
+            if (navigateSource == CONST_NAVIGATE_SOURCE_MAPLIST) {
               geojson = mapDefaultGeojson;
             } else {
               geojson = feature.properties.province_name;
@@ -469,20 +957,8 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
 
           lastGeojson = geojson;
 
-          const marker = getMapLabelMarker(feature);
-          markersGroup.addLayer(marker);
-
-          layer.bindTooltip(`
-            <b>${feature.properties.name}</b>
-            <br><b>KK</b>: ${numberFormat(feature.properties.jml_kk)}
-            <br><b>DPT</b>: ${numberFormat(feature.properties.jml_dpt)}
-            `,
-            {
-              permanent: false,
-              direction: 'top',
-              className: 'custom-tooltip'
-            }
-          );
+          renderMapLabelMarkers(mapAreaMarkersGroup, feature, layer);
+          renderRoadshowMarkers(roadshowMarkersGroup, feature, layer, level);
 
           layer.on({
             click: function () {
@@ -493,9 +969,9 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
               // showHideDataBoxTooltip(true);
               if (currentMapLevel === CONST_COUNTRY_LEVEL) {
                 // reset navigateSource back to geojson
-                navigateSource = "Geojson";
-                lastGeojson = "Indonesia";
-                activeGeojson = "Indonesia";
+                navigateSource = CONST_NAVIGATE_SOURCE_GEOJSON;
+                lastGeojson = CONST_DEFAULT_REGION_GEOJSON;
+                activeGeojson = CONST_DEFAULT_REGION_GEOJSON;
 
                 loadNationalMap();
               } else if (currentMapLevel === CONST_PROVINCE_LEVEL) {
@@ -505,7 +981,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
                 activeGeojson = lastProvinceName;
                 lastGeojson = activeGeojson;
 
-                if (navigateSource == "MapList") {
+                if (navigateSource == CONST_NAVIGATE_SOURCE_MAPLIST) {
                   geojson = mapDefaultGeojson;
                 }
                 loadProvinceMap(feature.properties.region_code, activeGeojson);
@@ -525,7 +1001,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
                 activeGeojson = geojson;
                 lastGeojson = activeGeojson;
 
-                if (navigateSource == "MapList") {
+                if (navigateSource == CONST_NAVIGATE_SOURCE_MAPLIST) {
                   geojson = mapDefaultGeojson;
                 }
 
@@ -538,7 +1014,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
                 lastDistrictCode = feature.properties.district_code;
                 lastDistrictName = feature.properties.district_name;
 
-                if (navigateSource == "MapList") {
+                if (navigateSource == CONST_NAVIGATE_SOURCE_MAPLIST) {
                   geojson = mapDefaultGeojson;
                 }
 
@@ -556,7 +1032,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
                 lastSubDistrictCode = feature.properties.sub_district_code;
                 lastSubDistrictName = feature.properties.sub_district_name;
 
-                if (navigateSource == "MapList") {
+                if (navigateSource == CONST_NAVIGATE_SOURCE_MAPLIST) {
                   geojson = mapDefaultGeojson;
                 }
 
@@ -647,6 +1123,26 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
       });
     }
 
+    function fetchRoadshowData(geojsonName, level, regionCode) {
+      return new Promise((resolve, reject) => {
+        const apiUrl = `polmarkdashboard.api.map.roadshow`;
+        const params = {
+          region: geojsonName,
+          level: level,
+          region_code: regionCode
+        };
+
+        // return fetchAPI(apiUrl, params);
+        fetchAPI(apiUrl, params)
+          .then((data) => {
+            resolve(data);
+          })
+          .catch((error) => {
+            reject(error)
+          });
+      });
+    }
+
     function loadMap(regionCode, regionName, currentLevel, parentLevel, renderLevel) {
       currentMapLevel = parseInt(currentLevel);
       parentMapLevel = parentLevel;
@@ -665,7 +1161,20 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
 
       showHideLoadingIndicator(true);
 
-      fetchGeoJsonData(url)
+      if (currentMapLevel == CONST_PROVINCE_LEVEL) {
+        currentProvince = regionCode;
+      } else if (currentMapLevel == CONST_CITY_LEVEL) {
+        currentCity = regionCode;
+      } else if (currentMapLevel == CONST_DISTRICT_LEVEL) {
+        currentDistrict = regionCode;
+      } else if (currentMapLevel == CONST_SUBDISTRICT_LEVEL) {
+        currentSubDistrict = regionCode;
+      }
+
+      currentRegionType = currentMapLevel;
+      currentRegionCode = regionCode;
+
+      fetchAPI(url)
         .then((geoJson) => {
           if (!geoJson || geoJson.features.length === 0) {
             console.log('URL: ', url);
@@ -674,8 +1183,40 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
             return;
           }
 
-          // Fetch and render GeoJSON data
-          renderMap(currentMapLevel, geoJson);
+          additionalData = [];
+          geoJson["extra"] = additionalData;
+
+          // Fetch Roadshow only for KOTA BOGOR
+          if (regionName == "Kota Bogor" && navigateSource == CONST_NAVIGATE_SOURCE_MAPLIST) {
+            fetchRoadshowData(regionName, currentMapLevel, regionCode)
+              .then((roadshowData) => {
+                if (roadshowData) {
+                  additionalData.push({ item: 'roadshow', data: roadshowData });
+                }
+
+                let roadshows = [];
+
+                if (currentMapLevel < CONST_SUBDISTRICT_LEVEL) {
+                  roadshows = formatGroupedResult(groupRoadshows(roadshowData, mapRenderLevel));
+                } else if (currentMapLevel == CONST_SUBDISTRICT_LEVEL && mapRenderLevel == CONST_SUBDISTRICT_LEVEL) {
+                  roadshows = groupRoadshows(roadshowData, mapRenderLevel, false);
+                }
+
+                mergeGeojsonWithRoadshows(geoJson, roadshows);
+
+                // Fetch and render GeoJSON data
+                renderMap(currentMapLevel, geoJson);
+
+                updateMapAreaMarkers();
+                updateRoadshowMarkers();
+              });
+          } else {
+            // Fetch and render GeoJSON data
+            renderMap(currentMapLevel, geoJson);
+
+            updateMapAreaMarkers();
+            updateRoadshowMarkers();
+          }
         })
         .catch((error) => {
           console.error(`Error fetching:`, error);
@@ -684,7 +1225,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
     }
 
     function loadNationalMap() {
-      loadMap(null, "Indonesia", CONST_COUNTRY_LEVEL, CONST_WORLD_LEVEL, CONST_PROVINCE_LEVEL);
+      loadMap(null, CONST_DEFAULT_REGION_GEOJSON, CONST_COUNTRY_LEVEL, CONST_WORLD_LEVEL, CONST_PROVINCE_LEVEL);
     }
 
     function loadProvinceMap(regionCode, geojson) {
@@ -714,8 +1255,8 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
         // Load the appropriate map based on the previous level
         if (previousLevel === CONST_COUNTRY_LEVEL) {
           // reset navigateSource back to Geojson
-          navigateSource = "Geojson";
-          lastGeojson = "Indonesia";
+          navigateSource = CONST_NAVIGATE_SOURCE_GEOJSON;
+          lastGeojson = CONST_DEFAULT_REGION_GEOJSON;
           activeGeojson = "";
           loadNationalMap();
         } else if (previousLevel === CONST_PROVINCE_LEVEL) {
@@ -766,7 +1307,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
       }
     }
 
-    function getMarkersGroup(level) {
+    function getMapAreaMarkersGroup(level) {
       const markerGroups = {
         1: nationalMarkersGroup,
         2: provinceMarkersGroup,
@@ -776,6 +1317,18 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
       };
 
       return markerGroups[parseInt(level)];
+    }
+
+    function getRoadshowMarkersGroup(level) {
+      const markers = {
+        1: nationalRoadshowMarkersGroup,
+        2: provinceRoadshowMarkersGroup,
+        3: cityRoadshowMarkersGroup,
+        4: districtRoadshowMarkersGroup,
+        5: subDistrictRoadshowMarkersGroup,
+      };
+
+      return markers[parseInt(level)];
     }
 
     function getDefaultMapView(level) {
@@ -816,11 +1369,20 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
       }
     }
 
-    function resetMarkerGroup() {
+    function resetMapNameMarkerGroup() {
+      nationalMarkersGroup.clearLayers();
       provinceMarkersGroup.clearLayers();
       cityMarkersGroup.clearLayers();
       districtMarkersGroup.clearLayers();
       subDistrictMarkersGroup.clearLayers();
+    }
+
+    function resetRoadshowMarkerGroup() {
+      nationalRoadshowMarkersGroup.clearLayers();
+      provinceRoadshowMarkersGroup.clearLayers();
+      cityRoadshowMarkersGroup.clearLayers();
+      districtRoadshowMarkersGroup.clearLayers();
+      subDistrictRoadshowMarkersGroup.clearLayers();
     }
 
     // Function to calculate the centroid for a Polygon (in case some features are Polygons)
@@ -874,6 +1436,35 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
         //   opacity: 1,
         //   fillOpacity: 0.8
         // });
+      } else {
+        console.error("Invalid centroid for feature:", feature.properties.name);
+      }
+
+      return;
+    }
+
+    function getPulseMarker(feature, coordinates = null) {
+      let centroid = [];
+
+      if (feature && !coordinates) {
+        centroid = feature.geometry.type === "MultiPolygon"
+          ? getMultiPolygonCentroid(feature.geometry.coordinates)
+          : getCentroid(feature.geometry.coordinates);
+      } else {
+        centroid = coordinates;
+      }
+
+      if (centroid) {
+        const pulseMarker = L.marker(centroid, {
+          icon: new L.Icon.Pulse({
+            color: 'blue',
+            // fillColor: 'blue',
+            icon: 'fa-solid fa-location-dot',
+            iconFillColor: 'blue'
+          })
+        });
+
+        return pulseMarker;
       } else {
         console.error("Invalid centroid for feature:", feature.properties.name);
       }
@@ -1221,7 +1812,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
       });
     }
 
-    function fetchGeoJsonData(endpoint, params = {}) {
+    function fetchAPI(endpoint, params = {}) {
       return new Promise((resolve, reject) => {
         frappe.call({
           method: endpoint,

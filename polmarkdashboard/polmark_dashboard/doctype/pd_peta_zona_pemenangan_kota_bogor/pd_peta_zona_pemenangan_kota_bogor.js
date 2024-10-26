@@ -739,11 +739,11 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Kota Bogor", {
       return [...mergedData, ...itemsWithCoordinates];
     }
 
-    function renderMapLabelMarkers(markerGroup, feature) {
+    function renderMapLabelMarkers(markerGroup, feature, mapLayer) {
       /* Map Markers */
       const marker = getMapLabelMarker(feature);
       markerGroup.addLayer(marker);
-      markerGroup.bindTooltip(`
+      mapLayer.bindTooltip(`
         <b>${feature.properties.name}</b>
         <br><b>KK</b>: ${numberFormat(feature.properties.jml_kk)}
         <br><b>DPT</b>: ${numberFormat(feature.properties.jml_dpt)}
@@ -790,7 +790,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Kota Bogor", {
       return content;
     }
 
-    function renderRoadshowMarkers(roadshowMarkersGroup, feature, level) {
+    function renderRoadshowMarkers(roadshowMarkersGroup, feature, mapLayer, level) {
       /* Map Markers */
       if (feature.properties && feature.properties.roadshows &&
         feature.properties.roadshows.length > 0) {
@@ -847,8 +847,8 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Kota Bogor", {
           parentRegionName = feature.properties.parent_name;
           parentRegionCode = feature.properties.parent_code;
 
-          renderMapLabelMarkers(mapAreaMarkersGroup, feature);
-          renderRoadshowMarkers(roadshowMarkersGroup, feature, level);
+          renderMapLabelMarkers(mapAreaMarkersGroup, feature, layer);
+          renderRoadshowMarkers(roadshowMarkersGroup, feature, layer, level);
 
           layer.on({
             click: function () {
