@@ -359,7 +359,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
 
         // Add the event handler for the button click
         button.onclick = function () {
-          if (areLabelsVisible) {
+          if (isMapNameVisible) {
             button.setAttribute('title', defaultTitle);
             if (parseInt(currentMapLevel) === CONST_COUNTRY_LEVEL)
               mapInstance.removeLayer(nationalMarkersGroup);
@@ -386,7 +386,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
               mapInstance.addLayer(subDistrictMarkersGroup);
           }
           // map.removeLayer(cityMarkersGroup);
-          areLabelsVisible = !areLabelsVisible; // Toggle the state
+          isMapNameVisible = !isMapNameVisible; // Toggle the state
         };
 
         // Prevent map interaction when clicking on the control

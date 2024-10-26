@@ -131,10 +131,6 @@ path.leaflet-interactive:focus {
   border-top-color: rgba(255, 255, 255, 0.9);
 }
 
-.custom-tooltip {
-  border: none;
-}
-
 .leaflet-control-fullscreen-button {
   background-color: #fff;
   border-radius: 4px;
@@ -341,6 +337,18 @@ path.leaflet-interactive:focus {
 
 
 /* END Map List Container */
+
+/* Check Box Show-Hide Layer */
+.checkbox-container {
+  // display: none; /* Initially hidden */
+  background: white;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 150px;
+}
+
+/* END Show-Hide Layer */
 
 /* General label styling */
 
@@ -568,6 +576,9 @@ path.leaflet-interactive:focus {
   /* Ensure it appears above the map */
 }
 
+
+/* Leaflet Popup and Tooltip */
+
 .custom-tooltip {
   background-color: white;
   border: 1px solid #ccc;
@@ -592,4 +603,36 @@ path.leaflet-interactive:focus {
 .custom-tooltip .tooltip-table td {
   padding-left: 4px;
   text-align: right;
+}
+
+.popup-roadshow .table-wrapper {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.popup-roadshow .leaflet-popup-content {
+  width: 500px !important;
+}
+
+.popup-roadshow  table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.popup-roadshow  table thead {
+  background-color: #5E5E5E;
+}
+
+.popup-roadshow  table th {
+  text-align: center;
+  font-weight: bold;
+  padding: 5px;
+  color: #f7f5f5;
+  font-size: 14px;
+}
+
+.popup-roadshow  table td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
 }

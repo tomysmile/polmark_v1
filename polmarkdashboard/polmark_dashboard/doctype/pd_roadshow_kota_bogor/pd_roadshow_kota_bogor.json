@@ -6,9 +6,13 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "district",
+  "province_name",
+  "province_code",
+  "city_name",
+  "city_code",
+  "district_code",
   "district_name",
-  "sub_district",
+  "sub_district_code",
   "sub_district_name",
   "rw",
   "activity_date",
@@ -37,15 +41,6 @@
    "non_negative": 1
   },
   {
-   "fieldname": "district",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Kecamatan",
-   "options": "PD Region Kota Bogor",
-   "reqd": 1
-  },
-  {
    "fieldname": "activity_date",
    "fieldtype": "Date",
    "in_list_view": 1,
@@ -54,23 +49,14 @@
    "reqd": 1
   },
   {
-   "fieldname": "sub_district",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Kelurahan",
-   "options": "PD Region Kota Bogor",
-   "reqd": 1
-  },
-  {
-   "fetch_from": "district.region_name",
+   "fetch_from": "district_code.region_name",
    "fieldname": "district_name",
    "fieldtype": "Read Only",
    "hidden": 1,
    "label": "Nama Kecamatan"
   },
   {
-   "fetch_from": "sub_district.region_name",
+   "fetch_from": "sub_district_code.region_name",
    "fieldname": "sub_district_name",
    "fieldtype": "Read Only",
    "hidden": 1,
@@ -104,11 +90,52 @@
    "fieldname": "garis_bujur",
    "fieldtype": "Data",
    "label": "Garis Bujur"
+  },
+  {
+   "fieldname": "city_name",
+   "fieldtype": "Read Only",
+   "label": "Kota"
+  },
+  {
+   "fieldname": "province_name",
+   "fieldtype": "Read Only",
+   "hidden": 1,
+   "label": "Provinsi"
+  },
+  {
+   "fieldname": "province_code",
+   "fieldtype": "Read Only",
+   "hidden": 1,
+   "label": "Kode Province"
+  },
+  {
+   "fieldname": "city_code",
+   "fieldtype": "Read Only",
+   "hidden": 1,
+   "label": "Kode Kota"
+  },
+  {
+   "fieldname": "district_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Kecamatan",
+   "options": "PD Region Kota Bogor",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sub_district_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Kelurahan",
+   "options": "PD Region Kota Bogor",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-23 14:34:53.951423",
+ "modified": "2024-10-24 10:38:36.275575",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "PD Roadshow Kota Bogor",
