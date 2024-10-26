@@ -29,8 +29,7 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "RW",
-   "length": 2
+   "label": "RW"
   },
   {
    "fieldname": "total_data",
@@ -135,7 +134,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-24 10:38:36.275575",
+ "modified": "2024-10-26 17:09:02.596560",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "PD Roadshow Kota Bogor",
