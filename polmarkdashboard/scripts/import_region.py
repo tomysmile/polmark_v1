@@ -73,7 +73,7 @@ def import_files_in_parallel(file_paths, doctype):
 def kota_bogor():
     # Usage
     file_paths = [
-        frappe.get_app_path("polmarkdashboard", "tmp_data", "ndjson_files", "region_kota_bogor.ndjson"),
+        frappe.get_app_path("polmarkdashboard", "tmp_data", "region_kota_bogor.ndjson"),
     ]
 
     # Specify the Doctype you are importing data into
