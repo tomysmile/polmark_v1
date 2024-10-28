@@ -805,6 +805,8 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Kota Bogor", {
             }
           }
 
+          console.log('coordinates: ', coordinates);
+
           const roadshowMarker = getPulseMarker(feature, coordinates);
           // roadshowMarker.bindTooltip(roadshowContent, {
           //   permanent: false,
