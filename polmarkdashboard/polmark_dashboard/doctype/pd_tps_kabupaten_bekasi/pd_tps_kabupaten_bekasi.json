@@ -1,0 +1,158 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "creation": "2024-10-28 16:32:53.152592",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "province_name",
+  "province_code",
+  "city_name",
+  "city_code",
+  "district_code",
+  "district_name",
+  "sub_district_code",
+  "sub_district_name",
+  "column_break_oodh",
+  "no_tps",
+  "alamat",
+  "rt",
+  "rw",
+  "garis_lintang",
+  "garis_bujur",
+  "active"
+ ],
+ "fields": [
+  {
+   "fieldname": "province_name",
+   "fieldtype": "Read Only",
+   "hidden": 1,
+   "label": "Provinsi"
+  },
+  {
+   "fieldname": "province_code",
+   "fieldtype": "Read Only",
+   "hidden": 1,
+   "label": "Kode Province"
+  },
+  {
+   "fieldname": "city_name",
+   "fieldtype": "Read Only",
+   "label": "Kota"
+  },
+  {
+   "fieldname": "city_code",
+   "fieldtype": "Read Only",
+   "hidden": 1,
+   "label": "Kode Kota"
+  },
+  {
+   "fieldname": "district_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Kecamatan",
+   "options": "PD Region Kota Bogor",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "district_code.region_name",
+   "fieldname": "district_name",
+   "fieldtype": "Read Only",
+   "hidden": 1,
+   "label": "Nama Kecamatan"
+  },
+  {
+   "fieldname": "sub_district_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Kelurahan",
+   "options": "PD Region Kota Bogor",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "sub_district_code.region_name",
+   "fieldname": "sub_district_name",
+   "fieldtype": "Read Only",
+   "hidden": 1,
+   "label": "Nama Kelurahan"
+  },
+  {
+   "fieldname": "column_break_oodh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "garis_lintang",
+   "fieldtype": "Data",
+   "label": "Garis Lintang"
+  },
+  {
+   "fieldname": "garis_bujur",
+   "fieldtype": "Data",
+   "label": "Garis Bujur"
+  },
+  {
+   "default": "1",
+   "fieldname": "active",
+   "fieldtype": "Check",
+   "label": "Active"
+  },
+  {
+   "fieldname": "no_tps",
+   "fieldtype": "Data",
+   "label": "No TPS",
+   "reqd": 1
+  },
+  {
+   "fieldname": "alamat",
+   "fieldtype": "Data",
+   "label": "Alamat"
+  },
+  {
+   "fieldname": "rt",
+   "fieldtype": "Data",
+   "label": "RT"
+  },
+  {
+   "fieldname": "rw",
+   "fieldtype": "Data",
+   "label": "RW"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-10-28 16:35:12.234464",
+ "modified_by": "Administrator",
+ "module": "Polmark Dashboard",
+ "name": "PD TPS Kabupaten Bekasi",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "share": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
