@@ -98,7 +98,7 @@
   },
   {
    "fieldname": "alamat",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "Alamat"
   },
   {
@@ -161,7 +161,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-29 15:20:28.480801",
+ "modified": "2024-10-29 15:54:09.499857",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "PD TPS Kabupaten Bekasi",
