@@ -62,4 +62,4 @@ def convert_json_to_ndjson(input_file, output_file, num_workers=cpu_count()):
     print(f"Data conversion completed. Elapsed time: {elapsed_time:.2f} seconds.")
 
     # Example:
-    # bench --site polmark.localhost execute polmarkdashboard.scripts.json_conversion.convert_json_to_ndjson --kwargs "{'input_file': 'tmp_data/region_kota_bogor.json', 'output_file': 'tmp_data/region_kota_bogor.ndjson'}"
+    # bench --site polmark.localhost execute polmarkdashboard.scripts.json_conversion.convert_json_to_ndjson --kwargs "{'input_file': 'tmp_data/tps_bekasi.json', 'output_file': 'tmp_data/tps_bekasi.ndjson'}"

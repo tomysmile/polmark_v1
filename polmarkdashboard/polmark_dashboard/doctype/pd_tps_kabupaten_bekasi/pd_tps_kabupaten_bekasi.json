@@ -6,7 +6,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "alamat",
+  "address",
   "rt",
   "rw",
   "no_tps",
@@ -36,6 +36,8 @@
   {
    "fieldname": "province_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Provinsi"
   },
   {
@@ -46,6 +48,8 @@
   {
    "fieldname": "city_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Kota"
   },
   {
@@ -62,12 +66,16 @@
    "fetch_from": "district_code.region_name",
    "fieldname": "district_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Kecamatan"
   },
   {
    "fetch_from": "sub_district_code.region_name",
    "fieldname": "sub_district_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Kelurahan"
   },
   {
@@ -94,12 +102,8 @@
    "fieldname": "no_tps",
    "fieldtype": "Data",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "No TPS"
-  },
-  {
-   "fieldname": "alamat",
-   "fieldtype": "Small Text",
-   "label": "Alamat"
   },
   {
    "fieldname": "rt",
@@ -157,11 +161,16 @@
    "fieldname": "source",
    "fieldtype": "Data",
    "label": "Source"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Small Text",
+   "label": "Alamat"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-29 15:54:09.499857",
+ "modified": "2024-10-29 17:00:23.057154",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "PD TPS Kabupaten Bekasi",
@@ -189,8 +198,10 @@
    "share": 1
   }
  ],
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
+ "title_field": "no_tps",
  "track_changes": 1
 }
