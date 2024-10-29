@@ -6,78 +6,69 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "province_name",
-  "province_code",
-  "city_name",
-  "city_code",
-  "district_code",
-  "district_name",
-  "sub_district_code",
-  "sub_district_name",
-  "column_break_oodh",
-  "no_tps",
   "alamat",
   "rt",
   "rw",
+  "no_tps",
+  "column_break_oodh",
   "garis_lintang",
   "garis_bujur",
-  "active"
+  "source",
+  "active",
+  "wilayah_section",
+  "province_name",
+  "province_code",
+  "province_code_bps",
+  "column_break_pclr",
+  "city_name",
+  "city_code",
+  "city_code_bps",
+  "column_break_dyxu",
+  "district_name",
+  "district_code",
+  "district_code_bps",
+  "column_break_cryx",
+  "sub_district_name",
+  "sub_district_code",
+  "sub_district_code_bps"
  ],
  "fields": [
   {
    "fieldname": "province_name",
-   "fieldtype": "Read Only",
-   "hidden": 1,
+   "fieldtype": "Data",
    "label": "Provinsi"
   },
   {
    "fieldname": "province_code",
-   "fieldtype": "Read Only",
-   "hidden": 1,
+   "fieldtype": "Data",
    "label": "Kode Province"
   },
   {
    "fieldname": "city_name",
-   "fieldtype": "Read Only",
+   "fieldtype": "Data",
    "label": "Kota"
   },
   {
    "fieldname": "city_code",
-   "fieldtype": "Read Only",
-   "hidden": 1,
-   "label": "Kode Kota"
+   "fieldtype": "Data",
+   "label": "Kode Kota/Kab"
   },
   {
    "fieldname": "district_code",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Kecamatan",
-   "options": "PD Region Kota Bogor",
-   "reqd": 1
+   "fieldtype": "Data",
+   "label": "Kode Kecamatan"
   },
   {
    "fetch_from": "district_code.region_name",
    "fieldname": "district_name",
-   "fieldtype": "Read Only",
-   "hidden": 1,
-   "label": "Nama Kecamatan"
-  },
-  {
-   "fieldname": "sub_district_code",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Kelurahan",
-   "options": "PD Region Kota Bogor",
-   "reqd": 1
+   "fieldtype": "Data",
+   "label": "Kecamatan"
   },
   {
    "fetch_from": "sub_district_code.region_name",
    "fieldname": "sub_district_name",
-   "fieldtype": "Read Only",
-   "hidden": 1,
-   "label": "Nama Kelurahan"
+   "fieldtype": "Data",
+   "label": "Kelurahan"
   },
   {
    "fieldname": "column_break_oodh",
@@ -102,8 +93,8 @@
   {
    "fieldname": "no_tps",
    "fieldtype": "Data",
-   "label": "No TPS",
-   "reqd": 1
+   "in_list_view": 1,
+   "label": "No TPS"
   },
   {
    "fieldname": "alamat",
@@ -119,11 +110,58 @@
    "fieldname": "rw",
    "fieldtype": "Data",
    "label": "RW"
+  },
+  {
+   "fieldname": "wilayah_section",
+   "fieldtype": "Section Break",
+   "label": "Wilayah"
+  },
+  {
+   "fieldname": "province_code_bps",
+   "fieldtype": "Data",
+   "label": "Kode BPS Province"
+  },
+  {
+   "fieldname": "column_break_pclr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "city_code_bps",
+   "fieldtype": "Data",
+   "label": "Kode BPS Kota/Kab"
+  },
+  {
+   "fieldname": "column_break_dyxu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_cryx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "district_code_bps",
+   "fieldtype": "Data",
+   "label": "Kode BPS Kecamatan"
+  },
+  {
+   "fieldname": "sub_district_code_bps",
+   "fieldtype": "Data",
+   "label": "Kode BPS Kelurahan"
+  },
+  {
+   "fieldname": "sub_district_code",
+   "fieldtype": "Data",
+   "label": "Kode Kelurahan"
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Data",
+   "label": "Source"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-28 16:35:12.234464",
+ "modified": "2024-10-29 15:20:28.480801",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "PD TPS Kabupaten Bekasi",
