@@ -1003,8 +1003,8 @@
  {
   "docstatus": 0,
   "doctype": "Custom HTML Block",
-  "html": "<div class=\"custom-widget\">\r\n    <div class=\"widget-header\">\r\n        DPT PILKADA 2024\r\n    </div>\r\n    <div class=\"widget-body\">\r\n        <div class=\"row\">\r\n            <div class=\"col\">\r\n                <button class=\"custom-btn\" data-doctype=\"pd-dpt-kabupaten-bekasi\">\r\n                    DPT Kabupaten Bekasi\r\n                    <i class=\"fa fa-angle-right\" aria-hidden=\"true\"></i>\r\n                </button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n",
-  "modified": "2024-10-22 16:08:18.037448",
+  "html": "<div class=\"custom-widget\">\r\n    <div class=\"widget-header\">\r\n        DPT PILKADA 2024\r\n    </div>\r\n    <div class=\"widget-body\">\r\n        <div class=\"row\">\r\n            <div class=\"col\">\r\n                <button class=\"custom-btn\" data-doctype=\"pd-dpt-kabupaten-bekasi\">\r\n                    DPT Kabupaten Bekasi\r\n                    <i class=\"fa fa-angle-right\" aria-hidden=\"true\"></i>\r\n                </button>\r\n            </div>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col\">\r\n                <button class=\"custom-btn\" data-doctype=\"pd-dpt-kota-pekanbaru\">\r\n                    DPT Kota Pekanbaru\r\n                    <i class=\"fa fa-angle-right\" aria-hidden=\"true\"></i>\r\n                </button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n",
+  "modified": "2024-11-01 17:09:34.727114",
   "name": "widget module daftar dpt pilkada 2024",
   "private": 0,
   "roles": [],
