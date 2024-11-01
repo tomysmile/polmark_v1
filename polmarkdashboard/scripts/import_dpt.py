@@ -103,3 +103,22 @@ def kab_bekasi():
 
     total_elapsed_time = time.time() - start_time  # Calculate total elapsed time
     print(f"Completed the import process in {total_elapsed_time:.2f} seconds.")
+
+
+def kota_pekanbaru():
+    # Usage
+    file_paths = [
+        frappe.get_app_path("polmarkdashboard", "tmp_data", "dpt_kota_pekanbaru.ndjson")
+    ]
+
+    # Specify the Doctype you are importing data into
+    doctype = "PD DPT Kota Pekanbaru"
+
+    # Start parallel import
+    start_time = time.time()  # Record the overall start time
+    print(f"Starting the import process at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    
+    import_files_in_parallel(file_paths, doctype)
+
+    total_elapsed_time = time.time() - start_time  # Calculate total elapsed time
+    print(f"Completed the import process in {total_elapsed_time:.2f} seconds.")
