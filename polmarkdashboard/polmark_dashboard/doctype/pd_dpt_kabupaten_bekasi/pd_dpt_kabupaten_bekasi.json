@@ -30,20 +30,20 @@
   "profile_photo",
   "photo_preview",
   "section_break_jlrw",
-  "province_name",
   "province_code",
+  "province_name",
   "province_code_bps",
   "column_break_qsnt",
-  "city_name",
   "city_code",
+  "city_name",
   "city_code_bps",
   "column_break_fjut",
-  "district_name",
   "district_code",
+  "district_name",
   "district_code_bps",
   "column_break_vebk",
-  "sub_district_name",
   "sub_district_code",
+  "sub_district_name",
   "sub_district_code_bps"
  ],
  "fields": [
@@ -113,8 +113,6 @@
   {
    "fieldname": "kk",
    "fieldtype": "Data",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
    "label": "KK Number"
   },
   {
@@ -188,7 +186,6 @@
    "fieldname": "tps",
    "fieldtype": "Int",
    "in_list_view": 1,
-   "in_standard_filter": 1,
    "label": "TPS",
    "non_negative": 1
   },
@@ -199,72 +196,88 @@
    "options": "Phone"
   },
   {
+   "fetch_from": "province_code.region_name",
    "fieldname": "province_name",
    "fieldtype": "Data",
-   "in_standard_filter": 1,
-   "label": "Provinsi"
+   "label": "Nama Provinsi",
+   "read_only": 1
   },
   {
    "fieldname": "province_code",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "hidden": 1,
-   "label": "Kode Provinsi"
+   "label": "Provinsi",
+   "options": "PD Region"
   },
   {
+   "fetch_from": "province_code.region_code",
    "fieldname": "province_code_bps",
    "fieldtype": "Data",
    "hidden": 1,
-   "label": "Kode BPS Provinsi"
+   "label": "Kode BPS Provinsi",
+   "read_only": 1
   },
   {
+   "fetch_from": "city_code.region_name",
    "fieldname": "city_name",
    "fieldtype": "Data",
-   "in_standard_filter": 1,
-   "label": "Kota / Kabupaten"
+   "label": "Nama Kota/Kabupaten",
+   "read_only": 1
   },
   {
    "fieldname": "city_code",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "hidden": 1,
-   "label": "Kode KoKab"
+   "label": "Kota/Kabupaten",
+   "options": "PD Region"
   },
   {
+   "fetch_from": "city_code.region_code",
    "fieldname": "city_code_bps",
    "fieldtype": "Data",
    "hidden": 1,
-   "label": "Kode BPS KoKab"
+   "label": "Kode BPS KoKab",
+   "read_only": 1
   },
   {
+   "fetch_from": "district_code.region_name",
    "fieldname": "district_name",
    "fieldtype": "Data",
-   "in_standard_filter": 1,
-   "label": "Kecamatan"
+   "hidden": 1,
+   "label": "Nama Kecamatan"
   },
   {
    "fieldname": "district_code",
-   "fieldtype": "Data",
-   "hidden": 1,
-   "label": "Kode Kec"
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Kecamatan",
+   "options": "PD Region Kabupaten Bekasi"
   },
   {
+   "fetch_from": "district_code.district_code_bps",
    "fieldname": "district_code_bps",
    "fieldtype": "Data",
    "hidden": 1,
    "label": "Kode BPS Kec"
   },
   {
+   "fetch_from": "sub_district_code.region_name",
    "fieldname": "sub_district_name",
    "fieldtype": "Data",
-   "in_standard_filter": 1,
-   "label": "Kelurahan / Desa"
+   "hidden": 1,
+   "label": "Nama Kel / Desa"
   },
   {
    "fieldname": "sub_district_code",
-   "fieldtype": "Data",
-   "hidden": 1,
-   "label": "Kode Kel"
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Kel/Desa",
+   "options": "PD Region Kabupaten Bekasi"
   },
   {
+   "fetch_from": "sub_district_code.sub_district_code_bps",
    "fieldname": "sub_district_code_bps",
    "fieldtype": "Data",
    "hidden": 1,
@@ -275,7 +288,7 @@
  "image_field": "profile_photo",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-23 16:03:53.984267",
+ "modified": "2024-11-04 17:54:54.408716",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "PD DPT Kabupaten Bekasi",
