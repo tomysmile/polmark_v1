@@ -10,22 +10,6 @@
  {
   "docstatus": 0,
   "doctype": "PD Region Type",
-  "level": 2,
-  "modified": "2024-10-02 11:05:33.889893",
-  "name": "Provinsi",
-  "standard": 1
- },
- {
-  "docstatus": 0,
-  "doctype": "PD Region Type",
-  "level": 3,
-  "modified": "2024-10-02 11:07:03.659429",
-  "name": "Kota",
-  "standard": 1
- },
- {
-  "docstatus": 0,
-  "doctype": "PD Region Type",
   "level": 3,
   "modified": "2024-10-02 11:07:12.555612",
   "name": "Kabupaten",
@@ -53,6 +37,22 @@
   "level": 5,
   "modified": "2024-10-02 11:07:30.891382",
   "name": "Desa",
+  "standard": 1
+ },
+ {
+  "docstatus": 0,
+  "doctype": "PD Region Type",
+  "level": 2,
+  "modified": "2024-10-02 11:05:33.889893",
+  "name": "Provinsi",
+  "standard": 1
+ },
+ {
+  "docstatus": 0,
+  "doctype": "PD Region Type",
+  "level": 3,
+  "modified": "2024-10-02 11:07:03.659429",
+  "name": "Kota",
   "standard": 1
  }
 ]

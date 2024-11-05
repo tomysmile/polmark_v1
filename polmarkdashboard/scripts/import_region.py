@@ -143,7 +143,7 @@ def kota_bogor():
     print(f"Completed the import process in {total_elapsed_time:.2f} seconds.")
 
 
-def kabupaten_bekasi():
+def kabupaten_bekasi_db():
     # Specify the Doctype you are importing data into
     doctype = "PD Region Kabupaten Bekasi"
     db = "region"
@@ -159,11 +159,28 @@ def kabupaten_bekasi():
     print(f"Completed the import process in {total_elapsed_time:.2f} seconds.")
 
 
+def kabupaten_bekasi():
+    # Specify the Doctype you are importing data into
+    doctype = "PD Region Kabupaten Bekasi"
+
+    # Usage
+    file_paths = [
+        frappe.get_app_path("polmarkdashboard", "tmp_data", "region.kabupaten_bekasi.ndjson"),
+    ]
+
+    # Start parallel import
+    start_time = time.time()  # Record the overall start time
+    print(f"Starting the import process at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    
+    import_files_in_parallel(file_paths, doctype)
+
+    total_elapsed_time = time.time() - start_time  # Calculate total elapsed time
+    print(f"Completed the import process in {total_elapsed_time:.2f} seconds.")
+
+
 def kota_pekanbaru():
     # Specify the Doctype you are importing data into
     doctype = "PD Region Kota Pekanbaru"
-    db = "region"
-    collection = "kota_pekanbaru"
 
     # Usage
     file_paths = [
