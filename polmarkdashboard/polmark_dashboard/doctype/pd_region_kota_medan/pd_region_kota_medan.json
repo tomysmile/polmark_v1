@@ -1,0 +1,253 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:region_code",
+ "creation": "2024-11-05 13:31:21.278253",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "region_name",
+  "region_code",
+  "region_type",
+  "region_level",
+  "region_code_bps",
+  "standard",
+  "column_break_gvge",
+  "parent_name",
+  "parent_type",
+  "parent_level",
+  "parent_code",
+  "parent_code_bps",
+  "data_source",
+  "section_break_hyic",
+  "province_name",
+  "province_code",
+  "province_code_bps",
+  "column_break_tnku",
+  "city_name",
+  "city_code",
+  "city_code_bps",
+  "column_break_ffxx",
+  "district_name",
+  "district_code",
+  "district_code_bps",
+  "column_break_kunz",
+  "sub_district_name",
+  "sub_district_code",
+  "sub_district_code_bps"
+ ],
+ "fields": [
+  {
+   "fieldname": "region_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Name",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "region_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Code",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "region_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Type",
+   "options": "PD Region Type"
+  },
+  {
+   "fetch_from": "region_type.level",
+   "fieldname": "region_level",
+   "fieldtype": "Int",
+   "in_standard_filter": 1,
+   "label": "Level",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "region_code_bps",
+   "fieldtype": "Data",
+   "label": "BPS Code"
+  },
+  {
+   "default": "0",
+   "fieldname": "standard",
+   "fieldtype": "Check",
+   "label": "Standard"
+  },
+  {
+   "fieldname": "column_break_gvge",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "parent_name",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Parent Name"
+  },
+  {
+   "fieldname": "parent_type",
+   "fieldtype": "Link",
+   "label": "Parent Type",
+   "options": "PD Region Type"
+  },
+  {
+   "fetch_from": "parent_type.level",
+   "fieldname": "parent_level",
+   "fieldtype": "Int",
+   "label": "Parent Level"
+  },
+  {
+   "fieldname": "parent_code",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Parent Code"
+  },
+  {
+   "fieldname": "parent_code_bps",
+   "fieldtype": "Data",
+   "label": "Parent BPS Code"
+  },
+  {
+   "fieldname": "data_source",
+   "fieldtype": "Data",
+   "label": "Data Source"
+  },
+  {
+   "fieldname": "section_break_hyic",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "province_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Province"
+  },
+  {
+   "fieldname": "province_code",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Province Code"
+  },
+  {
+   "fieldname": "province_code_bps",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Province BPS Code"
+  },
+  {
+   "fieldname": "column_break_tnku",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "city_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "City"
+  },
+  {
+   "fieldname": "city_code",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "City Code"
+  },
+  {
+   "fieldname": "city_code_bps",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "City BPS Code"
+  },
+  {
+   "fieldname": "column_break_ffxx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "district_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "District"
+  },
+  {
+   "fieldname": "district_code",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "District Code"
+  },
+  {
+   "fieldname": "district_code_bps",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "District BPS Code"
+  },
+  {
+   "fieldname": "column_break_kunz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sub_district_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Sub District"
+  },
+  {
+   "fieldname": "sub_district_code",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Sub District Code"
+  },
+  {
+   "fieldname": "sub_district_code_bps",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Sub District BPS Code"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-11-05 13:31:21.278253",
+ "modified_by": "Administrator",
+ "module": "Polmark Dashboard",
+ "name": "PD Region Kota Medan",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "share": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "region_code",
+ "sort_order": "ASC",
+ "states": [],
+ "title_field": "region_name"
+}

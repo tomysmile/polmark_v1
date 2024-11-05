@@ -21,30 +21,30 @@ def import_file(file_path, doctype):
             # Create the document structure
             doc = {
                 "doctype": doctype,
-                "region_code": item.get("region_code"),
-                "region_name": item.get("region_name"),
-                "region_type": item.get("region_type"),
-                "region_level": item.get("region_level"),
-                "region_code_bps": item.get("region_code_bps"),
-                "region_name_bps": item.get("region_name_bps"),
+                "region_code": item.get("code"),
+                "region_name": item.get("name"),
+                "region_type": item.get("type"),
+                "region_level": item.get("level"),
+                "region_code_bps": item.get("code_bps"),
+                "region_name_bps": item.get("name_bps"),
                 "parent_code": item.get("parent_code"),
                 "parent_code_bps": item.get("parent_code_bps"),
                 "parent_name": item.get("parent_name"),
                 "parent_type": item.get("parent_type"),
                 "parent_level": item.get("parent_level"),
                 "data_source": item.get("data_source"),
-                "province_name": item.get("province_name"),
-                "province_code": item.get("province_code"),
-                "province_code_bps": item.get("province_code_bps"),
-                "city_name": item.get("city_name"),
-                "city_code": item.get("city_code"),
-                "city_code_bps": item.get("city_code_bps"),
-                "district_name": item.get("district_name"),
-                "district_code": item.get("district_code"),
-                "district_code_bps": item.get("district_code_bps"),
-                "sub_district_name": item.get("sub_district_name"),
-                "sub_district_code": item.get("sub_district_code"),
-                "sub_district_code_bps": item.get("sub_district_code_bps"),
+                "province_name": item.get("p_province_name"),
+                "province_code": item.get("p_province_code"),
+                "province_code_bps": item.get("p_province_code_bps"),
+                "city_name": item.get("p_city_name"),
+                "city_code": item.get("p_city_code"),
+                "city_code_bps": item.get("p_city_code_bps"),
+                "district_name": item.get("p_district_name"),
+                "district_code": item.get("p_district_code"),
+                "district_code_bps": item.get("p_district_code_bps"),
+                "sub_district_name": item.get("p_sub_district_name"),
+                "sub_district_code": item.get("p_sub_district_code"),
+                "sub_district_code_bps": item.get("p_sub_district_code_bps"),
                 "standard": 1
             }
 
@@ -154,6 +154,46 @@ def kabupaten_bekasi():
     print(f"Starting the import process at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     
     import_db(db, collection, doctype)
+
+    total_elapsed_time = time.time() - start_time  # Calculate total elapsed time
+    print(f"Completed the import process in {total_elapsed_time:.2f} seconds.")
+
+
+def kota_pekanbaru():
+    # Specify the Doctype you are importing data into
+    doctype = "PD Region Kota Pekanbaru"
+    db = "region"
+    collection = "kota_pekanbaru"
+
+    # Usage
+    file_paths = [
+        frappe.get_app_path("polmarkdashboard", "tmp_data", "region.kota_pekanbaru.ndjson"),
+    ]
+
+    # Start parallel import
+    start_time = time.time()  # Record the overall start time
+    print(f"Starting the import process at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    
+    import_files_in_parallel(file_paths, doctype)
+
+    total_elapsed_time = time.time() - start_time  # Calculate total elapsed time
+    print(f"Completed the import process in {total_elapsed_time:.2f} seconds.")
+
+
+def kota_medan():
+    # Specify the Doctype you are importing data into
+    doctype = "PD Region Kota Medan"
+
+    # Usage
+    file_paths = [
+        frappe.get_app_path("polmarkdashboard", "tmp_data", "region.kota_medan.ndjson"),
+    ]
+
+    # Start parallel import
+    start_time = time.time()  # Record the overall start time
+    print(f"Starting the import process at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    
+    import_files_in_parallel(file_paths, doctype)
 
     total_elapsed_time = time.time() - start_time  # Calculate total elapsed time
     print(f"Completed the import process in {total_elapsed_time:.2f} seconds.")

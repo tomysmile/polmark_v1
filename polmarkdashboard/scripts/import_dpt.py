@@ -19,6 +19,10 @@ def import_file(file_path, doctype):
 
             # Set has_ktp_elektronik based on status_ktp_elektronik value
             has_ktp_elektronik = 1 if item.get("status_ktp_elektronik") == "S" else 0
+            dateOfBirth = None
+
+            if (item.get("date_of_birth")):
+              dateOfBirth = datetime.strptime(item.get("date_of_birth"), '%d-%m-%Y').date()
 
             # Create the document structure
             doc = {
@@ -27,7 +31,7 @@ def import_file(file_path, doctype):
                 "kk": item.get("no_kk"),
                 "fullname": item.get("name"),
                 "birth_place": item.get("place_of_birth"),
-                "birth_date": datetime.strptime(item.get("date_of_birth"), '%d-%m-%Y').date(),
+                "birth_date": dateOfBirth,
                 "marital_status": item.get("status_nikah"),
                 "gender": item.get("gender"),
                 "has_ktp_elektronik": has_ktp_elektronik,
@@ -37,8 +41,8 @@ def import_file(file_path, doctype):
                 "tps": item.get("no_tps"),
                 "disability": item.get("disability"),
                 "notes": item.get("keterangan"),
-                "age_per2024": item.get("umur"),
-                "phone_number": item.get("phone_number"),
+                "age_per2024": item.get("age"),
+                "phone_number": item.get("phoneNumber"),
                 "source": item.get("source"),
                 "province_name": item.get("province_name"),
                 "province_code": item.get("province_code"),
@@ -108,11 +112,30 @@ def kab_bekasi():
 def kota_pekanbaru():
     # Usage
     file_paths = [
-        frappe.get_app_path("polmarkdashboard", "tmp_data", "dpt_kota_pekanbaru.ndjson")
+        frappe.get_app_path("polmarkdashboard", "tmp_data", "dpt.kota_pekanbaru.ndjson")
     ]
 
     # Specify the Doctype you are importing data into
     doctype = "PD DPT Kota Pekanbaru"
+
+    # Start parallel import
+    start_time = time.time()  # Record the overall start time
+    print(f"Starting the import process at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    
+    import_files_in_parallel(file_paths, doctype)
+
+    total_elapsed_time = time.time() - start_time  # Calculate total elapsed time
+    print(f"Completed the import process in {total_elapsed_time:.2f} seconds.")
+
+
+def kota_medan():
+    # Usage
+    file_paths = [
+        frappe.get_app_path("polmarkdashboard", "tmp_data", "dpt.kota_medan.ndjson")
+    ]
+
+    # Specify the Doctype you are importing data into
+    doctype = "PD DPT Kota Medan"
 
     # Start parallel import
     start_time = time.time()  # Record the overall start time

@@ -15,6 +15,18 @@ frappe.ui.form.on("PD DPT Kabupaten Bekasi", {
     frm.set_value('city_name', CONST_CITY_NAME);
     frm.set_value('city_code_bps', CONST_CITY_CODE);
 
+    frm.set_df_property('province_code', 'hidden', (frm.is_new()) ? 1 : 0);
+    frm.set_df_property('city_code', 'hidden', (frm.is_new()) ? 1 : 0);
+    frm.set_df_property('province_name', 'hidden', (!frm.is_new()) ? 1 : 0);
+    frm.set_df_property('city_name', 'hidden', (!frm.is_new()) ? 1 : 0);
+
+    frm.set_df_property('province_code_bps', 'hidden', 1);
+    frm.set_df_property('city_code_bps', 'hidden', 1);
+    frm.set_df_property('district_name', 'hidden', 1);
+    frm.set_df_property('district_code_bps', 'hidden', 1);
+    frm.set_df_property('sub_district_name', 'hidden', 1);
+    frm.set_df_property('sub_district_code_bps', 'hidden', 1);
+
     frm.set_query('district_code', function () {
       return {
         filters: {
@@ -28,6 +40,17 @@ frappe.ui.form.on("PD DPT Kabupaten Bekasi", {
           region_level: 5
         }
       };
+    });
+
+    frm.fields_dict.district_code.$input.on("keydown", function(evt){
+	    // Code specified here will run when a key is pressed on the customer field.
+      if (evt.key === "Backspace" || evt.keyCode === 8) {
+        // clear sub_district_code
+        frm.set_value('sub_district_code', '');
+        frm.set_query('sub_district_code', function () {
+          return {};
+        });
+      }
     });
   },
   district_code(frm) {

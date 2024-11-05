@@ -205,15 +205,14 @@
   {
    "fieldname": "province_code",
    "fieldtype": "Link",
-   "hidden": 1,
    "label": "Provinsi",
-   "options": "PD Region"
+   "options": "PD Region",
+   "search_index": 1
   },
   {
    "fetch_from": "province_code.region_code",
    "fieldname": "province_code_bps",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "Kode BPS Provinsi",
    "read_only": 1
   },
@@ -227,15 +226,14 @@
   {
    "fieldname": "city_code",
    "fieldtype": "Link",
-   "hidden": 1,
    "label": "Kota/Kabupaten",
-   "options": "PD Region"
+   "options": "PD Region",
+   "search_index": 1
   },
   {
    "fetch_from": "city_code.region_code",
    "fieldname": "city_code_bps",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "Kode BPS KoKab",
    "read_only": 1
   },
@@ -243,52 +241,56 @@
    "fetch_from": "district_code.region_name",
    "fieldname": "district_name",
    "fieldtype": "Data",
-   "hidden": 1,
-   "label": "Nama Kecamatan"
+   "in_list_view": 1,
+   "label": "Nama Kecamatan",
+   "read_only": 1,
+   "search_index": 1
   },
   {
    "fieldname": "district_code",
    "fieldtype": "Link",
-   "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Kecamatan",
-   "options": "PD Region Kabupaten Bekasi"
+   "options": "PD Region Kabupaten Bekasi",
+   "search_index": 1
   },
   {
    "fetch_from": "district_code.district_code_bps",
    "fieldname": "district_code_bps",
    "fieldtype": "Data",
-   "hidden": 1,
-   "label": "Kode BPS Kec"
+   "label": "Kode BPS Kec",
+   "read_only": 1
   },
   {
    "fetch_from": "sub_district_code.region_name",
    "fieldname": "sub_district_name",
    "fieldtype": "Data",
-   "hidden": 1,
-   "label": "Nama Kel / Desa"
+   "in_list_view": 1,
+   "label": "Nama Kel / Desa",
+   "read_only": 1,
+   "search_index": 1
   },
   {
    "fieldname": "sub_district_code",
    "fieldtype": "Link",
-   "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Kel/Desa",
-   "options": "PD Region Kabupaten Bekasi"
+   "options": "PD Region Kabupaten Bekasi",
+   "search_index": 1
   },
   {
    "fetch_from": "sub_district_code.sub_district_code_bps",
    "fieldname": "sub_district_code_bps",
    "fieldtype": "Data",
-   "hidden": 1,
-   "label": "Kode BPS Kel"
+   "label": "Kode BPS Kel",
+   "read_only": 1
   }
  ],
  "hide_toolbar": 1,
  "image_field": "profile_photo",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-04 17:54:54.408716",
+ "modified": "2024-11-05 14:14:32.660212",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "PD DPT Kabupaten Bekasi",
