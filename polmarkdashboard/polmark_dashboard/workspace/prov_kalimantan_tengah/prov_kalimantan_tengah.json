@@ -1,7 +1,7 @@
 {
  "charts": [],
  "content": "[{\"id\":\"3KWkbBvXA5\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget header prov kalimantan tengah\",\"col\":12}},{\"id\":\"VBK4qy1mLx\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt prov kalimantan tengah\",\"col\":6}},{\"id\":\"qalKfO-BwB\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget tps prov kalimantan tengah\",\"col\":6}},{\"id\":\"YpKZCIiUwK\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt female prov kalimantan tengah\",\"col\":6}},{\"id\":\"dQhjY4sLDq\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt young prov kalimantan tengah\",\"col\":6}},{\"id\":\"PdNJ57wKKV\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget features prov kalimantan tengah\",\"col\":6}},{\"id\":\"3vV-wd7-u6\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget news prov kalimantan tengah\",\"col\":6}}]",
- "creation": "2024-10-07 14:32:14.098144",
+ "creation": "2024-11-01 17:46:03.751847",
  "custom_blocks": [
   {
    "custom_block_name": "widget header prov kalimantan tengah",
@@ -42,7 +42,7 @@
  "is_hidden": 0,
  "label": "Prov Kalimantan Tengah",
  "links": [],
- "modified": "2024-10-19 14:24:34.408987",
+ "modified": "2024-11-05 17:18:34.989105",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "Prov Kalimantan Tengah",
@@ -51,7 +51,11 @@
  "parent_page": "Pendampingan",
  "public": 1,
  "quick_lists": [],
- "roles": [],
+ "roles": [
+  {
+   "role": "Polmark Dashboard Kalimantan Tengah"
+  }
+ ],
  "sequence_id": 12.0,
  "shortcuts": [],
  "title": "Prov Kalimantan Tengah"

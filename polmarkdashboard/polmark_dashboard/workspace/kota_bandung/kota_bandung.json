@@ -1,7 +1,7 @@
 {
  "charts": [],
  "content": "[{\"id\":\"Y3RcjHdFuU\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget header kota bandung\",\"col\":12}},{\"id\":\"A8yFqzhpKT\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt kota bandung\",\"col\":6}},{\"id\":\"6w5ItzEGHj\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget tps kota bandung\",\"col\":6}},{\"id\":\"YHdJ9IH78w\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt female kota bandung\",\"col\":6}},{\"id\":\"SBj5WfYLXr\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt young kota bandung\",\"col\":6}},{\"id\":\"f3V1oo9N-I\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget features kota bandung\",\"col\":6}},{\"id\":\"w2_m6Vz4Kj\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget news kota bandung\",\"col\":6}}]",
- "creation": "2024-10-07 14:32:13.991244",
+ "creation": "2024-11-01 17:46:03.677423",
  "custom_blocks": [
   {
    "custom_block_name": "widget header kota bandung",
@@ -42,7 +42,7 @@
  "is_hidden": 0,
  "label": "Kota Bandung",
  "links": [],
- "modified": "2024-10-19 14:24:33.893729",
+ "modified": "2024-11-05 17:19:26.283793",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "Kota Bandung",
@@ -51,7 +51,11 @@
  "parent_page": "Pendampingan",
  "public": 1,
  "quick_lists": [],
- "roles": [],
+ "roles": [
+  {
+   "role": "Polmark Dashboard Kota Bandung"
+  }
+ ],
  "sequence_id": 9.0,
  "shortcuts": [],
  "title": "Kota Bandung"

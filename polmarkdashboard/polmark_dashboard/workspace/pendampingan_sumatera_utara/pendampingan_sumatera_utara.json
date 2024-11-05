@@ -1,0 +1,62 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"RRwR-q2Y3f\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget header prov sumatera utara\",\"col\":12}},{\"id\":\"NkKVMouyS4\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt prov sumatera utara\",\"col\":6}},{\"id\":\"yrHDpXj19K\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget tps prov sumatera utara\",\"col\":6}},{\"id\":\"g5cV-pR7ZN\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt female prov sumatera utara\",\"col\":6}},{\"id\":\"Umcck1_p2V\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt young prov sumatera utara\",\"col\":6}},{\"id\":\"M3CiD2qiXZ\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget features prov sumatera utara\",\"col\":6}},{\"id\":\"jqmvzI0_Tx\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget news prov sumatera utara\",\"col\":6}}]",
+ "creation": "2024-11-05 16:27:39.073875",
+ "custom_blocks": [
+  {
+   "custom_block_name": "widget header prov sumatera utara",
+   "label": "widget header prov sumatera utara"
+  },
+  {
+   "custom_block_name": "widget dpt prov sumatera utara",
+   "label": "widget dpt prov sumatera utara"
+  },
+  {
+   "custom_block_name": "widget tps prov sumatera utara",
+   "label": "widget tps prov sumatera utara"
+  },
+  {
+   "custom_block_name": "widget dpt female prov sumatera utara",
+   "label": "widget dpt female prov sumatera utara"
+  },
+  {
+   "custom_block_name": "widget dpt young prov sumatera utara",
+   "label": "widget dpt young prov sumatera utara"
+  },
+  {
+   "custom_block_name": "widget features prov sumatera utara",
+   "label": "widget features prov sumatera utara"
+  },
+  {
+   "custom_block_name": "widget news prov sumatera utara",
+   "label": "widget news prov sumatera utara"
+  }
+ ],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "shortcut",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Pendampingan Sumatera Utara",
+ "links": [],
+ "modified": "2024-11-05 17:23:00.744181",
+ "modified_by": "Administrator",
+ "module": "Polmark Dashboard",
+ "name": "Pendampingan Sumatera Utara",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "Polmark Dashboard Standalone Sumatera Utara"
+  }
+ ],
+ "sequence_id": 23.0,
+ "shortcuts": [],
+ "title": "Pendampingan Sumatera Utara"
+}

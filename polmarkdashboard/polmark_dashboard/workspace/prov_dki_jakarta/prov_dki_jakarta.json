@@ -1,7 +1,7 @@
 {
  "charts": [],
  "content": "[{\"id\":\"8as5fGJE-G\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget header prov dki jakarta\",\"col\":12}},{\"id\":\"b73o1FH5I1\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt prov dki jakarta\",\"col\":6}},{\"id\":\"MP4Lmr1ZUY\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget tps prov dki jakarta\",\"col\":6}},{\"id\":\"GSIJVJaR-n\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt female prov dki jakarta\",\"col\":6}},{\"id\":\"I6h3PJcjuG\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt young prov dki jakarta\",\"col\":6}},{\"id\":\"Sbhb-SpczL\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget features prov dki jakarta\",\"col\":6}},{\"id\":\"fvJrkLtZAB\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget news prov dki jakarta\",\"col\":6}}]",
- "creation": "2024-10-07 14:32:14.043370",
+ "creation": "2024-11-01 17:46:03.713831",
  "custom_blocks": [
   {
    "custom_block_name": "widget header prov dki jakarta",
@@ -42,7 +42,7 @@
  "is_hidden": 0,
  "label": "Prov DKI Jakarta",
  "links": [],
- "modified": "2024-10-19 14:24:34.240262",
+ "modified": "2024-11-05 17:18:39.659426",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "Prov DKI Jakarta",
@@ -51,7 +51,11 @@
  "parent_page": "Pendampingan",
  "public": 1,
  "quick_lists": [],
- "roles": [],
+ "roles": [
+  {
+   "role": "Polmark Dashboard DKI Jakarta"
+  }
+ ],
  "sequence_id": 11.0,
  "shortcuts": [],
  "title": "Prov DKI Jakarta"

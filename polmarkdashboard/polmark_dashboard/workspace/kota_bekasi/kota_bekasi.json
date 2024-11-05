@@ -1,7 +1,7 @@
 {
  "charts": [],
  "content": "[{\"id\":\"4DtNlxMVWq\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget header kota bekasi\",\"col\":12}},{\"id\":\"KdJqMtPPR1\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt kota bekasi\",\"col\":6}},{\"id\":\"MhdaO7HQhE\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget tps kota bekasi\",\"col\":6}},{\"id\":\"vI6EPxmNaX\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt female kota bekasi\",\"col\":6}},{\"id\":\"0XAFv2bAnA\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt young kota bekasi\",\"col\":6}},{\"id\":\"TUOKo4-ODL\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget features kota bekasi\",\"col\":6}},{\"id\":\"xcjl7G_hc0\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget news kota bekasi\",\"col\":6}}]",
- "creation": "2024-10-15 17:57:52.813824",
+ "creation": "2024-11-01 17:46:03.930781",
  "custom_blocks": [
   {
    "custom_block_name": "widget header kota bekasi",
@@ -42,7 +42,7 @@
  "is_hidden": 0,
  "label": "Kota Bekasi",
  "links": [],
- "modified": "2024-10-19 14:24:33.276028",
+ "modified": "2024-11-05 17:20:09.843875",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "Kota Bekasi",
@@ -51,7 +51,11 @@
  "parent_page": "Pendampingan",
  "public": 1,
  "quick_lists": [],
- "roles": [],
+ "roles": [
+  {
+   "role": "Polmark Dashboard Kota Bekasi"
+  }
+ ],
  "sequence_id": 5.0,
  "shortcuts": [],
  "title": "Kota Bekasi"

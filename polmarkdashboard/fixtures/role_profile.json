@@ -2,7 +2,121 @@
  {
   "docstatus": 0,
   "doctype": "Role Profile",
-  "modified": "2024-10-10 09:47:21.336683",
+  "modified": "2024-11-05 17:10:53.518304",
+  "name": "Polmark User",
+  "role_profile": "Polmark User",
+  "roles": [
+   {
+    "parent": "Polmark User",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Polmark Dashboard User"
+   },
+   {
+    "parent": "Polmark User",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Polmark Dashboard General Information"
+   },
+   {
+    "parent": "Polmark User",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Polmark Dashboard Clients"
+   },
+   {
+    "parent": "Polmark User",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Polmark Dashboard Landing Page"
+   },
+   {
+    "parent": "Polmark User",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Polmark Dashboard DKI Jakarta"
+   },
+   {
+    "parent": "Polmark User",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Polmark Dashboard Jawa Barat"
+   },
+   {
+    "parent": "Polmark User",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Polmark Dashboard Kab Bekasi"
+   },
+   {
+    "parent": "Polmark User",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Polmark Dashboard Kalimantan Tengah"
+   },
+   {
+    "parent": "Polmark User",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Polmark Dashboard Sumatera Utara"
+   },
+   {
+    "parent": "Polmark User",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Polmark Dashboard Kota Balikpapan"
+   },
+   {
+    "parent": "Polmark User",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Polmark Dashboard Kota Bandung"
+   },
+   {
+    "parent": "Polmark User",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Polmark Dashboard Kota Bekasi"
+   },
+   {
+    "parent": "Polmark User",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Polmark Dashboard Kota Bogor"
+   },
+   {
+    "parent": "Polmark User",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Polmark Dashboard Kota Medan"
+   },
+   {
+    "parent": "Polmark User",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Polmark Dashboard Kota Pekanbaru"
+   }
+  ]
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2024-11-05 17:15:19.029180",
+  "name": "Polmark Client Sumatera Utara",
+  "role_profile": "Polmark Client Sumatera Utara",
+  "roles": [
+   {
+    "parent": "Polmark Client Sumatera Utara",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Polmark Dashboard Standalone Sumatera Utara"
+   }
+  ]
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2024-11-05 17:04:49.344210",
   "name": "Polmark Manager",
   "role_profile": "Polmark Manager",
   "roles": [
@@ -10,7 +124,91 @@
     "parent": "Polmark Manager",
     "parentfield": "roles",
     "parenttype": "Role Profile",
+    "role": "Polmark Dashboard Landing Page"
+   },
+   {
+    "parent": "Polmark Manager",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Polmark Dashboard General Information"
+   },
+   {
+    "parent": "Polmark Manager",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Polmark Dashboard Clients"
+   },
+   {
+    "parent": "Polmark Manager",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
     "role": "Polmark Dashboard Manager"
+   },
+   {
+    "parent": "Polmark Manager",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Polmark Dashboard DKI Jakarta"
+   },
+   {
+    "parent": "Polmark Manager",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Polmark Dashboard Jawa Barat"
+   },
+   {
+    "parent": "Polmark Manager",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Polmark Dashboard Kab Bekasi"
+   },
+   {
+    "parent": "Polmark Manager",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Polmark Dashboard Kalimantan Tengah"
+   },
+   {
+    "parent": "Polmark Manager",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Polmark Dashboard Kota Pekanbaru"
+   },
+   {
+    "parent": "Polmark Manager",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Polmark Dashboard Kota Medan"
+   },
+   {
+    "parent": "Polmark Manager",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Polmark Dashboard Kota Bogor"
+   },
+   {
+    "parent": "Polmark Manager",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Polmark Dashboard Kota Bekasi"
+   },
+   {
+    "parent": "Polmark Manager",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Polmark Dashboard Kota Bandung"
+   },
+   {
+    "parent": "Polmark Manager",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Polmark Dashboard Kota Balikpapan"
+   },
+   {
+    "parent": "Polmark Manager",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Polmark Dashboard Sumatera Utara"
    }
   ]
  }

@@ -1,7 +1,7 @@
 {
  "charts": [],
  "content": "[{\"id\":\"GOnjVGWoHC\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Polmark Logo\",\"col\":12}},{\"id\":\"jYZzCVdMxc\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Pilkada Countdown\",\"col\":12}},{\"id\":\"V4LR7YKIh6\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Main Peta Zona Pemenangan\",\"col\":12}},{\"id\":\"PHiH8-IA4X\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Informasi Umum\",\"col\":6}},{\"id\":\"LAuC5n93mi\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget module daftar dpt pilkada 2024\",\"col\":6}},{\"id\":\"lR-GNIFZ5k\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Peta Zona Pemenangan\",\"col\":6}},{\"id\":\"SxIInL3utn\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Daftar Wilayah Pendampingan\",\"col\":6}}]",
- "creation": "2024-10-22 13:14:34.370286",
+ "creation": "2024-11-01 17:46:03.496726",
  "custom_blocks": [
   {
    "custom_block_name": "widget logo polmark",
@@ -42,7 +42,7 @@
  "is_hidden": 0,
  "label": "Informasi Umum",
  "links": [],
- "modified": "2024-10-22 16:05:52.033986",
+ "modified": "2024-11-05 16:51:10.521658",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "Informasi Umum",
@@ -51,7 +51,11 @@
  "parent_page": "Polmark Indonesia",
  "public": 1,
  "quick_lists": [],
- "roles": [],
+ "roles": [
+  {
+   "role": "Polmark Dashboard General Information"
+  }
+ ],
  "sequence_id": 2.0,
  "shortcuts": [],
  "title": "Informasi Umum"

@@ -14,13 +14,37 @@ fixtures = [
     {
         "doctype": "Role",
         "filters": [
-            ["name", "in", ["Polmark Dashboard Manager", "Polmark Dashboard User"]]
+            ["name", "in", [
+              "Polmark Dashboard Manager", 
+              "Polmark Dashboard User", 
+              "Polmark Dashboard Landing Page", 
+              "Polmark Dashboard General Information", 
+              "Polmark Dashboard Clients",
+              "Polmark Dashboard Kab Bekasi",
+              "Polmark Dashboard Kota Bekasi",
+              "Polmark Dashboard Kota Bogor",
+              "Polmark Dashboard Kota Medan",
+              "Polmark Dashboard Kota Balikpapan",
+              "Polmark Dashboard Kota Pekanbaru",
+              "Polmark Dashboard Kota Bandung",
+              "Polmark Dashboard Jawa Barat",
+              "Polmark Dashboard DKI Jakarta",
+              "Polmark Dashboard Kalimantan Tengah",
+              "Polmark Dashboard Sumatera Utara",
+              "Polmark Dashboard Standalone Sumatera Utara"
+            ]]
         ],
     },
     {
         "doctype": "Role Profile",
         "filters": [
-            ["name", "in", ["Polmark Manager", "Polmark User", "Polmark Dashboard Manager", "Polmark Dashboard User"]]
+            ["name", "in", [
+              "Polmark Manager", 
+              "Polmark User",
+              "Polmark Client Sumatera Utara",
+              "Polmark Dashboard Manager", 
+              "Polmark Dashboard User"
+            ]]
         ],
     },
     {"doctype": "Custom HTML Block"},
@@ -56,7 +80,7 @@ app_include_js = [
     # "/assets/polmarkdashboard/js/leaflet.js",
     # "/assets/polmarkdashboard/js/patch-leaflet.js",
     # "/assets/polmarkdashboard/js/Leaflet.fullscreen.min.js",
-    # "/assets/polmarkdashboard/js/custom_login_redirect.js",
+    "/assets/polmarkdashboard/js/overrides/desk.js?20241105",
     "main.bundle.js"
 ]
 

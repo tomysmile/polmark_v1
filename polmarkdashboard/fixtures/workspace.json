@@ -62,7 +62,7 @@
   "is_hidden": 0,
   "label": "Informasi Umum",
   "links": [],
-  "modified": "2024-10-22 16:05:52.033986",
+  "modified": "2024-11-05 16:51:10.521658",
   "module": "Polmark Dashboard",
   "name": "Informasi Umum",
   "number_cards": [],
@@ -70,7 +70,14 @@
   "public": 1,
   "quick_lists": [],
   "restrict_to_domain": null,
-  "roles": [],
+  "roles": [
+   {
+    "parent": "Informasi Umum",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "Polmark Dashboard General Information"
+   }
+  ],
   "sequence_id": 2.0,
   "shortcuts": [],
   "title": "Informasi Umum"
@@ -138,7 +145,7 @@
   "is_hidden": 0,
   "label": "Kota Bogor",
   "links": [],
-  "modified": "2024-10-19 14:24:33.446798",
+  "modified": "2024-11-05 17:19:57.603640",
   "module": "Polmark Dashboard",
   "name": "Kota Bogor",
   "number_cards": [],
@@ -146,7 +153,14 @@
   "public": 1,
   "quick_lists": [],
   "restrict_to_domain": null,
-  "roles": [],
+  "roles": [
+   {
+    "parent": "Kota Bogor",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "Polmark Dashboard Kota Bogor"
+   }
+  ],
   "sequence_id": 6.0,
   "shortcuts": [],
   "title": "Kota Bogor"
@@ -214,7 +228,7 @@
   "is_hidden": 0,
   "label": "Kota Medan",
   "links": [],
-  "modified": "2024-10-19 14:24:33.604214",
+  "modified": "2024-11-05 17:19:48.348128",
   "module": "Polmark Dashboard",
   "name": "Kota Medan",
   "number_cards": [],
@@ -222,7 +236,14 @@
   "public": 1,
   "quick_lists": [],
   "restrict_to_domain": null,
-  "roles": [],
+  "roles": [
+   {
+    "parent": "Kota Medan",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "Polmark Dashboard Kota Medan"
+   }
+  ],
   "sequence_id": 7.0,
   "shortcuts": [],
   "title": "Kota Medan"
@@ -290,7 +311,7 @@
   "is_hidden": 0,
   "label": "Kota Balikpapan",
   "links": [],
-  "modified": "2024-10-19 14:24:33.755926",
+  "modified": "2024-11-05 17:19:36.332311",
   "module": "Polmark Dashboard",
   "name": "Kota Balikpapan",
   "number_cards": [],
@@ -298,7 +319,14 @@
   "public": 1,
   "quick_lists": [],
   "restrict_to_domain": null,
-  "roles": [],
+  "roles": [
+   {
+    "parent": "Kota Balikpapan",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "Polmark Dashboard Kota Balikpapan"
+   }
+  ],
   "sequence_id": 8.0,
   "shortcuts": [],
   "title": "Kota Balikpapan"
@@ -366,7 +394,7 @@
   "is_hidden": 0,
   "label": "Kota Bandung",
   "links": [],
-  "modified": "2024-10-19 14:24:33.893729",
+  "modified": "2024-11-05 17:19:26.283793",
   "module": "Polmark Dashboard",
   "name": "Kota Bandung",
   "number_cards": [],
@@ -374,7 +402,14 @@
   "public": 1,
   "quick_lists": [],
   "restrict_to_domain": null,
-  "roles": [],
+  "roles": [
+   {
+    "parent": "Kota Bandung",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "Polmark Dashboard Kota Bandung"
+   }
+  ],
   "sequence_id": 9.0,
   "shortcuts": [],
   "title": "Kota Bandung"
@@ -442,7 +477,7 @@
   "is_hidden": 0,
   "label": "Prov DKI Jakarta",
   "links": [],
-  "modified": "2024-10-19 14:24:34.240262",
+  "modified": "2024-11-05 17:18:39.659426",
   "module": "Polmark Dashboard",
   "name": "Prov DKI Jakarta",
   "number_cards": [],
@@ -450,7 +485,14 @@
   "public": 1,
   "quick_lists": [],
   "restrict_to_domain": null,
-  "roles": [],
+  "roles": [
+   {
+    "parent": "Prov DKI Jakarta",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "Polmark Dashboard DKI Jakarta"
+   }
+  ],
   "sequence_id": 11.0,
   "shortcuts": [],
   "title": "Prov DKI Jakarta"
@@ -518,7 +560,7 @@
   "is_hidden": 0,
   "label": "Prov Kalimantan Tengah",
   "links": [],
-  "modified": "2024-10-19 14:24:34.408987",
+  "modified": "2024-11-05 17:18:34.989105",
   "module": "Polmark Dashboard",
   "name": "Prov Kalimantan Tengah",
   "number_cards": [],
@@ -526,7 +568,14 @@
   "public": 1,
   "quick_lists": [],
   "restrict_to_domain": null,
-  "roles": [],
+  "roles": [
+   {
+    "parent": "Prov Kalimantan Tengah",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "Polmark Dashboard Kalimantan Tengah"
+   }
+  ],
   "sequence_id": 12.0,
   "shortcuts": [],
   "title": "Prov Kalimantan Tengah"
@@ -594,7 +643,7 @@
   "is_hidden": 0,
   "label": "Prov Sumatera Utara",
   "links": [],
-  "modified": "2024-10-19 14:24:34.579098",
+  "modified": "2024-11-05 17:18:28.425018",
   "module": "Polmark Dashboard",
   "name": "Prov Sumatera Utara",
   "number_cards": [],
@@ -602,7 +651,14 @@
   "public": 1,
   "quick_lists": [],
   "restrict_to_domain": null,
-  "roles": [],
+  "roles": [
+   {
+    "parent": "Prov Sumatera Utara",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "Polmark Dashboard Sumatera Utara"
+   }
+  ],
   "sequence_id": 13.0,
   "shortcuts": [],
   "title": "Prov Sumatera Utara"
@@ -670,7 +726,7 @@
   "is_hidden": 0,
   "label": "Prov Jawa Barat",
   "links": [],
-  "modified": "2024-10-19 14:27:27.791040",
+  "modified": "2024-11-05 17:18:22.967351",
   "module": "Polmark Dashboard",
   "name": "Prov Jawa Barat",
   "number_cards": [],
@@ -678,7 +734,14 @@
   "public": 1,
   "quick_lists": [],
   "restrict_to_domain": null,
-  "roles": [],
+  "roles": [
+   {
+    "parent": "Prov Jawa Barat",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "Polmark Dashboard Jawa Barat"
+   }
+  ],
   "sequence_id": 10.0,
   "shortcuts": [],
   "title": "Prov Jawa Barat"
@@ -753,7 +816,7 @@
   "is_hidden": 0,
   "label": "Polmark Indonesia",
   "links": [],
-  "modified": "2024-10-22 16:04:41.091616",
+  "modified": "2024-11-05 16:50:23.064415",
   "module": "Polmark Dashboard",
   "name": "Polmark Indonesia",
   "number_cards": [],
@@ -761,7 +824,14 @@
   "public": 1,
   "quick_lists": [],
   "restrict_to_domain": null,
-  "roles": [],
+  "roles": [
+   {
+    "parent": "Polmark Indonesia",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "Polmark Dashboard Landing Page"
+   }
+  ],
   "sequence_id": 1.0,
   "shortcuts": [],
   "title": "Polmark Indonesia"
@@ -808,7 +878,7 @@
   "is_hidden": 0,
   "label": "Pendampingan",
   "links": [],
-  "modified": "2024-10-22 16:06:51.194170",
+  "modified": "2024-11-05 16:50:48.197385",
   "module": "Polmark Dashboard",
   "name": "Pendampingan",
   "number_cards": [],
@@ -816,7 +886,14 @@
   "public": 1,
   "quick_lists": [],
   "restrict_to_domain": null,
-  "roles": [],
+  "roles": [
+   {
+    "parent": "Pendampingan",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "Polmark Dashboard Clients"
+   }
+  ],
   "sequence_id": 3.0,
   "shortcuts": [],
   "title": "Pendampingan"
@@ -884,7 +961,7 @@
   "is_hidden": 0,
   "label": "Kota Bekasi",
   "links": [],
-  "modified": "2024-10-19 14:24:33.276028",
+  "modified": "2024-11-05 17:20:09.843875",
   "module": "Polmark Dashboard",
   "name": "Kota Bekasi",
   "number_cards": [],
@@ -892,7 +969,14 @@
   "public": 1,
   "quick_lists": [],
   "restrict_to_domain": null,
-  "roles": [],
+  "roles": [
+   {
+    "parent": "Kota Bekasi",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "Polmark Dashboard Kota Bekasi"
+   }
+  ],
   "sequence_id": 5.0,
   "shortcuts": [],
   "title": "Kota Bekasi"
@@ -967,7 +1051,7 @@
   "is_hidden": 0,
   "label": "Kab Bekasi",
   "links": [],
-  "modified": "2024-10-22 16:03:41.191472",
+  "modified": "2024-11-05 17:18:15.582234",
   "module": "Polmark Dashboard",
   "name": "Kab Bekasi",
   "number_cards": [],
@@ -975,9 +1059,99 @@
   "public": 1,
   "quick_lists": [],
   "restrict_to_domain": null,
-  "roles": [],
+  "roles": [
+   {
+    "parent": "Kab Bekasi",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "Polmark Dashboard Kab Bekasi"
+   }
+  ],
   "sequence_id": 4.0,
   "shortcuts": [],
   "title": "Kab Bekasi"
+ },
+ {
+  "charts": [],
+  "content": "[{\"id\":\"RRwR-q2Y3f\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget header prov sumatera utara\",\"col\":12}},{\"id\":\"NkKVMouyS4\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt prov sumatera utara\",\"col\":6}},{\"id\":\"yrHDpXj19K\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget tps prov sumatera utara\",\"col\":6}},{\"id\":\"g5cV-pR7ZN\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt female prov sumatera utara\",\"col\":6}},{\"id\":\"Umcck1_p2V\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt young prov sumatera utara\",\"col\":6}},{\"id\":\"M3CiD2qiXZ\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget features prov sumatera utara\",\"col\":6}},{\"id\":\"jqmvzI0_Tx\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget news prov sumatera utara\",\"col\":6}}]",
+  "custom_blocks": [
+   {
+    "custom_block_name": "widget header prov sumatera utara",
+    "label": "widget header prov sumatera utara",
+    "parent": "Pendampingan Sumatera Utara",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget dpt prov sumatera utara",
+    "label": "widget dpt prov sumatera utara",
+    "parent": "Pendampingan Sumatera Utara",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget tps prov sumatera utara",
+    "label": "widget tps prov sumatera utara",
+    "parent": "Pendampingan Sumatera Utara",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget dpt female prov sumatera utara",
+    "label": "widget dpt female prov sumatera utara",
+    "parent": "Pendampingan Sumatera Utara",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget dpt young prov sumatera utara",
+    "label": "widget dpt young prov sumatera utara",
+    "parent": "Pendampingan Sumatera Utara",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget features prov sumatera utara",
+    "label": "widget features prov sumatera utara",
+    "parent": "Pendampingan Sumatera Utara",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   },
+   {
+    "custom_block_name": "widget news prov sumatera utara",
+    "label": "widget news prov sumatera utara",
+    "parent": "Pendampingan Sumatera Utara",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   }
+  ],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "shortcut",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Pendampingan Sumatera Utara",
+  "links": [],
+  "modified": "2024-11-05 17:23:00.744181",
+  "module": "Polmark Dashboard",
+  "name": "Pendampingan Sumatera Utara",
+  "number_cards": [],
+  "parent_page": "",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [
+   {
+    "parent": "Pendampingan Sumatera Utara",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "Polmark Dashboard Standalone Sumatera Utara"
+   }
+  ],
+  "sequence_id": 23.0,
+  "shortcuts": [],
+  "title": "Pendampingan Sumatera Utara"
  }
 ]

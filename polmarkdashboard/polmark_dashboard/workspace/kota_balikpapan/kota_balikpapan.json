@@ -1,7 +1,7 @@
 {
  "charts": [],
  "content": "[{\"id\":\"G_E91Sl2q9\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget header kota balikpapan\",\"col\":12}},{\"id\":\"57O1AGKGQc\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt kota balikpapan\",\"col\":6}},{\"id\":\"lIth_xHU-F\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget tps kota balikpapan\",\"col\":6}},{\"id\":\"-3l9rqIbs1\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt female kota balikpapan\",\"col\":6}},{\"id\":\"HyOPRYQT0j\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt young kota balikpapan\",\"col\":6}},{\"id\":\"Ifm2REIn_j\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget features kota balikpapan\",\"col\":6}},{\"id\":\"Iy1qB9RxXA\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget news kota balikpapan\",\"col\":6}}]",
- "creation": "2024-10-07 14:32:13.941594",
+ "creation": "2024-11-01 17:46:03.642418",
  "custom_blocks": [
   {
    "custom_block_name": "widget header kota balikpapan",
@@ -42,7 +42,7 @@
  "is_hidden": 0,
  "label": "Kota Balikpapan",
  "links": [],
- "modified": "2024-10-19 14:24:33.755926",
+ "modified": "2024-11-05 17:19:36.332311",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "Kota Balikpapan",
@@ -51,7 +51,11 @@
  "parent_page": "Pendampingan",
  "public": 1,
  "quick_lists": [],
- "roles": [],
+ "roles": [
+  {
+   "role": "Polmark Dashboard Kota Balikpapan"
+  }
+ ],
  "sequence_id": 8.0,
  "shortcuts": [],
  "title": "Kota Balikpapan"

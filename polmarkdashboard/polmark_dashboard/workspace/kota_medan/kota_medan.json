@@ -1,7 +1,7 @@
 {
  "charts": [],
  "content": "[{\"id\":\"FxXDMloABb\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget header kota medan\",\"col\":12}},{\"id\":\"emR9HsN-i6\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt kota medan\",\"col\":6}},{\"id\":\"DavRz1n8gf\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget tps kota medan\",\"col\":6}},{\"id\":\"xsc674uJLw\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt female kota medan\",\"col\":6}},{\"id\":\"O_ILod09-Z\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt young kota medan\",\"col\":6}},{\"id\":\"Rt9oiJHeNk\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget features kota medan\",\"col\":6}},{\"id\":\"4rl_MFlvFr\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget news kota medan\",\"col\":6}}]",
- "creation": "2024-10-07 14:32:13.888939",
+ "creation": "2024-11-01 17:46:03.606482",
  "custom_blocks": [
   {
    "custom_block_name": "widget header kota medan",
@@ -42,7 +42,7 @@
  "is_hidden": 0,
  "label": "Kota Medan",
  "links": [],
- "modified": "2024-10-19 14:24:33.604214",
+ "modified": "2024-11-05 17:19:48.348128",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "Kota Medan",
@@ -51,7 +51,11 @@
  "parent_page": "Pendampingan",
  "public": 1,
  "quick_lists": [],
- "roles": [],
+ "roles": [
+  {
+   "role": "Polmark Dashboard Kota Medan"
+  }
+ ],
  "sequence_id": 7.0,
  "shortcuts": [],
  "title": "Kota Medan"

@@ -1,7 +1,7 @@
 {
  "charts": [],
  "content": "[{\"id\":\"sEcMQJwBp-\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget header prov jawa barat\",\"col\":12}},{\"id\":\"vfBUZ3CN7n\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt prov jawa barat\",\"col\":6}},{\"id\":\"9ANwedcCp8\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget tps prov jawa barat\",\"col\":6}},{\"id\":\"UvnEceK-M9\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt female prov jawa barat\",\"col\":6}},{\"id\":\"EeGgpk3jEF\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt young prov jawa barat\",\"col\":6}},{\"id\":\"IGy8UytI6j\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget features prov jawa barat\",\"col\":6}},{\"id\":\"RFathVy0YZ\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget news prov jawa barat\",\"col\":6}}]",
- "creation": "2024-10-07 14:32:14.205151",
+ "creation": "2024-11-01 17:46:03.827032",
  "custom_blocks": [
   {
    "custom_block_name": "widget header prov jawa barat",
@@ -42,7 +42,7 @@
  "is_hidden": 0,
  "label": "Prov Jawa Barat",
  "links": [],
- "modified": "2024-10-19 14:27:27.791040",
+ "modified": "2024-11-05 17:18:22.967351",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "Prov Jawa Barat",
@@ -51,7 +51,11 @@
  "parent_page": "Pendampingan",
  "public": 1,
  "quick_lists": [],
- "roles": [],
+ "roles": [
+  {
+   "role": "Polmark Dashboard Jawa Barat"
+  }
+ ],
  "sequence_id": 10.0,
  "shortcuts": [],
  "title": "Prov Jawa Barat"

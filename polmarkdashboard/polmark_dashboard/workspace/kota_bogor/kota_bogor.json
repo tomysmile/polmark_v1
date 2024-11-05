@@ -1,7 +1,7 @@
 {
  "charts": [],
  "content": "[{\"id\":\"s1MfONQrZa\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget header kota bogor\",\"col\":12}},{\"id\":\"1SpJa-UoYN\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt kota bogor\",\"col\":6}},{\"id\":\"a_ooMhCzGT\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget tps kota bogor\",\"col\":6}},{\"id\":\"WW6wSbGfUK\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt female kota bogor\",\"col\":6}},{\"id\":\"rnYjxp3akE\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget dpt young kota bogor\",\"col\":6}},{\"id\":\"nmbadgjXgY\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget features kota bogor\",\"col\":6}},{\"id\":\"zfjz_HAE47\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"widget news kota bogor\",\"col\":6}}]",
- "creation": "2024-10-07 14:32:13.787788",
+ "creation": "2024-11-01 17:46:03.568476",
  "custom_blocks": [
   {
    "custom_block_name": "widget features kota bogor",
@@ -42,7 +42,7 @@
  "is_hidden": 0,
  "label": "Kota Bogor",
  "links": [],
- "modified": "2024-10-19 14:24:33.446798",
+ "modified": "2024-11-05 17:19:57.603640",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "Kota Bogor",
@@ -51,7 +51,11 @@
  "parent_page": "Pendampingan",
  "public": 1,
  "quick_lists": [],
- "roles": [],
+ "roles": [
+  {
+   "role": "Polmark Dashboard Kota Bogor"
+  }
+ ],
  "sequence_id": 6.0,
  "shortcuts": [],
  "title": "Kota Bogor"
