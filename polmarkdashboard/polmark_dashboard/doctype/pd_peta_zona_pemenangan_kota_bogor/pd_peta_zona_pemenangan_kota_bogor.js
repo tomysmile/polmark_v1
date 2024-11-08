@@ -854,7 +854,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Kota Bogor", {
         most_activities_body = `<tr>
           <td>Aktivitas Terbanyak</td>
           <td>:</td>
-          <td>${roadshow.activities[0].name} (${roadshow.activities[0].total_data})</td>
+          <td><strong>${roadshow.activities[0].name}</strong> (Data: ${numberFormat(roadshow.activities[0].total_data)})</td>
         </tr>`
       }
 
@@ -868,7 +868,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Kota Bogor", {
         <tr>
           <td>Total Data</td>
           <td>:</td>
-          <td>${roadshow.total_data}</td>
+          <td>${numberFormat(roadshow.total_data)}</td>
         </tr>
         ${most_activities_body}
         </table>`;
@@ -956,7 +956,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan Kota Bogor", {
             }
           }
 
-          const text = roadshowItem.total_data;
+          const text = numberFormat(roadshowItem.total_data);
           const roadshowMarker = getPulseMarker(feature, text, coordinates);
           roadshowMarker.bindPopup(roadshowContent, {
             permanent: false,
