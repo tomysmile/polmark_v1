@@ -6,77 +6,88 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "no_tps",
   "address",
   "rt",
   "rw",
-  "no_tps",
   "column_break_oodh",
   "garis_lintang",
   "garis_bujur",
   "source",
   "active",
   "wilayah_section",
-  "province_name",
   "province_code",
+  "province_name",
   "province_code_bps",
   "column_break_pclr",
-  "city_name",
   "city_code",
+  "city_name",
   "city_code_bps",
   "column_break_dyxu",
-  "district_name",
   "district_code",
+  "district_name",
   "district_code_bps",
   "column_break_cryx",
-  "sub_district_name",
   "sub_district_code",
+  "sub_district_name",
   "sub_district_code_bps"
  ],
  "fields": [
   {
+   "fetch_from": "province_code.region_name",
    "fieldname": "province_name",
    "fieldtype": "Data",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Provinsi"
+   "label": "Nama Provinsi",
+   "read_only": 1,
+   "search_index": 1
   },
   {
    "fieldname": "province_code",
-   "fieldtype": "Data",
-   "label": "Kode Province"
+   "fieldtype": "Link",
+   "label": "Provinsi",
+   "options": "PD Region",
+   "search_index": 1
   },
   {
+   "fetch_from": "city_code.region_name",
    "fieldname": "city_name",
    "fieldtype": "Data",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Kota"
+   "label": "Nama Kota/ Kab",
+   "read_only": 1,
+   "search_index": 1
   },
   {
    "fieldname": "city_code",
-   "fieldtype": "Data",
-   "label": "Kode Kota/Kab"
+   "fieldtype": "Link",
+   "label": "Kota /Kab",
+   "options": "PD Region",
+   "search_index": 1
   },
   {
    "fieldname": "district_code",
-   "fieldtype": "Data",
-   "label": "Kode Kecamatan"
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Kecamatan",
+   "options": "PD Region Kabupaten Bekasi",
+   "search_index": 1
   },
   {
    "fetch_from": "district_code.region_name",
    "fieldname": "district_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Kecamatan"
+   "label": "Nama Kecamatan",
+   "read_only": 1,
+   "search_index": 1
   },
   {
    "fetch_from": "sub_district_code.region_name",
    "fieldname": "sub_district_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Kelurahan"
+   "label": "Nama Kelurahan/ Desa",
+   "read_only": 1,
+   "search_index": 1
   },
   {
    "fieldname": "column_break_oodh",
@@ -103,7 +114,9 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "No TPS"
+   "label": "No TPS",
+   "reqd": 1,
+   "search_index": 1
   },
   {
    "fieldname": "rt",
@@ -121,18 +134,22 @@
    "label": "Wilayah"
   },
   {
+   "fetch_from": "province_code.region_code",
    "fieldname": "province_code_bps",
    "fieldtype": "Data",
-   "label": "Kode BPS Province"
+   "label": "Kode BPS Province",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_pclr",
    "fieldtype": "Column Break"
   },
   {
+   "fetch_from": "city_code.region_code",
    "fieldname": "city_code_bps",
    "fieldtype": "Data",
-   "label": "Kode BPS Kota/Kab"
+   "label": "Kode BPS Kota/Kab",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_dyxu",
@@ -143,19 +160,26 @@
    "fieldtype": "Column Break"
   },
   {
+   "fetch_from": "district_code.district_code_bps",
    "fieldname": "district_code_bps",
    "fieldtype": "Data",
-   "label": "Kode BPS Kecamatan"
+   "label": "Kode BPS Kecamatan",
+   "read_only": 1
   },
   {
+   "fetch_from": "sub_district_code.sub_district_code_bps",
    "fieldname": "sub_district_code_bps",
    "fieldtype": "Data",
-   "label": "Kode BPS Kelurahan"
+   "label": "Kode BPS Kelurahan",
+   "read_only": 1
   },
   {
    "fieldname": "sub_district_code",
-   "fieldtype": "Data",
-   "label": "Kode Kelurahan"
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Kelurahan/ Desa",
+   "options": "PD Region Kabupaten Bekasi",
+   "search_index": 1
   },
   {
    "fieldname": "source",
@@ -165,12 +189,14 @@
   {
    "fieldname": "address",
    "fieldtype": "Small Text",
+   "in_list_view": 1,
    "label": "Alamat"
   }
  ],
+ "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-29 17:00:23.057154",
+ "modified": "2024-11-08 17:26:13.586906",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "PD TPS Kabupaten Bekasi",
