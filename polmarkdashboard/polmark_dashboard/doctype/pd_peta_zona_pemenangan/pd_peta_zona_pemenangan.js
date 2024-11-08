@@ -629,6 +629,9 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
         const grouped = roadshows.reduce((acc, item) => {
           const cityCode = item.city_code;
           const cityName = item.city_name;
+          const roadshowActivity = item.roadshow_activity;
+          const totalData = item.total_data;
+
           if (!acc[cityCode]) {
             acc[cityCode] = {
               level: CONST_CITY_LEVEL,
@@ -636,9 +639,23 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
               region_code: cityCode,
               total_data: 0,
               activity_count: 0,
-              roadshow_activities: []
+              activities: [],
+              roadshow_activities: [],
+              last_level: false,
             };
           }
+
+          // Find the activity in the activities array
+          const activityEntry = acc[cityCode].activities.find(act => act.name === roadshowActivity);
+          if (activityEntry) {
+            // If activity already exists, increment the count
+            activityEntry.count += 1;
+            activityEntry.total_data += totalData;
+          } else {
+            // If activity doesn't exist, add a new entry
+            acc[cityCode].activities.push({ name: roadshowActivity, count: 1, total_data: totalData });
+          }
+
           acc[cityCode].total_data += item.total_data;
           acc[cityCode].activity_count += 1;
           acc[cityCode].roadshow_activities.push({
@@ -655,6 +672,13 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
         // Sort roadshow_activities by activity_date in each grouped entry
         Object.values(grouped).forEach(entry => {
           entry.roadshow_activities = sortActivitiesByDate(entry.roadshow_activities);
+          entry.activities.sort((a, b) => {
+            // Primary sort by count, secondary sort by total_data
+            if (b.count === a.count) {
+              return b.total_data - a.total_data;
+            }
+            return b.count - a.count;
+          });
         });
 
         return grouped;
@@ -664,6 +688,9 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
         const grouped = roadshows.reduce((acc, item) => {
           const districtCode = item.district_code;
           const districtName = item.district_name;
+          const roadshowActivity = item.roadshow_activity;
+          const totalData = item.total_data;
+
           if (!acc[districtCode]) {
             acc[districtCode] = {
               level: CONST_DISTRICT_LEVEL,
@@ -671,11 +698,27 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
               region_code: districtCode,
               total_data: 0,
               activity_count: 0,
-              roadshow_activities: []
+              activities: [],
+              uniqueSubDistricts: new Set(),
+              roadshow_activities: [],
+              last_level: false,
             };
           }
+
+          // Find the activity in the activities array
+          const activityEntry = acc[districtCode].activities.find(act => act.name === roadshowActivity);
+          if (activityEntry) {
+            // If activity already exists, increment the count
+            activityEntry.count += 1;
+            activityEntry.total_data += totalData;
+          } else {
+            // If activity doesn't exist, add a new entry
+            acc[districtCode].activities.push({ name: roadshowActivity, count: 1, total_data: totalData });
+          }
+
           acc[districtCode].total_data += item.total_data;
           acc[districtCode].activity_count += 1;
+          acc[districtCode].uniqueSubDistricts.add(item.sub_district_name);
           acc[districtCode].roadshow_activities.push({
             activity_date: item.activity_date,
             district_name: item.district_name,
@@ -690,6 +733,18 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
         // Sort roadshow_activities by activity_date in each grouped entry
         Object.values(grouped).forEach(entry => {
           entry.roadshow_activities = sortActivitiesByDate(entry.roadshow_activities);
+          entry.activities.sort((a, b) => {
+            // Primary sort by count, secondary sort by total_data
+            if (b.count === a.count) {
+              return b.total_data - a.total_data;
+            }
+            return b.count - a.count;
+          });
+        });
+
+        Object.keys(grouped).forEach(district => {
+          grouped[district].total_sub_district_participated = grouped[district].uniqueSubDistricts.size;
+          delete grouped[district].uniqueSubDistricts;  // Remove Set after counting
         });
 
         return grouped;
@@ -699,6 +754,9 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
           const grouped = roadshows.reduce((acc, item) => {
             const subDistrictCode = item.sub_district_code;
             const subDistrictName = item.sub_district_name;
+            const roadshowActivity = item.roadshow_activity;
+            const totalData = item.total_data;
+
             if (!acc[subDistrictCode]) {
               acc[subDistrictCode] = {
                 level: CONST_SUBDISTRICT_LEVEL,
@@ -706,9 +764,23 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
                 region_code: subDistrictCode,
                 total_data: 0,
                 activity_count: 0,
-                roadshow_activities: []
+                activities: [],
+                roadshow_activities: [],
+                last_level: false,
               };
             }
+
+            // Find the activity in the activities array
+            const activityEntry = acc[subDistrictCode].activities.find(act => act.name === roadshowActivity);
+            if (activityEntry) {
+              // If activity already exists, increment the count
+              activityEntry.count += 1;
+              activityEntry.total_data += totalData;
+            } else {
+              // If activity doesn't exist, add a new entry
+              acc[subDistrictCode].activities.push({ name: roadshowActivity, count: 1, total_data: totalData });
+            }
+
             acc[subDistrictCode].total_data += item.total_data;
             acc[subDistrictCode].activity_count += 1;
             acc[subDistrictCode].roadshow_activities.push({
@@ -725,6 +797,13 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
           // Sort roadshow_activities by activity_date in each grouped entry
           Object.values(grouped).forEach(entry => {
             entry.roadshow_activities = sortActivitiesByDate(entry.roadshow_activities);
+            entry.activities.sort((a, b) => {
+              // Primary sort by count, secondary sort by total_data
+              if (b.count === a.count) {
+                return b.total_data - a.total_data;
+              }
+              return b.count - a.count;
+            });
           });
 
           return grouped;
@@ -768,7 +847,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
       const itemsWithCoordinates = [];
 
       roadshows.forEach(item => {
-        if (item.garis_bujur === null && item.garis_lintang === null) {
+        if (item.garis_bujur === null || item.garis_bujur === '') {
           // Check if a group for this city and district exists
           const existingGroup = mergedData.find(
             group => group.city_code === item.city_code && group.district_code === item.district_code
@@ -788,6 +867,9 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
           } else {
             // Create a new group
             mergedData.push({
+              level: CONST_SUBDISTRICT_LEVEL,
+              last_level: true,
+              name: item.sub_district_name,
               city_code: item.city_code,
               district_code: item.district_code,
               region_code: item.sub_district_code,
@@ -807,10 +889,15 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
             });
           }
         } else {
+          //
           // Push items with coordinates as they are
           itemsWithCoordinates.push({
             ...item,
+            level: CONST_SUBDISTRICT_LEVEL,
+            last_level: true,
+            name: item.sub_district_name,
             region_code: item.sub_district_code,
+            activity_count: 1,
             roadshow_activities: [
               {
                 activity_date: item.activity_date,
@@ -844,8 +931,38 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
     }
 
     function getRoadshowActivityContent(roadshow) {
+      // console.log('roadshow: ', roadshow);
+      const last_level = roadshow.last_level;
+      const roadshowActivities = roadshow.roadshow_activities;
+      const chartId = `chart-${roadshow.region_code}`;
+
+      let most_activities_body = '';
+
+      if (roadshow.level <= CONST_SUBDISTRICT_LEVEL && !last_level && roadshowActivities.length > 0) {
+        most_activities_body = `<tr>
+          <td>Aktivitas Terbanyak</td>
+          <td>:</td>
+          <td>${roadshow.activities[0].name} (${roadshow.activities[0].total_data})</td>
+        </tr>`
+      }
+
+      const roadshowInfoContent = `
+        <table>
+        <tr>
+          <td style="width: 30%">Jumlah Aktivitas</td>
+          <td style="width: 4px">:</td>
+          <td>${roadshow.activity_count}</td>
+        </tr>
+        <tr>
+          <td>Total Data</td>
+          <td>:</td>
+          <td>${roadshow.total_data}</td>
+        </tr>
+        ${most_activities_body}
+        </table>`;
+
       let body = '';
-      for (let activity of roadshow.roadshow_activities) {
+      for (let activity of roadshowActivities) {
         body += `
             <tr>
               <td>${activity.activity_date}</td>
@@ -853,29 +970,63 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
               <td>${activity.rw}</td>
               <td><b>${activity.activity}</b></td>
               <td style="text-align: right">${activity.total_data}</td>
-            </tr>
-          `;
+            </tr>`;
       }
-
       const content = `
+          <div><h3 class="popup-title">${roadshow.name}</h3></div>
+          <div class="popup-content">${roadshowInfoContent}</div>
+          <div id="${chartId}"></div>
           <div class="table-wrapper">
             <table>
               <thead>
               <tr>
-                <th>Tanggal</th>
+                <th style="width: 95px; text-align: left;">Tanggal</th>
                 <th>Kelurahan</th>
-                <th>RW</th>
+                <th style="width: 40px;">RW</th>
                 <th>Aktivitas</th>
-                <th style="text-align: right">Total Data</th>
+                <th style="width: 55px; text-align: right">Total Data</th>
               </tr>
               </thead>
-              <tbody>
-                ${body}
-              </tbody>
+              <tbody>${body}</tbody>
             </table>
           </div>`;
 
       return content;
+    }
+
+    function getRoadshowActivityChart(roadshowItem) {
+      if (roadshowItem.roadshow_activities.length > 1) {
+        const chartId = `chart-${roadshowItem.region_code}`;  // Match the chart container ID
+        new frappe.Chart(`#${chartId}`, {
+          data: {
+            labels: roadshowItem.roadshow_activities.map(item => item.activity_date),
+            datasets: [
+              {
+                name: "Total Data",
+                chartType: "line",
+                values: roadshowItem.roadshow_activities.map(item => item.total_data)
+              }
+            ]
+          },
+          type: 'axis-mixed',  // Chart type
+          height: 150,
+          colors: ["#ffa3ef", "#ffa3ef", "light-blue"],
+          axisOptions: {
+            xIsSeries: true,
+            xAxisMode: "tick",
+          },
+          barOptions: {
+            stacked: true,
+            spaceRatio: 0.5
+          },
+          tooltipOptions: {
+            formatTooltipX: (d) => (d + "").toUpperCase(),
+            formatTooltipY: (d) => d + " pts"
+          }
+        });
+      } else {
+        console.log("Not enough data to display chart");
+      }
     }
 
     function renderRoadshowMarkers(roadshowMarkersGroup, feature, mapLayer, level) {
@@ -893,17 +1044,19 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
             }
           }
 
-          const roadshowMarker = getPulseMarker(feature, coordinates);
-          // roadshowMarker.bindTooltip(roadshowContent, {
-          //   permanent: false,
-          //   direction: 'top',
-          //   className: 'popup-roadshow'
-          // });
+          const text = roadshowItem.total_data;
+          const roadshowMarker = getPulseMarker(feature, text, coordinates);
           roadshowMarker.bindPopup(roadshowContent, {
             permanent: false,
             direction: 'top',
-            className: 'popup-roadshow'
+            className: 'popup-roadshow',
+            closeButton: false
           });
+          roadshowMarker.on('popupopen', () => {
+            //
+            getRoadshowActivityChart(roadshowItem);
+          });
+
           roadshowMarkersGroup.addLayer(roadshowMarker);
         }
       }
@@ -1443,7 +1596,7 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
       return;
     }
 
-    function getPulseMarker(feature, coordinates = null) {
+    function getPulseMarker(feature, text, coordinates = null) {
       let centroid = [];
 
       if (feature && !coordinates) {
@@ -1455,13 +1608,14 @@ frappe.ui.form.on("PD Peta Zona Pemenangan", {
       }
 
       if (centroid) {
+        const icon = L.divIcon({
+          className: 'leaflet-block-marker',  // Custom class for styling
+          html: `<div class="marker-rectangle">${text}<div class="marker-arrow"></div></div>`,
+          iconSize: [30, 30]  // Set the size of the icon
+        });
+
         const pulseMarker = L.marker(centroid, {
-          icon: new L.Icon.Pulse({
-            color: 'blue',
-            // fillColor: 'blue',
-            icon: 'fa-solid fa-location-dot',
-            iconFillColor: 'blue'
-          })
+          icon: icon
         });
 
         return pulseMarker;

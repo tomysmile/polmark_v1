@@ -39,6 +39,43 @@ body {
   margin-top: -16px !important;
 }
 
+/* leaflet marker */
+.leaflet-block-marker {
+  font-size: 14px;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+}
+
+.leaflet-block-marker .marker-rectangle {
+  background-color: #1c37e2;
+  position: relative;
+  padding-top: 5px;
+  padding-bottom: 1px;
+  padding-left: 2px;
+  padding-right: 2px;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 1em;
+  display: inline-block;
+  width: 55px; /* Set width as desired */
+  height: 30px; /* Set height as desired */
+  top: -28px;
+  margin-left: -12px;
+}
+
+.leaflet-block-marker .marker-arrow {
+  position: absolute;
+  bottom: -8px; /* Position arrow below the rectangle */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #1c37e2; /* Arrow color */
+}
+
 // START from here
 
 #custom-map-container {
@@ -369,15 +406,18 @@ path.leaflet-interactive:focus {
 
 /* Styling for the text inside the label */
 .peta-label-text {
-  font-size: 10px;
+  font-size: 1.25em;
   /* Larger font size */
-  font-weight: bold;
-  color: #424040;
-  /* Black text to contrast with yellow background */
+  font-weight: 600;
+  mix-blend-mode: difference;
+  // color: #424040;
+  color: transparent;
+  background-image: linear-gradient(to right, #ff7e5f, #feb47b);
+  background-clip: text;
+  -webkit-background-clip: text;
 }
 
 .glow {
-  font-size: 12px;
   color: #fff;
   text-align: center;
   text-shadow: 
@@ -395,29 +435,26 @@ path.leaflet-interactive:focus {
   border: 1px solid #000;
   border-radius: 4px;
   padding: 4px;
-  font-size: 12px;
+  font-size: 1em;
   color: rgb(42, 40, 40);
 }
 
 .popup-content {
-  font-family: Arial, sans-serif;
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  color: #333;
-  max-width: 250px;
+  // font-family: Arial, sans-serif;
+  // background-color: #fff;
+  // border-radius: 10px;
+  // padding: 15px;
+  // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  // color: #333;
+  // max-width: 250px;
   /* Controls the width of the popup */
+  padding: 10px 1px;
 }
 
 .popup-title {
-  margin: 0;
-  font-size: 18px;
-  font-weight: bold;
-  color: #0056b3;
-  /* Blue color for the title */
-  text-align: center;
-  margin-bottom: 10px;
+  border-bottom: 1px solid #767373;
+  padding: 8px 1px;
+  font-weight: 800;
 }
 
 .popup-info {
@@ -584,7 +621,7 @@ path.leaflet-interactive:focus {
   border: 1px solid #ccc;
   padding: 10px;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
-  font-size: 12px;
+  font-size: 1.2em;
   color: #333;
 }
 
@@ -606,12 +643,12 @@ path.leaflet-interactive:focus {
 }
 
 .popup-roadshow .table-wrapper {
-  max-height: 200px;
+  max-height: 250px;
   overflow-y: auto;
 }
 
 .popup-roadshow .leaflet-popup-content {
-  width: 500px !important;
+  width: 580px !important;
 }
 
 .popup-roadshow  table {
@@ -626,7 +663,7 @@ path.leaflet-interactive:focus {
 .popup-roadshow  table th {
   text-align: center;
   font-weight: bold;
-  padding: 5px;
+  padding: 8px 12px;
   color: #f7f5f5;
   font-size: 14px;
 }
