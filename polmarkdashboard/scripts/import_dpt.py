@@ -81,19 +81,11 @@ def import_files_in_parallel(file_paths, doctype):
         pool.starmap(import_file, [(file_path, doctype) for file_path in file_paths])
 
 
-def kab_bekasi():
+def kabupaten_bekasi():
     # Usage
     file_paths = [
-        frappe.get_app_path("polmarkdashboard", "tmp_data", "ndjson_files", "dpt_kab_bekasi_1_10.ndjson"),
-        frappe.get_app_path("polmarkdashboard", "tmp_data", "ndjson_files", "dpt_kab_bekasi_2_10.ndjson"),
-        frappe.get_app_path("polmarkdashboard", "tmp_data", "ndjson_files", "dpt_kab_bekasi_3_10.ndjson"),
-        frappe.get_app_path("polmarkdashboard", "tmp_data", "ndjson_files", "dpt_kab_bekasi_4_10.ndjson"),
-        frappe.get_app_path("polmarkdashboard", "tmp_data", "ndjson_files", "dpt_kab_bekasi_5_10.ndjson"),
-        frappe.get_app_path("polmarkdashboard", "tmp_data", "ndjson_files", "dpt_kab_bekasi_6_10.ndjson"),
-        frappe.get_app_path("polmarkdashboard", "tmp_data", "ndjson_files", "dpt_kab_bekasi_7_10.ndjson"),
-        frappe.get_app_path("polmarkdashboard", "tmp_data", "ndjson_files", "dpt_kab_bekasi_8_10.ndjson"),
-        frappe.get_app_path("polmarkdashboard", "tmp_data", "ndjson_files", "dpt_kab_bekasi_9_10.ndjson"),
-        frappe.get_app_path("polmarkdashboard", "tmp_data", "ndjson_files", "dpt_kab_bekasi_10_10.ndjson")
+        frappe.get_app_path("polmarkdashboard", "tmp_data", "muaragembong.ndjson"),
+        frappe.get_app_path("polmarkdashboard", "tmp_data", "tambelang.ndjson")
     ]
 
     # Specify the Doctype you are importing data into
