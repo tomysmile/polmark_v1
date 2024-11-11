@@ -237,7 +237,7 @@
    "fieldtype": "Link",
    "in_standard_filter": 1,
    "label": "Kecamatan",
-   "options": "PD Region Kabupaten Bekasi",
+   "options": "PD Region Kota Bekasi",
    "search_index": 1
   },
   {
@@ -265,7 +265,7 @@
    "fieldtype": "Link",
    "in_standard_filter": 1,
    "label": "Kel/Desa",
-   "options": "PD Region Kabupaten Bekasi",
+   "options": "PD Region Kota Bekasi",
    "search_index": 1
   },
   {
@@ -289,7 +289,7 @@
  "image_field": "profile_photo",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-11 12:37:36.105408",
+ "modified": "2024-11-11 14:44:52.221143",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "PD DPT Kota Bekasi",

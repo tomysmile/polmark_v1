@@ -37,15 +37,6 @@
  },
  {
   "active": 1,
-  "description": "SENAM  SEHAT untuk masyarakat",
-  "docstatus": 0,
-  "doctype": "PD Roadshow Activity Kota Bogor",
-  "modified": "2024-10-26 17:48:40.892475",
-  "name": "SENAM SEHAT",
-  "standard": 1
- },
- {
-  "active": 1,
   "description": "Program PENGAJIAN DOKTER untuk konstituen",
   "docstatus": 0,
   "doctype": "PD Roadshow Activity Kota Bogor",
@@ -87,6 +78,15 @@
   "doctype": "PD Roadshow Activity Kota Bogor",
   "modified": "2024-10-26 17:48:40.982806",
   "name": "CEK KESEHATAN GRATIS",
+  "standard": 1
+ },
+ {
+  "active": 1,
+  "description": "SENAM  SEHAT untuk masyarakat",
+  "docstatus": 0,
+  "doctype": "PD Roadshow Activity Kota Bogor",
+  "modified": "2024-10-26 17:48:40.892475",
+  "name": "SENAM SEHAT",
   "standard": 1
  },
  {
