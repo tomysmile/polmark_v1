@@ -28,7 +28,7 @@ frappe.ui.form.on("PD News Link", {
 					"clickable_url",
 					"options",
 					`
-			  News URL <br/>&nbsp;&nbsp;
+			  Original News URL <br/>&nbsp;&nbsp;
 			  <a href="#" id="myClickableField" style="text-decoration: underline; color: blue;">
 				  ${fieldValue}
 			  </a>

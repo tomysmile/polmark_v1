@@ -16,6 +16,8 @@
   "region",
   "region_code",
   "news_posted_date",
+  "section_break_grai",
+  "clickable_url",
   "section_break_vekt",
   "headline_image",
   "image_preview"
@@ -87,6 +89,8 @@
   {
    "fieldname": "news_posted_date",
    "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Posted Date",
    "reqd": 1
   },
@@ -106,12 +110,22 @@
    "fieldname": "active",
    "fieldtype": "Check",
    "label": "Active"
+  },
+  {
+   "fieldname": "clickable_url",
+   "fieldtype": "HTML",
+   "label": "Clickable URL"
+  },
+  {
+   "fieldname": "section_break_grai",
+   "fieldtype": "Section Break"
   }
  ],
+ "hide_toolbar": 1,
  "image_field": "headline_image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-14 15:13:48.782931",
+ "modified": "2024-11-11 14:56:58.637576",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "PD News Link",
