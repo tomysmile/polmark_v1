@@ -6,8 +6,8 @@ frappe.listview_settings['PD News Link'] = {
   hide_name_column: true,
   hide_name_filter: true,
   formatters: {
-		source_url(val) {
-			return `<a href="${val}" target="_blank">${val}</a>`;
-		},
-	},
+    'source_url': function (value, subject, doc) {
+      return `<a href="${value}" target="_blank">${value}</a>`;
+    }
+  },
 };
