@@ -1,0 +1,233 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "creation": "2024-11-11 12:37:06.889557",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "no_tps",
+  "address",
+  "rt",
+  "rw",
+  "column_break_oodh",
+  "garis_lintang",
+  "garis_bujur",
+  "source",
+  "active",
+  "wilayah_section",
+  "province_code",
+  "province_name",
+  "province_code_bps",
+  "column_break_pclr",
+  "city_code",
+  "city_name",
+  "city_code_bps",
+  "column_break_dyxu",
+  "district_code",
+  "district_name",
+  "district_code_bps",
+  "column_break_cryx",
+  "sub_district_code",
+  "sub_district_name",
+  "sub_district_code_bps"
+ ],
+ "fields": [
+  {
+   "fieldname": "no_tps",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "No TPS",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Alamat"
+  },
+  {
+   "fieldname": "rt",
+   "fieldtype": "Data",
+   "label": "RT"
+  },
+  {
+   "fieldname": "rw",
+   "fieldtype": "Data",
+   "label": "RW"
+  },
+  {
+   "fieldname": "column_break_oodh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "garis_lintang",
+   "fieldtype": "Data",
+   "label": "Garis Lintang"
+  },
+  {
+   "fieldname": "garis_bujur",
+   "fieldtype": "Data",
+   "label": "Garis Bujur"
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Data",
+   "label": "Source"
+  },
+  {
+   "default": "1",
+   "fieldname": "active",
+   "fieldtype": "Check",
+   "label": "Active"
+  },
+  {
+   "fieldname": "wilayah_section",
+   "fieldtype": "Section Break",
+   "label": "Wilayah"
+  },
+  {
+   "fieldname": "province_code",
+   "fieldtype": "Link",
+   "label": "Provinsi",
+   "options": "PD Region",
+   "search_index": 1
+  },
+  {
+   "fetch_from": "province_code.region_name",
+   "fieldname": "province_name",
+   "fieldtype": "Data",
+   "label": "Nama Provinsi",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "province_code.region_code",
+   "fieldname": "province_code_bps",
+   "fieldtype": "Data",
+   "label": "Kode BPS Province",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_pclr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "city_code",
+   "fieldtype": "Link",
+   "label": "Kota /Kab",
+   "options": "PD Region",
+   "search_index": 1
+  },
+  {
+   "fetch_from": "city_code.region_name",
+   "fieldname": "city_name",
+   "fieldtype": "Data",
+   "label": "Nama Kota/ Kab",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "city_code.region_code",
+   "fieldname": "city_code_bps",
+   "fieldtype": "Data",
+   "label": "Kode BPS Kota/Kab",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_dyxu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "district_code",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Kecamatan",
+   "options": "PD Region Kabupaten Bekasi",
+   "search_index": 1
+  },
+  {
+   "fetch_from": "district_code.region_name",
+   "fieldname": "district_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Nama Kecamatan",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "district_code.district_code_bps",
+   "fieldname": "district_code_bps",
+   "fieldtype": "Data",
+   "label": "Kode BPS Kecamatan",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_cryx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sub_district_code",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Kelurahan/ Desa",
+   "options": "PD Region Kabupaten Bekasi",
+   "search_index": 1
+  },
+  {
+   "fetch_from": "sub_district_code.region_name",
+   "fieldname": "sub_district_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Nama Kelurahan/ Desa",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "sub_district_code.sub_district_code_bps",
+   "fieldname": "sub_district_code_bps",
+   "fieldtype": "Data",
+   "label": "Kode BPS Kelurahan",
+   "read_only": 1
+  }
+ ],
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-11-11 12:37:06.889557",
+ "modified_by": "Administrator",
+ "module": "Polmark Dashboard",
+ "name": "PD TPS Kota Bekasi",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "share": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "no_tps",
+ "track_changes": 1
+}
