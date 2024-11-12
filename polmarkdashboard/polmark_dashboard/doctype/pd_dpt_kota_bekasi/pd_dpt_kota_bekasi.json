@@ -59,9 +59,7 @@
    "in_global_search": 1,
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "KTP (NIK)",
-   "reqd": 1,
-   "search_index": 1
+   "label": "KTP (NIK)"
   },
   {
    "fieldname": "kk",
@@ -289,7 +287,7 @@
  "image_field": "profile_photo",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-11 14:44:52.221143",
+ "modified": "2024-11-12 11:39:40.084446",
  "modified_by": "Administrator",
  "module": "Polmark Dashboard",
  "name": "PD DPT Kota Bekasi",
