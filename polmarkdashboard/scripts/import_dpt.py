@@ -104,7 +104,8 @@ def kabupaten_bekasi():
 def kota_pekanbaru():
     # Usage
     file_paths = [
-        frappe.get_app_path("polmarkdashboard", "tmp_data", "dpt.kota_pekanbaru.ndjson")
+        frappe.get_app_path("polmarkdashboard", "tmp_data", "dpt.kota_pekanbaru.kulim.ndjson"),
+        frappe.get_app_path("polmarkdashboard", "tmp_data", "dpt.kota_pekanbaru.pekanbaru_kota.ndjson")
     ]
 
     # Specify the Doctype you are importing data into
