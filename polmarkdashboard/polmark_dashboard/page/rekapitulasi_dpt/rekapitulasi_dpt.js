@@ -106,13 +106,16 @@ class RekapitulasiDPT {
     // fetch data from server
     return frappe.call(args).then((r) => {
       // render
-      this.prepare_data(r);
-      this.toggle_result_area();
-      this.before_render();
-      this.render();
-      // this.after_render();
-      this.freeze(false);
-      this.reset_defaults();
+      setTimeout(() => {
+        this.prepare_data(r);
+        this.toggle_result_area();
+        this.before_render();
+        this.render();
+        // this.after_render();
+        this.freeze(false);
+        this.reset_defaults();
+      }, 3000);
+      
     });
   }
 
@@ -150,8 +153,14 @@ class RekapitulasiDPT {
     this.start = 1;
   }
 
-  freeze() {
+  freeze(show) {
     // show a freeze message while data is loading
+    console.log('loading...');
+    if (show) {
+      this.$loader.css('visibility', 'visible');
+    } else {
+      this.$loader.css('visibility', 'hidden');
+    }
   }
 
   before_render() {
@@ -527,6 +536,8 @@ class RekapitulasiDPT {
   setup_freeze_area() {
     this.$freeze = $('<div class="freeze"></div>').hide();
     this.$frappe_list.append(this.$freeze);
+    this.$loader = $('<div id="loading-spinner" class="loading-spinner"><div class="spinner">').appendTo(this.$datatable_wrapper);
+    this.$loader.append(`<p class="loading-text">${__('Please wait, data is loading...')}`);
   }
 
   get_no_result_message() {
