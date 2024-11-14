@@ -34,42 +34,6 @@ class RekapitulasiDPT {
       () => this.before_refresh(),
       () => this.refresh(),
     ]);
-
-    // console.log('this.route: ', this.route);
-    // console.log('this.$datatable_wrapper: ', this.$datatable_wrapper);
-
-    // frappe.dom.freeze("Fetching fields...");
-
-    // setTimeout(() => {
-    //   frappe.dom.unfreeze();
-    // }, 1000);
-
-    // if (this.route.length > 1) {
-    //   // from route
-    //   this.show_dashboard(this.route.slice(-1)[0]);
-    // } else {
-    //   // last opened
-    //   if (frappe.last_dashboard) {
-    //     frappe.set_re_route("dashboard-view", frappe.last_dashboard);
-    //   } else {
-    //     // default dashboard
-    //     frappe.db.get_list("Dashboard", { filters: { is_default: 1 } }).then((data) => {
-    //       if (data && data.length) {
-    //         frappe.set_re_route("dashboard-view", data[0].name);
-    //       } else {
-    //         // no default, get the latest one
-    //         frappe.db.get_list("Dashboard", { limit: 1 }).then((data) => {
-    //           if (data && data.length) {
-    //             frappe.set_re_route("dashboard-view", data[0].name);
-    //           } else {
-    //             // create a new dashboard!
-    //             frappe.new_doc("Dashboard");
-    //           }
-    //         });
-    //       }
-    //     });
-    //   }
-    // }
   }
 
   before_refresh() {
@@ -98,10 +62,6 @@ class RekapitulasiDPT {
 
   refresh() {
     let args = this.get_call_args();
-    // if (this.no_change(args)) {
-    //   // console.log('throttled');
-    //   return Promise.resolve();
-    // }
     this.freeze(true);
     // fetch data from server
     return frappe.call(args).then((r) => {
@@ -114,8 +74,7 @@ class RekapitulasiDPT {
         // this.after_render();
         this.freeze(false);
         this.reset_defaults();
-      }, 3000);
-      
+      }, 5);
     });
   }
 
@@ -155,11 +114,16 @@ class RekapitulasiDPT {
 
   freeze(show) {
     // show a freeze message while data is loading
-    console.log('loading...');
-    if (show) {
-      this.$loader.css('visibility', 'visible');
+    const spinner = $('#loading-spinner');
+
+    if (spinner.length) {
+      if (show) {
+        spinner.css('visibility', 'visible');
+      } else {
+        spinner.css('visibility', 'hidden');
+      }
     } else {
-      this.$loader.css('visibility', 'hidden');
+      console.warn("Spinner element not found in DOM");
     }
   }
 
@@ -239,7 +203,7 @@ class RekapitulasiDPT {
     this.menu_items = [
       {
         label: __("Refresh"),
-        action: () => this.refresh(),
+        action: () => this.refresh,
         class: "visible-xs",
       },
       {
@@ -475,13 +439,17 @@ class RekapitulasiDPT {
     }, {
       name: "Desa/Kelurahan"
     }, {
-      name: "TPS"
+      name: "TPS",
+      type: "Int"
     }, {
-      name: "Pemilih Laki-laki"
+      name: "Pemilih Laki-laki",
+      type: "Int"
     }, {
-      name: "Pemilih Perempuan"
+      name: "Pemilih Perempuan",
+      type: "Int"
     }, {
-      name: "Total Pemilih"
+      name: "Total Pemilih",
+      type: "Int"
     });
   }
 
@@ -536,7 +504,7 @@ class RekapitulasiDPT {
   setup_freeze_area() {
     this.$freeze = $('<div class="freeze"></div>').hide();
     this.$frappe_list.append(this.$freeze);
-    this.$loader = $('<div id="loading-spinner" class="loading-spinner"><div class="spinner">').appendTo(this.$datatable_wrapper);
+    this.$loader = $('<div id="loading-spinner" class="loading-spinner"><div class="spinner">').appendTo(this.$result);
     this.$loader.append(`<p class="loading-text">${__('Please wait, data is loading...')}`);
   }
 
@@ -545,9 +513,7 @@ class RekapitulasiDPT {
   }
 
   build_row(d) {
-    // console.log('d: ', d);
     // return this.columns.map((col) => {
-    //   console.log('col: ', col);
     //   if (col.field in d) {
     //     const value = d[col.field];
     //     return {
@@ -568,13 +534,23 @@ class RekapitulasiDPT {
 		}
 
 		const row_totals = {};
+    let total_male = 0;
+    let total_female = 0;
+    let total_all = 0;
 
 		this.columns.forEach((col, i) => {
 			const totals = data.reduce((totals, d) => {
-				if (col.id in d && frappe.model.is_numeric_field(col.docfield)) {
-					totals += flt(d[col.id]);
-					return totals;
-				}
+        // console.log('col: ', col);
+        // console.log('d: ', d);
+				// if (col.id in d && frappe.model.is_numeric_field(col.docfield)) {
+				// 	totals += flt(d[col.id]);
+				// 	return totals;
+				// }
+        if (col.type === "Int" && col.name === "Pemilih Laki-laki") {
+          // console.log('col: ', col);
+          // console.log('d: ', d);
+          total_male += flt(d[col.name]);
+        }
 			}, 0);
 
 			row_totals[col.id] = totals;
@@ -590,7 +566,6 @@ class RekapitulasiDPT {
 
     if (this.add_totals_row) {
     	const totals = this.get_columns_totals(data);
-      // console.log('totals: ', totals);
     	// const totals_row = this.columns.map((col, i) => {
     	// 	return {
     	// 		name: __("Totals Row"),
@@ -624,6 +599,9 @@ class RekapitulasiDPT {
 
   setup_paging_area() {
     const paging_values = [20, 100, 500, 2500];
+    // <div>Total Pemilih Laki-laki:  <span id="total_voter_male">70</span>,</div>
+    // <div>Total Pemilih Perempuan:  <span id="total_voter_female">80</span>,</div>
+    // <div>Total Pemilih: <span id="total_voter">150</span></div>
     this.$paging_area = $(
       `<div class="list-paging-area level">
 				<div class="level-left">
@@ -641,6 +619,7 @@ class RekapitulasiDPT {
 					</div>
 				</div>
 				<div class="level-right">
+          <div class="total-container"></div>
 					<button class="btn btn-default btn-more btn-sm">
 						${__("Load More")}
 					</button>
