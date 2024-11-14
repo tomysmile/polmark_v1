@@ -5,7 +5,7 @@ import frappe
 import math
 
 @frappe.whitelist(allow_guest=True)
-def get(doctype, group_by, order_by=None, province_code=None, city_code=None, district_code=None, sub_district_code=None, tps=None, page=1, page_size=50):
+def get(doctype, group_by, order_by=None, province_code=None, city_code=None, district_code=None, sub_district_code=None, tps=None, page=1, page_size=500):
     # Convert page and page_size to integers, with defaults in case of invalid input
     try:
         page = int(page)
@@ -15,7 +15,7 @@ def get(doctype, group_by, order_by=None, province_code=None, city_code=None, di
     try:
         page_size = int(page_size)
     except ValueError:
-        page_size = 50
+        page_size = 500
 
     # Ensure page and page_size are at least 1
     page = max(page, 1)

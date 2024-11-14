@@ -46,7 +46,7 @@ class RekapitulasiDPT {
       doctype: this.doctype,
       group_by: "province_name, city_name, district_name, sub_district_name, tps",
       page: this.start,
-      page_size: this.page_size || 20,
+      page_size: this.page_size || 5000,
     };
   }
 
@@ -108,7 +108,7 @@ class RekapitulasiDPT {
   }
 
   reset_defaults() {
-    this.page_size = 20;
+    this.page_size = 5000;
     this.start = 1;
   }
 
@@ -188,7 +188,7 @@ class RekapitulasiDPT {
     this.page_title = "Rekapitulasi DPT " + __(this.page_name);
     this.meta = frappe.get_meta(this.doctype);
     this.start = 1;
-    this.page_size = frappe.is_large_screen() ? 100 : 20;
+    this.page_size = 5000; //frappe.is_large_screen() ? 5000 : 20;
     this.data = [];
     this.method = "polmarkdashboard.api.dpt.rekapitulasi.get";
     this.add_totals_row = 1;
@@ -598,7 +598,7 @@ class RekapitulasiDPT {
   }
 
   setup_paging_area() {
-    const paging_values = [20, 100, 500, 2500];
+    const paging_values = [20, 100, 500, 5000, 100000];
     // <div>Total Pemilih Laki-laki:  <span id="total_voter_male">70</span>,</div>
     // <div>Total Pemilih Perempuan:  <span id="total_voter_female">80</span>,</div>
     // <div>Total Pemilih: <span id="total_voter">150</span></div>
@@ -628,6 +628,8 @@ class RekapitulasiDPT {
     ).hide();
     this.$frappe_list.append(this.$paging_area);
 
+    console.log('this.page_size:', this.page_size);
+
     // set default paging btn active
     this.$paging_area
       .find(`.btn-paging[data-value="${this.page_size}"]`)
@@ -648,7 +650,7 @@ class RekapitulasiDPT {
 
     this.$paging_area.on("click", ".btn-more", (e) => {
       this.start += this.page_size;
-      this.page_size = this.selected_page_count || 20;
+      this.page_size = this.selected_page_count || 5000;
       this.refresh();
     });
   }
