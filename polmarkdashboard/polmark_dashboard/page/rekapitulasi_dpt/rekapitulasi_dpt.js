@@ -45,6 +45,7 @@ class RekapitulasiDPT {
     return {
       doctype: this.doctype,
       group_by: "province_name, city_name, district_name, sub_district_name, tps",
+      collection_name: this.report_name,
       page: this.start,
       page_size: this.page_size || 5000,
     };
@@ -60,6 +61,14 @@ class RekapitulasiDPT {
     };
   }
 
+  adjustDatatableHeight() {
+    const datatableWrapper = document.querySelector('.dt-scrollable');
+    if (datatableWrapper) {
+      datatableWrapper.style.height = '80vh';
+      // datatableWrapper.style.maxHeight = '80vh';
+    }
+  };
+
   refresh() {
     let args = this.get_call_args();
     this.freeze(true);
@@ -71,23 +80,15 @@ class RekapitulasiDPT {
         this.toggle_result_area();
         this.before_render();
         this.render();
-        // this.after_render();
+        this.after_render();
         this.freeze(false);
         this.reset_defaults();
+        this.adjustDatatableHeight();
       }, 5);
     });
   }
 
   no_change(args) {
-    // returns true if arguments are same for the last 3 seconds
-    // this helps in throttling if called from various sources
-    // if (this.last_args && JSON.stringify(args) === this.last_args) {
-    //   return true;
-    // }
-    // this.last_args = JSON.stringify(args);
-    // setTimeout(() => {
-    //   this.last_args = null;
-    // }, 3000);
     return false;
   }
 
@@ -137,8 +138,7 @@ class RekapitulasiDPT {
 				${this.get_no_result_message()}
 			</div>
 		`);
-    this.setup_new_doc_event();
-    this.toggle_paging && this.$paging_area.toggle(true);
+    this.update_footer();
   }
 
   render() {
@@ -147,6 +147,41 @@ class RekapitulasiDPT {
     // this.set_rows_as_checked();
     // this.render_count();
     this.setup_datatable(this.data);
+  }
+
+  update_footer() {
+    //
+    if (this.row_totals) {
+      const datatableWrapper = document.querySelector('.datatable');
+
+      const headerRow = document.querySelector('.dt-row-header');
+      const footerRow = document.querySelector('.dt-footer');
+      const clonedHeader = headerRow.cloneNode(true);
+      footerRow.appendChild(clonedHeader);
+
+      const indonesianFormatter = new Intl.NumberFormat('id-ID');
+
+      // Modify the first 6 columns in the footer to merge them
+      const footerCells = clonedHeader.querySelectorAll('.dt-cell__content');
+      footerCells.forEach((cell, index) => {
+        const total_1 = indonesianFormatter.format(Object.values(this.row_totals)[0]);
+        const total_2 = indonesianFormatter.format(Object.values(this.row_totals)[1]);
+        const total_3 = indonesianFormatter.format(Object.values(this.row_totals)[2]);
+        if (index < 6) {
+          // cell.colSpan = 1;  // Remove column span for merging
+          cell.innerHTML = ''; // Empty for merging effect
+        } else if (index === footerCells.length - 3) {
+          // Set the totals for the last 3 columns
+          footerCells[index].innerText = total_1;
+        } else if (index === footerCells.length - 2) {
+          footerCells[index].innerText = total_2;
+        } else if (index === footerCells.length - 1) {
+          footerCells[index].innerText = total_3;
+        }
+      });
+
+      datatableWrapper.appendChild(footerRow);
+    }
   }
 
   on_filter_change() {
@@ -184,13 +219,15 @@ class RekapitulasiDPT {
     if (this.route.length === 2) {
       this.report_name = this.route[1];
     }
+
     this.doctype = this.get_doctype();
     this.page_title = "Rekapitulasi DPT " + __(this.page_name);
     this.meta = frappe.get_meta(this.doctype);
     this.start = 1;
     this.page_size = 5000; //frappe.is_large_screen() ? 5000 : 20;
     this.data = [];
-    this.method = "polmarkdashboard.api.dpt.rekapitulasi.get";
+    // this.method = "polmarkdashboard.api.dpt.rekapitulasi.get";
+    this.method = "polmarkdashboard.api.dpt.rekap.get_data";
     this.add_totals_row = 1;
 
     this.fields = [];
@@ -207,123 +244,68 @@ class RekapitulasiDPT {
         class: "visible-xs",
       },
       {
-        label: __("Show Totals"),
-        action: () => {
-          this.add_totals_row = !this.add_totals_row;
-          this.save_view_user_settings({
-            add_totals_row: this.add_totals_row,
-          });
-          this.datatable.refresh(this.get_data(this.data));
-        },
-      },
-      {
-        label: __("Print"),
-        action: () => {
-          // prepare rows in their current state, sorted and filtered
-          const rows_in_order = this.datatable.datamanager.rowViewOrder
-            .map((index) => {
-              if (this.datatable.bodyRenderer.visibleRowIndices.includes(index)) {
-                return this.data[index];
-              }
-            })
-            .filter(Boolean);
-
-          if (this.add_totals_row) {
-            const total_data = this.get_columns_totals(this.data);
-
-            total_data["name"] = __("Total");
-            total_data.is_total_row = true;
-            rows_in_order.push(total_data);
-          }
-
-          frappe.ui.get_print_settings(false, (print_settings) => {
-            var title = this.report_name || __(this.doctype);
-            frappe.render_grid({
-              title: title,
-              subtitle: this.get_filters_html_for_print(),
-              print_settings: print_settings,
-              columns: this.columns,
-              data: rows_in_order,
-              can_use_smaller_font: 1,
-            });
-          });
-        },
-      },
-      {
-        label: __("Export"),
+        label: __("Export to CSV"),
         action: () => {
           const args = this.get_args();
-          const selected_items = this.get_checked_items(true);
 
-          let extra_fields = [];
-          if (this.list_view_settings.disable_count) {
-            extra_fields = [
-              {
-                fieldtype: "Check",
-                fieldname: "export_all_rows",
-                label: __("Export all matching rows?"),
-              },
-            ];
-          } else if (
-            this.total_count > (this.count_without_children || args.page_length)
-          ) {
-            extra_fields = [
-              {
-                fieldtype: "Check",
-                fieldname: "export_all_rows",
-                label: __("Export all {0} rows?", [`<b>${this.total_count}</b>`]),
-              },
-            ];
+          const datatable = this.datatable;
+          if (!datatable) {
+            frappe.msgprint(__('No data to export'));
+            return;
           }
-          if (frappe.boot.lang !== "en") {
-            extra_fields.push({
-              fieldtype: "Check",
-              fieldname: "translate_values",
-              label: __("Translate values"),
-              default: 1,
+
+          // Get data to export
+          const rows = datatable.getRows(); // Fetch visible rows
+          const columns = datatable.getColumns(); // Get column definitions
+          const headers = columns.map((col, idx) => idx === 0 && !col.content ? "rownum" : col.content || ""); // Add "rownum" for the first empty header
+
+          // Prepare CSV data
+          let csvContent = [headers.join(",")]; // Add headers
+          rows.forEach(row => {
+            let rowData = row.map(cell => {
+              if (typeof cell === "object" && cell !== null) {
+                return `"${cell.content || ""}"`; // Extract content if cell is an object
+              }
+              return `"${cell || ""}"`; // Handle plain text or empty cells
             });
-          }
+            csvContent.push(rowData.join(","));
+          });
 
-          const d = frappe.report_utils.get_export_dialog(
-            __(this.doctype),
-            extra_fields,
-            (data) => {
-              args.cmd = "frappe.desk.reportview.export_query";
-              args.file_format_type = data.file_format;
-              args.title = this.report_name || this.doctype;
-              args.translate_values = data.translate_values;
+          // Create a Blob for the CSV file
+          const csvBlob = new Blob([csvContent.join("\n")], { type: "text/csv;charset=utf-8;" });
+          const url = URL.createObjectURL(csvBlob);
 
-              if (data.file_format == "CSV") {
-                args.csv_delimiter = data.csv_delimiter;
-                args.csv_quoting = data.csv_quoting;
+          // Open a dialog with the row count and download button
+          const dialog = new frappe.ui.Dialog({
+            title: __('Export to CSV'),
+            fields: [
+              {
+                label: __('Total Rows to Export'),
+                fieldtype: 'HTML',
+                options: `<p>${rows.length} rows will be exported.</p>`
+              },
+              {
+                label: __('Download File'),
+                fieldtype: 'Button',
+                click: () => {
+                  // Trigger file download
+                  const link = document.createElement("a");
+                  link.href = url;
+                  link.download = `${frappe.utils.slugify(this.page_name)}.csv`;
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+
+                  // Close dialog after download
+                  dialog.hide();
+                }
               }
+            ]
+          });
 
-              if (this.add_totals_row) {
-                args.add_totals_row = 1;
-              }
-
-              if (selected_items.length > 0) {
-                args.selected_items = selected_items;
-              }
-
-              if (!data.export_all_rows) {
-                args.start = 0;
-                args.page_length = this.data.length;
-              } else {
-                delete args.start;
-                delete args.page_length;
-              }
-
-              open_url_post(frappe.request.url, args);
-
-              d.hide();
-            }
-          );
-
-          d.show();
+          dialog.show();
         },
       }
-
     ];
 
     this.sidebar = this.$wrapper.find(".layout-side-section");
@@ -425,6 +407,14 @@ class RekapitulasiDPT {
 
   setup_view() {
     this.setup_columns();
+
+    // Adjust height on window resize
+    window.addEventListener('resize', this.adjustDatatableHeight);
+
+    // Optional: Clean up the event listener when the listview is unloaded
+    frappe.ui.on_page_leave = () => {
+      window.removeEventListener('resize', this.adjustDatatableHeight);
+    };
   }
 
   setup_columns() {
@@ -512,6 +502,19 @@ class RekapitulasiDPT {
     return __("Nothing to show");
   }
 
+  get_checked_items(only_docnames) {
+    // const indexes = this.datatable.rowmanager.getCheckedRows();
+    // const items = indexes.map((i) => this.data[i]).filter((i) => i != undefined);
+
+    // if (only_docnames) {
+    //   return items.map((d) => d.name);
+    // }
+
+    console.log('(get_checked_items) items: ', items);
+
+    return items;
+  }
+
   build_row(d) {
     // return this.columns.map((col) => {
     //   if (col.field in d) {
@@ -529,65 +532,42 @@ class RekapitulasiDPT {
   }
 
   get_columns_totals(data) {
-		if (!this.add_totals_row) {
-			return [];
-		}
+    if (!this.add_totals_row) {
+      return [];
+    }
 
-		const row_totals = {};
+    const row_totals = {};
     let total_male = 0;
     let total_female = 0;
     let total_all = 0;
 
-		this.columns.forEach((col, i) => {
-			const totals = data.reduce((totals, d) => {
-        // console.log('col: ', col);
-        // console.log('d: ', d);
-				// if (col.id in d && frappe.model.is_numeric_field(col.docfield)) {
-				// 	totals += flt(d[col.id]);
-				// 	return totals;
-				// }
-        if (col.type === "Int" && col.name === "Pemilih Laki-laki") {
-          // console.log('col: ', col);
-          // console.log('d: ', d);
-          total_male += flt(d[col.name]);
+    this.columns.forEach((col, i) => {
+      const totals = data.reduce((totals, d) => {
+        if (col.type === "Int" && col.name === "Total Pemilih") {
+          total_all += flt(d[i]);
+          row_totals[col.name] = total_all;
         }
-			}, 0);
 
-			row_totals[col.id] = totals;
-		});
+        if (col.type === "Int" && col.name === "Pemilih Laki-laki") {
+          total_male += flt(d[i]);
+          row_totals[col.name] = total_male;
+        }
 
-		return row_totals;
-	}
+        if (col.type === "Int" && col.name === "Pemilih Perempuan") {
+          total_female += flt(d[i]);
+          row_totals[col.name] = total_female;
+        }
+      }, 0);
+    });
+
+    return row_totals;
+  }
 
   build_rows(data) {
     const out = data.map((d) => this.build_row(d));
 
-    // console.log('this.add_totals_row: ', this.add_totals_row);
-
     if (this.add_totals_row) {
-    	const totals = this.get_columns_totals(data);
-    	// const totals_row = this.columns.map((col, i) => {
-    	// 	return {
-    	// 		name: __("Totals Row"),
-    	// 		content: totals[col.id],
-    	// 		format: (value) => {
-    	// 			let formatted_value = frappe.format(
-    	// 				value,
-    	// 				col.docfield,
-    	// 				{
-    	// 					always_show_decimals: true,
-    	// 				},
-    	// 				data[0]
-    	// 			);
-    	// 			if (i === 0) {
-    	// 				return this.format_total_cell(formatted_value, col);
-    	// 			}
-    	// 			return formatted_value;
-    	// 		},
-    	// 	};
-    	// });
-
-    	// out.push(totals_row);
+      this.row_totals = this.get_columns_totals(data);
     }
 
     return out;
@@ -598,61 +578,16 @@ class RekapitulasiDPT {
   }
 
   setup_paging_area() {
-    const paging_values = [20, 100, 500, 5000, 100000];
-    // <div>Total Pemilih Laki-laki:  <span id="total_voter_male">70</span>,</div>
-    // <div>Total Pemilih Perempuan:  <span id="total_voter_female">80</span>,</div>
-    // <div>Total Pemilih: <span id="total_voter">150</span></div>
     this.$paging_area = $(
       `<div class="list-paging-area level">
 				<div class="level-left">
-					<div class="btn-group">
-						${paging_values
-        .map(
-          (value) => `
-							<button type="button" class="btn btn-default btn-sm btn-paging"
-								data-value="${value}">
-								${value}
-							</button>
-						`
-        )
-        .join("")}
-					</div>
 				</div>
 				<div class="level-right">
           <div class="total-container"></div>
-					<button class="btn btn-default btn-more btn-sm">
-						${__("Load More")}
-					</button>
 				</div>
 			</div>`
     ).hide();
     this.$frappe_list.append(this.$paging_area);
-
-    console.log('this.page_size:', this.page_size);
-
-    // set default paging btn active
-    this.$paging_area
-      .find(`.btn-paging[data-value="${this.page_size}"]`)
-      .addClass("btn-info");
-
-    this.$paging_area.on("click", ".btn-paging", (e) => {
-      const $this = $(e.currentTarget);
-
-      // set active button
-      this.$paging_area.find(".btn-paging").removeClass("btn-info");
-      $this.addClass("btn-info");
-
-      this.start = 1;
-      this.page_size = this.selected_page_count = $this.data().value;
-
-      this.refresh();
-    });
-
-    this.$paging_area.on("click", ".btn-more", (e) => {
-      this.start += this.page_size;
-      this.page_size = this.selected_page_count || 5000;
-      this.refresh();
-    });
   }
 
   setup_datatable(values) {
@@ -661,101 +596,7 @@ class RekapitulasiDPT {
       columns: this.columns,
       data: this.get_data(values),
       layout: "fluid",
-      // cellHeight: 35,
-      // getEditor: this.get_editing_object.bind(this),
-      // language: frappe.boot.lang,
-      // translations: frappe.utils.datatable.get_translations(),
-      // checkboxColumn: true,
-      // inlineFilters: true,
-
-      // direction: frappe.utils.is_rtl() ? "rtl" : "ltr",
-      // events: {
-      // 	onRemoveColumn: (column) => {
-      // 		this.remove_column_from_datatable(column);
-      // 	},
-      // 	onSwitchColumn: (column1, column2) => {
-      // 		this.switch_column(column1, column2);
-      // 	},
-      // 	onCheckRow: () => {
-      // 		const checked_items = this.get_checked_items();
-      // 		this.toggle_actions_menu_button(checked_items.length > 0);
-      // 	},
-      // },
-      // hooks: {
-      // 	columnTotal: frappe.utils.report_column_total,
-      // },
-      // headerDropdown: [
-      // 	{
-      // 		label: __("Add Column"),
-      // 		action: (datatabe_col) => {
-      // 			let columns_in_picker = [];
-      // 			const columns = this.get_columns_for_picker();
-
-      // 			columns_in_picker = columns[this.doctype]
-      // 				.filter((df) => !this.is_column_added(df))
-      // 				.map((df) => ({
-      // 					label: __(df.label, null, df.parent),
-      // 					value: df.fieldname,
-      // 				}));
-
-      // 			delete columns[this.doctype];
-
-      // 			for (let cdt in columns) {
-      // 				columns[cdt]
-      // 					.filter((df) => !this.is_column_added(df))
-      // 					.map((df) => ({
-      // 						label: __(df.label, null, df.parent) + ` (${cdt})`,
-      // 						value: df.fieldname + "," + cdt,
-      // 					}))
-      // 					.forEach((df) => columns_in_picker.push(df));
-      // 			}
-
-      // 			const d = new frappe.ui.Dialog({
-      // 				title: __("Add Column"),
-      // 				fields: [
-      // 					{
-      // 						label: __("Select Column"),
-      // 						fieldname: "column",
-      // 						fieldtype: "Autocomplete",
-      // 						options: columns_in_picker,
-      // 					},
-      // 					{
-      // 						label: __("Insert Column Before {0}", [
-      // 							__(datatabe_col.docfield.label).bold(),
-      // 						]),
-      // 						fieldname: "insert_before",
-      // 						fieldtype: "Check",
-      // 					},
-      // 				],
-      // 				primary_action: ({ column, insert_before }) => {
-      // 					if (!columns_in_picker.map((col) => col.value).includes(column)) {
-      // 						frappe.show_alert({
-      // 							message: __("Invalid column"),
-      // 							indicator: "orange",
-      // 						});
-      // 						d.hide();
-      // 						return;
-      // 					}
-
-      // 					let doctype = this.doctype;
-      // 					if (column.includes(",")) {
-      // 						[column, doctype] = column.split(",");
-      // 					}
-
-      // 					let index = datatabe_col.colIndex;
-      // 					if (insert_before) {
-      // 						index = index - 1;
-      // 					}
-
-      // 					this.add_column_to_datatable(column, doctype, index);
-      // 					d.hide();
-      // 				},
-      // 			});
-
-      // 			d.show();
-      // 		},
-      // 	},
-      // ],
     });
+    this.adjustDatatableHeight();
   }
 }
